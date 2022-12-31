@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# mkdocs site
+site/
+
+# macos cache
+.DS_Store

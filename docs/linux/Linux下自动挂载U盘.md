@@ -1,0 +1,49 @@
+## Linux下自动挂载U盘
+
+## 1、查看U盘UUID
+
+```
+blkid|grep -i sda
+```
+
+得到类似这样的内容: `UUID="6f17b453-511e-4cb0-8655-ed487c51c54b"`
+
+## 2、自动挂载
+
+```
+echo "UUID=6f17b453-511e-4cb0-8655-ed487c51c54b /mnt/sda1 ext4 defaults 0 0" >> /etc/fstab
+```
+
+解释:
+
+/etc/fstab文件主要包括6段，依次是：
+
+device　　mount point　　filesystem　　options　　dump　　pass
+
+- device: 设备文件的UUID
+
+- mount point: 挂载点, 即文件夹, 需要提前创建
+
+- filesystem: 文件系统的格式，包括ext2、ext3、zfs、nfs、vfat等
+
+- options: 如下
+
+  | Defaults    | 同时具有rw,suid,dev,exec,auto,nouser,async等默认参数的设置   |
+  | ----------- | ------------------------------------------------------------ |
+  | Async/sync  | 设置是否为同步方式运行，默认为async                          |
+  | auto/noauto | 当下载mount -a 的命令时，此文件系统是否被主动挂载。默认为auto |
+  | rw/ro       | 是否以以只读或者读写模式挂载                                 |
+  | exec/noexec | 限制此文件系统内是否能够进行"执行"的操作                     |
+  | user/nouser | 是否允许用户使用mount命令挂载                                |
+  | suid/nosuid | 是否允许SUID的存在                                           |
+  | Usrquota    | 启动文件系统支持磁盘配额模式                                 |
+  | Grpquota    | 启动文件系统对群组磁盘配额模式的支持                         |
+
+- dump: dump工具备份文件系统的设置, 0表示忽略, 1表示备份
+- Pass: fsck工具检查文件系统的设置, 0表示忽略,1表示获得最高优先权, 其他所有需要被检查的设备设置为2
+
+## 3、扩展
+
+手动挂载: `mount /dev/sda1 /mnt/usb`
+
+手动卸载: `umount /dev/sda1`

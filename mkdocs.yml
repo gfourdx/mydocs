@@ -1,0 +1,170 @@
+site_name: My Docs
+site_url: https://911205.xyz/
+site_description: My Documents
+site_author: gfourdx
+
+copyright: Copyright &copy; 1991 - 2992 gfourdx
+
+theme:
+  name: material
+  language: zh
+  palette:  # 切换颜色模式
+    - scheme: default
+      primary: white  # header 颜色
+      accent: blue  # 交互颜色，例如悬停链接、按钮和滚动条
+      toggle:
+        icon: material/brightness-7 
+        name: 浅色
+    - scheme: slate
+      primary: black
+      accent: red
+      toggle:
+        icon: material/brightness-4
+        name: 深色
+  features:
+    # 启用即时加载后，所有内部链接的点击都将被拦截并通过XHR分发，而无需完全重新加载页面
+    - navigation.instant
+    # 启用选项卡后，顶层部分将呈现在上方视口标题下方的菜单层中
+    - navigation.tabs
+    # 启用粘性标签后，导航标签将锁定在标题下方，并且在向下滚动时始终保持可见
+    - navigation.tabs.sticky
+    # 启用展开后，左侧边栏默认展开所有可折叠的小节，用户无需手动打开小节
+    # - navigation.expand
+    # 启用分组后，左侧边栏默认以分组形势平铺，会覆盖- navigation.expand设置
+    # - navigation.sections
+    # 当用户向下滚动后再次开始向上滚动时，可以显示返回顶部按钮
+    - navigation.top
+    # 启用自动隐藏后，当用户滚动超过某个阈值时，标题会自动隐藏，从而为内容留出更多空间
+    # - header.autohide
+
+plugins:
+  - search:
+      lang: 
+        - en
+
+extra:
+  social:
+    - icon: fontawesome/brands/github 
+      link: https://github.com/
+    - icon: fontawesome/brands/docker
+      link: https://www.docker.com/
+
+markdown_extensions:
+  # 代码高亮
+  - pymdownx.superfences
+  # 网址自动转超链接
+  - pymdownx.magiclink
+
+nav:
+  - Home: index.md
+  - Android:
+    - android/Android资源.md
+    - android/Fastboot刷机.md
+  - Linux:
+    - linux/玩客云.md
+    - linux/Linux杂记.md
+    - linux/挂载ISO镜像做本地源.md
+    - JIRA安装与破解: linux/RHEL7.3的Jira安装与破解教程.md
+    - Linux解压ZIP乱码: linux/Linux下解压Windows压缩的ZIP文件后乱码的解决办法.md
+    - linux/Linux配置IP和DNS.md
+    - linux/Debian网络管理.md
+    - Debian搭建K8S集群: linux/Debian10通过kubeadm部署Kubernetes集群.md
+    - linux/Debian安装和配置Docker.md
+    - linux/源码编译MySQL5.7记录.md
+    - linux/Debian安装和配置MariaDB.md
+    - linux/Debian安装和配置PostgreSQL.md
+    - linux/安装mysqlclient和psycopg2报错.md
+    - linux/Linux下格式化U盘及重建分区.md
+    - linux/Linux下自动挂载U盘.md
+  - Mac:
+    - mac/MacOS软件.md
+    - mac/UTM安装Windows.md
+    - mac/设置Mac的Hostname.md
+    - mac/Mac安装Office并激活.md
+    - mac/命令行配置Mac代理.md
+  - Windows:
+    - windows/KMS激活.md
+    - windows/删除3D对象.md
+    - windows/WSL端口转发.md
+    - windows/清除系统托盘图标缓存.md
+    - Hyper-v Linux虚拟机全屏: windows/设置Hyper-v中Linux虚拟机全屏.md
+    - windows/Windows10离线安装.Net3.5.md
+    - windows/手动安装WSL.md
+    - windows/WSL使用Debian启动Docker报错.md
+    - Windows安装配置MySQ5.7: windows/Windows 11 安装配置 MySQL 5.7.38.md
+  - MySQL:
+    - mysql/MySQL时区.md
+    - mysql/MySQL索引的数据结构.md
+    - mysql/MySQL常用语句和命令.md
+    - mysql/MySQL之Explain.md
+    - mysql/MySQL之Explain详解.md
+    - mysql/MySQL之优化.md
+    - mysql/MySQL事务及隔离级别与锁机制.md
+    - mysql/MySQL语句执行过程.md
+    - 习题:
+        - mysql/exercises/检索排名前三和删除重复.md
+  - Python:
+    - python/PIP.md
+    - python/Python资源索引.md
+    - python/变量名称中的下划线.md
+    - 链表:
+        - python/linked-list/单向链表.md
+        - python/linked-list/单向循环链表.md
+        - python/linked-list/双向链表.md
+    - 堆栈:
+        - python/queue-stack/堆.md
+        - python/queue-stack/栈.md
+        - python/queue-stack/堆栈.md
+    - 排序:
+        - python/sort/冒泡排序.md
+        - python/sort/选择排序.md
+        - python/sort/插入排序.md
+        - python/sort/希尔排序.md
+        - python/sort/快速排序.md
+        - python/sort/归并排序.md
+        - python/sort/字典排序.md
+    - TCPUDP:
+        - python/tcp-udp/TCP通讯.md
+        - python/tcp-udp/UDP通讯.md
+        - python/tcp-udp/文件下载.md
+    - 线程进程协程:
+        - python/thread-process-coroutine/多线程.md
+        - python/thread-process-coroutine/多线程之资源竞争与互斥锁.md
+        - python/thread-process-coroutine/多进程.md
+        - python/thread-process-coroutine/多进程之进程池.md
+        - python/thread-process-coroutine/多进程之进程间通信.md
+        - python/thread-process-coroutine/多进程之进程池间通信.md
+        - python/thread-process-coroutine/协程.md
+    - 装饰生成迭代器:
+        - python/decorator-generator-iterator/装饰器.md
+        - python/decorator-generator-iterator/装饰器副作用.md
+        - python/decorator-generator-iterator/生成器.md
+        - python/decorator-generator-iterator/迭代器.md
+    - 单例多例:
+        - python/single-multiple-instance/单例.md
+        - python/single-multiple-instance/多实例计数.md
+    - 其他:
+        - python/other/二分查找.md
+        - python/other/二叉树.md
+        - python/other/自定义异常.md
+        - python/other/MRO.md
+        - python/other/+ += append extend 的区别.md
+        - python/other/UNZIP.md
+        - python/other/Mp3Cut.md
+        - python/other/AtExit.md
+        - python/other/魔法方法--字典.md
+        - python/other/随机字符串.md
+    - 习题:
+        - python/exercises/汉诺塔.md
+        - python/exercises/杨辉三角.md
+        - python/exercises/乘法口诀表.md
+        - 累加和阶乘: python/exercises/递归实现累加和阶乘.md
+        - python/exercises/连续子数组的最大和.md
+        - 两数之和: python/exercises/两数之和.md
+  - Software:
+    - soft/Git常用命令.md
+    - soft/PostgreSQL常用命令.md     
+    - soft/VSCode免密发布代码到GitHub.md
+    - soft/V2ray+Trojan配置.md
+    - soft/下载Chrome离线安装包.md
+    - soft/魔兽3冰封王座的下载地址.md
