@@ -1,0 +1,2804 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="My Documents">
+      
+      
+        <meta name="author" content="gfourdx">
+      
+      
+        <link rel="canonical" href="https://911205.xyz/mysql/MySQL%E4%B9%8B%E4%BC%98%E5%8C%96/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>MySQL之优化 - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="blue">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#mysql" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              MySQL之优化
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="blue"  aria-label="浅色"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="浅色" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="red"  aria-label="深色"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="深色" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../android/Android%E8%B5%84%E6%BA%90/" class="md-tabs__link">
+        Android
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../linux/%E7%8E%A9%E5%AE%A2%E4%BA%91/" class="md-tabs__link">
+        Linux
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../mac/MacOS%E8%BD%AF%E4%BB%B6/" class="md-tabs__link">
+        Mac
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../windows/KMS%E6%BF%80%E6%B4%BB/" class="md-tabs__link">
+        Windows
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../MySQL%E6%97%B6%E5%8C%BA/" class="md-tabs__link md-tabs__link--active">
+        MySQL
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../python/PIP/" class="md-tabs__link">
+        Python
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../soft/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="md-tabs__link">
+        Software
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Android
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Android" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Android
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../android/Android%E8%B5%84%E6%BA%90/" class="md-nav__link">
+        Android资源
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../android/Fastboot%E5%88%B7%E6%9C%BA/" class="md-nav__link">
+        Fastboot刷机
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Linux
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linux" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Linux
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/%E7%8E%A9%E5%AE%A2%E4%BA%91/" class="md-nav__link">
+        玩客云
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/Linux%E6%9D%82%E8%AE%B0/" class="md-nav__link">
+        Linux杂记
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/%E6%8C%82%E8%BD%BDISO%E9%95%9C%E5%83%8F%E5%81%9A%E6%9C%AC%E5%9C%B0%E6%BA%90/" class="md-nav__link">
+        挂载ISO镜像做本地源
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/RHEL7.3%E7%9A%84Jira%E5%AE%89%E8%A3%85%E4%B8%8E%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/" class="md-nav__link">
+        JIRA安装与破解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/Linux%E4%B8%8B%E8%A7%A3%E5%8E%8BWindows%E5%8E%8B%E7%BC%A9%E7%9A%84ZIP%E6%96%87%E4%BB%B6%E5%90%8E%E4%B9%B1%E7%A0%81%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" class="md-nav__link">
+        Linux解压ZIP乱码
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/Linux%E9%85%8D%E7%BD%AEIP%E5%92%8CDNS/" class="md-nav__link">
+        Linux配置IP和DNS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/Debian%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        Debian网络管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/Debian10%E9%80%9A%E8%BF%87kubeadm%E9%83%A8%E7%BD%B2Kubernetes%E9%9B%86%E7%BE%A4/" class="md-nav__link">
+        Debian搭建K8S集群
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/Debian%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AEDocker/" class="md-nav__link">
+        Debian安装和配置Docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91MySQL5.7%E8%AE%B0%E5%BD%95/" class="md-nav__link">
+        源码编译MySQL5.7记录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/Debian%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AEMariaDB/" class="md-nav__link">
+        Debian安装和配置MariaDB
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/Debian%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AEPostgreSQL/" class="md-nav__link">
+        Debian安装和配置PostgreSQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/%E5%AE%89%E8%A3%85mysqlclient%E5%92%8Cpsycopg2%E6%8A%A5%E9%94%99/" class="md-nav__link">
+        安装mysqlclient和psycopg2报错
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/Linux%E4%B8%8B%E6%A0%BC%E5%BC%8F%E5%8C%96U%E7%9B%98%E5%8F%8A%E9%87%8D%E5%BB%BA%E5%88%86%E5%8C%BA/" class="md-nav__link">
+        Linux下格式化U盘及重建分区
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/Linux%E4%B8%8B%E8%87%AA%E5%8A%A8%E6%8C%82%E8%BD%BDU%E7%9B%98/" class="md-nav__link">
+        Linux下自动挂载U盘
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Mac
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Mac" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Mac
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mac/MacOS%E8%BD%AF%E4%BB%B6/" class="md-nav__link">
+        Mac软件
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mac/UTM%E5%AE%89%E8%A3%85Windows/" class="md-nav__link">
+        UTM安装Windows
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mac/%E8%AE%BE%E7%BD%AEMac%E7%9A%84Hostname/" class="md-nav__link">
+        设置Mac的Hostname
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mac/Mac%E5%AE%89%E8%A3%85Office%E5%B9%B6%E6%BF%80%E6%B4%BB/" class="md-nav__link">
+        Mac安装Office并激活
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mac/%E5%91%BD%E4%BB%A4%E8%A1%8C%E9%85%8D%E7%BD%AEMac%E4%BB%A3%E7%90%86/" class="md-nav__link">
+        命令行配置Mac代理
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Windows
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Windows" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Windows
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../windows/KMS%E6%BF%80%E6%B4%BB/" class="md-nav__link">
+        KMS激活
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../windows/%E5%88%A0%E9%99%A43D%E5%AF%B9%E8%B1%A1/" class="md-nav__link">
+        删除3D对象
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../windows/WSL%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/" class="md-nav__link">
+        WSL端口转发
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../windows/%E6%B8%85%E9%99%A4%E7%B3%BB%E7%BB%9F%E6%89%98%E7%9B%98%E5%9B%BE%E6%A0%87%E7%BC%93%E5%AD%98/" class="md-nav__link">
+        清除系统托盘图标缓存
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../windows/%E8%AE%BE%E7%BD%AEHyper-v%E4%B8%ADLinux%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%85%A8%E5%B1%8F/" class="md-nav__link">
+        Hyper-v Linux虚拟机全屏
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../windows/Windows10%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85.Net3.5/" class="md-nav__link">
+        Windows10离线安装.Net3.5
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../windows/%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85WSL/" class="md-nav__link">
+        手动安装WSL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../windows/WSL%E4%BD%BF%E7%94%A8Debian%E5%90%AF%E5%8A%A8Docker%E6%8A%A5%E9%94%99/" class="md-nav__link">
+        WSL使用Debian启动Docker报错
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../windows/Windows%2011%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%20MySQL%205.7.38/" class="md-nav__link">
+        Windows安装配置MySQ5.7
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          MySQL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="MySQL" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          MySQL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MySQL%E6%97%B6%E5%8C%BA/" class="md-nav__link">
+        Mysql时区
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MySQL%E7%B4%A2%E5%BC%95%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="md-nav__link">
+        MySQL索引的数据结构
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MySQL%E5%B8%B8%E7%94%A8%E8%AF%AD%E5%8F%A5%E5%92%8C%E5%91%BD%E4%BB%A4/" class="md-nav__link">
+        MySQL常用语句和命令
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MySQL%E4%B9%8BExplain/" class="md-nav__link">
+        MySQL之Explain
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MySQL%E4%B9%8BExplain%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        MySQL之Explain详解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          MySQL之优化
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        MySQL之优化
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    排序优化总结
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    索引设计原则
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limit" class="md-nav__link">
+    Limit优化
+  </a>
+  
+    <nav class="md-nav" aria-label="Limit优化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    示例1:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    示例2:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#join" class="md-nav__link">
+    Join优化
+  </a>
+  
+    <nav class="md-nav" aria-label="Join优化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    嵌套循环连接算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    基于块的嵌套循环链接算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    优化
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inexists" class="md-nav__link">
+    IN和EXISTS优化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#count" class="md-nav__link">
+    COUNT优化
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MySQL%E4%BA%8B%E5%8A%A1%E5%8F%8A%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E4%B8%8E%E9%94%81%E6%9C%BA%E5%88%B6/" class="md-nav__link">
+        MySQL事务及隔离级别与锁机制
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MySQL%E8%AF%AD%E5%8F%A5%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B/" class="md-nav__link">
+        MySQL语句执行过程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_9" type="checkbox" id="__nav_6_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_9">
+          习题
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="习题" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_9">
+          <span class="md-nav__icon md-icon"></span>
+          习题
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercises/%E6%A3%80%E7%B4%A2%E6%8E%92%E5%90%8D%E5%89%8D%E4%B8%89%E5%92%8C%E5%88%A0%E9%99%A4%E9%87%8D%E5%A4%8D/" class="md-nav__link">
+        检索排名前三和删除重复
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/PIP/" class="md-nav__link">
+        PIP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/Python%E8%B5%84%E6%BA%90%E7%B4%A2%E5%BC%95/" class="md-nav__link">
+        Python资源索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/%E5%8F%98%E9%87%8F%E5%90%8D%E7%A7%B0%E4%B8%AD%E7%9A%84%E4%B8%8B%E5%88%92%E7%BA%BF/" class="md-nav__link">
+        变量名称中的下划线
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_4" type="checkbox" id="__nav_7_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_4">
+          链表
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="链表" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_4">
+          <span class="md-nav__icon md-icon"></span>
+          链表
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/linked-list/%E5%8D%95%E5%90%91%E9%93%BE%E8%A1%A8/" class="md-nav__link">
+        单向链表
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/linked-list/%E5%8D%95%E5%90%91%E5%BE%AA%E7%8E%AF%E9%93%BE%E8%A1%A8/" class="md-nav__link">
+        单向循环链表
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/linked-list/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/" class="md-nav__link">
+        双向链表
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_5" type="checkbox" id="__nav_7_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_5">
+          堆栈
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="堆栈" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_5">
+          <span class="md-nav__icon md-icon"></span>
+          堆栈
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/queue-stack/%E5%A0%86/" class="md-nav__link">
+        堆
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/queue-stack/%E6%A0%88/" class="md-nav__link">
+        栈
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/queue-stack/%E5%A0%86%E6%A0%88/" class="md-nav__link">
+        堆栈
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_6" type="checkbox" id="__nav_7_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_6">
+          排序
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="排序" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_6">
+          <span class="md-nav__icon md-icon"></span>
+          排序
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/sort/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" class="md-nav__link">
+        冒泡排序
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/sort/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/" class="md-nav__link">
+        选择排序
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/sort/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/" class="md-nav__link">
+        插入排序
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/sort/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/" class="md-nav__link">
+        希尔排序
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/sort/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" class="md-nav__link">
+        快速排序
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/sort/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" class="md-nav__link">
+        归并排序
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/sort/%E5%AD%97%E5%85%B8%E6%8E%92%E5%BA%8F/" class="md-nav__link">
+        字典排序
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_7" type="checkbox" id="__nav_7_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_7">
+          TCPUDP
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="TCPUDP" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_7">
+          <span class="md-nav__icon md-icon"></span>
+          TCPUDP
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/tcp-udp/TCP%E9%80%9A%E8%AE%AF/" class="md-nav__link">
+        TCP通讯
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/tcp-udp/UDP%E9%80%9A%E8%AE%AF/" class="md-nav__link">
+        UDP通讯
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/tcp-udp/%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/" class="md-nav__link">
+        文件下载
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_8" type="checkbox" id="__nav_7_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_8">
+          线程进程协程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="线程进程协程" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_8">
+          <span class="md-nav__icon md-icon"></span>
+          线程进程协程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/thread-process-coroutine/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="md-nav__link">
+        多线程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/thread-process-coroutine/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B9%8B%E8%B5%84%E6%BA%90%E7%AB%9E%E4%BA%89%E4%B8%8E%E4%BA%92%E6%96%A5%E9%94%81/" class="md-nav__link">
+        多线程之资源竞争与互斥锁
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/thread-process-coroutine/%E5%A4%9A%E8%BF%9B%E7%A8%8B/" class="md-nav__link">
+        多进程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/thread-process-coroutine/%E5%A4%9A%E8%BF%9B%E7%A8%8B%E4%B9%8B%E8%BF%9B%E7%A8%8B%E6%B1%A0/" class="md-nav__link">
+        多进程之进程池
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/thread-process-coroutine/%E5%A4%9A%E8%BF%9B%E7%A8%8B%E4%B9%8B%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1/" class="md-nav__link">
+        多进程之进程间通信
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/thread-process-coroutine/%E5%A4%9A%E8%BF%9B%E7%A8%8B%E4%B9%8B%E8%BF%9B%E7%A8%8B%E6%B1%A0%E9%97%B4%E9%80%9A%E4%BF%A1/" class="md-nav__link">
+        多进程之进程池间通信
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/thread-process-coroutine/%E5%8D%8F%E7%A8%8B/" class="md-nav__link">
+        协程
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_9" type="checkbox" id="__nav_7_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_9">
+          装饰生成迭代器
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="装饰生成迭代器" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_9">
+          <span class="md-nav__icon md-icon"></span>
+          装饰生成迭代器
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/decorator-generator-iterator/%E8%A3%85%E9%A5%B0%E5%99%A8/" class="md-nav__link">
+        装饰器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/decorator-generator-iterator/%E8%A3%85%E9%A5%B0%E5%99%A8%E5%89%AF%E4%BD%9C%E7%94%A8/" class="md-nav__link">
+        装饰器副作用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/decorator-generator-iterator/%E7%94%9F%E6%88%90%E5%99%A8/" class="md-nav__link">
+        生成器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/decorator-generator-iterator/%E8%BF%AD%E4%BB%A3%E5%99%A8/" class="md-nav__link">
+        迭代器
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_10" type="checkbox" id="__nav_7_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_10">
+          单例多例
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="单例多例" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_10">
+          <span class="md-nav__icon md-icon"></span>
+          单例多例
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/single-multiple-instance/%E5%8D%95%E4%BE%8B/" class="md-nav__link">
+        单例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/single-multiple-instance/%E5%A4%9A%E5%AE%9E%E4%BE%8B%E8%AE%A1%E6%95%B0/" class="md-nav__link">
+        多实例计数
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_11" type="checkbox" id="__nav_7_11" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_11">
+          其他
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="其他" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_11">
+          <span class="md-nav__icon md-icon"></span>
+          其他
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/other/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" class="md-nav__link">
+        二分查找
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/other/%E4%BA%8C%E5%8F%89%E6%A0%91/" class="md-nav__link">
+        二叉树
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/other/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8/" class="md-nav__link">
+        自定义异常
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/other/MRO/" class="md-nav__link">
+        MRO
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/other/%2B%20%2B%3D%20append%20extend%20%E7%9A%84%E5%8C%BA%E5%88%AB/" class="md-nav__link">
+        + += append extend 的区别
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/other/UNZIP/" class="md-nav__link">
+        UNZIP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/other/Mp3Cut/" class="md-nav__link">
+        Mp3Cut
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/other/AtExit/" class="md-nav__link">
+        AtExit
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/other/%E9%AD%94%E6%B3%95%E6%96%B9%E6%B3%95--%E5%AD%97%E5%85%B8/" class="md-nav__link">
+        魔法方法 -- 字典
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/other/%E9%9A%8F%E6%9C%BA%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="md-nav__link">
+        随机字符串
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_12" type="checkbox" id="__nav_7_12" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_12">
+          习题
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="习题" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_12">
+          <span class="md-nav__icon md-icon"></span>
+          习题
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/exercises/%E6%B1%89%E8%AF%BA%E5%A1%94/" class="md-nav__link">
+        汉诺塔
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/exercises/%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/" class="md-nav__link">
+        杨辉三角
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/exercises/%E4%B9%98%E6%B3%95%E5%8F%A3%E8%AF%80%E8%A1%A8/" class="md-nav__link">
+        乘法口诀表
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/exercises/%E9%80%92%E5%BD%92%E5%AE%9E%E7%8E%B0%E7%B4%AF%E5%8A%A0%E5%92%8C%E9%98%B6%E4%B9%98/" class="md-nav__link">
+        累加和阶乘
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/exercises/%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C/" class="md-nav__link">
+        连续子数组的最大和
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/exercises/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" class="md-nav__link">
+        两数之和
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Software
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Software" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Software
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../soft/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="md-nav__link">
+        Git常用命令
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../soft/PostgreSQL%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="md-nav__link">
+        PostgreSQL常用命令
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../soft/VSCode%E5%85%8D%E5%AF%86%E5%8F%91%E5%B8%83%E4%BB%A3%E7%A0%81%E5%88%B0GitHub/" class="md-nav__link">
+        VSCode免密发布代码到GitHub
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../soft/V2ray%2BTrojan%E9%85%8D%E7%BD%AE/" class="md-nav__link">
+        V2ray+Trojan配置
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../soft/%E4%B8%8B%E8%BD%BDChrome%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8C%85/" class="md-nav__link">
+        下载Chrome离线安装包
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../soft/%E9%AD%94%E5%85%BD3%E5%86%B0%E5%B0%81%E7%8E%8B%E5%BA%A7%E7%9A%84%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80/" class="md-nav__link">
+        魔兽3冰封王座的下载地址
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    排序优化总结
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    索引设计原则
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limit" class="md-nav__link">
+    Limit优化
+  </a>
+  
+    <nav class="md-nav" aria-label="Limit优化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    示例1:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    示例2:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#join" class="md-nav__link">
+    Join优化
+  </a>
+  
+    <nav class="md-nav" aria-label="Join优化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    嵌套循环连接算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    基于块的嵌套循环链接算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    优化
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inexists" class="md-nav__link">
+    IN和EXISTS优化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#count" class="md-nav__link">
+    COUNT优化
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="mysql">MySQL之优化</h1>
+<h2 id="_1">排序优化总结</h2>
+<ul>
+<li>
+<p>MySQL支持filesort和index两种排序方式, Using index直接扫描索引本身完成排序, 效率高, Using filesort是文件排序, 效率慢</p>
+</li>
+<li>
+<p>order by满足使用 Using index 的条件:</p>
+<blockquote>
+<ul>
+<li>符合索引最左前缀原则</li>
+<li>where语句后面条件和order by语句后面条件和在一起符合最左前缀原则</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>尽量使用索引排序, 即符合建立索引时的最左前缀原则</p>
+</li>
+<li>
+<p>order by 的条件不在索引列上, 会使用filesort排序, 索引尽量使用覆盖索引的列排序</p>
+</li>
+<li>
+<p>group by 与 order by 非常类似, 实质是先排序后分组, 按照索引最左前缀原则, 如果 group by 的结果不需要排序, 则添加 order by null 禁止排序, 也能提高查询效率</p>
+</li>
+<li>
+<p>where 条件高于 having, 尽量在 where 中限定条件而非在 having 中</p>
+</li>
+</ul>
+<blockquote>
+<p>扩展1: </p>
+<p>Using index 是扫描二级索引或联合索引, 也就是非聚簇索引</p>
+<p>Using filesort 是扫描主键索引, 也就是聚簇索引</p>
+<p>因为聚簇索引索引包含所有数据, 所以从磁盘读取ibd文件时加载的数据大, 效率不如非聚簇索引, 也就是说Using index 比 Using filesort 的效率高</p>
+<p>扩展2:</p>
+<p>排序分为单路排序和双路排序</p>
+<p>单路排序就是直接把select出来的结果集load到内存中, 然后排序, 排序之后的结果就是最终结果</p>
+<p>双路排序仅仅是将 id 和排序的字段load到内存中(占用空间小), 然后排序, 排序完成后根据 id 再次回表拿到最终的结果</p>
+<p>两者优点类似时间换空间, 空间换时间的意思</p>
+<p>MySQL通过系统系统变量 max_length_for_short_data(默认1048576字节, 1M)的大小确定使用哪种排序方式·</p>
+<p>所有字段总长度小于 max_length_for_short_data 就使用单路排序, 否则使用双路排序, 比如表里字段比较多, 加起来超过1024字节, 就使用双路排序</p>
+<p>扩展3:</p>
+<p>MySQL会自动分配一块内存空间(sort_buffer), 如果排序数据量较小, 会在内存中也就是sort_buffer中完成, 否则会在磁盘中生成临时文件, 在读到内存中进行排序, 也就是说排序数据较大时, 查询效率降低查询时间增长</p>
+<p>尽量使用limit限制结果集大小, 这样排序效率也会高</p>
+</blockquote>
+<h2 id="_2">索引设计原则</h2>
+<ul>
+<li>建表之初不建索引, 后续根据实际业务, 把涉及到相关表的相关sql拿出来分析, 再根据分析结果建立索引, 比如建立联合索引时尽量覆盖代码中常用的覆盖条件(where后面的条件), 针对不同的情况还可建立一个或多个联合索引</li>
+<li>对于差异较小的字段(即小基数字段), 不要建立索引, 意义不大, 比如gender, 不是0就是1, 无法体现二分查找的优势, 所以通过distinct查看字段的值占用总条数的比例, 高的建议建立索引, 低的不建议</li>
+<li>尽量对占用空间较小字段类型设置索引, 例如 tinyint, 因为占用磁盘空间小, 查起来效率高</li>
+<li>对于占用空间较大的字段, 例如vachar(255), 使用前几个字段建立索引, 类似 <strong>key index(name(20), age, birthday)</strong>, 但这样做的缺点是 order by 和 group by 该字段时无法使用索引</li>
+<li>where和order by冲突时, 优先针对where条件的字段建立索引(比如key index(name(20), 否则就是(key index(name))</li>
+<li>对于慢sql针对性优化(默认定义查询时间超过10s的是慢sql, MySQL会记录这些sql到一个特定的文件中), 注意, 默认没有开启这项功能, 因为会影响性能, 如果是主从设计, 可以在备库开启</li>
+<li>对于大概率使用范围作为条件的字段, 建立联合索引时要放到最后, 例如age, 那么就应该 key (name, gender, age), 因为where条件后字段使用 &gt; 等范围条件后,  and 后面的字段便无法使用索引了</li>
+</ul>
+<p>核心思路就是尽量利用一两个复杂的多字段联合索引, 覆盖80%的业务场景, 然后使用一两个辅助索引(联合索引或单字段索引)解决剩下的业务场景, 保证大数量级别的查询都能使用索引, 这样既可保证查询速度和性能不低</p>
+<h2 id="limit">Limit优化</h2>
+<h3 id="1">示例1:</h3>
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">a_table</span><span class="w"> </span><span class="k">limit</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<p>实际上MySQL查询了10010条数据, 然后舍弃前10000条, 只展示最后10条, 效率低下</p>
+<p>优化:</p>
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">a_table</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">10000</span><span class="w"> </span><span class="k">limit</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<p>使用前提, <strong>自增且连续</strong>的主键排序分页查询</p>
+<p><strong>假设中间删除了某些数据, 上述两条语句查询的结果会不一样, 原因就是 limit 本质依然是从第一条数据开始查询计算</strong></p>
+<h3 id="2">示例2:</h3>
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">a_tble</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">limit</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<p>假设 a_table 表中有联合索引(name, age, job), 理论上<code>order by name</code>会走索引, 但实际上不会, 原因就是前面多次提到的, MySQL 认为数据量较大, 使用联合索引扫描数据后还需要回表, 不如直接全表扫描</p>
+<p>使用 Explain 可以看到 type 是 ALL, key 为空, extra 是 Using filesort, 证明没有使用索引</p>
+<p>优化:</p>
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">a_table</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">inner</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">a_table</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">limit</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">id</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<p>解释:</p>
+<p>因为, <code>select id from a_table order by name limit 10000, 10</code> 不使用<code>select *</code>而是<code>select id</code>, 即使用了覆盖索引, 此时<code>order by name</code>走了索引, 使用 explain 可以看到 type 是 index, extra 是 Using index, 而且最终生成的这张临时表只有10条数据</p>
+<p>而且,  <code>inner join</code>的条件是<code>on a.id = b.id</code>是主键关联, 其 type 是 eq_rf,  key 是 PRIMARY, 所以和上面的临时表联表查询的最终效率很高</p>
+<h2 id="join">Join优化</h2>
+<p>先说两个算法</p>
+<h3 id="_3">嵌套循环连接算法</h3>
+<p>即 Nested-Loop Join(NLJ) 算法</p>
+<p>前提:</p>
+<p>两张表 a 和 b, 数据结构一模一样, 其中 name 字段建立索引, a表一万条数据, b表100条数据</p>
+<p>语句:</p>
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">inner</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">name</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<p>执行:</p>
+<ul>
+<li>1、全表扫描 b 表, 拿到一条记录</li>
+<li>2、拿到 1 中的结果, 通过 name 索引去 a 表中定位</li>
+<li>3、重复步骤 1 和 2, 拿到最终结果</li>
+</ul>
+<p>期间, b 表扫描100次, 由于使用了条件<code>on a.name = b.name</code>使用了索引, 也只扫描了100次</p>
+<p>算法解释:</p>
+<ul>
+<li>MySQL的优化器一般会选择<strong>小表做驱动表</strong>, <strong>大表做被驱动表</strong>, 即 a 是被驱动表, b 是驱动表, 执行过程中先执行驱动表</li>
+<li>对于 left join, 左表是驱动表, 右表是被驱动表</li>
+<li>对于 right join, 正好和 left join 相反</li>
+<li>小表的定义是<strong>经过滤条件筛选后数据量小的表</strong>是小表, 不是单纯的指整个表数据量小, 如果没有过滤条件那就指整个表</li>
+</ul>
+<p>使用 explain 没有在结果的 extra 中看到 Using join buffer, 则表示当前 jon 语句使用了 NLJ 算法</p>
+<p>如果被驱动表关联的字段没有索引, NLJ 算法效率低下, MySQL会选择 BNL 算法</p>
+<h3 id="_4">基于块的嵌套循环链接算法</h3>
+<p>即 Block Nested-Loop Join(BNL) 算法</p>
+<p>语句:</p>
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">inner</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">age</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<p>由于 age 字段没有索引, 所以不会使用 NLJ 算法, 而是 BNL算法</p>
+<p>执行:</p>
+<ul>
+<li>表小表 b, 即驱动表的数据放到 join_buffer 中</li>
+<li>把大表 a, 即被驱动表中的每一行, 单独取出来和 join_buffer 中的数据比对</li>
+<li>返回满足 join 条件的数据</li>
+</ul>
+<p>期间, 两张表都是全表扫描, 共扫描 10000 + 100 = 10100 次, 同时 由于 join_buffer 表中的<strong>数据在内存中且是无序的</strong>, 从表 a 中取出来的数据最多要在表 b 中判断 100 次, 最后内存中判断的数量级是 10000 * 100 , 即百万级</p>
+<p>PS: join_buffer 数据在内存中, 内存空间大小由参数 join_buffer_size 决定, 默认值好像是256K, 如果此值较小放不下 b 表数据, 则会分段放, 即先把 b 表的一部分数据放到 join_buffer 判断, 完成之后再放一部分数据, 直到放完, 无形中增加了计算时间</p>
+<blockquote>
+<p>我猜 BNL 算法的中的 B, 即 block 就是指内存中这一块块的 join_buffer</p>
+<p>现在说说为啥说 这种情况(即 on 的条件的字段没有索引)下, NLJ效率低, BNL效率高, 因为NLJ是扫描索引, 所索引文件在磁盘上, <strong>NLJ是磁盘扫描, 而BNL出内存</strong></p>
+<p>所以, 有索引的情况下一般用NLJ(效率高), 没索引的情况下一般分BNL(效率高)</p>
+</blockquote>
+<h3 id="_5">优化</h3>
+<p>通过对NLJ和BNL的了解, 总结亮点优化原则:</p>
+<ul>
+<li>关联字段加索引</li>
+<li>小表驱动大表</li>
+</ul>
+<p>扩展:</p>
+<p>编写inner join语句时, 如果明确知道哪个表小, 可使用<code>straight_join</code>语法指定前面的表作为驱动表, 省去MySQL优化器判断的过程, 也可提高效率, 其语法格式为:</p>
+<p><code>小表 straight_join 大表</code>, 例如:</p>
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="n">straight_join</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">name</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<p><strong>注意: straight_join 只适用于 inner join</strong>(因为 left join 和 right join 已经指定了驱动表和被驱动表, 即执行顺序)</p>
+<h2 id="inexists">IN和EXISTS优化</h2>
+<p>原则: 小表驱动大表, 小表的定义同join</p>
+<p>1、当A表数据集大于B数据集时, IN 优于EXISTS, 例如:</p>
+<p>a 表 100 万, b 表 100, 优先使用 in:</p>
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<p>解释:</p>
+<p><strong>in 的语法规则是先执行 in 后面的子查询, 再执行 in 前面的语句, 即先执行 b 后执行 a, 然后遍历 b 找到最终的结果集, 所以先执行的 b 是驱动表, 满足小表驱动大表</strong></p>
+<p>2、当A表数据集小于B表数据集时, EXISTS优于IN, 例如:</p>
+<p>a 表 100, b 表100 万, 优先使用 exists:</p>
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">id</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<p>解释:</p>
+<p><strong>exists 的语法规则是先执行 exists 前面的语句, 再执行后面的子查询, 即先执行 a 后执行 b, 然后将 a 放到 b 中验证条件, 所以先执行的 a 是驱动表, 满足小表驱动大表</strong></p>
+<p>注意:</p>
+<ul>
+<li>exists(subquery) 只返回 True 或 False, 因此字查询中的 select * 可以用 select 1代替, 官方文档显示exists(subquery) 会忽略 select *, 因此没区别</li>
+<li>如果 where 条件用的不是主键字段, 则该字段应建立索引提高查询速度</li>
+<li>exists 往往可以用 join 来代替, 何种方式最优需具体问题具体分析, 但是一般情况下尽量是用 join 少用 exists</li>
+</ul>
+<h2 id="count">COUNT优化</h2>
+<p>先说一下各种count的效率</p>
+<p>字段有索引</p>
+<p>count(*) ≈ count(1) &gt; count(字段) &gt; count(主键)</p>
+<p>字段没有索引</p>
+<p>count(*) ≈ count(1) &gt; count(主键) &gt; count(字段)</p>
+<p>注意: 针对MySQL5.6、5.7版本及以后</p>
+<p>解释:</p>
+<ul>
+<li>
+<p>MySQL对count(*)做了优化, 不取字段值, 按行累加, 效率最高</p>
+</li>
+<li>
+<p>count(1), 不取字段值, 使用常量1做统计(计算1的数量), 效率很高</p>
+</li>
+<li>
+<p>count(字段), 因为要取值(计算字段的数量), 所以比count(1)效率略低</p>
+</li>
+<li>
+<p>实际上MySQL对count(主键)也做了优化, 当存在二级索引时, 优先使用二级索引, 否则就是主键索引</p>
+</li>
+</ul>
+<p>因为主键索引是聚簇索引, 储存的数据量大, 相对储存部分数据的二级索引来讲, 扫描效率低一些</p>
+<p>这也就解释了为什么当字段存在索引时 count(字段) &gt; count(主键) </p>
+<blockquote>
+<p>扩展: count(<em>)是SQL92定义的标准统计行数的语法, 跟数据库无关, 跟NUll和Not Null无关, 就是说<code>count(*)</code></em><em>会统计值为Null的行</em><em>, <code>count(字段)</code></em><em>不会统计Null值的行</em>*</p>
+</blockquote>
+<p>但是, 如果表的数据量很大, count依然会很慢</p>
+<p>一些不太靠谱或方便的优化方式:</p>
+<ul>
+<li>对于 myisam 引擎, 自动有一张表自动维护数量, 直接 select count(*) 就行</li>
+<li>对于 innodb 引擎, 由于MVCC机制, 没有维护数量表, 只能硬查</li>
+<li>如果对总数的精度要求不高, 只需要一个大约值, 可以使用 <code>show table status like 'a_table'</code>的方式查询, 这个性能很高</li>
+<li>人工将总数维护到redis中, 每次对数据库进行插入或删除操作时对应的在redis中做incr和decr命令的操作, 缺点是很难保证一执行, 结果可能有出入</li>
+<li>插入或删除数据的同时维护计数表, 且在同一个事务里操作</li>
+</ul>
+<p>如果业务场景中 count 的次数比较多, 且表的数据量很大, 又有准确率的要求, 建议使用最后一个方式维护数量</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      
+        
+        <a href="../MySQL%E4%B9%8BExplain%E8%AF%A6%E8%A7%A3/" class="md-footer__link md-footer__link--prev" aria-label="上一页: MySQL之Explain详解" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              MySQL之Explain详解
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../MySQL%E4%BA%8B%E5%8A%A1%E5%8F%8A%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E4%B8%8E%E9%94%81%E6%9C%BA%E5%88%B6/" class="md-footer__link md-footer__link--next" aria-label="下一页: MySQL事务及隔离级别与锁机制" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              MySQL事务及隔离级别与锁机制
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 1991 - 2992 gfourdx
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://github.com/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.docker.com/" target="_blank" rel="noopener" title="www.docker.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M349.9 236.3h-66.1v-59.4h66.1v59.4zm0-204.3h-66.1v60.7h66.1V32zm78.2 144.8H362v59.4h66.1v-59.4zm-156.3-72.1h-66.1v60.1h66.1v-60.1zm78.1 0h-66.1v60.1h66.1v-60.1zm276.8 100c-14.4-9.7-47.6-13.2-73.1-8.4-3.3-24-16.7-44.9-41.1-63.7l-14-9.3-9.3 14c-18.4 27.8-23.4 73.6-3.7 103.8-8.7 4.7-25.8 11.1-48.4 10.7H2.4c-8.7 50.8 5.8 116.8 44 162.1 37.1 43.9 92.7 66.2 165.4 66.2 157.4 0 273.9-72.5 328.4-204.2 21.4.4 67.6.1 91.3-45.2 1.5-2.5 6.6-13.2 8.5-17.1l-13.3-8.9zm-511.1-27.9h-66v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm-78.1-72.1h-66.1v60.1h66.1v-60.1z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>
