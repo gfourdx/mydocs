@@ -3,7 +3,7 @@
 ---
 
 ```dockerfile
-FROM debian:bullseye
+FROM debian:bullseye-slim
 
 ENV LANG C.UTF-8
 
