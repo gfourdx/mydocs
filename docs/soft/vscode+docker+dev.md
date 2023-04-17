@@ -1,4 +1,4 @@
-# 基于Docker的Python开发环境
+# 基于Docker的开发环境
 
 ---
 
@@ -24,8 +24,9 @@ deb http://mirrors.tuna.tsinghua.edu.cn/debian-security bullseye-security main c
         iputils-ping \
         procps \
     ; \
-    # 安装工具软件
+    # 安装工具软件, ca-certificates可避免wget下载https协议文件的证书安全提示
     apt install -y --no-install-recommends --no-install-suggests \
+        ca-certificates \
         curl \
         git \
         ssh \
@@ -50,10 +51,15 @@ deb http://mirrors.tuna.tsinghua.edu.cn/debian-security bullseye-security main c
         libpq-dev \
         python3-dev \
     ; \
-    # 清理缓存
-    rm -rf /var/lib/apt/lists/*; \
     # 配置pip源
     pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple; \
+    # 安装golang
+    wget https://go.dev/dl/go1.20.3.linux-arm64.tar.gz; \
+    rm -rf /usr/local/go; \
+    tar -C /usr/local -xzf go1.20.3.linux-arm64.tar.gz; \
+    rm -rf go1.20.3.linux-arm64.tar.gz; \
+    # 清理缓存
+    rm -rf /var/lib/apt/lists/*; \
     # 配置ssh允许root登录
     sed -i "s@#PermitRootLogin prohibit-password@PermitRootLogin yes@g" /etc/ssh/sshd_config; \
     # 配置ssh允许空密码登录
@@ -62,13 +68,15 @@ deb http://mirrors.tuna.tsinghua.edu.cn/debian-security bullseye-security main c
     passwd -d root; \
     # 设置ssh自启动
     echo "service ssh start > /dev/null" >> /root/.bashrc
-    
+
+# 设置golang环境变量
+ENV PATH $PATH:/usr/local/go/bin
+
 EXPOSE 22 80 3306 5432 6379
 
 CMD ["bash" ]
 
-# docker build -f Pydev.Dockerfile -t pydev:latest .
-# docker run -dit -h pydev -p 22:22 -p 80:80 -p 3306:3306 -p 5432:5432 -p 6379:6379 -v /path/to/host:/path/to/docker --restart=unless-stopped --name pydev pydev
-# docker exec -it pydev bash
+# docker build -f Dev.Dockerfile -t mydev:latest .
+# docker run -dit -h mydev -p 22:22 -p 80:80 -p 3306:3306 -p 5432:5432 -p 6379:6379 -v /path/to/host:/path/to/docker --name mydev --restart=unless-stopped mydev
+# docker exec -it mydev bash
 ```
-
