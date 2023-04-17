@@ -652,20 +652,27 @@
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    数据库配置
+    启动
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    数据库文件配置
+    数据库配置
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
+    数据库文件配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     重启服务
   </a>
   
@@ -2411,20 +2418,27 @@
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    数据库配置
+    启动
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    数据库文件配置
+    数据库配置
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
+    数据库文件配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     重启服务
   </a>
   
@@ -2456,11 +2470,14 @@
 <div class="highlight"><pre><span></span><code>apt install -y mariadb-server mariadb-client
 </code></pre></div>
 <h2 id="_2">配置</h2>
-<h3 id="_3">数据库配置</h3>
+<h3 id="_3">启动</h3>
+<div class="highlight"><pre><span></span><code>service mariadb start
+</code></pre></div>
+<h3 id="_4">数据库配置</h3>
 <div class="highlight"><pre><span></span><code># 执行下方命令配置mysql
 mysql_secure_installation
 
-# 执行上方命令出现交互式会话
+# 执行上方命令出现交互式会话(根据实际要求配置即可)
 Enter current password for root (enter for none):    # 此处直接按下回车
 Switch to unix_socket authentication [Y/n]           # 输入n后按下回车
 Change the root password? [Y/n]                      # 输入y后按下回车
@@ -2471,19 +2488,17 @@ Disallow root login remotely? [Y/n]                  # 输入n后按下回车
 Remove test database and access to it? [Y/n]         # 输入y后按下回车
 Reload privilege tables now? [Y/n]                   # 输入y后按下回车
 
-# 登录mysql继续配置，注意：建议把第三条命令中的&quot;password&quot;改成上面设置的密码，保持一致
-mysql -uroot -p
+# 登录mysql继续配置，注意：第三条命令中的&quot;mariadb&quot;是密码，建议与上面的密码保持一致
+mysql -u root -p
 use mysql
-grant all privileges on *.* to &#39;root&#39;@&#39;%&#39; identified by &#39;password&#39; with grant option;
+grant all privileges on *.* to &#39;root&#39;@&#39;%&#39; identified by &#39;mariadb&#39; with grant option;
 flush privileges;
 exit
 </code></pre></div>
-<h3 id="_4">数据库文件配置</h3>
-<div class="highlight"><pre><span></span><code>nano /etc/mysql/mariadb.conf.d/50-server.cnf
+<h3 id="_5">数据库文件配置</h3>
+<div class="highlight"><pre><span></span><code>sed -i &#39;s@bind-address            = 127.0.0.1@bind-address            = 0.0.0.0@g&#39; /etc/mysql/mariadb.conf.d/50-server.cnf
 </code></pre></div>
-<p>找到<code>bind-address = 127.0.0.1</code></p>
-<p>改为<code>bind-address = 0.0.0.0</code></p>
-<h3 id="_5">重启服务</h3>
+<h3 id="_6">重启服务</h3>
 <div class="highlight"><pre><span></span><code>service mariadb restart
 </code></pre></div>
 <p>或</p>

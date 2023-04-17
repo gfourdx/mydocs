@@ -2503,20 +2503,11 @@ sudo apt-get -y install postgresql
 </code></pre></div>
 <h2 id="_2">配置</h2>
 <h3 id="ip">允许任何IP访问</h3>
-<p>编辑配置文件pg_hba.conf</p>
-<div class="highlight"><pre><span></span><code>vim /etc/postgresql/13/main/pg_hba.conf
+<div class="highlight"><pre><span></span><code>sed -i &quot;s@host    all             all             127.0.0.1/32            md5@host    all             all             0.0.0.0/0            md5@g&quot; /etc/postgresql/13/main/pg_hba.conf
 </code></pre></div>
-<blockquote>
-<p>注意，上述命令中的13是版本，需根据实际情况更改</p>
-</blockquote>
-<p>找到<code>host all all 127.0.0.1/32 md5</code></p>
-<p>改为<code>host all all 0.0.0.0/0 md5</code></p>
 <h3 id="ip_1">监听任何IP</h3>
-<p>编辑配置文件postgresql.conf</p>
-<div class="highlight"><pre><span></span><code>vim /etc/postgresql/13/main/postgresql.conf
+<div class="highlight"><pre><span></span><code>sed -i &quot;s@#listen_addresses = &#39;localhost&#39;@listen_addresses = &#39;*&#39;@g&quot; /etc/postgresql/13/main/postgresql.conf
 </code></pre></div>
-<p>找到<code>#listen_addresses = 'localhost'</code></p>
-<p>改为<code>listen_addresses = '*'</code></p>
 <h3 id="linuxpostgres">修改Linux用户postgres密码</h3>
 <div class="highlight"><pre><span></span><code>passwd postgres
 </code></pre></div>
