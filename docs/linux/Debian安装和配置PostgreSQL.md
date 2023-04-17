@@ -17,29 +17,15 @@ sudo apt-get -y install postgresql
 
 ### 允许任何IP访问
 
-编辑配置文件pg_hba.conf
-
 ```
-vim /etc/postgresql/13/main/pg_hba.conf
+sed -i "s@host    all             all             127.0.0.1/32            md5@host    all             all             0.0.0.0/0            md5@g" /etc/postgresql/13/main/pg_hba.conf
 ```
-
-> 注意，上述命令中的13是版本，需根据实际情况更改
-
-找到`host all all 127.0.0.1/32 md5`
-
-改为`host all all 0.0.0.0/0 md5`
 
 ### 监听任何IP
 
-编辑配置文件postgresql.conf
-
 ```
-vim /etc/postgresql/13/main/postgresql.conf
+sed -i "s@#listen_addresses = 'localhost'@listen_addresses = '*'@g" /etc/postgresql/13/main/postgresql.conf
 ```
-
-找到`#listen_addresses = 'localhost'`
-
-改为`listen_addresses = '*'`
 
 ### 修改Linux用户postgres密码
 

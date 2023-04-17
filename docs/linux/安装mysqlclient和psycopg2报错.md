@@ -10,8 +10,6 @@
 apt install -y libmariadb-dev
 ```
 
-> 如果没有依赖libmariadb-dev则安装libmysqlclient-dev
-
 安装psycopg2报错请安装依赖
 
 ```
