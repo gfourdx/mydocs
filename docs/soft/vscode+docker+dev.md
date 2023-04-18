@@ -58,6 +58,8 @@ deb http://mirrors.tuna.tsinghua.edu.cn/debian-security bullseye-security main c
     rm -rf /usr/local/go; \
     tar -C /usr/local -xzf go1.20.3.linux-arm64.tar.gz; \
     rm -rf go1.20.3.linux-arm64.tar.gz; \
+    # 设置golang环境变量
+    echo "PATH=$PATH:/usr/local/go/bin" >> /root/.bashrc; \
     # 清理缓存
     rm -rf /var/lib/apt/lists/*; \
     # 配置ssh允许root登录
@@ -68,9 +70,6 @@ deb http://mirrors.tuna.tsinghua.edu.cn/debian-security bullseye-security main c
     passwd -d root; \
     # 设置ssh自启动
     echo "service ssh start > /dev/null" >> /root/.bashrc
-
-# 设置golang环境变量
-ENV PATH $PATH:/usr/local/go/bin
 
 EXPOSE 22 80 3306 5432 6379
 
