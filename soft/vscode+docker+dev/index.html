@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://911205.xyz/soft/vscode%2Bdocker%2Bdev/">
       
       
-        <link rel="prev" href="../%E9%AD%94%E5%85%BD3%E5%86%B0%E5%B0%81%E7%8E%8B%E5%BA%A7%E7%9A%84%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80/">
+        <link rel="prev" href="../%E4%B8%8B%E8%BD%BDChrome%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8C%85/">
       
       
         <link rel="next" href="../Iptables/">
@@ -2249,20 +2249,6 @@
               
   
   
-  
-    <li class="md-nav__item">
-      <a href="../%E9%AD%94%E5%85%BD3%E5%86%B0%E5%B0%81%E7%8E%8B%E5%BA%A7%E7%9A%84%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80/" class="md-nav__link">
-        魔兽3冰封王座的下载地址
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
     
   
   
@@ -2389,10 +2375,12 @@
 <span class="w">    </span>#<span class="w"> </span>配置pip源
 <span class="w">    </span>pip3<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>global.index-url<span class="w"> </span>https://pypi.tuna.tsinghua.edu.cn/simple<span class="p">;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>#<span class="w"> </span>安装golang
-<span class="w">    </span>wget<span class="w"> </span>https://go.dev/dl/go1.20.3.linux-arm64.tar.gz<span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>wget<span class="w"> </span>https://go.dev/dl/go1.20.4.linux-arm64.tar.gz<span class="p">;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>rm<span class="w"> </span>-rf<span class="w"> </span>/usr/local/go<span class="p">;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>tar<span class="w"> </span>-C<span class="w"> </span>/usr/local<span class="w"> </span>-xzf<span class="w"> </span>go1.20.3.linux-arm64.tar.gz<span class="p">;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>rm<span class="w"> </span>-rf<span class="w"> </span>go1.20.3.linux-arm64.tar.gz<span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>tar<span class="w"> </span>-C<span class="w"> </span>/usr/local<span class="w"> </span>-xzf<span class="w"> </span>go1.20.4.linux-arm64.tar.gz<span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>rm<span class="w"> </span>-rf<span class="w"> </span>go1.20.4.linux-arm64.tar.gz<span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>#<span class="w"> </span>设置golang环境变量
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;PATH=</span><span class="nv">$PATH</span><span class="s2">:/usr/local/go/bin&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/root/.bashrc<span class="p">;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>#<span class="w"> </span>清理缓存
 <span class="w">    </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/apt/lists/*<span class="p">;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>#<span class="w"> </span>配置ssh允许root登录
@@ -2403,9 +2391,6 @@
 <span class="w">    </span>passwd<span class="w"> </span>-d<span class="w"> </span>root<span class="p">;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>#<span class="w"> </span>设置ssh自启动
 <span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;service ssh start &gt; /dev/null&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/root/.bashrc
-
-<span class="c"># 设置golang环境变量</span>
-<span class="k">ENV</span><span class="w"> </span>PATH<span class="w"> </span><span class="nv">$PATH</span>:/usr/local/go/bin
 
 <span class="k">EXPOSE</span><span class="w"> </span><span class="s">22 80 3306 5432 6379</span>
 
