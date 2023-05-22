@@ -4,6 +4,8 @@
 
 ## 开源
 
+Docker&Linux: [OrbStack](https://github.com/orbstack/orbstack)
+
 划词翻译: [Bob](https://github.com/ripperhe/Bob)
 
 快捷分屏: [Rectangle](https://github.com/rxhanson/Rectangle/)
@@ -39,6 +41,8 @@ IINA插件(B站、弹幕等): [IINA+](https://github.com/xjbeta/iina-plus)
 UTM工具包: [SPICE Guest Tools](https://mac.getutm.app/support/)
 
 ## 闭源
+
+压缩工具: [MacZip](https://ezip.awehunt.com/)
 
 终端自动补全: [Fig](https://fig.io/)
 

@@ -54,10 +54,10 @@ deb http://mirrors.tuna.tsinghua.edu.cn/debian-security bullseye-security main c
     # 配置pip源
     pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple; \
     # 安装golang
-    wget https://go.dev/dl/go1.20.3.linux-arm64.tar.gz; \
+    wget https://go.dev/dl/go1.20.4.linux-arm64.tar.gz; \
     rm -rf /usr/local/go; \
-    tar -C /usr/local -xzf go1.20.3.linux-arm64.tar.gz; \
-    rm -rf go1.20.3.linux-arm64.tar.gz; \
+    tar -C /usr/local -xzf go1.20.4.linux-arm64.tar.gz; \
+    rm -rf go1.20.4.linux-arm64.tar.gz; \
     # 设置golang环境变量
     echo "PATH=$PATH:/usr/local/go/bin" >> /root/.bashrc; \
     # 清理缓存
