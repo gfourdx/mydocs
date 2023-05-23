@@ -686,6 +686,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    启动
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#linuxpostgres_1" class="md-nav__link">
     切换至Linux用户postgres
   </a>
@@ -700,7 +707,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     重启服务
   </a>
   
@@ -2438,6 +2445,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    启动
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#linuxpostgres_1" class="md-nav__link">
     切换至Linux用户postgres
   </a>
@@ -2452,7 +2466,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     重启服务
   </a>
   
@@ -2498,6 +2512,9 @@ sudo apt-get -y install postgresql
 <div class="highlight"><pre><span></span><code>passwd postgres
 </code></pre></div>
 <p>输入两次密码确认即可</p>
+<h3 id="_3">启动</h3>
+<div class="highlight"><pre><span></span><code>service postgresql start
+</code></pre></div>
 <h3 id="linuxpostgres_1">切换至Linux用户postgres</h3>
 <div class="highlight"><pre><span></span><code>su - postgres
 </code></pre></div>
@@ -2511,7 +2528,7 @@ exit
 <blockquote>
 <p>上述第2条命令中最后的'postgres'即是密码，根据实际情况设置即可</p>
 </blockquote>
-<h3 id="_3">重启服务</h3>
+<h3 id="_4">重启服务</h3>
 <p><div class="highlight"><pre><span></span><code>service postgresql restart
 </code></pre></div>
 或
