@@ -35,6 +35,12 @@ passwd postgres
 
 输入两次密码确认即可
 
+### 启动
+
+```
+service postgresql start
+```
+
 ### 切换至Linux用户postgres
 
 ```
