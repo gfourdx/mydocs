@@ -2331,6 +2331,7 @@
 <span class="k">RUN</span><span class="w"> </span><span class="nb">set</span><span class="w"> </span>-eux<span class="p">;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>#<span class="w"> </span>设置时区
 <span class="w">    </span>ln<span class="w"> </span>-sf<span class="w"> </span>/usr/share/zoneinfo/Asia/Shanghai<span class="w"> </span>/etc/localtime<span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;Asia/Shanghai&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>/etc/timezone<span class="p">;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>#<span class="w"> </span>配置apt源
 <span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye main contrib non-free \n\</span>
 <span class="s1">deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye-updates main contrib non-free \n\</span>
