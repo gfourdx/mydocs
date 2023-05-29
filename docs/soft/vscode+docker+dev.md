@@ -10,6 +10,7 @@ ENV LANG C.UTF-8
 RUN set -eux; \
     # 设置时区
     ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime; \
+    echo 'Asia/Shanghai' > /etc/timezone; \
     # 配置apt源
     echo 'deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye main contrib non-free \n\
 deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye-updates main contrib non-free \n\
