@@ -451,6 +451,8 @@ show variables like 'log_bin';
 mysqldump -u root -p students > ~/students_bak.sql
 ```
 
+PS: 添加`--skip-extended-insert`可使导出数据中的每个INSERT语句都会独占一行, 方便查阅
+
 ### 还原数据库
 
 语法: `mysql -u 用户名 -p 数据库名 < ~/路径/备份文件.sql;` , 例如:
