@@ -3121,6 +3121,7 @@
 <p>语法: <code>mysqldump -u 用户名 -p 数据库名 &gt; ~/路径/备份文件.sql</code> , 例如:</p>
 <div class="highlight"><pre><span></span><code>mysqldump -u root -p students &gt; ~/students_bak.sql
 </code></pre></div>
+<p>PS: 添加<code>--skip-extended-insert</code>可使导出数据中的每个INSERT语句都会独占一行, 方便查阅</p>
 <h3 id="_26">还原数据库</h3>
 <p>语法: <code>mysql -u 用户名 -p 数据库名 &lt; ~/路径/备份文件.sql;</code> , 例如:</p>
 <div class="highlight"><pre><span></span><code>mysql -u root -p students &lt; ~/students_bak.sql
