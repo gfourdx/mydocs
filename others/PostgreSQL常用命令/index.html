@@ -12,25 +12,27 @@
         <meta name="author" content="gfourdx">
       
       
-        <link rel="canonical" href="https://911205.xyz/soft/Iptables/">
+        <link rel="canonical" href="https://911205.xyz/others/PostgreSQL%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
       
       
-        <link rel="prev" href="../vscode%2Bdocker%2Bdev/">
+        <link rel="prev" href="../Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
       
+      
+        <link rel="next" href="../VSCode%E5%85%8D%E5%AF%86%E5%8F%91%E5%B8%83%E4%BB%A3%E7%A0%81%E5%88%B0GitHub/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
     
     
       
-        <title>Iptables - My Docs</title>
+        <title>PostgreSQL常用命令 - My Docs</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ded33207.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
       
       
 
@@ -75,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#iptables" class="md-skip">
+        <a href="#postgresql" class="md-skip">
           跳转至
         </a>
       
@@ -110,32 +112,38 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Iptables
+              PostgreSQL常用命令
             
           </span>
         </div>
       </div>
     </div>
     
-      <form class="md-header__option" data-md-component="palette">
-        
+      
+        <form class="md-header__option" data-md-component="palette">
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="blue"  aria-label="浅色"  type="radio" name="__palette" id="__palette_1">
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="blue"  aria-label="浅色"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="浅色" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
           
-            <label class="md-header__button md-icon" title="浅色" for="__palette_2" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
-            </label>
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="red"  aria-label="深色"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="深色" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
           
-        
-          
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="red"  aria-label="深色"  type="radio" name="__palette" id="__palette_2">
-          
-            <label class="md-header__button md-icon" title="深色" for="__palette_1" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
-            </label>
-          
-        
-      </form>
+        </form>
+      
     
     
     
@@ -301,7 +309,23 @@
   
     <li class="md-tabs__item">
       <a href="../Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="md-tabs__link md-tabs__link--active">
-        Software
+        Others
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../docker/vscode-docker-dev_v1/" class="md-tabs__link">
+        Docker
       </a>
     </li>
   
@@ -2162,14 +2186,14 @@
       
       
         <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
-          Software
+          Others
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_8">
           <span class="md-nav__icon md-icon"></span>
-          Software
+          Others
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -2191,11 +2215,21 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../PostgreSQL%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         PostgreSQL常用命令
       </a>
+      
     </li>
   
 
@@ -2249,8 +2283,57 @@
   
   
     <li class="md-nav__item">
-      <a href="../vscode%2Bdocker%2Bdev/" class="md-nav__link">
-        基于Docker的开发环境
+      <a href="../Iptables/" class="md-nav__link">
+        Iptables
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+          Docker
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Docker
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docker/vscode-docker-dev_v1/" class="md-nav__link">
+        基于Docker的开发环境 V1
       </a>
     </li>
   
@@ -2261,243 +2344,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Iptables
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        Iptables
+    <li class="md-nav__item">
+      <a href="../../docker/vscode-docker-dev_v2/" class="md-nav__link">
+        基于Docker的开发环境 V2
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#iptables_1" class="md-nav__link">
-    一、Iptables结构
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1tables" class="md-nav__link">
-    1、Tables组成
-  </a>
-  
-    <nav class="md-nav" aria-label="1、Tables组成">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#11tables" class="md-nav__link">
-    1.1、Tables
-  </a>
-  
-    <nav class="md-nav" aria-label="1.1、Tables">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#12filter" class="md-nav__link">
-    1.2、Filter
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#13nat" class="md-nav__link">
-    1.3、NAT
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#14mangle" class="md-nav__link">
-    1.4、Mangle
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#14raw" class="md-nav__link">
-    1.4、Raw
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2chains" class="md-nav__link">
-    2、Chains
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3rules" class="md-nav__link">
-    3、Rules
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    4、总结
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#iptables_2" class="md-nav__link">
-    二、Iptables语法
-  </a>
-  
-    <nav class="md-nav" aria-label="二、Iptables语法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1、语法规则
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    2、参数说明
-  </a>
-  
-    <nav class="md-nav" aria-label="2、参数说明">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#21command" class="md-nav__link">
-    2.1、COMMAND
-  </a>
-  
-    <nav class="md-nav" aria-label="2.1、COMMAND">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#211" class="md-nav__link">
-    2.1.1、链管理命令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#212" class="md-nav__link">
-    2.1.2、规则管理命令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#213" class="md-nav__link">
-    2.1.3、查看命令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#214" class="md-nav__link">
-    2.1.4、通用匹配命令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#214_1" class="md-nav__link">
-    2.1.4、扩展(隐式)匹配命令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#215" class="md-nav__link">
-    2..1.5、显示匹配命令
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22chain" class="md-nav__link">
-    2.2、chain
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#23cretiria" class="md-nav__link">
-    2.3、CRETIRIA
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#24-j-action" class="md-nav__link">
-    2.4、-j ACTION
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    3、永久保存
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2529,212 +2380,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#iptables_1" class="md-nav__link">
-    一、Iptables结构
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1tables" class="md-nav__link">
-    1、Tables组成
-  </a>
-  
-    <nav class="md-nav" aria-label="1、Tables组成">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#11tables" class="md-nav__link">
-    1.1、Tables
-  </a>
-  
-    <nav class="md-nav" aria-label="1.1、Tables">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#12filter" class="md-nav__link">
-    1.2、Filter
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#13nat" class="md-nav__link">
-    1.3、NAT
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#14mangle" class="md-nav__link">
-    1.4、Mangle
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#14raw" class="md-nav__link">
-    1.4、Raw
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2chains" class="md-nav__link">
-    2、Chains
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3rules" class="md-nav__link">
-    3、Rules
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    4、总结
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#iptables_2" class="md-nav__link">
-    二、Iptables语法
-  </a>
-  
-    <nav class="md-nav" aria-label="二、Iptables语法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1、语法规则
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    2、参数说明
-  </a>
-  
-    <nav class="md-nav" aria-label="2、参数说明">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#21command" class="md-nav__link">
-    2.1、COMMAND
-  </a>
-  
-    <nav class="md-nav" aria-label="2.1、COMMAND">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#211" class="md-nav__link">
-    2.1.1、链管理命令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#212" class="md-nav__link">
-    2.1.2、规则管理命令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#213" class="md-nav__link">
-    2.1.3、查看命令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#214" class="md-nav__link">
-    2.1.4、通用匹配命令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#214_1" class="md-nav__link">
-    2.1.4、扩展(隐式)匹配命令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#215" class="md-nav__link">
-    2..1.5、显示匹配命令
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22chain" class="md-nav__link">
-    2.2、chain
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#23cretiria" class="md-nav__link">
-    2.3、CRETIRIA
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#24-j-action" class="md-nav__link">
-    2.4、-j ACTION
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    3、永久保存
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -2748,146 +2393,58 @@
                   
 
 
-<h1 id="iptables">Iptables</h1>
-<hr />
-<h2 id="iptables_1">一、Iptables结构</h2>
-<p>自上而下有由3部分组成:</p>
-<ul>
-<li><strong>Tables</strong> - 表</li>
-<li><strong>Chains</strong> - 链</li>
-<li><strong>Rules</strong> - 规则</li>
-</ul>
-<h2 id="1tables">1、Tables组成</h2>
-<h3 id="11tables">1.1、Tables</h3>
-<p>内建4中表, 分别是:</p>
-<ul>
-<li><strong>Filter</strong> - 定义允许或不允许</li>
-<li><strong>NAT</strong> - 定义地址转换</li>
-<li><strong>Mangle</strong> - 修改报文原数据, 例如打标记</li>
-<li><strong>Raw</strong> - ?</li>
-</ul>
-<p><strong>优先级从上到下依次降低, 即: raw &gt; mangle &gt; nat &gt; filter</strong></p>
-<h4 id="12filter">1.2、Filter</h4>
-<p>Filter是Iptables的默认表,作用于以下3种内建链(Chains):</p>
-<ul>
-<li><strong>INPUT</strong> - 数据包入口, 判断路由并处理来自外部的数据,</li>
-<li><strong>OUTPUT</strong> - 数据包出口, 后接路由判断出口, 向外部发送的数据</li>
-<li><strong>FORWARD</strong> - 不进入用户空间, 将数据转发到本机的其他网卡设备上</li>
-</ul>
-<h4 id="13nat">1.3、NAT</h4>
-<p>NAT作用于3种内建链, 分别是:</p>
-<ul>
-<li><strong>PREROUTING</strong> - 路由前, 数据包刚进入网络层</li>
-<li><strong>OUTPUT</strong></li>
-<li><strong>POSTOUTING</strong> - 路由后, 数据包通过网络接口出去</li>
-</ul>
-<h4 id="14mangle">1.4、Mangle</h4>
-<p>Mangle则可以作用于以上全部的内建链:</p>
-<ul>
-<li><strong>PREROUTING</strong></li>
-<li><strong>INPUT</strong></li>
-<li><strong>FORWARD</strong></li>
-<li><strong>OUTPUT</strong></li>
-<li><strong>POSTOUTING</strong></li>
-</ul>
-<h4 id="14raw">1.4、Raw</h4>
-<p>Raw只作用于2个内建链:</p>
-<ul>
-<li><strong>PREROUTING</strong></li>
-<li><strong>OUTPUT</strong></li>
-</ul>
-<h3 id="2chains">2、Chains</h3>
-<ul>
-<li><strong>PREROUTING</strong></li>
-<li><strong>INPUT</strong></li>
-<li><strong>FORWARD</strong></li>
-<li><strong>OUTPUT</strong></li>
-<li><strong>POSTOUTING</strong></li>
-</ul>
-<h3 id="3rules">3、Rules</h3>
-<p>通过Iptables语法创建的规则</p>
-<h3 id="4">4、总结</h3>
-<p>通过Iptables语法创建的规则存放于Tables中并应用到Chains上面</p>
-<hr />
-<h2 id="iptables_2">二、Iptables语法</h2>
-<h3 id="1">1、语法规则</h3>
-<p>格式：<code>iptables [-t table] COMMAND chain CRETIRIA -j ACTION</code></p>
-<p><code>-t table</code>: filter、nat、mangle、raw</p>
-<p><code>COMMAND</code>:  定义如何对规则进行管理</p>
-<p><code>chain</code>:  定义如何对规则进行管理, 指定该规则应用到哪个链上, 当定义策略(--policy)时可省略</p>
-<p><code>CRETIRIA</code>: 指定匹配标准</p>
-<p><code>-j ACTION</code>: 指定如何进行处理</p>
-<h3 id="2">2、参数说明</h3>
-<h4 id="21command">2.1、COMMAND</h4>
-<h5 id="211">2.1.1、链管理命令</h5>
-<p><code>-P</code>: 设置默认策略, 默认策略一般只有两种, 开(ACCEPT)或者关(DROP)</p>
-<p><code>-F</code>: 清空规则链, 但需要注意每个链的管理权限</p>
-<p><code>-N</code>: 新建一个自定义链</p>
-<p><code>-X</code>: 删除一个自定义链</p>
-<p><code>-E</code>: 重命名一个自定义链</p>
-<p><code>-Z</code>: 清空链及链中默认规则的计数器</p>
-<h5 id="212">2.1.2、规则管理命令</h5>
-<p><code>-A</code>: 在末尾增加一个规则</p>
-<p><code>-I num</code>: 把当前规则插入到第几条, num是数字, 省略num表示插入到最前面</p>
-<p><code>-R num</code>: 替换一个规则, 也可以理解为修改一个规则</p>
-<p><code>-D num</code>: 删除第几条规则</p>
-<h5 id="213">2.1.3、查看命令</h5>
-<p><code>-L</code>: 查看</p>
-<p><code>-n</code>: 显示为IP否则是域名</p>
-<p><code>-v</code>: 显示详细信息, 可以接多个v, v越多越详细, 例如 -vvv</p>
-<p><code>-x</code>: 在计数器上显示精确值, 不做单位转换</p>
-<p><code>-t table_name</code>: 显示指定表的信息, 例如 -t nat</p>
-<h5 id="214">2.1.4、通用匹配命令</h5>
-<p><code>-s</code>: 指定作为源地址匹配, 需使用IP, 不能是主机名, 格式包括IP、IP/MASK、0.0.0.0/0.0.0.0, 同时可以通过<code>!</code>取反</p>
-<p><code>-d</code>: 表示匹配目标地址</p>
-<p><code>-p</code>: 用于匹配协议, 常用的有TCP、UCP和ICMP等</p>
-<p><code>-i eth0</code>: 从eth0网卡流入的数据, 一般用于INPUT和PREOUTING上, eth0可以是其他接口</p>
-<p><code>-o eth0</code>: 从eth0网卡流出的数据, 一般用于OUTPUT和POSTOUTING上, eth0可以是其他接口</p>
-<h5 id="214_1">2.1.4、扩展(隐式)匹配命令</h5>
-<p>当使用了通用匹配命令<code>-p</code>后, 针对不同的协议, 有不同的扩展匹配命令, 分别是:</p>
-<p>TCP:</p>
-<ul>
-<li>--dport xx, xx是数字, 表示指定一个目标端口, 例如 --dport 22</li>
-<li>--dport xx-xx, 指定连续的目标端口, 例如 --dport 22-25</li>
-<li>--sport xx, 指定源端口</li>
-<li>--tcp-fiags：TCP的标志位(SYN, ACK, FIN, PSH, RST, URG), 对于它一般要跟两个参数: 检查的标志位和必须为1的标志位</li>
-</ul>
-<p>UDP:</p>
-<ul>
-<li>--dport, 同TCP</li>
-<li>--sport, 同TCP</li>
-</ul>
-<p>ICMP:</p>
-<ul>
-<li>--icmp-type: echo-request(请求回显), 一般用8 来表示, 所以 --icmp-type 8 匹配请求回显数据包; echo-reply （响应的数据包）一般用0来表示</li>
-</ul>
-<h5 id="215">2..1.5、显示匹配命令</h5>
-<p>用于开展各种模块, 常用的是<code>-m</code>, 即mulitport, 表示启用多端口扩展, 比如 --dports 21,23,80</p>
-<h4 id="22chain">2.2、chain</h4>
-<h4 id="23cretiria">2.3、CRETIRIA</h4>
-<h4 id="24-j-action">2.4、-j ACTION</h4>
-<p>常用的ACTION分别是:</p>
-<ul>
-<li>DROP - 悄悄丢弃</li>
-<li>REJECT - 明确拒绝</li>
-<li>ACCEPT - 接受</li>
-<li>REDIRECT - 重定向, 主要用于实现端口重定向</li>
-<li>MARK - 打防火墙标记</li>
-</ul>
-<p>其他的还有:</p>
-<ul>
-<li>custom_chain - 转向一个自定义的链</li>
-<li>RETURN - 返回, 在自定义链执行完毕后使用返回来返回原规则链</li>
-<li>DNAT</li>
-<li>SNAT</li>
-<li>MASQUERADE - 是 SNAT 的一种特殊形式，适用于动态的、临时会变的 ip 上, 例如源地址伪装</li>
-<li>LOG</li>
-</ul>
-<h3 id="3">3、永久保存</h3>
-<p>通过iptables命令添加、删除的规则不会永久生效, 重启后恢复原样, 持久化的命令为:</p>
-<p>Debian系列: service iptables save 或 /sbin/iptables-save</p>
-<p>RedHat系列: /sbin/service iptables save</p>
-<p>查看: cat  /etc/sysconfig/iptables</p>
+<h1 id="postgresql">PostgreSQL常用命令</h1>
+<p>备份数据库</p>
+<pre><code>pg_dump -h 127.0.0.1 -U postgres -d db &gt;db.bak
+</code></pre>
+<p>还原数据库</p>
+<div class="highlight"><pre><span></span><code>psql -h 127.0.0.1 -U postgres -d db &lt;  db.bak
+</code></pre></div>
+<p>创建数据库</p>
+<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">testdb</span><span class="p">;</span>
+</code></pre></div>
+<p>查看数据库</p>
+<div class="highlight"><pre><span></span><code>\l
+</code></pre></div>
+<p>删除数据库</p>
+<div class="highlight"><pre><span></span><code><span class="k">drop</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">testdb</span><span class="p">;</span>
+</code></pre></div>
+<p>连接数据库</p>
+<div class="highlight"><pre><span></span><code>\c testdb;
+</code></pre></div>
+<p>创建没有主键的表</p>
+<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">tb1</span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="n">c_name</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">32</span><span class="p">),</span><span class="n">c_phone</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">14</span><span class="p">));</span>
+</code></pre></div>
+<p>创建包含主键的表</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 方法1</span>
+<span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">tb2</span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">,</span><span class="n">c_name</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">32</span><span class="p">),</span><span class="n">c_phone</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">14</span><span class="p">));</span>
+<span class="c1">-- 方法2</span>
+<span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">tb3</span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="n">c_name</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">32</span><span class="p">),</span><span class="n">c_phone</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">14</span><span class="p">),</span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">(</span><span class="n">id</span><span class="p">));</span>
+</code></pre></div>
+<p>创建包含多个主键的表</p>
+<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">tb4</span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="n">c_name</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">32</span><span class="p">),</span><span class="n">c_phone</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">14</span><span class="p">),</span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="n">c_name</span><span class="p">));</span>
+</code></pre></div>
+<p>创建主键自动增长的表</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 主键字段不用显示声明not null</span>
+<span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">tb5</span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="nb">serial</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">,</span><span class="w"> </span><span class="n">c_name</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">32</span><span class="p">),</span><span class="n">c_phone</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">14</span><span class="p">));</span>
+</code></pre></div>
+<p>显示所有表</p>
+<div class="highlight"><pre><span></span><code>\d
+</code></pre></div>
+<p>显示某张表</p>
+<div class="highlight"><pre><span></span><code>\d tb1
+</code></pre></div>
+<p>删除表</p>
+<div class="highlight"><pre><span></span><code><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">tb1</span><span class="p">;</span>
+<span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">tb2</span><span class="p">,</span><span class="n">tb3</span><span class="p">;</span>
+</code></pre></div>
+<p>扩展：模式(架构)，最常见的public就是一张模式(架构)</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 创建模式(架构)：</span>
+<span class="k">create</span><span class="w"> </span><span class="k">schema</span><span class="w"> </span><span class="n">myschema</span><span class="p">;</span><span class="w"> </span>
+
+<span class="c1">-- 删除模式(架构)：</span>
+<span class="k">drop</span><span class="w"> </span><span class="k">schema</span><span class="w"> </span><span class="n">myschema</span><span class="p">;</span>
+</code></pre></div>
 
 
 
@@ -2963,7 +2520,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.51198bba.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b425cdc4.min.js"></script>
       
     
   </body>

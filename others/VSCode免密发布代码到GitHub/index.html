@@ -12,27 +12,27 @@
         <meta name="author" content="gfourdx">
       
       
-        <link rel="canonical" href="https://911205.xyz/soft/PostgreSQL%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+        <link rel="canonical" href="https://911205.xyz/others/VSCode%E5%85%8D%E5%AF%86%E5%8F%91%E5%B8%83%E4%BB%A3%E7%A0%81%E5%88%B0GitHub/">
       
       
-        <link rel="prev" href="../Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+        <link rel="prev" href="../PostgreSQL%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
       
       
-        <link rel="next" href="../VSCode%E5%85%8D%E5%AF%86%E5%8F%91%E5%B8%83%E4%BB%A3%E7%A0%81%E5%88%B0GitHub/">
+        <link rel="next" href="../V2ray%2BTrojan%E9%85%8D%E7%BD%AE/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
     
     
       
-        <title>PostgreSQL常用命令 - My Docs</title>
+        <title>VSCode免密发布代码到GitHub - My Docs</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ded33207.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
       
       
 
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#postgresql" class="md-skip">
+        <a href="#vscodegithub" class="md-skip">
           跳转至
         </a>
       
@@ -112,32 +112,38 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              PostgreSQL常用命令
+              VSCode免密发布代码到GitHub
             
           </span>
         </div>
       </div>
     </div>
     
-      <form class="md-header__option" data-md-component="palette">
-        
+      
+        <form class="md-header__option" data-md-component="palette">
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="blue"  aria-label="浅色"  type="radio" name="__palette" id="__palette_1">
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="blue"  aria-label="浅色"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="浅色" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
           
-            <label class="md-header__button md-icon" title="浅色" for="__palette_2" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
-            </label>
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="red"  aria-label="深色"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="深色" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
           
-        
-          
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="red"  aria-label="深色"  type="radio" name="__palette" id="__palette_2">
-          
-            <label class="md-header__button md-icon" title="深色" for="__palette_1" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
-            </label>
-          
-        
-      </form>
+        </form>
+      
     
     
     
@@ -303,7 +309,23 @@
   
     <li class="md-tabs__item">
       <a href="../Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="md-tabs__link md-tabs__link--active">
-        Software
+        Others
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../docker/vscode-docker-dev_v1/" class="md-tabs__link">
+        Docker
       </a>
     </li>
   
@@ -2164,14 +2186,14 @@
       
       
         <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
-          Software
+          Others
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_8">
           <span class="md-nav__icon md-icon"></span>
-          Software
+          Others
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -2193,6 +2215,20 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../PostgreSQL%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="md-nav__link">
+        PostgreSQL常用命令
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -2204,24 +2240,75 @@
         
       
       
-      <a href="./" class="md-nav__link md-nav__link--active">
-        PostgreSQL常用命令
-      </a>
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          VSCode免密发布代码到GitHub
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../VSCode%E5%85%8D%E5%AF%86%E5%8F%91%E5%B8%83%E4%BB%A3%E7%A0%81%E5%88%B0GitHub/" class="md-nav__link">
+      <a href="./" class="md-nav__link md-nav__link--active">
         VSCode免密发布代码到GitHub
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    设置Git全局变量
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh-key" class="md-nav__link">
+    生成SSH Key
+  </a>
+  
+    <nav class="md-nav" aria-label="生成SSH Key">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    查看公钥
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github" class="md-nav__link">
+    添加公钥到GitHub账号
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    发布代码
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2261,8 +2348,57 @@
   
   
     <li class="md-nav__item">
-      <a href="../vscode%2Bdocker%2Bdev/" class="md-nav__link">
-        基于Docker的开发环境
+      <a href="../Iptables/" class="md-nav__link">
+        Iptables
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+          Docker
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Docker
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docker/vscode-docker-dev_v1/" class="md-nav__link">
+        基于Docker的开发环境 V1
       </a>
     </li>
   
@@ -2275,8 +2411,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../Iptables/" class="md-nav__link">
-        Iptables
+      <a href="../../docker/vscode-docker-dev_v2/" class="md-nav__link">
+        基于Docker的开发环境 V2
       </a>
     </li>
   
@@ -2309,6 +2445,55 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    设置Git全局变量
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh-key" class="md-nav__link">
+    生成SSH Key
+  </a>
+  
+    <nav class="md-nav" aria-label="生成SSH Key">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    查看公钥
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github" class="md-nav__link">
+    添加公钥到GitHub账号
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    发布代码
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2322,58 +2507,28 @@
                   
 
 
-<h1 id="postgresql">PostgreSQL常用命令</h1>
-<p>备份数据库</p>
-<pre><code>pg_dump -h 127.0.0.1 -U postgres -d db &gt;db.bak
-</code></pre>
-<p>还原数据库</p>
-<div class="highlight"><pre><span></span><code>psql -h 127.0.0.1 -U postgres -d db &lt;  db.bak
+<h1 id="vscodegithub">VSCode免密发布代码到GitHub</h1>
+<h2 id="git">设置Git全局变量</h2>
+<div class="highlight"><pre><span></span><code>git config --global user.name &quot;your name&quot;     
+git config --global user.email &quot;your email&quot;
 </code></pre></div>
-<p>创建数据库</p>
-<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">testdb</span><span class="p">;</span>
+<h2 id="ssh-key">生成SSH Key</h2>
+<div class="highlight"><pre><span></span><code>ssh-keygen -t ed25519 -C &quot;your email&quot;
 </code></pre></div>
-<p>查看数据库</p>
-<div class="highlight"><pre><span></span><code>\l
+<p>或</p>
+<div class="highlight"><pre><span></span><code>ssh-keygen -t rsa -b 4096 -C &quot;your email&quot;
 </code></pre></div>
-<p>删除数据库</p>
-<div class="highlight"><pre><span></span><code><span class="k">drop</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">testdb</span><span class="p">;</span>
+<h3 id="_1">查看公钥</h3>
+<div class="highlight"><pre><span></span><code>cat ~/.ssh/id_ed25519.pub
 </code></pre></div>
-<p>连接数据库</p>
-<div class="highlight"><pre><span></span><code>\c testdb;
+<p>或</p>
+<div class="highlight"><pre><span></span><code>cat ~/.ssh/id_rsa.pub
 </code></pre></div>
-<p>创建没有主键的表</p>
-<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">tb1</span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="n">c_name</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">32</span><span class="p">),</span><span class="n">c_phone</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">14</span><span class="p">));</span>
-</code></pre></div>
-<p>创建包含主键的表</p>
-<div class="highlight"><pre><span></span><code><span class="c1">-- 方法1</span>
-<span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">tb2</span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">,</span><span class="n">c_name</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">32</span><span class="p">),</span><span class="n">c_phone</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">14</span><span class="p">));</span>
-<span class="c1">-- 方法2</span>
-<span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">tb3</span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="n">c_name</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">32</span><span class="p">),</span><span class="n">c_phone</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">14</span><span class="p">),</span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">(</span><span class="n">id</span><span class="p">));</span>
-</code></pre></div>
-<p>创建包含多个主键的表</p>
-<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">tb4</span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="n">c_name</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">32</span><span class="p">),</span><span class="n">c_phone</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">14</span><span class="p">),</span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="n">c_name</span><span class="p">));</span>
-</code></pre></div>
-<p>创建主键自动增长的表</p>
-<div class="highlight"><pre><span></span><code><span class="c1">-- 主键字段不用显示声明not null</span>
-<span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">tb5</span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="nb">serial</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">,</span><span class="w"> </span><span class="n">c_name</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">32</span><span class="p">),</span><span class="n">c_phone</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">14</span><span class="p">));</span>
-</code></pre></div>
-<p>显示所有表</p>
-<div class="highlight"><pre><span></span><code>\d
-</code></pre></div>
-<p>显示某张表</p>
-<div class="highlight"><pre><span></span><code>\d tb1
-</code></pre></div>
-<p>删除表</p>
-<div class="highlight"><pre><span></span><code><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">tb1</span><span class="p">;</span>
-<span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">tb2</span><span class="p">,</span><span class="n">tb3</span><span class="p">;</span>
-</code></pre></div>
-<p>扩展：模式(架构)，最常见的public就是一张模式(架构)</p>
-<div class="highlight"><pre><span></span><code><span class="c1">-- 创建模式(架构)：</span>
-<span class="k">create</span><span class="w"> </span><span class="k">schema</span><span class="w"> </span><span class="n">myschema</span><span class="p">;</span><span class="w"> </span>
-
-<span class="c1">-- 删除模式(架构)：</span>
-<span class="k">drop</span><span class="w"> </span><span class="k">schema</span><span class="w"> </span><span class="n">myschema</span><span class="p">;</span>
-</code></pre></div>
+<h3 id="github">添加公钥到GitHub账号</h3>
+<p>setting -&gt; SSH and GPG keys -&gt; New SSH key</p>
+<p>粘贴密钥并保存</p>
+<h2 id="_2">发布代码</h2>
+<p>打开vscode，打开源代码管理，点击发布到Github，根据提示操作即可</p>
 
 
 
@@ -2449,7 +2604,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.51198bba.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b425cdc4.min.js"></script>
       
     
   </body>

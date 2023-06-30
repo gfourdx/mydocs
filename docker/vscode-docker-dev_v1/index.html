@@ -12,27 +12,27 @@
         <meta name="author" content="gfourdx">
       
       
-        <link rel="canonical" href="https://911205.xyz/soft/%E4%B8%8B%E8%BD%BDChrome%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8C%85/">
+        <link rel="canonical" href="https://911205.xyz/docker/vscode-docker-dev_v1/">
       
       
-        <link rel="prev" href="../V2ray%2BTrojan%E9%85%8D%E7%BD%AE/">
+        <link rel="prev" href="../../others/Iptables/">
       
       
-        <link rel="next" href="../vscode%2Bdocker%2Bdev/">
+        <link rel="next" href="../vscode-docker-dev_v2/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
     
     
       
-        <title>下载Chrome离线安装包 - My Docs</title>
+        <title>基于Docker的开发环境 V1 - My Docs</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ded33207.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
       
       
 
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#chrome" class="md-skip">
+        <a href="#docker-v1" class="md-skip">
           跳转至
         </a>
       
@@ -112,32 +112,38 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              下载Chrome离线安装包
+              基于Docker的开发环境 V1
             
           </span>
         </div>
       </div>
     </div>
     
-      <form class="md-header__option" data-md-component="palette">
-        
+      
+        <form class="md-header__option" data-md-component="palette">
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="blue"  aria-label="浅色"  type="radio" name="__palette" id="__palette_1">
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="blue"  aria-label="浅色"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="浅色" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
           
-            <label class="md-header__button md-icon" title="浅色" for="__palette_2" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
-            </label>
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="red"  aria-label="深色"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="深色" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
           
-        
-          
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="red"  aria-label="深色"  type="radio" name="__palette" id="__palette_2">
-          
-            <label class="md-header__button md-icon" title="深色" for="__palette_1" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
-            </label>
-          
-        
-      </form>
+        </form>
+      
     
     
     
@@ -294,6 +300,22 @@
         
   
   
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../others/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="md-tabs__link">
+        Others
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
     
   
 
@@ -302,8 +324,8 @@
   
   
     <li class="md-tabs__item">
-      <a href="../Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="md-tabs__link md-tabs__link--active">
-        Software
+      <a href="./" class="md-tabs__link md-tabs__link--active">
+        Docker
       </a>
     </li>
   
@@ -2150,28 +2172,26 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
       
       
       
         <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
-          Software
+          Others
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_8">
           <span class="md-nav__icon md-icon"></span>
-          Software
+          Others
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -2181,7 +2201,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="md-nav__link">
+      <a href="../../others/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="md-nav__link">
         Git常用命令
       </a>
     </li>
@@ -2195,7 +2215,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../PostgreSQL%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="md-nav__link">
+      <a href="../../others/PostgreSQL%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="md-nav__link">
         PostgreSQL常用命令
       </a>
     </li>
@@ -2209,7 +2229,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../VSCode%E5%85%8D%E5%AF%86%E5%8F%91%E5%B8%83%E4%BB%A3%E7%A0%81%E5%88%B0GitHub/" class="md-nav__link">
+      <a href="../../others/VSCode%E5%85%8D%E5%AF%86%E5%8F%91%E5%B8%83%E4%BB%A3%E7%A0%81%E5%88%B0GitHub/" class="md-nav__link">
         VSCode免密发布代码到GitHub
       </a>
     </li>
@@ -2223,13 +2243,78 @@
   
   
     <li class="md-nav__item">
-      <a href="../V2ray%2BTrojan%E9%85%8D%E7%BD%AE/" class="md-nav__link">
+      <a href="../../others/V2ray%2BTrojan%E9%85%8D%E7%BD%AE/" class="md-nav__link">
         V2ray+Trojan配置
       </a>
     </li>
   
 
             
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../others/%E4%B8%8B%E8%BD%BDChrome%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8C%85/" class="md-nav__link">
+        下载Chrome离线安装包
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../others/Iptables/" class="md-nav__link">
+        Iptables
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+          Docker
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Docker
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
             
               
@@ -2247,7 +2332,7 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        下载Chrome离线安装包
+        基于Docker的开发环境 V1
       </a>
       
     </li>
@@ -2261,22 +2346,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../vscode%2Bdocker%2Bdev/" class="md-nav__link">
-        基于Docker的开发环境
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Iptables/" class="md-nav__link">
-        Iptables
+      <a href="../vscode-docker-dev_v2/" class="md-nav__link">
+        基于Docker的开发环境 V2
       </a>
     </li>
   
@@ -2322,12 +2393,85 @@
                   
 
 
-<h1 id="chrome">下载Chrome离线安装包</h1>
+<h1 id="docker-v1">基于Docker的开发环境 V1</h1>
 <hr />
-<p><strong>国内</strong></p>
-<p><a href="https://www.google.cn/chrome/?system=true&amp;standalone=1">https://www.google.cn/chrome/?system=true&amp;standalone=1</a></p>
-<p><strong>国外</strong></p>
-<p><a href="https://www.google.com/chrome/?system=true&amp;standalone=1">https://www.google.com/chrome/?system=true&amp;standalone=1</a></p>
+<div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">debian:bullseye-slim</span>
+
+<span class="k">ENV</span><span class="w"> </span>LANG<span class="w"> </span>C.UTF-8
+
+<span class="k">RUN</span><span class="w"> </span><span class="nb">set</span><span class="w"> </span>-eux<span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>#<span class="w"> </span>设置时区
+<span class="w">    </span>ln<span class="w"> </span>-sf<span class="w"> </span>/usr/share/zoneinfo/Asia/Shanghai<span class="w"> </span>/etc/localtime<span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;Asia/Shanghai&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>/etc/timezone<span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>#<span class="w"> </span>配置apt源
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye main contrib non-free \n\</span>
+<span class="s1">deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye-updates main contrib non-free \n\</span>
+<span class="s1">deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye-backports main contrib non-free \n\</span>
+<span class="s1">deb http://mirrors.tuna.tsinghua.edu.cn/debian-security bullseye-security main contrib non-free&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>/etc/apt/sources.list<span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>#<span class="w"> </span>更新源
+<span class="w">    </span>apt<span class="w"> </span>update<span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>#<span class="w"> </span>安装系统软件
+<span class="w">    </span>#<span class="w"> </span>iproute2提供<span class="sb">`</span>ip<span class="w"> </span>a<span class="sb">`</span>和<span class="sb">`</span>ss<span class="sb">`</span>命令,<span class="w"> </span>iputils-ping提供<span class="sb">`</span>ping<span class="sb">`</span>命令,<span class="w"> </span>procps提供<span class="sb">`</span>ps<span class="sb">`</span>和<span class="sb">`</span>top<span class="sb">`</span>命令
+<span class="w">    </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>--no-install-recommends<span class="w"> </span>--no-install-suggests<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>iproute2<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>iputils-ping<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>procps<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>#<span class="w"> </span>安装工具软件,<span class="w"> </span>ca-certificates可避免wget下载https协议文件的证书安全提示
+<span class="w">    </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>--no-install-recommends<span class="w"> </span>--no-install-suggests<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>ca-certificates<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>curl<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>git<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>ssh<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>wget<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>vim<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span><span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>#<span class="w"> </span>安装开发软件
+<span class="w">    </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>--no-install-recommends<span class="w"> </span>--no-install-suggests<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>mariadb-client<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>mariadb-server<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>nginx<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>postgresql<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>python3<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>python3-pip<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>python3-venv<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>redis<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span><span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>#<span class="w"> </span>避免pip安装mysqlclient和psycopg2报错
+<span class="w">    </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>--no-install-recommends<span class="w"> </span>--no-install-suggests<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>build-essential<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>libmariadb-dev<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>libpq-dev<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>python3-dev<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>#<span class="w"> </span>配置pip源
+<span class="w">    </span>pip3<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>global.index-url<span class="w"> </span>https://pypi.tuna.tsinghua.edu.cn/simple<span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>#<span class="w"> </span>安装golang
+<span class="w">    </span>wget<span class="w"> </span>https://go.dev/dl/go1.20.4.linux-arm64.tar.gz<span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>rm<span class="w"> </span>-rf<span class="w"> </span>/usr/local/go<span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>tar<span class="w"> </span>-C<span class="w"> </span>/usr/local<span class="w"> </span>-xzf<span class="w"> </span>go1.20.4.linux-arm64.tar.gz<span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>rm<span class="w"> </span>-rf<span class="w"> </span>go1.20.4.linux-arm64.tar.gz<span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>#<span class="w"> </span>设置golang环境变量
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;PATH=</span><span class="nv">$PATH</span><span class="s2">:/usr/local/go/bin&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/root/.bashrc<span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>#<span class="w"> </span>清理缓存
+<span class="w">    </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/apt/lists/*<span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>#<span class="w"> </span>配置ssh允许root登录
+<span class="w">    </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;s@#PermitRootLogin prohibit-password@PermitRootLogin yes@g&quot;</span><span class="w"> </span>/etc/ssh/sshd_config<span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>#<span class="w"> </span>配置ssh允许空密码登录
+<span class="w">    </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;s@#PermitEmptyPasswords no@PermitEmptyPasswords yes@g&quot;</span><span class="w"> </span>/etc/ssh/sshd_config<span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>#<span class="w"> </span>删除root密码
+<span class="w">    </span>passwd<span class="w"> </span>-d<span class="w"> </span>root<span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>#<span class="w"> </span>设置ssh自启动
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;service ssh start &gt; /dev/null&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/root/.bashrc
+
+<span class="k">EXPOSE</span><span class="w"> </span><span class="s">22 80 3306 5432 6379</span>
+
+<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;bash&quot;</span><span class="w"> </span><span class="p">]</span>
+
+<span class="c"># docker build -f Dev.Dockerfile -t mydev:latest .</span>
+<span class="c"># docker run -dit -h mydev -p 22:22 -p 80:80 -p 3306:3306 -p 5432:5432 -p 6379:6379 -v /path/to/host:/path/to/docker --name mydev --restart=unless-stopped mydev</span>
+<span class="c"># docker exec -it mydev bash</span>
+</code></pre></div>
 
 
 
@@ -2403,7 +2547,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.51198bba.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b425cdc4.min.js"></script>
       
     
   </body>
