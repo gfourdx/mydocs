@@ -14,6 +14,8 @@ Docker&Linux: [OrbStack](https://github.com/orbstack/orbstack)
 
 数据库工具: [DBeaver](https://github.com/dbeaver/dbeaver/)
 
+Redis工具: [ARDM](https://github.com/qishibo/AnotherRedisDesktopManager)
+
 配置不同App使用不同输入法: [KeyboardHolder](https://github.com/leaves615/KeyboardHolder)
 
 梯子: [clashX](https://github.com/yichengchen/clashX), [v2ray-core](https://github.com/v2fly/v2ray-core/)
@@ -59,21 +61,6 @@ Android文件传输: [Android File Transfer](https://www.android.com/filetransfe
 Parallels Desktop启动器: [PD Runner](https://macapp.org.cn/app/pd-runner.html)
 
 Markdown工具: [Typora](https://download.typora.io/mac/Typora-0.11.18.dmg)
-
-> 新版开始收费, 官网页面上已经下载旧版, 但旧版的下载地址还可以用
->
-> - https://download.typora.io/windows/typora-setup-x64-0.11.18.exe
-> - https://download.typora.io/windows/typora-setup-ia32-0.11.18.exe 
-> - https://download.typora.io/linux/typora_0.11.18_amd64.deb
-> - https://download.typora.io/mac/Typora-0.11.18.dmg
-
-代码补全: [Kite](https://release.kite.com/dls/mac/current)
-
-> 官网无法下载, 参考: [Kite is temporarily unavailable](https://github.com/kiteco/issue-tracker/issues/772)
->
-> - https://linux.kite.com/dls/linux/current
-> - https://release.kite.com/dls/windows/current
-> - https://release.kite.com/dls/mac/current
 
 视频格式转换: [HandBrake](https://handbrake.fr/)
 

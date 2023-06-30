@@ -161,11 +161,14 @@ nav:
         - 累加和阶乘: python/exercises/递归实现累加和阶乘.md
         - python/exercises/连续子数组的最大和.md
         - 两数之和: python/exercises/两数之和.md
-  - Software:
-    - soft/Git常用命令.md
-    - soft/PostgreSQL常用命令.md     
-    - soft/VSCode免密发布代码到GitHub.md
-    - soft/V2ray+Trojan配置.md
-    - soft/下载Chrome离线安装包.md
-    - soft/vscode+docker+dev.md
-    - soft/Iptables.md
+  - Others:
+    - others/Git常用命令.md
+    - others/PostgreSQL常用命令.md     
+    - others/VSCode免密发布代码到GitHub.md
+    - others/V2ray+Trojan配置.md
+    - others/下载Chrome离线安装包.md
+    - others/Iptables.md
+  - Docker:
+    - docker/vscode-docker-dev_v1.md
+    - docker/vscode-docker-dev_v2.md
+    

@@ -17,14 +17,30 @@ sudo apt-get -y install postgresql
 
 ### 允许任何IP访问
 
+##### Debian11
+
 ```
 sed -i "s@host    all             all             127.0.0.1/32            md5@host    all             all             0.0.0.0/0            md5@g" /etc/postgresql/13/main/pg_hba.conf
 ```
 
+##### Debian12
+
+```
+sed -i "s@host    all             all             127.0.0.1/32            scram-sha-256@host    all             all             0.0.0.0/0               scram-sha-256@g" /etc/postgresql/15/main/pg_hba.conf
+```
+
 ### 监听任何IP
+
+##### Debian11
 
 ```
 sed -i "s@#listen_addresses = 'localhost'@listen_addresses = '*'@g" /etc/postgresql/13/main/postgresql.conf
+```
+
+##### Debian12
+
+```
+sed -i "s@#listen_addresses = 'localhost'		# what IP address(es) to listen on;@listen_addresses = '*'			# what IP address(es) to listen on;@g" /etc/postgresql/15/main/postgresql.conf
 ```
 
 ### 修改Linux用户postgres密码
