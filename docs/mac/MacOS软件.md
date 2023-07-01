@@ -4,7 +4,7 @@
 
 ## 开源
 
-Docker&Linux: [OrbStack](https://github.com/orbstack/orbstack)
+剪切板历史: [Maccy](https://github.com/p0deje/Maccy)
 
 划词翻译: [Bob](https://github.com/ripperhe/Bob)
 
@@ -37,6 +37,8 @@ Gridea主题: [Pure](https://github.com/imhanjie/gridea-theme-pure)
 视频播放器: [IINA](https://github.com/iina/iina)
 
 IINA插件(B站、弹幕等): [IINA+](https://github.com/xjbeta/iina-plus)
+
+Docker&Linux: [OrbStack](https://github.com/orbstack/orbstack)
 
 虚拟机: [UTM](https://github.com/utmapp/UTM)
 
