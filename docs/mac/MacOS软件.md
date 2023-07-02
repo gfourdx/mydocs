@@ -2,6 +2,10 @@
 
 ---
 
+夹带一条命令去除软件更新的小红点
+
+`defaults write com.apple.systempreferences AttentionPrefBundleIDs 0`
+
 ## 开源
 
 剪切板历史: [Maccy](https://github.com/p0deje/Maccy)
@@ -28,15 +32,15 @@ Redis工具: [ARDM](https://github.com/qishibo/AnotherRedisDesktopManager)
 
 键盘按键映射调整: [Karabiner-Elements](https://github.com/pqrs-org/Karabiner-Elements)
 
+视频播放器: [IINA](https://github.com/iina/iina)
+
+IINA插件(B站、弹幕等): [IINA+](https://github.com/xjbeta/iina-plus)
+
 Mp3Tag编辑: [MusicBrainz Picard](https://github.com/metabrainz/picard)
 
 静态博客写作客户端: [Gridea](https://github.com/getgridea/gridea)
 
 Gridea主题: [Pure](https://github.com/imhanjie/gridea-theme-pure)
-
-视频播放器: [IINA](https://github.com/iina/iina)
-
-IINA插件(B站、弹幕等): [IINA+](https://github.com/xjbeta/iina-plus)
 
 Docker&Linux: [OrbStack](https://github.com/orbstack/orbstack)
 
@@ -47,8 +51,6 @@ UTM工具包: [SPICE Guest Tools](https://mac.getutm.app/support/)
 ## 闭源
 
 压缩工具: [MacZip](https://ezip.awehunt.com/)
-
-终端自动补全: [Fig](https://fig.io/)
 
 截图: [Snipaste](https://www.snipaste.com/index.html)
 
@@ -70,9 +72,7 @@ Markdown工具: [Typora](https://download.typora.io/mac/Typora-0.11.18.dmg)
 
 ## 下载站
 
-[MacBL](https://www.macbl.com/)
-
-[Xclient](https://xclient.info/)
+[Awesome Mac](https://wangchujiang.com/awesome-mac/README-zh.html)
 
 [Better365](https://www.better365.cn/)
 
