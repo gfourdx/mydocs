@@ -69,8 +69,8 @@ nav:
     - linux/Linux配置IP和DNS.md
     - linux/Debian网络管理.md
     - Debian搭建K8S集群: linux/Debian10通过kubeadm部署Kubernetes集群.md
-    - linux/Debian安装和配置Docker.md
     - linux/源码编译MySQL5.7记录.md
+    - linux/Debian安装和配置Docker.md
     - linux/Debian安装和配置MariaDB.md
     - linux/Debian安装和配置PostgreSQL.md
     - linux/安装mysqlclient和psycopg2报错.md
@@ -94,8 +94,8 @@ nav:
     - Windows安装配置MySQ5.7: windows/Windows 11 安装配置 MySQL 5.7.38.md
   - MySQL:
     - mysql/MySQL时区.md
-    - mysql/MySQL索引的数据结构.md
     - mysql/MySQL常用语句和命令.md
+    - mysql/MySQL索引的数据结构.md
     - mysql/MySQL之Explain.md
     - mysql/MySQL之Explain详解.md
     - mysql/MySQL之优化.md

@@ -73,7 +73,7 @@ newgrp - docker
 https://download.docker.com/linux/debian/dists/bullseye/pool/stable/amd64/
 ```
 
-> 改网站 https://download.docker.com/ 可离线下载linux、mach和windos的离线安装包
+> 该网站 https://download.docker.com/ 可离线下载linux、mach和windos的离线安装包
 >
 > 对于linx，可选择支持的发行版、版本和架构等
 >
