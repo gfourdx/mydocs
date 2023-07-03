@@ -34,7 +34,7 @@ Remove test database and access to it? [Y/n]         # 输入y后按下回车
 Reload privilege tables now? [Y/n]                   # 输入y后按下回车
 
 # 登录mysql继续配置，注意：第三条命令中的"mariadb"是密码，建议与上面的密码保持一致
-mysql -u root -p
+mysql -u root
 use mysql
 grant all privileges on *.* to 'root'@'%' identified by 'mariadb' with grant option;
 flush privileges;
