@@ -2393,62 +2393,103 @@
 
 <h1 id="docker-v2">基于Docker的开发环境 V2</h1>
 <hr />
-<div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">debian:bookworm-slim</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="s">Base</span>
+<div class="highlight"><pre><span></span><code><span class="c">#</span>
+<span class="c"># 构建Docker开发环境</span>
+<span class="c"># </span>
+<span class="c"># 1、构建镜像</span>
+<span class="c"># docker build -f mydev.Dockerfile -t gfourdx/mydev:latest . </span>
+<span class="c"># 2、运行容器</span>
+<span class="c"># docker run -dit -h mydev -p 22:22 -p 80:80  -p 443:443 -p 3306:3306 -p 5432:5432 -p 6379:6379 -v /path/to/host/:/path/to/container/ --name mydev --restart=unless-stopped gfourdx/mydev</span>
+<span class="c"># 3、快速进入容器</span>
+<span class="c"># echo &#39;alias mydev=&quot;docker exec -it mydev bash&quot;&#39; &gt;&gt; ~/.zprofile</span>
+<span class="c"># </span>
+<span class="c"># 利用多段构建构建解决两个问题:</span>
+<span class="c"># 1、因缺少编译工具导致 pip 命令安装某些包时失败的问题</span>
+<span class="c"># 2、减少镜像的体积</span>
+<span class="c"># </span>
+<span class="c"># 第一段使用镜像 Debian bookworm</span>
+<span class="c"># 该镜像的优点是 包含完整的编译工具</span>
+<span class="c"># 保证 pip 命令编译安装 mysqlclient 和 psycopg2 成功</span>
+<span class="c"># 该镜像的缺点是 初始体积较大(约139MB)</span>
+<span class="c">#</span>
+<span class="c"># 第二段使用镜像 Debian bookworm-slim</span>
+<span class="c"># 该镜像的缺点是 缺少编译工具</span>
+<span class="c"># 导致 pip 命令编译安装 mysqlclient 和 psycopg2 失败</span>
+<span class="c"># 该镜像的优点是 初始体积较小(约97.1MB)</span>
+<span class="c">#</span>
 
-<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/root/</span>
+<span class="c"># 第一阶段构建</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">debian:bookworm-slim</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="s">Base</span>
 
+<span class="c"># 配置编译环境</span>
+<span class="c"># 每条命令之间使用 &amp;&amp; 连接</span>
+<span class="c"># 表示只有上条命令执行成功后才会执行下条命令</span>
 <span class="k">RUN</span><span class="w"> </span><span class="nb">set</span><span class="w"> </span>-eux<span class="p">;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>#<span class="w"> </span>配置国内源
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/etc/apt/sources.list<span class="p">;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/apt/sources.list<span class="p">;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/apt/sources.list<span class="p">;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb http://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/apt/sources.list<span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/etc/apt/sources.list<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/apt/sources.list<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/apt/sources.list<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb http://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/apt/sources.list<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>#<span class="w"> </span>更新源
 <span class="w">    </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>#<span class="w"> </span>安装包
 <span class="w">    </span>apt<span class="w"> </span>install<span class="w"> </span>--no-install-recommends<span class="w"> </span>--no-install-suggests<span class="w"> </span>-y<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>#<span class="w"> </span>python相关的包
-<span class="w">    </span>python3<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>python3-pip<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>python3-venv<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>python3-dev<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span><span class="se">\</span>
-<span class="w">    </span>#<span class="w"> </span>编译需要的包
-<span class="w">    </span>pkg-config<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>gcc<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span><span class="se">\</span>
-<span class="w">    </span>#<span class="w"> </span>mysqlclient和psycopg2依赖的包
-<span class="w">    </span>libmariadb-dev<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>libpq-dev<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>#<span class="w"> </span>python相关的包
+<span class="w">        </span>python3<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>python3-pip<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>python3-venv<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>python3-dev<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span><span class="se">\</span>
+<span class="w">        </span>#<span class="w"> </span>编译需要的包
+<span class="w">        </span>pkg-config<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>gcc<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span><span class="se">\</span>
+<span class="w">        </span>#<span class="w"> </span>mysqlclient和psycopg2依赖的包
+<span class="w">        </span>libmariadb-dev<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>libpq-dev<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>#<span class="w"> </span>清除缓存
 <span class="w">    </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/apt/lists/*
 
+<span class="c"># 配置虚拟环境</span>
 <span class="k">RUN</span><span class="w"> </span><span class="nb">set</span><span class="w"> </span>-eux<span class="p">;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>#<span class="w"> </span>配置国内源
 <span class="w">    </span>pip3<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>global.index-url<span class="w"> </span>https://pypi.tuna.tsinghua.edu.cn/simple<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venvs/venv<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>#<span class="w"> </span>创建虚拟环境
+<span class="w">    </span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>/root/venv<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>#<span class="w"> </span>激活虚拟环境
 <span class="w">    </span>#<span class="w"> </span>dockerfile中source语法无效
 <span class="w">    </span>#<span class="w"> </span>使用<span class="w"> </span>.<span class="w"> </span>代替
-<span class="w">    </span>.<span class="w"> </span>venvs/venv/bin/activate<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>pip<span class="w"> </span>install<span class="w"> </span>wheel<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>pip<span class="w"> </span>install<span class="w"> </span>mysqlclient<span class="w"> </span>psycopg2<span class="p">;</span>
+<span class="w">    </span>.<span class="w"> </span>/root/venv/bin/activate<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>#<span class="w"> </span>安装wheel
+<span class="w">    </span>pip<span class="w"> </span>install<span class="w"> </span>wheel
 
+<span class="c"># 在虚拟环境中编译安装pip包</span>
+<span class="k">RUN</span><span class="w"> </span><span class="nb">set</span><span class="w"> </span>-eux<span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>.<span class="w"> </span>/root/venv/bin/activate<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>pip<span class="w"> </span>install<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>mysqlclient<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>psycopg2
 
+<span class="c"># 第二阶段构建</span>
 <span class="k">FROM</span><span class="w"> </span><span class="s">debian:bookworm-slim</span>
 
+<span class="c"># 配置环境变量</span>
 <span class="k">ENV</span><span class="w"> </span>LANG<span class="w"> </span>C.UTF-8
 
+<span class="c"># 配置工作目录</span>
 <span class="k">WORKDIR</span><span class="w"> </span><span class="s">/root/</span>
 
 <span class="k">RUN</span><span class="w"> </span><span class="nb">set</span><span class="w"> </span>-eux<span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>#<span class="w"> </span>配置本地时间
 <span class="w">    </span>ln<span class="w"> </span>-sf<span class="w"> </span>/usr/share/zoneinfo/Asia/Shanghai<span class="w"> </span>/etc/localtime<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>#<span class="w"> </span>配置本地时区
 <span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;Asia/Shanghai&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>/etc/timezone
 
 <span class="k">RUN</span><span class="w"> </span><span class="nb">set</span><span class="w"> </span>-eux<span class="p">;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/etc/apt/sources.list<span class="p">;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/apt/sources.list<span class="p">;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/apt/sources.list<span class="p">;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb http://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/apt/sources.list<span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/etc/apt/sources.list<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/apt/sources.list<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/apt/sources.list<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb http://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/apt/sources.list<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>apt<span class="w"> </span>install<span class="w"> </span>--no-install-recommends<span class="w"> </span>--no-install-suggests<span class="w"> </span>-y<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>python3<span class="w"> </span><span class="se">\</span>
@@ -2477,7 +2518,7 @@
 <span class="w">    </span>#<span class="w"> </span>提供ps、top、free和sysctl等命令
 <span class="w">    </span>procps<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>#<span class="w"> </span>清理缓存
-<span class="w">    </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/apt/lists/*<span class="p">;</span>
+<span class="w">    </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/apt/lists/*
 
 <span class="k">RUN</span><span class="w"> </span><span class="nb">set</span><span class="w"> </span>-eux<span class="p">;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>#<span class="w"> </span>配置PIP国内源
@@ -2487,31 +2528,37 @@
 <span class="w">    </span>#<span class="w"> </span>配置PostgreSQL允许任何IP登录
 <span class="w">    </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;s@host    all             all             127.0.0.1/32            scram-sha-256@host    all             all             0.0.0.0/0               scram-sha-256@g&quot;</span><span class="w"> </span>/etc/postgresql/15/main/pg_hba.conf<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>#<span class="w"> </span>配置PostgreSQL监听所有IP
-<span class="w">    </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;s@#listen_addresses = &#39;localhost&#39;       # what IP address(es) to listen on;@listen_addresses = &#39;*&#39;  # what IP address(es) to listen on;@g&quot;</span><span class="w"> </span>/etc/postgresql/15/main/postgresql.conf<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;s@#listen_addresses = &#39;localhost&#39;       # what IP address(es) to listen on;@listen_addresses = &#39;*&#39;          # what IP address(es) to listen on;@g&quot;</span><span class="w"> </span>/etc/postgresql/15/main/postgresql.conf<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>#<span class="w"> </span>配置redis监听所有IP
+<span class="w">    </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;s@bind 127.0.0.1 -::1@bind 0.0.0.0 -::1@g&quot;</span><span class="w"> </span>/etc/redis/redis.conf<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>#<span class="w"> </span>配置redis非保护模式<span class="o">(</span>允许非回环地址访问<span class="o">)</span>
+<span class="w">    </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;s@protected-mode yes@protected-mode no@g&quot;</span><span class="w"> </span>/etc/redis/redis.conf<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>#<span class="w"> </span>配置ssh允许root登录
 <span class="w">    </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;s@#PermitRootLogin prohibit-password@PermitRootLogin yes@g&quot;</span><span class="w"> </span>/etc/ssh/sshd_config<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>#<span class="w"> </span>配置ssh允许空密码登录
 <span class="w">    </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;s@#PermitEmptyPasswords no@PermitEmptyPasswords yes@g&quot;</span><span class="w"> </span>/etc/ssh/sshd_config<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>#<span class="w"> </span>删除root密码
-<span class="w">    </span>passwd<span class="w"> </span>-d<span class="w"> </span>root<span class="p">;</span><span class="w"> </span>
+<span class="w">    </span>passwd<span class="w"> </span>-d<span class="w"> </span>root
 
-<span class="k">COPY</span><span class="w"> </span>--from<span class="o">=</span>Base<span class="w"> </span>/root/venvs/<span class="w"> </span>venvs/
+<span class="k">RUN</span><span class="w"> </span><span class="nb">set</span><span class="w"> </span>-eux<span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>#<span class="w"> </span>创建虚拟环境存放第一阶段编译安装的pip包
+<span class="w">    </span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venvs/venv
 
-<span class="k">EXPOSE</span><span class="w"> </span><span class="s">22 443  80 3306 5432 6379</span>
+<span class="c"># 拷贝第一阶段编译安装的pip包覆盖到本机</span>
+<span class="k">COPY</span><span class="w"> </span>--from<span class="o">=</span>Base<span class="w"> </span>/root/venv/lib/python3.11/site-packages/<span class="w"> </span>venvs/venv/lib/python3.11/site-packages/
+
+<span class="c"># 22 ssh</span>
+<span class="c"># 80 443 nginx</span>
+<span class="c"># 3306 mariadb</span>
+<span class="c"># 5432 postgresql</span>
+<span class="c"># 7379 redis</span>
+<span class="k">EXPOSE</span><span class="w"> </span><span class="s">22 80 443 3306 5432 6379</span>
 
 <span class="c"># 通过 bash -c 参数的方式启动服务</span>
-<span class="c"># 最后使用 &amp;&amp; bash 或 &amp;&amp; tail -f /dev/null 挂起</span>
+<span class="c"># 最后使用 bash 或 tail -f /dev/null 挂起</span>
 <span class="c"># 保证容器运行后不会直接退出</span>
-<span class="c"># CMD [&quot;bash&quot;, &quot;-c&quot;, &quot;service name1 start &amp;&amp; service name2 start &amp;&amp; xxx &amp;&amp; tail -f /dev/null&quot;] </span>
-<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;bash&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;-c&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;service ssh start &amp;&amp; service mariadb start &amp;&amp; service postgresql start &amp;&amp; service redis-server start &amp;&amp; service nginx start &amp;&amp; bash&quot;</span><span class="p">]</span>
-
-
-<span class="c"># 构建镜像</span>
-<span class="c"># docker build -f mydev.Dockerfile -t mydev:latest . </span>
-<span class="c"># 运行容器</span>
-<span class="c"># docker run -dit -h mydev -p 22:22 -p 80:80  -p 443:443 -p 3306:3306 -p 5432:5432 -p 6379:6379 -v /path/to/host:/path/to/docker --name mydev --restart=unless-stopped mydev</span>
-<span class="c"># 快速进入容器</span>
-<span class="c"># echo &#39;alias mydev=&quot;docker exec -it mydev bash&quot;&#39; &gt;&gt; ~/.zprofile</span>
+<span class="c"># CMD [&quot;bash&quot;, &quot;-c&quot;, &quot;service server1 start &amp;&amp; service server2 start &amp;&amp; xxx &amp;&amp; tail -f /dev/null&quot;] </span>
+<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;bash&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;-c&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;service ssh start &amp;&amp; service nginx start &amp;&amp; service mariadb start &amp;&amp; service postgresql start &amp;&amp; service redis-server start &amp;&amp; bash&quot;</span><span class="p">]</span>
 </code></pre></div>
 
 
