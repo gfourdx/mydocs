@@ -596,8 +596,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../Debian%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AEDocker/" class="md-nav__link">
-        Debian安装和配置Docker
+      <a href="../%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91MySQL5.7%E8%AE%B0%E5%BD%95/" class="md-nav__link">
+        源码编译MySQL5.7记录
       </a>
     </li>
   
@@ -610,8 +610,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91MySQL5.7%E8%AE%B0%E5%BD%95/" class="md-nav__link">
-        源码编译MySQL5.7记录
+      <a href="../Debian%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AEDocker/" class="md-nav__link">
+        Debian安装和配置Docker
       </a>
     </li>
   
@@ -741,13 +741,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#linuxpostgres" class="md-nav__link">
-    修改Linux用户postgres密码
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     启动
   </a>
@@ -755,7 +748,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#linuxpostgres_1" class="md-nav__link">
+  <a href="#linuxpostgres" class="md-nav__link">
     切换至Linux用户postgres
   </a>
   
@@ -764,13 +757,6 @@
           <li class="md-nav__item">
   <a href="#postgres" class="md-nav__link">
     修改数据库用户postgres密码
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    重启服务
   </a>
   
 </li>
@@ -1152,8 +1138,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mysql/MySQL%E7%B4%A2%E5%BC%95%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="md-nav__link">
-        MySQL索引的数据结构
+      <a href="../../mysql/MySQL%E5%B8%B8%E7%94%A8%E8%AF%AD%E5%8F%A5%E5%92%8C%E5%91%BD%E4%BB%A4/" class="md-nav__link">
+        MySQL常用语句和命令
       </a>
     </li>
   
@@ -1166,8 +1152,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mysql/MySQL%E5%B8%B8%E7%94%A8%E8%AF%AD%E5%8F%A5%E5%92%8C%E5%91%BD%E4%BB%A4/" class="md-nav__link">
-        MySQL常用语句和命令
+      <a href="../../mysql/MySQL%E7%B4%A2%E5%BC%95%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="md-nav__link">
+        MySQL索引的数据结构
       </a>
     </li>
   
@@ -2589,13 +2575,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#linuxpostgres" class="md-nav__link">
-    修改Linux用户postgres密码
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     启动
   </a>
@@ -2603,7 +2582,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#linuxpostgres_1" class="md-nav__link">
+  <a href="#linuxpostgres" class="md-nav__link">
     切换至Linux用户postgres
   </a>
   
@@ -2612,13 +2591,6 @@
           <li class="md-nav__item">
   <a href="#postgres" class="md-nav__link">
     修改数据库用户postgres密码
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    重启服务
   </a>
   
 </li>
@@ -2667,32 +2639,22 @@ sudo apt-get -y install postgresql
 <h5 id="debian12_1">Debian12</h5>
 <div class="highlight"><pre><span></span><code>sed -i &quot;s@#listen_addresses = &#39;localhost&#39;       # what IP address(es) to listen on;@listen_addresses = &#39;*&#39;          # what IP address(es) to listen on;@g&quot; /etc/postgresql/15/main/postgresql.conf
 </code></pre></div>
-<h3 id="linuxpostgres">修改Linux用户postgres密码</h3>
-<div class="highlight"><pre><span></span><code>passwd postgres
-</code></pre></div>
-<p>输入两次密码确认即可</p>
 <h3 id="_3">启动</h3>
 <div class="highlight"><pre><span></span><code>service postgresql start
 </code></pre></div>
-<h3 id="linuxpostgres_1">切换至Linux用户postgres</h3>
+<h3 id="linuxpostgres">切换至Linux用户postgres</h3>
 <div class="highlight"><pre><span></span><code>su - postgres
 </code></pre></div>
-<p>输入上面设置的密码回车即可</p>
+<blockquote>
+<p>一般无需密码即可切换到postgres用户</p>
+<p>如提示输入密码或想设置密码可执行命令 <code>passwd postgres</code></p>
+</blockquote>
 <h3 id="postgres">修改数据库用户postgres密码</h3>
 <div class="highlight"><pre><span></span><code>psql
 alter user postgres with password &#39;postgres&#39;;
 \q
 exit
 </code></pre></div>
-<blockquote>
-<p>上述第2条命令中最后的'postgres'即是密码，根据实际情况设置即可</p>
-</blockquote>
-<h3 id="_4">重启服务</h3>
-<p><div class="highlight"><pre><span></span><code>service postgresql restart
-</code></pre></div>
-或
-<div class="highlight"><pre><span></span><code>systemctl restart postgresql
-</code></pre></div></p>
 
 
 
