@@ -10,13 +10,19 @@ apt install -y mariadb-server mariadb-client
 
 ## 配置
 
-### 启动
+### 修改配置文件监听所有IP
+
+```
+sed -i 's@bind-address            = 127.0.0.1@bind-address            = 0.0.0.0@g' /etc/mysql/mariadb.conf.d/50-server.cnf
+```
+
+### 启动服务
 
 ```
 service mariadb start
 ```
 
-### 数据库配置
+### 安全配置
 
 ```
 # 执行下方命令配置mysql
@@ -41,21 +47,14 @@ flush privileges;
 exit
 ```
 
-### 数据库文件配置
+### 新增允许从所有IP登录的root账户并授权访问所有数据库
 
-```
-sed -i 's@bind-address            = 127.0.0.1@bind-address            = 0.0.0.0@g' /etc/mysql/mariadb.conf.d/50-server.cnf
-```
+`mysql -u root`
 
-### 重启服务
+`use mysql`
 
-```
-service mariadb restart
-```
+`grant all privileges on *.* to 'root'@'%' identified by 'mariadb' with grant option;`
 
-或
+`flush privileges;`
 
-```
-systemctl restart mariadb
-```
-
+`exit`

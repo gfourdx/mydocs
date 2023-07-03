@@ -43,14 +43,6 @@ sed -i "s@#listen_addresses = 'localhost'@listen_addresses = '*'@g" /etc/postgre
 sed -i "s@#listen_addresses = 'localhost'		# what IP address(es) to listen on;@listen_addresses = '*'			# what IP address(es) to listen on;@g" /etc/postgresql/15/main/postgresql.conf
 ```
 
-### 修改Linux用户postgres密码
-
-```
-passwd postgres
-```
-
-输入两次密码确认即可
-
 ### 启动
 
 ```
@@ -63,7 +55,9 @@ service postgresql start
 su - postgres
 ```
 
-输入上面设置的密码回车即可
+> 一般无需密码即可切换到postgres用户
+>
+> 如提示输入密码或想设置密码可执行命令 `passwd postgres`
 
 ### 修改数据库用户postgres密码
 
@@ -72,16 +66,4 @@ psql
 alter user postgres with password 'postgres';
 \q
 exit
-```
-
-> 上述第2条命令中最后的'postgres'即是密码，根据实际情况设置即可
-
-### 重启服务
-
-```
-service postgresql restart
-```
-或
-```
-systemctl restart postgresql
 ```
