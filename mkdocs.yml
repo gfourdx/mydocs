@@ -82,6 +82,7 @@ nav:
     - mac/设置Mac的Hostname.md
     - mac/Mac安装Office并激活.md
     - mac/命令行配置Mac代理.md
+    - mac/分析brew无用的包.md
   - Windows:
     - windows/KMS激活.md
     - windows/删除3D对象.md
@@ -159,6 +160,7 @@ nav:
         - python/other/AtExit.md
         - python/other/魔法方法--字典.md
         - python/other/随机字符串.md
+        - python/other/Cython编译so文件.md
     - 习题:
         - python/exercises/汉诺塔.md
         - python/exercises/杨辉三角.md
@@ -173,4 +175,5 @@ nav:
     - others/V2ray+Trojan配置.md
     - others/下载Chrome离线安装包.md
     - others/Iptables.md
+    - others/Supervisor示例.md
     
