@@ -92,6 +92,11 @@ nav:
     - windows/手动安装WSL.md
     - windows/WSL使用Debian启动Docker报错.md
     - Windows安装配置MySQ5.7: windows/Windows 11 安装配置 MySQL 5.7.38.md
+  - Docker:
+    - docker/vscode-docker-dev_v1.md
+    - docker/vscode-docker-dev_v2.md
+  - Golang:
+    - golang/GO的环境变量.md
   - MySQL:
     - mysql/MySQL时区.md
     - mysql/MySQL常用语句和命令.md
@@ -168,7 +173,4 @@ nav:
     - others/V2ray+Trojan配置.md
     - others/下载Chrome离线安装包.md
     - others/Iptables.md
-  - Docker:
-    - docker/vscode-docker-dev_v1.md
-    - docker/vscode-docker-dev_v2.md
     
