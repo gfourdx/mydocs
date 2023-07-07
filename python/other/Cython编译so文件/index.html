@@ -12,27 +12,27 @@
         <meta name="author" content="gfourdx">
       
       
-        <link rel="canonical" href="https://911205.xyz/linux/%E6%8C%82%E8%BD%BDISO%E9%95%9C%E5%83%8F%E5%81%9A%E6%9C%AC%E5%9C%B0%E6%BA%90/">
+        <link rel="canonical" href="https://911205.xyz/python/other/Cython%E7%BC%96%E8%AF%91so%E6%96%87%E4%BB%B6/">
       
       
-        <link rel="prev" href="../Linux%E6%9D%82%E8%AE%B0/">
+        <link rel="prev" href="../%E9%9A%8F%E6%9C%BA%E5%AD%97%E7%AC%A6%E4%B8%B2/">
       
       
-        <link rel="next" href="../RHEL7.3%E7%9A%84Jira%E5%AE%89%E8%A3%85%E4%B8%8E%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/">
+        <link rel="next" href="../../exercises/%E6%B1%89%E8%AF%BA%E5%A1%94/">
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
     
     
       
-        <title>挂载ISO镜像做本地源 - My Docs</title>
+        <title>Cython编译so文件 - My Docs</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.26e3688c.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ecc896b0.min.css">
       
       
 
@@ -48,7 +48,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#iso" class="md-skip">
+        <a href="#cythonso" class="md-skip">
           跳转至
         </a>
       
@@ -93,7 +93,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href="../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              挂载ISO镜像做本地源
+              Cython编译so文件
             
           </span>
         </div>
@@ -195,7 +195,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="../.." class="md-tabs__link">
+    <a href="../../.." class="md-tabs__link">
       Home
     </a>
   </li>
@@ -210,8 +210,104 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../android/Android%E8%B5%84%E6%BA%90/" class="md-tabs__link">
+      <a href="../../../android/Android%E8%B5%84%E6%BA%90/" class="md-tabs__link">
         Android
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../linux/%E7%8E%A9%E5%AE%A2%E4%BA%91/" class="md-tabs__link">
+        Linux
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../mac/MacOS%E8%BD%AF%E4%BB%B6/" class="md-tabs__link">
+        Mac
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../windows/KMS%E6%BF%80%E6%B4%BB/" class="md-tabs__link">
+        Windows
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../docker/vscode-docker-dev_v1/" class="md-tabs__link">
+        Docker
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../golang/GO%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" class="md-tabs__link">
+        Golang
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../mysql/MySQL%E6%97%B6%E5%8C%BA/" class="md-tabs__link">
+        MySQL
       </a>
     </li>
   
@@ -228,103 +324,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../%E7%8E%A9%E5%AE%A2%E4%BA%91/" class="md-tabs__link md-tabs__link--active">
-        Linux
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../mac/MacOS%E8%BD%AF%E4%BB%B6/" class="md-tabs__link">
-        Mac
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../windows/KMS%E6%BF%80%E6%B4%BB/" class="md-tabs__link">
-        Windows
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../docker/vscode-docker-dev_v1/" class="md-tabs__link">
-        Docker
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../golang/GO%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" class="md-tabs__link">
-        Golang
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../mysql/MySQL%E6%97%B6%E5%8C%BA/" class="md-tabs__link">
-        MySQL
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../python/PIP/" class="md-tabs__link">
+      <a href="../../PIP/" class="md-tabs__link md-tabs__link--active">
         Python
       </a>
     </li>
@@ -340,7 +340,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../others/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="md-tabs__link">
+      <a href="../../../others/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="md-tabs__link">
         Others
       </a>
     </li>
@@ -374,7 +374,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href="../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -393,7 +393,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         Home
       </a>
     </li>
@@ -435,7 +435,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/Android%E8%B5%84%E6%BA%90/" class="md-nav__link">
+      <a href="../../../android/Android%E8%B5%84%E6%BA%90/" class="md-nav__link">
         Android资源
       </a>
     </li>
@@ -449,7 +449,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/Fastboot%E5%88%B7%E6%9C%BA/" class="md-nav__link">
+      <a href="../../../android/Fastboot%E5%88%B7%E6%9C%BA/" class="md-nav__link">
         Fastboot刷机
       </a>
     </li>
@@ -469,16 +469,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
       
       
       
@@ -487,7 +485,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           Linux
@@ -500,7 +498,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E7%8E%A9%E5%AE%A2%E4%BA%91/" class="md-nav__link">
+      <a href="../../../linux/%E7%8E%A9%E5%AE%A2%E4%BA%91/" class="md-nav__link">
         玩客云
       </a>
     </li>
@@ -514,7 +512,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Linux%E6%9D%82%E8%AE%B0/" class="md-nav__link">
+      <a href="../../../linux/Linux%E6%9D%82%E8%AE%B0/" class="md-nav__link">
         Linux杂记
       </a>
     </li>
@@ -526,140 +524,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          挂载ISO镜像做本地源
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../linux/%E6%8C%82%E8%BD%BDISO%E9%95%9C%E5%83%8F%E5%81%9A%E6%9C%AC%E5%9C%B0%E6%BA%90/" class="md-nav__link">
         挂载ISO镜像做本地源
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    创建挂载目录
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#iso_1" class="md-nav__link">
-    挂载ISO
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    备份原文件
-  </a>
-  
-    <nav class="md-nav" aria-label="备份原文件">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#centos" class="md-nav__link">
-    CentOS
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#debian" class="md-nav__link">
-    Debian
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    编辑源文件
-  </a>
-  
-    <nav class="md-nav" aria-label="编辑源文件">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#centos_1" class="md-nav__link">
-    CentOS
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#debian_1" class="md-nav__link">
-    Debian
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    写入以下内容
-  </a>
-  
-    <nav class="md-nav" aria-label="写入以下内容">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#centos_2" class="md-nav__link">
-    CentOS
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#debian_2" class="md-nav__link">
-    Debian
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -671,7 +540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../RHEL7.3%E7%9A%84Jira%E5%AE%89%E8%A3%85%E4%B8%8E%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/" class="md-nav__link">
+      <a href="../../../linux/RHEL7.3%E7%9A%84Jira%E5%AE%89%E8%A3%85%E4%B8%8E%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/" class="md-nav__link">
         JIRA安装与破解
       </a>
     </li>
@@ -685,7 +554,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Linux%E4%B8%8B%E8%A7%A3%E5%8E%8BWindows%E5%8E%8B%E7%BC%A9%E7%9A%84ZIP%E6%96%87%E4%BB%B6%E5%90%8E%E4%B9%B1%E7%A0%81%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" class="md-nav__link">
+      <a href="../../../linux/Linux%E4%B8%8B%E8%A7%A3%E5%8E%8BWindows%E5%8E%8B%E7%BC%A9%E7%9A%84ZIP%E6%96%87%E4%BB%B6%E5%90%8E%E4%B9%B1%E7%A0%81%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" class="md-nav__link">
         Linux解压ZIP乱码
       </a>
     </li>
@@ -699,7 +568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Linux%E9%85%8D%E7%BD%AEIP%E5%92%8CDNS/" class="md-nav__link">
+      <a href="../../../linux/Linux%E9%85%8D%E7%BD%AEIP%E5%92%8CDNS/" class="md-nav__link">
         Linux配置IP和DNS
       </a>
     </li>
@@ -713,7 +582,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Debian%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/" class="md-nav__link">
+      <a href="../../../linux/Debian%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/" class="md-nav__link">
         Debian网络管理
       </a>
     </li>
@@ -727,7 +596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Debian10%E9%80%9A%E8%BF%87kubeadm%E9%83%A8%E7%BD%B2Kubernetes%E9%9B%86%E7%BE%A4/" class="md-nav__link">
+      <a href="../../../linux/Debian10%E9%80%9A%E8%BF%87kubeadm%E9%83%A8%E7%BD%B2Kubernetes%E9%9B%86%E7%BE%A4/" class="md-nav__link">
         Debian搭建K8S集群
       </a>
     </li>
@@ -741,7 +610,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91MySQL5.7%E8%AE%B0%E5%BD%95/" class="md-nav__link">
+      <a href="../../../linux/%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91MySQL5.7%E8%AE%B0%E5%BD%95/" class="md-nav__link">
         源码编译MySQL5.7记录
       </a>
     </li>
@@ -755,7 +624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Debian%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AEDocker/" class="md-nav__link">
+      <a href="../../../linux/Debian%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AEDocker/" class="md-nav__link">
         Debian安装和配置Docker
       </a>
     </li>
@@ -769,7 +638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Debian%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AEMariaDB/" class="md-nav__link">
+      <a href="../../../linux/Debian%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AEMariaDB/" class="md-nav__link">
         Debian安装和配置MariaDB
       </a>
     </li>
@@ -783,7 +652,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Debian%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AEPostgreSQL/" class="md-nav__link">
+      <a href="../../../linux/Debian%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AEPostgreSQL/" class="md-nav__link">
         Debian安装和配置PostgreSQL
       </a>
     </li>
@@ -797,7 +666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E5%AE%89%E8%A3%85mysqlclient%E5%92%8Cpsycopg2%E6%8A%A5%E9%94%99/" class="md-nav__link">
+      <a href="../../../linux/%E5%AE%89%E8%A3%85mysqlclient%E5%92%8Cpsycopg2%E6%8A%A5%E9%94%99/" class="md-nav__link">
         安装mysqlclient和psycopg2报错
       </a>
     </li>
@@ -811,7 +680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Linux%E4%B8%8B%E6%A0%BC%E5%BC%8F%E5%8C%96U%E7%9B%98%E5%8F%8A%E9%87%8D%E5%BB%BA%E5%88%86%E5%8C%BA/" class="md-nav__link">
+      <a href="../../../linux/Linux%E4%B8%8B%E6%A0%BC%E5%BC%8F%E5%8C%96U%E7%9B%98%E5%8F%8A%E9%87%8D%E5%BB%BA%E5%88%86%E5%8C%BA/" class="md-nav__link">
         Linux下格式化U盘及重建分区
       </a>
     </li>
@@ -825,7 +694,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Linux%E4%B8%8B%E8%87%AA%E5%8A%A8%E6%8C%82%E8%BD%BDU%E7%9B%98/" class="md-nav__link">
+      <a href="../../../linux/Linux%E4%B8%8B%E8%87%AA%E5%8A%A8%E6%8C%82%E8%BD%BDU%E7%9B%98/" class="md-nav__link">
         Linux下自动挂载U盘
       </a>
     </li>
@@ -874,7 +743,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mac/MacOS%E8%BD%AF%E4%BB%B6/" class="md-nav__link">
+      <a href="../../../mac/MacOS%E8%BD%AF%E4%BB%B6/" class="md-nav__link">
         Mac软件
       </a>
     </li>
@@ -888,7 +757,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mac/UTM%E5%AE%89%E8%A3%85Windows/" class="md-nav__link">
+      <a href="../../../mac/UTM%E5%AE%89%E8%A3%85Windows/" class="md-nav__link">
         UTM安装Windows
       </a>
     </li>
@@ -902,7 +771,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mac/%E8%AE%BE%E7%BD%AEMac%E7%9A%84Hostname/" class="md-nav__link">
+      <a href="../../../mac/%E8%AE%BE%E7%BD%AEMac%E7%9A%84Hostname/" class="md-nav__link">
         设置Mac的Hostname
       </a>
     </li>
@@ -916,7 +785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mac/Mac%E5%AE%89%E8%A3%85Office%E5%B9%B6%E6%BF%80%E6%B4%BB/" class="md-nav__link">
+      <a href="../../../mac/Mac%E5%AE%89%E8%A3%85Office%E5%B9%B6%E6%BF%80%E6%B4%BB/" class="md-nav__link">
         Mac安装Office并激活
       </a>
     </li>
@@ -930,7 +799,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mac/%E5%91%BD%E4%BB%A4%E8%A1%8C%E9%85%8D%E7%BD%AEMac%E4%BB%A3%E7%90%86/" class="md-nav__link">
+      <a href="../../../mac/%E5%91%BD%E4%BB%A4%E8%A1%8C%E9%85%8D%E7%BD%AEMac%E4%BB%A3%E7%90%86/" class="md-nav__link">
         命令行配置Mac代理
       </a>
     </li>
@@ -944,7 +813,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mac/%E5%88%86%E6%9E%90brew%E6%97%A0%E7%94%A8%E7%9A%84%E5%8C%85/" class="md-nav__link">
+      <a href="../../../mac/%E5%88%86%E6%9E%90brew%E6%97%A0%E7%94%A8%E7%9A%84%E5%8C%85/" class="md-nav__link">
         分析brew无用的包
       </a>
     </li>
@@ -993,7 +862,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../windows/KMS%E6%BF%80%E6%B4%BB/" class="md-nav__link">
+      <a href="../../../windows/KMS%E6%BF%80%E6%B4%BB/" class="md-nav__link">
         KMS激活
       </a>
     </li>
@@ -1007,7 +876,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../windows/%E5%88%A0%E9%99%A43D%E5%AF%B9%E8%B1%A1/" class="md-nav__link">
+      <a href="../../../windows/%E5%88%A0%E9%99%A43D%E5%AF%B9%E8%B1%A1/" class="md-nav__link">
         删除3D对象
       </a>
     </li>
@@ -1021,7 +890,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../windows/WSL%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/" class="md-nav__link">
+      <a href="../../../windows/WSL%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/" class="md-nav__link">
         WSL端口转发
       </a>
     </li>
@@ -1035,7 +904,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../windows/%E6%B8%85%E9%99%A4%E7%B3%BB%E7%BB%9F%E6%89%98%E7%9B%98%E5%9B%BE%E6%A0%87%E7%BC%93%E5%AD%98/" class="md-nav__link">
+      <a href="../../../windows/%E6%B8%85%E9%99%A4%E7%B3%BB%E7%BB%9F%E6%89%98%E7%9B%98%E5%9B%BE%E6%A0%87%E7%BC%93%E5%AD%98/" class="md-nav__link">
         清除系统托盘图标缓存
       </a>
     </li>
@@ -1049,7 +918,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../windows/%E8%AE%BE%E7%BD%AEHyper-v%E4%B8%ADLinux%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%85%A8%E5%B1%8F/" class="md-nav__link">
+      <a href="../../../windows/%E8%AE%BE%E7%BD%AEHyper-v%E4%B8%ADLinux%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%85%A8%E5%B1%8F/" class="md-nav__link">
         Hyper-v Linux虚拟机全屏
       </a>
     </li>
@@ -1063,7 +932,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../windows/Windows10%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85.Net3.5/" class="md-nav__link">
+      <a href="../../../windows/Windows10%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85.Net3.5/" class="md-nav__link">
         Windows10离线安装.Net3.5
       </a>
     </li>
@@ -1077,7 +946,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../windows/%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85WSL/" class="md-nav__link">
+      <a href="../../../windows/%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85WSL/" class="md-nav__link">
         手动安装WSL
       </a>
     </li>
@@ -1091,7 +960,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../windows/WSL%E4%BD%BF%E7%94%A8Debian%E5%90%AF%E5%8A%A8Docker%E6%8A%A5%E9%94%99/" class="md-nav__link">
+      <a href="../../../windows/WSL%E4%BD%BF%E7%94%A8Debian%E5%90%AF%E5%8A%A8Docker%E6%8A%A5%E9%94%99/" class="md-nav__link">
         WSL使用Debian启动Docker报错
       </a>
     </li>
@@ -1105,7 +974,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../windows/Windows%2011%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%20MySQL%205.7.38/" class="md-nav__link">
+      <a href="../../../windows/Windows%2011%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%20MySQL%205.7.38/" class="md-nav__link">
         Windows安装配置MySQ5.7
       </a>
     </li>
@@ -1154,7 +1023,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/vscode-docker-dev_v1/" class="md-nav__link">
+      <a href="../../../docker/vscode-docker-dev_v1/" class="md-nav__link">
         基于Docker的开发环境 V1
       </a>
     </li>
@@ -1168,7 +1037,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/vscode-docker-dev_v2/" class="md-nav__link">
+      <a href="../../../docker/vscode-docker-dev_v2/" class="md-nav__link">
         基于Docker的开发环境 V2
       </a>
     </li>
@@ -1217,7 +1086,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../golang/GO%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" class="md-nav__link">
+      <a href="../../../golang/GO%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" class="md-nav__link">
         Linux中环境GO的环境变量
       </a>
     </li>
@@ -1266,7 +1135,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mysql/MySQL%E6%97%B6%E5%8C%BA/" class="md-nav__link">
+      <a href="../../../mysql/MySQL%E6%97%B6%E5%8C%BA/" class="md-nav__link">
         Mysql时区
       </a>
     </li>
@@ -1280,7 +1149,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mysql/MySQL%E5%B8%B8%E7%94%A8%E8%AF%AD%E5%8F%A5%E5%92%8C%E5%91%BD%E4%BB%A4/" class="md-nav__link">
+      <a href="../../../mysql/MySQL%E5%B8%B8%E7%94%A8%E8%AF%AD%E5%8F%A5%E5%92%8C%E5%91%BD%E4%BB%A4/" class="md-nav__link">
         MySQL常用语句和命令
       </a>
     </li>
@@ -1294,7 +1163,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mysql/MySQL%E7%B4%A2%E5%BC%95%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="md-nav__link">
+      <a href="../../../mysql/MySQL%E7%B4%A2%E5%BC%95%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="md-nav__link">
         MySQL索引的数据结构
       </a>
     </li>
@@ -1308,7 +1177,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mysql/MySQL%E4%B9%8BExplain/" class="md-nav__link">
+      <a href="../../../mysql/MySQL%E4%B9%8BExplain/" class="md-nav__link">
         MySQL之Explain
       </a>
     </li>
@@ -1322,7 +1191,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mysql/MySQL%E4%B9%8BExplain%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+      <a href="../../../mysql/MySQL%E4%B9%8BExplain%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
         MySQL之Explain详解
       </a>
     </li>
@@ -1336,7 +1205,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mysql/MySQL%E4%B9%8B%E4%BC%98%E5%8C%96/" class="md-nav__link">
+      <a href="../../../mysql/MySQL%E4%B9%8B%E4%BC%98%E5%8C%96/" class="md-nav__link">
         MySQL之优化
       </a>
     </li>
@@ -1350,7 +1219,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mysql/MySQL%E4%BA%8B%E5%8A%A1%E5%8F%8A%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E4%B8%8E%E9%94%81%E6%9C%BA%E5%88%B6/" class="md-nav__link">
+      <a href="../../../mysql/MySQL%E4%BA%8B%E5%8A%A1%E5%8F%8A%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E4%B8%8E%E9%94%81%E6%9C%BA%E5%88%B6/" class="md-nav__link">
         MySQL事务及隔离级别与锁机制
       </a>
     </li>
@@ -1364,7 +1233,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mysql/MySQL%E8%AF%AD%E5%8F%A5%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B/" class="md-nav__link">
+      <a href="../../../mysql/MySQL%E8%AF%AD%E5%8F%A5%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B/" class="md-nav__link">
         MySQL语句执行过程
       </a>
     </li>
@@ -1405,7 +1274,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mysql/exercises/%E6%A3%80%E7%B4%A2%E6%8E%92%E5%90%8D%E5%89%8D%E4%B8%89%E5%92%8C%E5%88%A0%E9%99%A4%E9%87%8D%E5%A4%8D/" class="md-nav__link">
+      <a href="../../../mysql/exercises/%E6%A3%80%E7%B4%A2%E6%8E%92%E5%90%8D%E5%89%8D%E4%B8%89%E5%92%8C%E5%88%A0%E9%99%A4%E9%87%8D%E5%A4%8D/" class="md-nav__link">
         检索排名前三和删除重复
       </a>
     </li>
@@ -1432,14 +1301,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
       
       
       
@@ -1448,7 +1319,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_9">
           <span class="md-nav__icon md-icon"></span>
           Python
@@ -1461,7 +1332,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/PIP/" class="md-nav__link">
+      <a href="../../PIP/" class="md-nav__link">
         PIP
       </a>
     </li>
@@ -1475,7 +1346,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/Python%E8%B5%84%E6%BA%90%E7%B4%A2%E5%BC%95/" class="md-nav__link">
+      <a href="../../Python%E8%B5%84%E6%BA%90%E7%B4%A2%E5%BC%95/" class="md-nav__link">
         Python资源索引
       </a>
     </li>
@@ -1489,7 +1360,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/%E5%8F%98%E9%87%8F%E5%90%8D%E7%A7%B0%E4%B8%AD%E7%9A%84%E4%B8%8B%E5%88%92%E7%BA%BF/" class="md-nav__link">
+      <a href="../../%E5%8F%98%E9%87%8F%E5%90%8D%E7%A7%B0%E4%B8%AD%E7%9A%84%E4%B8%8B%E5%88%92%E7%BA%BF/" class="md-nav__link">
         变量名称中的下划线
       </a>
     </li>
@@ -1530,7 +1401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/linked-list/%E5%8D%95%E5%90%91%E9%93%BE%E8%A1%A8/" class="md-nav__link">
+      <a href="../../linked-list/%E5%8D%95%E5%90%91%E9%93%BE%E8%A1%A8/" class="md-nav__link">
         单向链表
       </a>
     </li>
@@ -1544,7 +1415,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/linked-list/%E5%8D%95%E5%90%91%E5%BE%AA%E7%8E%AF%E9%93%BE%E8%A1%A8/" class="md-nav__link">
+      <a href="../../linked-list/%E5%8D%95%E5%90%91%E5%BE%AA%E7%8E%AF%E9%93%BE%E8%A1%A8/" class="md-nav__link">
         单向循环链表
       </a>
     </li>
@@ -1558,7 +1429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/linked-list/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/" class="md-nav__link">
+      <a href="../../linked-list/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/" class="md-nav__link">
         双向链表
       </a>
     </li>
@@ -1606,7 +1477,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/queue-stack/%E5%A0%86/" class="md-nav__link">
+      <a href="../../queue-stack/%E5%A0%86/" class="md-nav__link">
         堆
       </a>
     </li>
@@ -1620,7 +1491,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/queue-stack/%E6%A0%88/" class="md-nav__link">
+      <a href="../../queue-stack/%E6%A0%88/" class="md-nav__link">
         栈
       </a>
     </li>
@@ -1634,7 +1505,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/queue-stack/%E5%A0%86%E6%A0%88/" class="md-nav__link">
+      <a href="../../queue-stack/%E5%A0%86%E6%A0%88/" class="md-nav__link">
         堆栈
       </a>
     </li>
@@ -1682,7 +1553,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/sort/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" class="md-nav__link">
+      <a href="../../sort/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" class="md-nav__link">
         冒泡排序
       </a>
     </li>
@@ -1696,7 +1567,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/sort/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/" class="md-nav__link">
+      <a href="../../sort/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/" class="md-nav__link">
         选择排序
       </a>
     </li>
@@ -1710,7 +1581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/sort/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/" class="md-nav__link">
+      <a href="../../sort/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/" class="md-nav__link">
         插入排序
       </a>
     </li>
@@ -1724,7 +1595,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/sort/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/" class="md-nav__link">
+      <a href="../../sort/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/" class="md-nav__link">
         希尔排序
       </a>
     </li>
@@ -1738,7 +1609,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/sort/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" class="md-nav__link">
+      <a href="../../sort/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" class="md-nav__link">
         快速排序
       </a>
     </li>
@@ -1752,7 +1623,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/sort/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" class="md-nav__link">
+      <a href="../../sort/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" class="md-nav__link">
         归并排序
       </a>
     </li>
@@ -1766,7 +1637,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/sort/%E5%AD%97%E5%85%B8%E6%8E%92%E5%BA%8F/" class="md-nav__link">
+      <a href="../../sort/%E5%AD%97%E5%85%B8%E6%8E%92%E5%BA%8F/" class="md-nav__link">
         字典排序
       </a>
     </li>
@@ -1814,7 +1685,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/tcp-udp/TCP%E9%80%9A%E8%AE%AF/" class="md-nav__link">
+      <a href="../../tcp-udp/TCP%E9%80%9A%E8%AE%AF/" class="md-nav__link">
         TCP通讯
       </a>
     </li>
@@ -1828,7 +1699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/tcp-udp/UDP%E9%80%9A%E8%AE%AF/" class="md-nav__link">
+      <a href="../../tcp-udp/UDP%E9%80%9A%E8%AE%AF/" class="md-nav__link">
         UDP通讯
       </a>
     </li>
@@ -1842,7 +1713,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/tcp-udp/%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/" class="md-nav__link">
+      <a href="../../tcp-udp/%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/" class="md-nav__link">
         文件下载
       </a>
     </li>
@@ -1890,7 +1761,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/thread-process-coroutine/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="md-nav__link">
+      <a href="../../thread-process-coroutine/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="md-nav__link">
         多线程
       </a>
     </li>
@@ -1904,7 +1775,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/thread-process-coroutine/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B9%8B%E8%B5%84%E6%BA%90%E7%AB%9E%E4%BA%89%E4%B8%8E%E4%BA%92%E6%96%A5%E9%94%81/" class="md-nav__link">
+      <a href="../../thread-process-coroutine/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B9%8B%E8%B5%84%E6%BA%90%E7%AB%9E%E4%BA%89%E4%B8%8E%E4%BA%92%E6%96%A5%E9%94%81/" class="md-nav__link">
         多线程之资源竞争与互斥锁
       </a>
     </li>
@@ -1918,7 +1789,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/thread-process-coroutine/%E5%A4%9A%E8%BF%9B%E7%A8%8B/" class="md-nav__link">
+      <a href="../../thread-process-coroutine/%E5%A4%9A%E8%BF%9B%E7%A8%8B/" class="md-nav__link">
         多进程
       </a>
     </li>
@@ -1932,7 +1803,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/thread-process-coroutine/%E5%A4%9A%E8%BF%9B%E7%A8%8B%E4%B9%8B%E8%BF%9B%E7%A8%8B%E6%B1%A0/" class="md-nav__link">
+      <a href="../../thread-process-coroutine/%E5%A4%9A%E8%BF%9B%E7%A8%8B%E4%B9%8B%E8%BF%9B%E7%A8%8B%E6%B1%A0/" class="md-nav__link">
         多进程之进程池
       </a>
     </li>
@@ -1946,7 +1817,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/thread-process-coroutine/%E5%A4%9A%E8%BF%9B%E7%A8%8B%E4%B9%8B%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1/" class="md-nav__link">
+      <a href="../../thread-process-coroutine/%E5%A4%9A%E8%BF%9B%E7%A8%8B%E4%B9%8B%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1/" class="md-nav__link">
         多进程之进程间通信
       </a>
     </li>
@@ -1960,7 +1831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/thread-process-coroutine/%E5%A4%9A%E8%BF%9B%E7%A8%8B%E4%B9%8B%E8%BF%9B%E7%A8%8B%E6%B1%A0%E9%97%B4%E9%80%9A%E4%BF%A1/" class="md-nav__link">
+      <a href="../../thread-process-coroutine/%E5%A4%9A%E8%BF%9B%E7%A8%8B%E4%B9%8B%E8%BF%9B%E7%A8%8B%E6%B1%A0%E9%97%B4%E9%80%9A%E4%BF%A1/" class="md-nav__link">
         多进程之进程池间通信
       </a>
     </li>
@@ -1974,7 +1845,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/thread-process-coroutine/%E5%8D%8F%E7%A8%8B/" class="md-nav__link">
+      <a href="../../thread-process-coroutine/%E5%8D%8F%E7%A8%8B/" class="md-nav__link">
         协程
       </a>
     </li>
@@ -2022,7 +1893,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/decorator-generator-iterator/%E8%A3%85%E9%A5%B0%E5%99%A8/" class="md-nav__link">
+      <a href="../../decorator-generator-iterator/%E8%A3%85%E9%A5%B0%E5%99%A8/" class="md-nav__link">
         装饰器
       </a>
     </li>
@@ -2036,7 +1907,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/decorator-generator-iterator/%E8%A3%85%E9%A5%B0%E5%99%A8%E5%89%AF%E4%BD%9C%E7%94%A8/" class="md-nav__link">
+      <a href="../../decorator-generator-iterator/%E8%A3%85%E9%A5%B0%E5%99%A8%E5%89%AF%E4%BD%9C%E7%94%A8/" class="md-nav__link">
         装饰器副作用
       </a>
     </li>
@@ -2050,7 +1921,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/decorator-generator-iterator/%E7%94%9F%E6%88%90%E5%99%A8/" class="md-nav__link">
+      <a href="../../decorator-generator-iterator/%E7%94%9F%E6%88%90%E5%99%A8/" class="md-nav__link">
         生成器
       </a>
     </li>
@@ -2064,7 +1935,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/decorator-generator-iterator/%E8%BF%AD%E4%BB%A3%E5%99%A8/" class="md-nav__link">
+      <a href="../../decorator-generator-iterator/%E8%BF%AD%E4%BB%A3%E5%99%A8/" class="md-nav__link">
         迭代器
       </a>
     </li>
@@ -2112,7 +1983,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/single-multiple-instance/%E5%8D%95%E4%BE%8B/" class="md-nav__link">
+      <a href="../../single-multiple-instance/%E5%8D%95%E4%BE%8B/" class="md-nav__link">
         单例
       </a>
     </li>
@@ -2126,7 +1997,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/single-multiple-instance/%E5%A4%9A%E5%AE%9E%E4%BE%8B%E8%AE%A1%E6%95%B0/" class="md-nav__link">
+      <a href="../../single-multiple-instance/%E5%A4%9A%E5%AE%9E%E4%BE%8B%E8%AE%A1%E6%95%B0/" class="md-nav__link">
         多实例计数
       </a>
     </li>
@@ -2145,14 +2016,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_11" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_11" checked>
       
       
       
@@ -2161,7 +2034,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_11_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_11_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_9_11">
           <span class="md-nav__icon md-icon"></span>
           其他
@@ -2174,7 +2047,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/other/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" class="md-nav__link">
+      <a href="../%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" class="md-nav__link">
         二分查找
       </a>
     </li>
@@ -2188,7 +2061,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/other/%E4%BA%8C%E5%8F%89%E6%A0%91/" class="md-nav__link">
+      <a href="../%E4%BA%8C%E5%8F%89%E6%A0%91/" class="md-nav__link">
         二叉树
       </a>
     </li>
@@ -2202,7 +2075,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/other/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8/" class="md-nav__link">
+      <a href="../%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8/" class="md-nav__link">
         自定义异常
       </a>
     </li>
@@ -2216,7 +2089,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/other/MRO/" class="md-nav__link">
+      <a href="../MRO/" class="md-nav__link">
         MRO
       </a>
     </li>
@@ -2230,7 +2103,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/other/%2B%20%2B%3D%20append%20extend%20%E7%9A%84%E5%8C%BA%E5%88%AB/" class="md-nav__link">
+      <a href="../%2B%20%2B%3D%20append%20extend%20%E7%9A%84%E5%8C%BA%E5%88%AB/" class="md-nav__link">
         + += append extend 的区别
       </a>
     </li>
@@ -2244,7 +2117,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/other/UNZIP/" class="md-nav__link">
+      <a href="../UNZIP/" class="md-nav__link">
         UNZIP
       </a>
     </li>
@@ -2258,7 +2131,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/other/Mp3Cut/" class="md-nav__link">
+      <a href="../Mp3Cut/" class="md-nav__link">
         Mp3Cut
       </a>
     </li>
@@ -2272,7 +2145,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/other/AtExit/" class="md-nav__link">
+      <a href="../AtExit/" class="md-nav__link">
         AtExit
       </a>
     </li>
@@ -2286,7 +2159,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/other/%E9%AD%94%E6%B3%95%E6%96%B9%E6%B3%95--%E5%AD%97%E5%85%B8/" class="md-nav__link">
+      <a href="../%E9%AD%94%E6%B3%95%E6%96%B9%E6%B3%95--%E5%AD%97%E5%85%B8/" class="md-nav__link">
         魔法方法 -- 字典
       </a>
     </li>
@@ -2300,7 +2173,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/other/%E9%9A%8F%E6%9C%BA%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="md-nav__link">
+      <a href="../%E9%9A%8F%E6%9C%BA%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="md-nav__link">
         随机字符串
       </a>
     </li>
@@ -2312,11 +2185,21 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../python/other/Cython%E7%BC%96%E8%AF%91so%E6%96%87%E4%BB%B6/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Cython编译so文件
       </a>
+      
     </li>
   
 
@@ -2362,7 +2245,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/exercises/%E6%B1%89%E8%AF%BA%E5%A1%94/" class="md-nav__link">
+      <a href="../../exercises/%E6%B1%89%E8%AF%BA%E5%A1%94/" class="md-nav__link">
         汉诺塔
       </a>
     </li>
@@ -2376,7 +2259,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/exercises/%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/" class="md-nav__link">
+      <a href="../../exercises/%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/" class="md-nav__link">
         杨辉三角
       </a>
     </li>
@@ -2390,7 +2273,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/exercises/%E4%B9%98%E6%B3%95%E5%8F%A3%E8%AF%80%E8%A1%A8/" class="md-nav__link">
+      <a href="../../exercises/%E4%B9%98%E6%B3%95%E5%8F%A3%E8%AF%80%E8%A1%A8/" class="md-nav__link">
         乘法口诀表
       </a>
     </li>
@@ -2404,7 +2287,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/exercises/%E9%80%92%E5%BD%92%E5%AE%9E%E7%8E%B0%E7%B4%AF%E5%8A%A0%E5%92%8C%E9%98%B6%E4%B9%98/" class="md-nav__link">
+      <a href="../../exercises/%E9%80%92%E5%BD%92%E5%AE%9E%E7%8E%B0%E7%B4%AF%E5%8A%A0%E5%92%8C%E9%98%B6%E4%B9%98/" class="md-nav__link">
         累加和阶乘
       </a>
     </li>
@@ -2418,7 +2301,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/exercises/%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C/" class="md-nav__link">
+      <a href="../../exercises/%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C/" class="md-nav__link">
         连续子数组的最大和
       </a>
     </li>
@@ -2432,7 +2315,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/exercises/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" class="md-nav__link">
+      <a href="../../exercises/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" class="md-nav__link">
         两数之和
       </a>
     </li>
@@ -2488,7 +2371,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../others/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="md-nav__link">
+      <a href="../../../others/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="md-nav__link">
         Git常用命令
       </a>
     </li>
@@ -2502,7 +2385,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../others/PostgreSQL%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="md-nav__link">
+      <a href="../../../others/PostgreSQL%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="md-nav__link">
         PostgreSQL常用命令
       </a>
     </li>
@@ -2516,7 +2399,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../others/VSCode%E5%85%8D%E5%AF%86%E5%8F%91%E5%B8%83%E4%BB%A3%E7%A0%81%E5%88%B0GitHub/" class="md-nav__link">
+      <a href="../../../others/VSCode%E5%85%8D%E5%AF%86%E5%8F%91%E5%B8%83%E4%BB%A3%E7%A0%81%E5%88%B0GitHub/" class="md-nav__link">
         VSCode免密发布代码到GitHub
       </a>
     </li>
@@ -2530,7 +2413,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../others/V2ray%2BTrojan%E9%85%8D%E7%BD%AE/" class="md-nav__link">
+      <a href="../../../others/V2ray%2BTrojan%E9%85%8D%E7%BD%AE/" class="md-nav__link">
         V2ray+Trojan配置
       </a>
     </li>
@@ -2544,7 +2427,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../others/%E4%B8%8B%E8%BD%BDChrome%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8C%85/" class="md-nav__link">
+      <a href="../../../others/%E4%B8%8B%E8%BD%BDChrome%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8C%85/" class="md-nav__link">
         下载Chrome离线安装包
       </a>
     </li>
@@ -2558,7 +2441,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../others/Iptables/" class="md-nav__link">
+      <a href="../../../others/Iptables/" class="md-nav__link">
         Iptables
       </a>
     </li>
@@ -2572,7 +2455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../others/Supervisor%E7%A4%BA%E4%BE%8B/" class="md-nav__link">
+      <a href="../../../others/Supervisor%E7%A4%BA%E4%BE%8B/" class="md-nav__link">
         Supervisor示例
       </a>
     </li>
@@ -2606,109 +2489,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    创建挂载目录
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#iso_1" class="md-nav__link">
-    挂载ISO
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    备份原文件
-  </a>
-  
-    <nav class="md-nav" aria-label="备份原文件">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#centos" class="md-nav__link">
-    CentOS
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#debian" class="md-nav__link">
-    Debian
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    编辑源文件
-  </a>
-  
-    <nav class="md-nav" aria-label="编辑源文件">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#centos_1" class="md-nav__link">
-    CentOS
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#debian_1" class="md-nav__link">
-    Debian
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    写入以下内容
-  </a>
-  
-    <nav class="md-nav" aria-label="写入以下内容">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#centos_2" class="md-nav__link">
-    CentOS
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#debian_2" class="md-nav__link">
-    Debian
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -2722,45 +2502,81 @@
                   
 
 
-<h1 id="iso">挂载ISO镜像做本地源</h1>
+<h1 id="cythonso">Cython编译so文件</h1>
 <hr />
-<h2 id="_1">创建挂载目录</h2>
-<div class="highlight"><pre><span></span><code>mkdir /mnt/iso
+<p>Demo1:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">walk</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">system</span>
+
+
+<span class="k">def</span> <span class="nf">py2so</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">walk</span><span class="p">(</span><span class="s1">&#39;./app&#39;</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">file</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;setup_&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.py&#39;</span><span class="p">):</span>
+                <span class="n">abs_f</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">file</span><span class="p">))</span>
+                <span class="n">aps_p</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">abs_f</span><span class="p">)</span>
+                <span class="n">setup_f</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">aps_p</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;setup_</span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">setup_f</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;from distutils.core import setup</span>
+<span class="s2">from Cython.Build import cythonize</span>
+
+<span class="s2">setup(name=&#39;Flask Demo Test&#39;, ext_modules=cythonize(r&#39;</span><span class="si">{</span><span class="n">abs_f</span><span class="si">}</span><span class="s2">&#39;))</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+                <span class="n">my_cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;python </span><span class="si">{</span><span class="n">setup_f</span><span class="si">}</span><span class="s1"> build_ext --inplace&#39;</span>
+                <span class="n">system</span><span class="p">(</span><span class="n">my_cmd</span><span class="p">)</span>
+
+    <span class="n">del_cmd</span> <span class="o">=</span> <span class="s2">&quot;find ./app -name &#39;*.py&#39; | xargs rm&quot;</span>
+    <span class="n">system</span><span class="p">(</span><span class="n">del_cmd</span><span class="p">)</span>
+    <span class="n">del_cmd</span> <span class="o">=</span> <span class="s2">&quot;find ./app -name &#39;*.c&#39; | xargs rm&quot;</span>
+    <span class="n">system</span><span class="p">(</span><span class="n">del_cmd</span><span class="p">)</span>
+    <span class="n">del_cmd</span> <span class="o">=</span> <span class="s2">&quot;rm -rf build&quot;</span>
+    <span class="n">system</span><span class="p">(</span><span class="n">del_cmd</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">py2so</span><span class="p">()</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
-<h2 id="iso_1">挂载ISO</h2>
-<div class="highlight"><pre><span></span><code>mount /dev/cdrom /mnt/iso
+<p>Demo2:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">walk</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">system</span><span class="p">,</span> <span class="n">cpu_count</span>
+<span class="kn">from</span> <span class="nn">concurrent.futures</span> <span class="kn">import</span> <span class="n">ThreadPoolExecutor</span>
+
+<span class="n">thread_pool</span> <span class="o">=</span> <span class="n">ThreadPoolExecutor</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="n">cpu_count</span><span class="p">()</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">py2so</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">walk</span><span class="p">(</span><span class="s1">&#39;./app&#39;</span><span class="p">):</span>
+        <span class="n">thread_pool</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">kernel_code</span><span class="p">,</span> <span class="o">*</span><span class="p">[</span><span class="n">files</span><span class="p">,</span> <span class="n">root</span><span class="p">])</span>
+    <span class="n">thread_pool</span><span class="o">.</span><span class="n">shutdown</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">del_cmd</span> <span class="o">=</span> <span class="s2">&quot;find ./app -name &#39;*.py&#39; | xargs rm;find ./app -name &#39;*.c&#39; | xargs rm;rm -rf build&quot;</span>
+    <span class="n">system</span><span class="p">(</span><span class="n">del_cmd</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">kernel_code</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">file</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;setup_&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.py&#39;</span><span class="p">):</span>
+            <span class="n">abs_f</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">file</span><span class="p">))</span>
+            <span class="n">aps_p</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">abs_f</span><span class="p">)</span>
+            <span class="n">setup_f</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">aps_p</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;setup_</span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">setup_f</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;from distutils.core import setup</span>
+<span class="s2">from Cython.Build import cythonize</span>
+
+<span class="s2">setup(name=&#39;Flask Demo Test&#39;, ext_modules=cythonize(r&#39;</span><span class="si">{</span><span class="n">abs_f</span><span class="si">}</span><span class="s2">&#39;))</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+            <span class="n">my_cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;python </span><span class="si">{</span><span class="n">setup_f</span><span class="si">}</span><span class="s1"> build_ext --inplace&#39;</span>
+            <span class="n">system</span><span class="p">(</span><span class="n">my_cmd</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">py2so</span><span class="p">()</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
-<blockquote>
-<p>根据实际情况修改 /dev/cdrom</p>
-</blockquote>
-<h2 id="_2">备份原文件</h2>
-<h3 id="centos">CentOS</h3>
-<div class="highlight"><pre><span></span><code>mv /etc/yum.repos.d /etc/yum.repos.d.bak
-</code></pre></div>
-<h3 id="debian">Debian</h3>
-<div class="highlight"><pre><span></span><code>mv /etc/apt/sources.list /etc/apt/sources.list.bak
-</code></pre></div>
-<h2 id="_3">编辑源文件</h2>
-<h3 id="centos_1">CentOS</h3>
-<div class="highlight"><pre><span></span><code>vim /etc/yum.repos.d/iso.repo
-</code></pre></div>
-<h3 id="debian_1">Debian</h3>
-<div class="highlight"><pre><span></span><code>vim /etc/apt/sources.list
-</code></pre></div>
-<h2 id="_4">写入以下内容</h2>
-<h3 id="centos_2">CentOS</h3>
-<div class="highlight"><pre><span></span><code>[local]
-name=CentOS_ISO
-baseurl=file:///mnt/iso
-enabled=1
-gpgkey=file://mnt/iso/RPM-GPG-KEY-CentOS-7
-</code></pre></div>
-<h3 id="debian_2">Debian</h3>
-<div class="highlight"><pre><span></span><code>deb file:///mnt/iso bullseye main contrib non-free
-</code></pre></div>
-<blockquote>
-<p>根据实际情况修改 bullseye 为正确的发行版名称</p>
-</blockquote>
 
 
 
@@ -2833,10 +2649,10 @@ gpgkey=file://mnt/iso/RPM-GPG-KEY-CentOS-7
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.b425cdc4.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.b425cdc4.min.js"></script>
       
     
   </body>

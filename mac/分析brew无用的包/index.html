@@ -12,20 +12,20 @@
         <meta name="author" content="gfourdx">
       
       
-        <link rel="canonical" href="https://911205.xyz/linux/%E6%8C%82%E8%BD%BDISO%E9%95%9C%E5%83%8F%E5%81%9A%E6%9C%AC%E5%9C%B0%E6%BA%90/">
+        <link rel="canonical" href="https://911205.xyz/mac/%E5%88%86%E6%9E%90brew%E6%97%A0%E7%94%A8%E7%9A%84%E5%8C%85/">
       
       
-        <link rel="prev" href="../Linux%E6%9D%82%E8%AE%B0/">
+        <link rel="prev" href="../%E5%91%BD%E4%BB%A4%E8%A1%8C%E9%85%8D%E7%BD%AEMac%E4%BB%A3%E7%90%86/">
       
       
-        <link rel="next" href="../RHEL7.3%E7%9A%84Jira%E5%AE%89%E8%A3%85%E4%B8%8E%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/">
+        <link rel="next" href="../../windows/KMS%E6%BF%80%E6%B4%BB/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
     
     
       
-        <title>挂载ISO镜像做本地源 - My Docs</title>
+        <title>分析brew无用的包 - My Docs</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#iso" class="md-skip">
+        <a href="#brew" class="md-skip">
           跳转至
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              挂载ISO镜像做本地源
+              分析brew无用的包
             
           </span>
         </div>
@@ -220,15 +220,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../%E7%8E%A9%E5%AE%A2%E4%BA%91/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../linux/%E7%8E%A9%E5%AE%A2%E4%BA%91/" class="md-tabs__link">
         Linux
       </a>
     </li>
@@ -238,13 +236,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../mac/MacOS%E8%BD%AF%E4%BB%B6/" class="md-tabs__link">
+      <a href="../MacOS%E8%BD%AF%E4%BB%B6/" class="md-tabs__link md-tabs__link--active">
         Mac
       </a>
     </li>
@@ -469,16 +469,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
       
       
       
@@ -487,7 +485,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           Linux
@@ -500,7 +498,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E7%8E%A9%E5%AE%A2%E4%BA%91/" class="md-nav__link">
+      <a href="../../linux/%E7%8E%A9%E5%AE%A2%E4%BA%91/" class="md-nav__link">
         玩客云
       </a>
     </li>
@@ -514,8 +512,297 @@
   
   
     <li class="md-nav__item">
-      <a href="../Linux%E6%9D%82%E8%AE%B0/" class="md-nav__link">
+      <a href="../../linux/Linux%E6%9D%82%E8%AE%B0/" class="md-nav__link">
         Linux杂记
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/%E6%8C%82%E8%BD%BDISO%E9%95%9C%E5%83%8F%E5%81%9A%E6%9C%AC%E5%9C%B0%E6%BA%90/" class="md-nav__link">
+        挂载ISO镜像做本地源
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/RHEL7.3%E7%9A%84Jira%E5%AE%89%E8%A3%85%E4%B8%8E%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/" class="md-nav__link">
+        JIRA安装与破解
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/Linux%E4%B8%8B%E8%A7%A3%E5%8E%8BWindows%E5%8E%8B%E7%BC%A9%E7%9A%84ZIP%E6%96%87%E4%BB%B6%E5%90%8E%E4%B9%B1%E7%A0%81%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" class="md-nav__link">
+        Linux解压ZIP乱码
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/Linux%E9%85%8D%E7%BD%AEIP%E5%92%8CDNS/" class="md-nav__link">
+        Linux配置IP和DNS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/Debian%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        Debian网络管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/Debian10%E9%80%9A%E8%BF%87kubeadm%E9%83%A8%E7%BD%B2Kubernetes%E9%9B%86%E7%BE%A4/" class="md-nav__link">
+        Debian搭建K8S集群
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91MySQL5.7%E8%AE%B0%E5%BD%95/" class="md-nav__link">
+        源码编译MySQL5.7记录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/Debian%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AEDocker/" class="md-nav__link">
+        Debian安装和配置Docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/Debian%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AEMariaDB/" class="md-nav__link">
+        Debian安装和配置MariaDB
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/Debian%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AEPostgreSQL/" class="md-nav__link">
+        Debian安装和配置PostgreSQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/%E5%AE%89%E8%A3%85mysqlclient%E5%92%8Cpsycopg2%E6%8A%A5%E9%94%99/" class="md-nav__link">
+        安装mysqlclient和psycopg2报错
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/Linux%E4%B8%8B%E6%A0%BC%E5%BC%8F%E5%8C%96U%E7%9B%98%E5%8F%8A%E9%87%8D%E5%BB%BA%E5%88%86%E5%8C%BA/" class="md-nav__link">
+        Linux下格式化U盘及重建分区
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/Linux%E4%B8%8B%E8%87%AA%E5%8A%A8%E6%8C%82%E8%BD%BDU%E7%9B%98/" class="md-nav__link">
+        Linux下自动挂载U盘
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Mac
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Mac
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MacOS%E8%BD%AF%E4%BB%B6/" class="md-nav__link">
+        Mac软件
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UTM%E5%AE%89%E8%A3%85Windows/" class="md-nav__link">
+        UTM安装Windows
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AE%BE%E7%BD%AEMac%E7%9A%84Hostname/" class="md-nav__link">
+        设置Mac的Hostname
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mac%E5%AE%89%E8%A3%85Office%E5%B9%B6%E6%BF%80%E6%B4%BB/" class="md-nav__link">
+        Mac安装Office并激活
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%91%BD%E4%BB%A4%E8%A1%8C%E9%85%8D%E7%BD%AEMac%E4%BB%A3%E7%90%86/" class="md-nav__link">
+        命令行配置Mac代理
       </a>
     </li>
   
@@ -537,416 +824,10 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          挂载ISO镜像做本地源
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
-        挂载ISO镜像做本地源
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    创建挂载目录
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#iso_1" class="md-nav__link">
-    挂载ISO
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    备份原文件
-  </a>
-  
-    <nav class="md-nav" aria-label="备份原文件">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#centos" class="md-nav__link">
-    CentOS
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#debian" class="md-nav__link">
-    Debian
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    编辑源文件
-  </a>
-  
-    <nav class="md-nav" aria-label="编辑源文件">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#centos_1" class="md-nav__link">
-    CentOS
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#debian_1" class="md-nav__link">
-    Debian
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    写入以下内容
-  </a>
-  
-    <nav class="md-nav" aria-label="写入以下内容">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#centos_2" class="md-nav__link">
-    CentOS
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#debian_2" class="md-nav__link">
-    Debian
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../RHEL7.3%E7%9A%84Jira%E5%AE%89%E8%A3%85%E4%B8%8E%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/" class="md-nav__link">
-        JIRA安装与破解
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Linux%E4%B8%8B%E8%A7%A3%E5%8E%8BWindows%E5%8E%8B%E7%BC%A9%E7%9A%84ZIP%E6%96%87%E4%BB%B6%E5%90%8E%E4%B9%B1%E7%A0%81%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" class="md-nav__link">
-        Linux解压ZIP乱码
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Linux%E9%85%8D%E7%BD%AEIP%E5%92%8CDNS/" class="md-nav__link">
-        Linux配置IP和DNS
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Debian%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/" class="md-nav__link">
-        Debian网络管理
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Debian10%E9%80%9A%E8%BF%87kubeadm%E9%83%A8%E7%BD%B2Kubernetes%E9%9B%86%E7%BE%A4/" class="md-nav__link">
-        Debian搭建K8S集群
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91MySQL5.7%E8%AE%B0%E5%BD%95/" class="md-nav__link">
-        源码编译MySQL5.7记录
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Debian%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AEDocker/" class="md-nav__link">
-        Debian安装和配置Docker
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Debian%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AEMariaDB/" class="md-nav__link">
-        Debian安装和配置MariaDB
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Debian%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AEPostgreSQL/" class="md-nav__link">
-        Debian安装和配置PostgreSQL
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E5%AE%89%E8%A3%85mysqlclient%E5%92%8Cpsycopg2%E6%8A%A5%E9%94%99/" class="md-nav__link">
-        安装mysqlclient和psycopg2报错
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Linux%E4%B8%8B%E6%A0%BC%E5%BC%8F%E5%8C%96U%E7%9B%98%E5%8F%8A%E9%87%8D%E5%BB%BA%E5%88%86%E5%8C%BA/" class="md-nav__link">
-        Linux下格式化U盘及重建分区
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Linux%E4%B8%8B%E8%87%AA%E5%8A%A8%E6%8C%82%E8%BD%BDU%E7%9B%98/" class="md-nav__link">
-        Linux下自动挂载U盘
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
-      
-      
-      
-        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
-          Mac
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_4">
-          <span class="md-nav__icon md-icon"></span>
-          Mac
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../mac/MacOS%E8%BD%AF%E4%BB%B6/" class="md-nav__link">
-        Mac软件
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../mac/UTM%E5%AE%89%E8%A3%85Windows/" class="md-nav__link">
-        UTM安装Windows
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../mac/%E8%AE%BE%E7%BD%AEMac%E7%9A%84Hostname/" class="md-nav__link">
-        设置Mac的Hostname
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../mac/Mac%E5%AE%89%E8%A3%85Office%E5%B9%B6%E6%BF%80%E6%B4%BB/" class="md-nav__link">
-        Mac安装Office并激活
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../mac/%E5%91%BD%E4%BB%A4%E8%A1%8C%E9%85%8D%E7%BD%AEMac%E4%BB%A3%E7%90%86/" class="md-nav__link">
-        命令行配置Mac代理
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../mac/%E5%88%86%E6%9E%90brew%E6%97%A0%E7%94%A8%E7%9A%84%E5%8C%85/" class="md-nav__link">
         分析brew无用的包
       </a>
+      
     </li>
   
 
@@ -2606,109 +2487,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    创建挂载目录
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#iso_1" class="md-nav__link">
-    挂载ISO
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    备份原文件
-  </a>
-  
-    <nav class="md-nav" aria-label="备份原文件">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#centos" class="md-nav__link">
-    CentOS
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#debian" class="md-nav__link">
-    Debian
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    编辑源文件
-  </a>
-  
-    <nav class="md-nav" aria-label="编辑源文件">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#centos_1" class="md-nav__link">
-    CentOS
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#debian_1" class="md-nav__link">
-    Debian
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    写入以下内容
-  </a>
-  
-    <nav class="md-nav" aria-label="写入以下内容">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#centos_2" class="md-nav__link">
-    CentOS
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#debian_2" class="md-nav__link">
-    Debian
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -2722,45 +2500,45 @@
                   
 
 
-<h1 id="iso">挂载ISO镜像做本地源</h1>
+<h1 id="brew">分析brew无用的包</h1>
 <hr />
-<h2 id="_1">创建挂载目录</h2>
-<div class="highlight"><pre><span></span><code>mkdir /mnt/iso
+<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;分析指定包的依赖, 得出可以删除的无用的包&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">popen</span>
+
+<span class="n">my_package</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mariadb&#39;</span><span class="p">,</span> <span class="s1">&#39;postgresql@14&#39;</span><span class="p">,</span> <span class="s1">&#39;redis&#39;</span><span class="p">,</span> <span class="s1">&#39;python@3.10&#39;</span><span class="p">]</span>
+<span class="n">brew_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">popen</span><span class="p">(</span><span class="s1">&#39;brew list&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">readlines</span><span class="p">()]</span>
+<span class="n">dependencies</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">done</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<span class="k">def</span> <span class="nf">demo</span><span class="p">(</span><span class="n">packages</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">package</span> <span class="ow">in</span> <span class="n">packages</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">package</span> <span class="ow">in</span> <span class="n">done</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">done</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">package</span><span class="p">)</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;brew info </span><span class="si">{</span><span class="n">package</span><span class="si">}</span><span class="s1">|grep Required:|cut -d : -f 2&#39;</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">popen</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">ret</span><span class="p">:</span>
+            <span class="n">depend_packages</span> <span class="o">=</span> <span class="p">[</span><span class="n">_</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">ret</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)]</span>
+
+            <span class="k">for</span> <span class="n">depend_package</span> <span class="ow">in</span> <span class="n">depend_packages</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">depend_package</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dependencies</span><span class="p">:</span>
+                    <span class="n">dependencies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">depend_package</span><span class="p">)</span>
+
+            <span class="n">demo</span><span class="p">(</span><span class="n">depend_packages</span><span class="p">)</span>
+
+
+<span class="n">demo</span><span class="p">(</span><span class="n">my_package</span><span class="p">)</span>
+
+
+<span class="n">brew_list_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">brew_list</span><span class="p">)</span>
+<span class="n">my_package</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">dependencies</span><span class="p">)</span>
+<span class="n">dependencies_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">my_package</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;这些包需要使用brew uninstall命令删除:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">brew_list_set</span> <span class="o">-</span> <span class="n">dependencies_set</span><span class="p">)</span>
 </code></pre></div>
-<h2 id="iso_1">挂载ISO</h2>
-<div class="highlight"><pre><span></span><code>mount /dev/cdrom /mnt/iso
-</code></pre></div>
-<blockquote>
-<p>根据实际情况修改 /dev/cdrom</p>
-</blockquote>
-<h2 id="_2">备份原文件</h2>
-<h3 id="centos">CentOS</h3>
-<div class="highlight"><pre><span></span><code>mv /etc/yum.repos.d /etc/yum.repos.d.bak
-</code></pre></div>
-<h3 id="debian">Debian</h3>
-<div class="highlight"><pre><span></span><code>mv /etc/apt/sources.list /etc/apt/sources.list.bak
-</code></pre></div>
-<h2 id="_3">编辑源文件</h2>
-<h3 id="centos_1">CentOS</h3>
-<div class="highlight"><pre><span></span><code>vim /etc/yum.repos.d/iso.repo
-</code></pre></div>
-<h3 id="debian_1">Debian</h3>
-<div class="highlight"><pre><span></span><code>vim /etc/apt/sources.list
-</code></pre></div>
-<h2 id="_4">写入以下内容</h2>
-<h3 id="centos_2">CentOS</h3>
-<div class="highlight"><pre><span></span><code>[local]
-name=CentOS_ISO
-baseurl=file:///mnt/iso
-enabled=1
-gpgkey=file://mnt/iso/RPM-GPG-KEY-CentOS-7
-</code></pre></div>
-<h3 id="debian_2">Debian</h3>
-<div class="highlight"><pre><span></span><code>deb file:///mnt/iso bullseye main contrib non-free
-</code></pre></div>
-<blockquote>
-<p>根据实际情况修改 bullseye 为正确的发行版名称</p>
-</blockquote>
 
 
 
