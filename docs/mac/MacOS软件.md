@@ -60,7 +60,7 @@ UTM工具包: [SPICE Guest Tools](https://mac.getutm.app/support/)
 
 快速查看快捷键: [CheatSheet](https://www.mediaatelier.com/CheatSheet/)
 
-微软远程桌面: [Microsoft Remote Desktop](https://install.appcenter.ms/orgs/rdmacios-k2vy/apps/microsoft-remote-desktop-for-mac/distribution_groups/all-users-of-microsoft-remote-desktop-for-mac)
+微软远程桌面: [Microsoft Remote Desktop](https://paper.photos)
 
 内网穿透: [ZeroTier](https://www.zerotier.com/)
 
