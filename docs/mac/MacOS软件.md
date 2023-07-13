@@ -54,13 +54,13 @@ UTM工具包: [SPICE Guest Tools](https://mac.getutm.app/support/)
 
 ## 闭源
 
-壁纸刘海: [pap.er](https://apps.apple.com/cn/app/pap-er-%E4%BC%98%E9%9B%85%E5%A3%81%E7%BA%B8/id1639052102?mt=12)
+壁纸刘海: [pap.er](https://paper.photos)
 
 压缩工具: [MacZip](https://ezip.awehunt.com/)
 
 快速查看快捷键: [CheatSheet](https://www.mediaatelier.com/CheatSheet/)
 
-微软远程桌面: [Microsoft Remote Desktop](https://paper.photos)
+微软远程桌面: [Microsoft Remote Desktop](https://install.appcenter.ms/orgs/rdmacios-k2vy/apps/microsoft-remote-desktop-for-mac/distribution_groups/all-users-of-microsoft-remote-desktop-for-mac)
 
 内网穿透: [ZeroTier](https://www.zerotier.com/)
 
