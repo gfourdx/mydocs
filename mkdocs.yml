@@ -113,6 +113,7 @@ nav:
     - python/PIP.md
     - python/Python资源索引.md
     - python/变量名称中的下划线.md
+    - python/Flask上下文.md
     - 链表:
         - python/linked-list/单向链表.md
         - python/linked-list/单向循环链表.md
