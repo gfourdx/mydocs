@@ -172,9 +172,10 @@ nav:
   - Others:
     - others/Git常用命令.md
     - others/PostgreSQL常用命令.md     
+    - others/Redis持久化.md
+    - others/Supervisor示例.md
     - others/VSCode免密发布代码到GitHub.md
     - others/V2ray+Trojan配置.md
-    - others/下载Chrome离线安装包.md
     - others/Iptables.md
-    - others/Supervisor示例.md
+    - others/下载Chrome离线安装包.md
     
