@@ -12,20 +12,20 @@
         <meta name="author" content="gfourdx">
       
       
-        <link rel="canonical" href="https://911205.xyz/linux/%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91MySQL5.7%E8%AE%B0%E5%BD%95/">
+        <link rel="canonical" href="https://911205.xyz/others/Redis%E6%8C%81%E4%B9%85%E5%8C%96/">
       
       
-        <link rel="prev" href="../Debian10%E9%80%9A%E8%BF%87kubeadm%E9%83%A8%E7%BD%B2Kubernetes%E9%9B%86%E7%BE%A4/">
+        <link rel="prev" href="../PostgreSQL%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
       
       
-        <link rel="next" href="../Debian%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AEDocker/">
+        <link rel="next" href="../Supervisor%E7%A4%BA%E4%BE%8B/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
     
     
       
-        <title>源码编译MySQL5.7记录 - My Docs</title>
+        <title>Redis持久化 - My Docs</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#mysql57" class="md-skip">
+        <a href="#redis" class="md-skip">
           跳转至
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              源码编译MySQL5.7记录
+              Redis持久化
             
           </span>
         </div>
@@ -220,15 +220,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../%E7%8E%A9%E5%AE%A2%E4%BA%91/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../linux/%E7%8E%A9%E5%AE%A2%E4%BA%91/" class="md-tabs__link">
         Linux
       </a>
     </li>
@@ -334,13 +332,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../others/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="md-tabs__link">
+      <a href="../Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="md-tabs__link md-tabs__link--active">
         Others
       </a>
     </li>
@@ -469,16 +469,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
       
       
       
@@ -487,7 +485,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           Linux
@@ -500,7 +498,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E7%8E%A9%E5%AE%A2%E4%BA%91/" class="md-nav__link">
+      <a href="../../linux/%E7%8E%A9%E5%AE%A2%E4%BA%91/" class="md-nav__link">
         玩客云
       </a>
     </li>
@@ -514,7 +512,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Linux%E6%9D%82%E8%AE%B0/" class="md-nav__link">
+      <a href="../../linux/Linux%E6%9D%82%E8%AE%B0/" class="md-nav__link">
         Linux杂记
       </a>
     </li>
@@ -528,7 +526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E6%8C%82%E8%BD%BDISO%E9%95%9C%E5%83%8F%E5%81%9A%E6%9C%AC%E5%9C%B0%E6%BA%90/" class="md-nav__link">
+      <a href="../../linux/%E6%8C%82%E8%BD%BDISO%E9%95%9C%E5%83%8F%E5%81%9A%E6%9C%AC%E5%9C%B0%E6%BA%90/" class="md-nav__link">
         挂载ISO镜像做本地源
       </a>
     </li>
@@ -542,7 +540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../RHEL7.3%E7%9A%84Jira%E5%AE%89%E8%A3%85%E4%B8%8E%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/" class="md-nav__link">
+      <a href="../../linux/RHEL7.3%E7%9A%84Jira%E5%AE%89%E8%A3%85%E4%B8%8E%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/" class="md-nav__link">
         JIRA安装与破解
       </a>
     </li>
@@ -556,7 +554,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Linux%E4%B8%8B%E8%A7%A3%E5%8E%8BWindows%E5%8E%8B%E7%BC%A9%E7%9A%84ZIP%E6%96%87%E4%BB%B6%E5%90%8E%E4%B9%B1%E7%A0%81%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" class="md-nav__link">
+      <a href="../../linux/Linux%E4%B8%8B%E8%A7%A3%E5%8E%8BWindows%E5%8E%8B%E7%BC%A9%E7%9A%84ZIP%E6%96%87%E4%BB%B6%E5%90%8E%E4%B9%B1%E7%A0%81%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" class="md-nav__link">
         Linux解压ZIP乱码
       </a>
     </li>
@@ -570,7 +568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Linux%E9%85%8D%E7%BD%AEIP%E5%92%8CDNS/" class="md-nav__link">
+      <a href="../../linux/Linux%E9%85%8D%E7%BD%AEIP%E5%92%8CDNS/" class="md-nav__link">
         Linux配置IP和DNS
       </a>
     </li>
@@ -584,7 +582,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Debian%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/" class="md-nav__link">
+      <a href="../../linux/Debian%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86/" class="md-nav__link">
         Debian网络管理
       </a>
     </li>
@@ -598,7 +596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Debian10%E9%80%9A%E8%BF%87kubeadm%E9%83%A8%E7%BD%B2Kubernetes%E9%9B%86%E7%BE%A4/" class="md-nav__link">
+      <a href="../../linux/Debian10%E9%80%9A%E8%BF%87kubeadm%E9%83%A8%E7%BD%B2Kubernetes%E9%9B%86%E7%BE%A4/" class="md-nav__link">
         Debian搭建K8S集群
       </a>
     </li>
@@ -610,21 +608,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../linux/%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91MySQL5.7%E8%AE%B0%E5%BD%95/" class="md-nav__link">
         源码编译MySQL5.7记录
       </a>
-      
     </li>
   
 
@@ -636,7 +624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Debian%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AEDocker/" class="md-nav__link">
+      <a href="../../linux/Debian%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AEDocker/" class="md-nav__link">
         Debian安装和配置Docker
       </a>
     </li>
@@ -650,7 +638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Debian%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AEMariaDB/" class="md-nav__link">
+      <a href="../../linux/Debian%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AEMariaDB/" class="md-nav__link">
         Debian安装和配置MariaDB
       </a>
     </li>
@@ -664,7 +652,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Debian%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AEPostgreSQL/" class="md-nav__link">
+      <a href="../../linux/Debian%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AEPostgreSQL/" class="md-nav__link">
         Debian安装和配置PostgreSQL
       </a>
     </li>
@@ -678,7 +666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E5%AE%89%E8%A3%85mysqlclient%E5%92%8Cpsycopg2%E6%8A%A5%E9%94%99/" class="md-nav__link">
+      <a href="../../linux/%E5%AE%89%E8%A3%85mysqlclient%E5%92%8Cpsycopg2%E6%8A%A5%E9%94%99/" class="md-nav__link">
         安装mysqlclient和psycopg2报错
       </a>
     </li>
@@ -692,7 +680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Linux%E4%B8%8B%E6%A0%BC%E5%BC%8F%E5%8C%96U%E7%9B%98%E5%8F%8A%E9%87%8D%E5%BB%BA%E5%88%86%E5%8C%BA/" class="md-nav__link">
+      <a href="../../linux/Linux%E4%B8%8B%E6%A0%BC%E5%BC%8F%E5%8C%96U%E7%9B%98%E5%8F%8A%E9%87%8D%E5%BB%BA%E5%88%86%E5%8C%BA/" class="md-nav__link">
         Linux下格式化U盘及重建分区
       </a>
     </li>
@@ -706,7 +694,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Linux%E4%B8%8B%E8%87%AA%E5%8A%A8%E6%8C%82%E8%BD%BDU%E7%9B%98/" class="md-nav__link">
+      <a href="../../linux/Linux%E4%B8%8B%E8%87%AA%E5%8A%A8%E6%8C%82%E8%BD%BDU%E7%9B%98/" class="md-nav__link">
         Linux下自动挂载U盘
       </a>
     </li>
@@ -2354,14 +2342,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
       
       
       
@@ -2370,7 +2360,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_10">
           <span class="md-nav__icon md-icon"></span>
           Others
@@ -2383,7 +2373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../others/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="md-nav__link">
+      <a href="../Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="md-nav__link">
         Git常用命令
       </a>
     </li>
@@ -2397,7 +2387,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../others/PostgreSQL%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="md-nav__link">
+      <a href="../PostgreSQL%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="md-nav__link">
         PostgreSQL常用命令
       </a>
     </li>
@@ -2409,11 +2399,210 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../others/Redis%E6%8C%81%E4%B9%85%E5%8C%96/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Redis持久化
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Redis持久化
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rdb" class="md-nav__link">
+    RDB
+  </a>
+  
+    <nav class="md-nav" aria-label="RDB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#save" class="md-nav__link">
+    save
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stop-writes-on-bgsave-error" class="md-nav__link">
+    stop-writes-on-bgsave-error
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rdbcompression" class="md-nav__link">
+    rdbcompression
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rdbchecksum" class="md-nav__link">
+    rdbchecksum
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sanitize-dump-payload" class="md-nav__link">
+    sanitize-dump-payload
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dbfilename" class="md-nav__link">
+    dbfilename
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rdb-del-sync-files" class="md-nav__link">
+    rdb-del-sync-files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dir" class="md-nav__link">
+    dir
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aof" class="md-nav__link">
+    AOF
+  </a>
+  
+    <nav class="md-nav" aria-label="AOF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#appendonly" class="md-nav__link">
+    appendonly
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#appendfilename" class="md-nav__link">
+    appendfilename
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#appenddirname" class="md-nav__link">
+    appenddirname
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#appendfsync" class="md-nav__link">
+    appendfsync
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#no-appendfsync-on-rewrite" class="md-nav__link">
+    no-appendfsync-on-rewrite
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auto-aof-rewrite-percentage" class="md-nav__link">
+    auto-aof-rewrite-percentage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auto-aof-rewrite-min-size" class="md-nav__link">
+    auto-aof-rewrite-min-size
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aof-load-truncated" class="md-nav__link">
+    aof-load-truncated
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aof-use-rdb-preamble" class="md-nav__link">
+    aof-use-rdb-preamble
+  </a>
+  
+    <nav class="md-nav" aria-label="aof-use-rdb-preamble">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aof-timestamp-enabled" class="md-nav__link">
+    aof-timestamp-enabled
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rdbaof" class="md-nav__link">
+    RDB和AOF的对比
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2425,7 +2614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../others/Supervisor%E7%A4%BA%E4%BE%8B/" class="md-nav__link">
+      <a href="../Supervisor%E7%A4%BA%E4%BE%8B/" class="md-nav__link">
         Supervisor示例
       </a>
     </li>
@@ -2439,7 +2628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../others/VSCode%E5%85%8D%E5%AF%86%E5%8F%91%E5%B8%83%E4%BB%A3%E7%A0%81%E5%88%B0GitHub/" class="md-nav__link">
+      <a href="../VSCode%E5%85%8D%E5%AF%86%E5%8F%91%E5%B8%83%E4%BB%A3%E7%A0%81%E5%88%B0GitHub/" class="md-nav__link">
         VSCode免密发布代码到GitHub
       </a>
     </li>
@@ -2453,7 +2642,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../others/V2ray%2BTrojan%E9%85%8D%E7%BD%AE/" class="md-nav__link">
+      <a href="../V2ray%2BTrojan%E9%85%8D%E7%BD%AE/" class="md-nav__link">
         V2ray+Trojan配置
       </a>
     </li>
@@ -2467,7 +2656,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../others/Iptables/" class="md-nav__link">
+      <a href="../Iptables/" class="md-nav__link">
         Iptables
       </a>
     </li>
@@ -2481,7 +2670,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../others/%E4%B8%8B%E8%BD%BDChrome%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8C%85/" class="md-nav__link">
+      <a href="../%E4%B8%8B%E8%BD%BDChrome%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8C%85/" class="md-nav__link">
         下载Chrome离线安装包
       </a>
     </li>
@@ -2515,6 +2704,179 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rdb" class="md-nav__link">
+    RDB
+  </a>
+  
+    <nav class="md-nav" aria-label="RDB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#save" class="md-nav__link">
+    save
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stop-writes-on-bgsave-error" class="md-nav__link">
+    stop-writes-on-bgsave-error
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rdbcompression" class="md-nav__link">
+    rdbcompression
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rdbchecksum" class="md-nav__link">
+    rdbchecksum
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sanitize-dump-payload" class="md-nav__link">
+    sanitize-dump-payload
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dbfilename" class="md-nav__link">
+    dbfilename
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rdb-del-sync-files" class="md-nav__link">
+    rdb-del-sync-files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dir" class="md-nav__link">
+    dir
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aof" class="md-nav__link">
+    AOF
+  </a>
+  
+    <nav class="md-nav" aria-label="AOF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#appendonly" class="md-nav__link">
+    appendonly
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#appendfilename" class="md-nav__link">
+    appendfilename
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#appenddirname" class="md-nav__link">
+    appenddirname
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#appendfsync" class="md-nav__link">
+    appendfsync
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#no-appendfsync-on-rewrite" class="md-nav__link">
+    no-appendfsync-on-rewrite
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auto-aof-rewrite-percentage" class="md-nav__link">
+    auto-aof-rewrite-percentage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auto-aof-rewrite-min-size" class="md-nav__link">
+    auto-aof-rewrite-min-size
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aof-load-truncated" class="md-nav__link">
+    aof-load-truncated
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aof-use-rdb-preamble" class="md-nav__link">
+    aof-use-rdb-preamble
+  </a>
+  
+    <nav class="md-nav" aria-label="aof-use-rdb-preamble">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aof-timestamp-enabled" class="md-nav__link">
+    aof-timestamp-enabled
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rdbaof" class="md-nav__link">
+    RDB和AOF的对比
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2528,178 +2890,158 @@
                   
 
 
-<h1 id="mysql57">源码编译MySQL5.7记录</h1>
+<h1 id="redis">Redis持久化</h1>
+<p>以redis7.0.11举例</p>
 <hr />
-<p><strong><em>Mac M1 Pro 芯片 安装Docker后想拉取MySQL5.7镜像, 奈何官方镜像中5.7版本只有amd64架构, 于是拉取了CentOS7.9.2009镜像, 在此环境下编译MySQL5.7, 做此记录</em></strong></p>
-<p>纯粹的源码:</p>
-<p>wget <a href="https://downloads.mysql.com/archives/get/p/23/file/mysql-boost-5.7.38.tar.gz">https://downloads.mysql.com/archives/get/p/23/file/mysql-boost-5.7.38.tar.gz</a></p>
-<p>Red Hat使用的源码:</p>
-<p>wget <a href="https://downloads.mysql.com/archives/get/p/23/file/mysql-community-5.7.38-1.el7.src.rpm">https://downloads.mysql.com/archives/get/p/23/file/mysql-community-5.7.38-1.el7.src.rpm</a></p>
-<p>纯源码安装--失败</p>
-<div class="highlight"><pre><span></span><code>cd
-groupadd mysql
-useradd -r -g mysql -s /bin/false mysql
-
-yum install -y wget make cmake gcc gcc-c++ git \
-  openssl-devel ncurses-devel bison curl-devel \
-
-
-wget https://downloads.mysql.com/archives/get/p/23/file/mysql-boost-5.7.38.tar.gz
-
-tar -xf mysql-boost-5.7.38.tar.gz
-cd mysql-5.7.38
-mkdir bld
-cd bld
-
-cmake .. -DWITH_BOOST=../boost/boost_1_59_0 \
-  -CMAKE_INSTALL_PREFIX=/opt/mysql \
-  -DMYSQL_DATADIR=/opt/mysql/data \
-  -DSYSCONFDIR=/opt/mysql \
-  -DDEFAULT_CHARSET=utf8mb4 \
-  -DDEFAULT_COLLATION=utf8mb4_general_ci \
-  -DWITH_CURL=system \
-  -DENABLE_DOWNLOADS=1 
-
-注:
--DWITH_CURL=system 解决 You need to set WITH_CURL 问题
--DENABLE_DOWNLOADS=1 解决 Googletest was not found 问题
-</code></pre></div>
-<p>rpmbuild安装--成功</p>
-<div class="highlight"><pre><span></span><code>docker rm -f mysql
-
-docker run -dit --name mysql --network host centos:7.9.2009 bash
-
-docker cp mysql-community-5.7.38-1.el7.src.rpm mysql:/root
-
-docker exec -it mysql bash
-
-useradd pb2user
-
-groupadd common
-
-yum install -y rpm-build cmake perl-Env perl-Data-Dumper \
-  perl-JSON time libaio-devel ncurses-devel numactl-devel \
-  openssl-devel zlib-devel cyrus-sasl-devel openldap-devel \
-  git make gcc gcc-c++
-
-rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql
-# rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
-
-rpmbuild --rebuild --clean /root/mysql-community-5.7.38-1.el7.src.rpm
-
-
-出现报错1:
-/root/rpmbuild/BUILD/mysql-5.7.38/mysql-5.7.38/sql/mysqld.cc:1565:36: error: &#39;prctl&#39; was not declared in this scope
-
-则:
-cp /usr/include/sys/prctl.h /root/rpmbuild/BUILD/mysql-5.7.38/mysql-5.7.38/include
-
-vi /root/rpmbuild/BUILD/mysql-5.7.38/mysql-5.7.38/sql/mysqld.cc
-
-在
-#include &quot;mysqld.h&quot;
-#include &quot;mysqld_daemon.h&quot;
-下面添加:
-#include &quot;prctl.h&quot;
-
-cd /root/rpmbuild/BUILD/mysql-5.7.38/mysql-5.7.38
-
-cmake . -DWITH_BOOST=../boost_1_59_0
-
-make
-
-出现报错2:
-could not split insn
-则:
-yum -y remove gcc
-
-yum install centos-release-scl
-
-yum install devtoolset-7
-
-scl enable devtoolset-7 bash
-
-ln -s /opt/rh/devtoolset-7/root/usr/bin/c++ /usr/bin/c++
-
-make
-
-又出现报错1:
-按照上面的方法解决
-
-make
-
-make install DESTDIR=/opt/mysql
-
-编译安装成功
-
-初始化
-groupadd mysql
-
-useradd -r -g mysql -s /bin/false mysql
-
-cd /opt/mysql/usr/local/mysql
-
-mkdir data
-
-chown mysql:mysql data
-
-chmod 750 data
-
-mkdir etc
-
-vi etc/my.cnf
-
-写入:
-[mysqld]
-basedir=/opt/mysql/usr/local/mysql
-datadir=/opt/mysql/usr/local/mysql/data
-
-
-bin/mysqld --defaults-file=/opt/mysql/usr/local/mysql/etc/my.cnf \
-  --initialize --user=mysql
-
-注意1: 上面命令执行后输出的内容有一行类似这样的:
-[Note] A temporary password is generated for root@localhost: a!mD0etq9!Mf
-其中 a!mD0etq9!Mf 就是root用户的随机码尺码
-注意2: --initialize 可以替换成 --initialize-insecure, 这样不会生成密码
-
-PS: 如果不想创建 etc/my.cnf 则可以使用下面的命令
-    bin/mysqld --initialize --user=mysql \
-      --basedir=/opt/mysql/usr/local/mysql \
-      --datadir=/opt/mysql/usr/local/mysql/data
-
-启动服务:
-bin/mysqld_safe --user=mysql &amp;
-或
-bin/mysqld --defaults-file=/opt/mysql/usr/local/mysql/etc/my.cnf --user=mysql &amp;
-
-登录
-bin/mysql -u root -p
-如果上面用的是 --initialize-insecure, 则登录命令是
-mysql -u root --skip-password
-
-修改密码:
-ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;mysql&#39;;
-
-查看用户信息:
-select host, user, authentication_string, plugin from mysql.user;
-注意: 高版本中authentication_string换成了password
-
-关闭服务:
-bin/mysqladmin -u root -p shutdown
-
-搞定!
-
-转移到其他centos7上是使用?
-1、打包拷贝
-cd /opt
-tar -czvf mysql5.7.38.tgz mysql
-2、解压
-将压缩包拷贝到其他机器上并解压到/opt目录下
-3、安装依赖: yum install -y libaio-devel numactl-devel
-4、配置用户和组: groupadd mysql &amp;&amp; useradd -r -g mysql -s /bin/false mysql
-5、启动: cd /opt/mysql/usr/local/mysql , bin/mysqld_safe --user=mysql &amp;
-</code></pre></div>
+<h3 id="rdb">RDB</h3>
+<p>RDB也就是快照(SNAPSHOTTING)方式, 恢复时直接将RDB数据加载到内存中</p>
+<p>在redis.conf中的相关配置参数为:</p>
+<ul>
+<li>save</li>
+<li>stop-writes-on-bgsave-error</li>
+<li>rdbcompression</li>
+<li>rdbchecksum</li>
+<li>sanitize-dump-payload</li>
+<li>dbfilename</li>
+<li>rdb-del-sync-files</li>
+<li>dir</li>
+</ul>
+<p>其中最主要的是<code>save</code>参数</p>
+<h5 id="save">save</h5>
+<p>格式: <strong>save</strong> <seconds> <changes> [<seconds> <changes> ...]</p>
+<p>配置保存数据到磁盘的策略</p>
+<p>示例1: save 36000 1, 表示在3600秒内有一次修改操作就保存快照到磁盘</p>
+<p>示例2: save 3600 1 300 100 60 10000, 表示在3600秒内有一次修改操作或300秒内有100次修改操作或60妙内有10000操作就保存快照到磁盘</p>
+<p>示例3: save "", 表示禁用快照</p>
+<p>关于手动触发持久化:</p>
+<blockquote>
+<p>在redis-cli中可使用save或bgsave命令, 区别在于</p>
+<p>save是同步的, 使用当前进程进行持久化, 会阻塞当前进程, 即在持久化完成之前redis无法处理增删改查命令</p>
+<p>bgsave则是异步的, 即fork一个子进程进程持久化处理, 不会阻塞当前进程, 但会额外消耗内存</p>
+<p>同时, bgsave利用了系统提供的写时复制(Copy-on-Write, COP)技术, 持久化开始时将当前数据写入RDB文件, 写入文件期间如果有新数据写入, 新数据也会写入RDB文件</p>
+</blockquote>
+<h5 id="stop-writes-on-bgsave-error">stop-writes-on-bgsave-error</h5>
+<p>格式: stop-writes-on-bgsave-error yes|no</p>
+<p>默认值是yes, 表示:</p>
+<p>1、如果启用了RDB快照并且最新的后台保存(bgsave)失败, 则redis将停止接受写入, 是用户意识到数据没有正确的保存到磁盘上</p>
+<p>2、如果后台保存过程再次开始工作，则Redis将自动允许再次写入</p>
+<p>设置为no, 表示无论快照是否保存成功, redis都允许继续写入</p>
+<h5 id="rdbcompression">rdbcompression</h5>
+<p>格式: rdbcompression yes|no</p>
+<p>默认值是yes, 表示使用LZF压缩RDB数据, 提高持久化速度并减少磁盘占用, 但会增加CPU使用量</p>
+<h5 id="rdbchecksum">rdbchecksum</h5>
+<p>格式: rdbchecksum yes|no</p>
+<p>默认值是yes, 表示持久化数据时使用CRC64计算数据的校验和, 数据恢复时读取持久化文件中的校验和并与实际数据进行比对, 以确保数据的准确性和完整性, 但会多消耗约10%的性能, 同时也会降低持久化速度</p>
+<h5 id="sanitize-dump-payload">sanitize-dump-payload</h5>
+<p>格式: sanitize-dump-payload yes|no|clients</p>
+<p>配置Redis使用RDB持久化时是否进行脱敏处理, 通常是将敏感信息替换为特定的占位符或进行加密处理, 以防止数据泄露</p>
+<p>默认值是no且默认被注释掉(禁用)</p>
+<p>设置为no时, Redis在进行RDB持久化时不会对数据进行脱敏处理, 持久化文件中的数据将保持原样</p>
+<p>设置为yes时, Redis在进行RDB持久化时会对数据进行脱敏处理</p>
+<p>设置为clients时，Redis会对RDB持久化中的数据进行脱敏处理，但只有来自外部客户端的请求数据会被脱敏，而内部的Redis命令和数据将保持原样。这样可以保护来自外部客户端的敏感信息，同时保持内部数据的可读性和完整性。</p>
+<h5 id="dbfilename">dbfilename</h5>
+<p>格式: rdbchecksum "string"</p>
+<p>"string"表示生成的RDB文件名称, 默认值是dump.rdb</p>
+<h5 id="rdb-del-sync-files">rdb-del-sync-files</h5>
+<p>格式: rdb-del-sync-files yes|no</p>
+<p>默认值是no</p>
+<p>在未启用持久性的实例中删除复制使用的RDB文件</p>
+<p>简单说就是主从同步数据时使用RDB文件, 同步完成后是否删除RDB文件</p>
+<p>该选项仅在同时禁用AOF和RDB持久化的实例中有效, 否则将完全被忽略</p>
+<h5 id="dir">dir</h5>
+<p>格式: dir "path"</p>
+<p>"path"表示存放RDB文件的目录, 默认值是/var/lib/redis</p>
+<h3 id="aof">AOF</h3>
+<p>aof即append-only file, 即将每条redis命令追加到appendfilename配置的文件中</p>
+<p>并根据appendfsync方式同步到磁盘中, 恢复时读取AOF文件中的命令并逐条执行</p>
+<p>在redis.conf中的相关配置参数为:</p>
+<ul>
+<li>appendonly</li>
+<li>appendfilename</li>
+<li>appenddirname</li>
+<li>appendfsync</li>
+<li>no-appendfsync-on-rewrite</li>
+<li>auto-aof-rewrite-percentage</li>
+<li>auto-aof-rewrite-min-size</li>
+<li>aof-load-truncated</li>
+<li>aof-use-rdb-preamble yes</li>
+<li>aof-timestamp-enabled</li>
+</ul>
+<h5 id="appendonly">appendonly</h5>
+<p>格式: appendonly yes|no</p>
+<p>默认值是no, yes表示启用aof持久化</p>
+<h5 id="appendfilename">appendfilename</h5>
+<p>同dbfilename, 设置aof文件名称, 默认值是appendonly.aof</p>
+<p>从7.0版本开始使用一组文件进行持久化, 有两种可用的文件类型:</p>
+<ul>
+<li>
+<p>基本文件，它们是表示创建文件时数据集的完整状态的快照, 基本文件可以是RDB(二进制序列化)或AOF(文本命令)的形式。</p>
+</li>
+<li>
+<p>增量文件，其中包含应用于上一个文件之后的数据集的其他命令</p>
+</li>
+</ul>
+<p>简单来说会生成3个文件:</p>
+<ul>
+<li>
+<p>appendonly.aof.1.base.rdb, 实际上就是rdb文件</p>
+</li>
+<li>
+<p>appendonly.aof.1.incr.aof, 实际上就是aof文件</p>
+</li>
+<li>
+<p>appendonly.aof.manifest, 上述两个文件的说明</p>
+</li>
+</ul>
+<h5 id="appenddirname">appenddirname</h5>
+<p>格式: appenddirname "string"</p>
+<p>"string"表示存放aof文件的目录, 此目录事相对目录, 保存在dir配置的目录下</p>
+<h5 id="appendfsync">appendfsync</h5>
+<p>格式: appendfsync always|everysec|no</p>
+<p>配置aof文件刷写磁盘的方式</p>
+<p>默认值是everysec, 表示每秒刷写一次, 如果发生故障, 最多丢失1秒的数据</p>
+<p>其他两个可选配置是always和no, always表示每次对redis的增删改命令都会写入aof并刷写到磁盘</p>
+<p>此种方式最安全, 不会丢失数据但效率最慢</p>
+<p>如果是no则表示交由系统处理, 速度最快但是最不安全</p>
+<h5 id="no-appendfsync-on-rewrite">no-appendfsync-on-rewrite</h5>
+<p>格式: no-appendfsync-on-rewrite yes|no</p>
+<p>默认值是no</p>
+<p>这里涉及到aof文件重写机制, 例如在redis-cli中多次使用set对同一个key设置value或者incr对某个key的value自增</p>
+<p>对于aof文件来说, 里面的命令是冗余的, 只要拿到最后一个值即可, 而重写机制能减少aof文件对磁盘的占用</p>
+<p>当appendfsync配置为always或everysec时, 主进程会调用系统的fsync(), 会消耗大量的I/O, 可能导致阻塞太长时间</p>
+<p>缓解办法是使用bgsave或bgrewriteaof, 这样就不会使用主进程调用fsync()而导致阻塞, 但依旧会消耗大量I/O</p>
+<p>如果将此配置的值配置为yes, 那么当时会暂停对aof文件的同步(即刷写磁盘), 减少I/O, 但可能会导致数据丢失</p>
+<p>因此如果磁盘I/O问题不是瓶颈, 建议保持默认配置, 即 no</p>
+<h5 id="auto-aof-rewrite-percentage">auto-aof-rewrite-percentage</h5>
+<p>格式: auto-aof-rewrite-percentage percentage</p>
+<p>percentage 是数字, 表示百分比, 默认值是100</p>
+<p>当AOF日志大小增长到指定的百分比时, Redis能够自动重写隐式调用BGREWRITEAOF的日志文件</p>
+<p>若设置为0则表示禁用aof重写</p>
+<p><strong>注意, 需要配合auto-aof-rewrite-min-size参数一起使用</strong></p>
+<h5 id="auto-aof-rewrite-min-size">auto-aof-rewrite-min-size</h5>
+<p>格式: auto-aof-rewrite-min-size size</p>
+<p>size 是数字+单位, 表示文件大小, , 默认值是64mb</p>
+<p>当aof文件大小到达指定值时进行重写, 后续再次重写则会根据auto-aof-rewrite-percentage配置的值计算, 满足条件后会再次重写</p>
+<h5 id="aof-load-truncated">aof-load-truncated</h5>
+<p>格式: aof-load-truncated yes|no</p>
+<p>默认值是yes</p>
+<p>当重启redis后会自动加载aof文件, 如果发现aof文件末尾被截断(可以理解为aof文件内容格式不正确或损坏), 控制是否仍然加载正确的部分, 否则报错(配置为no时)</p>
+<p><strong>注意, 如果aof文件从中间出错, 不是末尾, 即使配置为yes, redis重启时加载aof也会报错</strong></p>
+<h3 id="aof-use-rdb-preamble">aof-use-rdb-preamble</h3>
+<p>格式: aof-use-rdb-preamble yes|no</p>
+<p>默认值yes, 表示混合持久化, 即同时使用RDB和AOF</p>
+<p>具体就是将当前内存中的数据写入RDB文件(前面提到的appendonly.aof.1.base.rdb)</p>
+<p>再次期间redis接收的操作将写入AOF文件(前面提到的appendonly.aof.1.incr.aof)</p>
+<p>即加快的速度也保证了数据的安全</p>
+<p><strong>注意: 开启混合持久化, 不需要开启RDB持久化, 即无需配置save参数</strong></p>
+<h5 id="aof-timestamp-enabled">aof-timestamp-enabled</h5>
+<p>格式: aof-timestamp-enabled yes|no</p>
+<p>默认值是no, 如果改成yes, 则Redis支持在AOF中记录时间戳注释, 但可能出现不兼容情况</p>
+<h3 id="rdbaof">RDB和AOF的对比</h3>
+<p>RDB的优势是磁盘空间占用小, 数据备份与恢复的速度快, 但可能会丢失大量数据</p>
+<p>AOF的优势是数据量丢失较小, 但占用磁盘空间大, 恢复速度较慢</p>
+<p>同时, AOF的启动优先级比RDB高</p>
+<p>所以建议使用混合持久化</p>
 
 
 
