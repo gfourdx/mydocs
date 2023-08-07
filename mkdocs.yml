@@ -101,7 +101,7 @@ nav:
   - MySQL:
     - mysql/MySQL时区.md
     - mysql/MySQL常用语句和命令.md
-    - mysql/MySQL索引的数据结构.md
+    - mysql/MySQL索引.md
     - mysql/MySQL之Explain.md
     - mysql/MySQL之Explain详解.md
     - mysql/MySQL之优化.md
