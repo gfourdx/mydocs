@@ -9,7 +9,7 @@
 # 1、构建镜像
 # docker build -f dev.Dockerfile -t gfourdx/dev:latest . 
 # 2、运行容器
-# docker run -dit -h dev -p 22:22 -p 80:80  -p 443:443 -p 3306:3306 -p 5432:5432 -p 6379:6379 -v /Users/whls/Documents/code/:/root/code/ --name dev --restart=unless-stopped gfourdx/dev
+# docker run -dit -h dev -p 22:22 -p 80:80  -p 443:443 -p 3306:3306 -p 5432:5432 -p 6379:6379 --name dev --restart=unless-stopped gfourdx/dev:latest
 # 3、快速进入容器
 # echo 'alias dev="docker exec -it dev bash"' >> ~/.zshrc
 # 

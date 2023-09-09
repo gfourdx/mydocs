@@ -14,6 +14,8 @@ SHELL: [Fish](https://github.com/fish-shell/fish-shell)
 
 划词翻译: [Bob](https://github.com/ripperhe/Bob)
 
+查看快捷键: [KeyClu](https://github.com/Anze/KeyCluCask)
+
 快捷分屏: [Rectangle](https://github.com/rxhanson/Rectangle/)
 
 文本编辑器: [TextMate](https://github.com/textmate/textmate)
@@ -60,7 +62,7 @@ UTM工具包: [SPICE Guest Tools](https://mac.getutm.app/support/)
 
 快速查看快捷键: [CheatSheet](https://www.mediaatelier.com/CheatSheet/)
 
-微软远程桌面: [Microsoft Remote Desktop](https://install.appcenter.ms/orgs/rdmacios-k2vy/apps/microsoft-remote-desktop-for-mac/distribution_groups/all-users-of-microsoft-remote-desktop-for-mac)
+微软远程桌面: [Microsoft Remote Desktop](https://go.microsoft.com/fwlink/?linkid=868963), [Microsoft Remote Desktop Beta](https://install.appcenter.ms/orgs/rdmacios-k2vy/apps/microsoft-remote-desktop-for-mac/distribution_groups/all-users-of-microsoft-remote-desktop-for-mac)
 
 内网穿透: [ZeroTier](https://www.zerotier.com/)
 
