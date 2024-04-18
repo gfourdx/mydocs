@@ -36,10 +36,10 @@ FROM debian:bookworm-slim as Base
 # 表示只有上条命令执行成功后才会执行下条命令
 RUN set -eux; \
     # 配置国内源
-    echo "deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware" > /etc/apt/sources.list && \
-    echo "deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware" >> /etc/apt/sources.list && \
-    echo "deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware" >> /etc/apt/sources.list && \
-    echo "deb http://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware" >> /etc/apt/sources.list && \
+    echo "Types: deb" > /etc/apt/sources.list.d/debian.sources && \
+    echo "URIs: http://mirrors.tuna.tsinghua.edu.cn/debian/" >> /etc/apt/sources.list.d/debian.sources && \
+    echo "Suites: bookworm bookworm-updates bookworm-backports" >> /etc/apt/sources.list.d/debian.sources && \
+    echo "Components: main contrib non-free non-free-firmware" >> /etc/apt/sources.list.d/debian.sources && \
     # 更新源
     apt update && \
     # 安装包
@@ -92,11 +92,14 @@ RUN set -eux; \
     echo 'Asia/Shanghai' > /etc/timezone
 
 RUN set -eux; \
-    echo "deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware" > /etc/apt/sources.list && \
-    echo "deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware" >> /etc/apt/sources.list && \
-    echo "deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware" >> /etc/apt/sources.list && \
-    echo "deb http://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware" >> /etc/apt/sources.list && \
+    # 配置国内源
+    echo "Types: deb" > /etc/apt/sources.list.d/debian.sources && \
+    echo "URIs: http://mirrors.tuna.tsinghua.edu.cn/debian/" >> /etc/apt/sources.list.d/debian.sources && \
+    echo "Suites: bookworm bookworm-updates bookworm-backports" >> /etc/apt/sources.list.d/debian.sources && \
+    echo "Components: main contrib non-free non-free-firmware" >> /etc/apt/sources.list.d/debian.sources && \
+    # 更新源
     apt update && \
+	# 安装包
     apt install --no-install-recommends --no-install-suggests -y \
     python3 \
     python3-pip \
@@ -132,21 +135,21 @@ RUN set -eux; \
     # 配置PIP国内源
     pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple && \
     # 配置mariaDB监听所有IP
-    sed -i 's@bind-address            = 127.0.0.1@bind-address            = 0.0.0.0@g' /etc/mysql/mariadb.conf.d/50-server.cnf && \
+    sed -i 's/127.0.0.1/0.0.0.0/' /etc/mysql/mariadb.conf.d/50-server.cnf && \
     # 配置PostgreSQL允许任何IP登录
-    sed -i "s@host    all             all             127.0.0.1/32            scram-sha-256@host    all             all             0.0.0.0/0               scram-sha-256@g" /etc/postgresql/15/main/pg_hba.conf && \
+    sed -i '0,/127.0.0.1\/32/s//0.0.0.0\/0/' /etc/postgresql/15/main/pg_hba.conf && \
     # 配置PostgreSQL监听所有IP
-    sed -i "s@#listen_addresses = 'localhost'		# what IP address(es) to listen on;@listen_addresses = '*'			# what IP address(es) to listen on;@g" /etc/postgresql/15/main/postgresql.conf && \
+    sed -i "0,/#listen_addresses = 'localhost'/s//listen_addresses = '*'/" /etc/postgresql/15/main/postgresql.conf && \
     # 配置redis监听所有IP
-    sed -i "s@bind 127.0.0.1 -::1@bind 0.0.0.0 -::1@g" /etc/redis/redis.conf && \
+    sed -i '0,/^bind 127.0.0.1/s//bind 0.0.0.0/' /etc/redis/redis.conf && \
     # 配置redis非保护模式(允许非回环地址访问)
-    sed -i "s@protected-mode yes@protected-mode no@g" /etc/redis/redis.conf && \
+    sed -i "s/protected-mode yes/protected-mode no/" /etc/redis/redis.conf&& \
     # 配置ssh允许root登录
-    sed -i "s@#PermitRootLogin prohibit-password@PermitRootLogin yes@g" /etc/ssh/sshd_config && \
+    sed -i "s/#PermitRootLogin prohibit-password/PermitRootLogin yes/" /etc/ssh/sshd_config && \
     # 配置ssh允许空密码登录
-    sed -i "s@#PermitEmptyPasswords no@PermitEmptyPasswords yes@g" /etc/ssh/sshd_config && \
+    sed -i "s/#PermitEmptyPasswords no/PermitEmptyPasswords yes/" /etc/ssh/sshd_config && \
     # 删除root密码
-    passwd -d root    
+    passwd -d root
 
 # 从第一阶段拷贝虚拟环境中的包
 COPY --from=Base /root/venv/lib/python3.11/site-packages/ venvs/venv/lib/python3.11/site-packages/
