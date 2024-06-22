@@ -37,11 +37,20 @@ FROM debian:bookworm-slim as Base
 RUN set -eux; \
     # 配置国内源
     echo "Types: deb" > /etc/apt/sources.list.d/debian.sources && \
-    echo "URIs: http://mirrors.tuna.tsinghua.edu.cn/debian/" >> /etc/apt/sources.list.d/debian.sources && \
+    echo "URIs: http://mirrors.tuna.tsinghua.edu.cn/debian" >> /etc/apt/sources.list.d/debian.sources && \
     echo "Suites: bookworm bookworm-updates bookworm-backports" >> /etc/apt/sources.list.d/debian.sources && \
     echo "Components: main contrib non-free non-free-firmware" >> /etc/apt/sources.list.d/debian.sources && \
+    echo "Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg" >> /etc/apt/sources.list.d/debian.sources && \
+    echo "" >> /etc/apt/sources.list.d/debian.sources && \
+    echo "Types: deb" >> /etc/apt/sources.list.d/debian.sources && \
+    echo "URIs: http://mirrors.tuna.tsinghua.edu.cn/debian-security" >> /etc/apt/sources.list.d/debian.sources && \
+    echo "Suites: bookworm-security" >> /etc/apt/sources.list.d/debian.sources && \
+    echo "Components: main contrib non-free non-free-firmware" >> /etc/apt/sources.list.d/debian.sources && \
+    echo "Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg" >> /etc/apt/sources.list.d/debian.sources && \
     # 更新源
-    apt update && \
+    apt update
+    
+RUN set -eux; \
     # 安装包
     apt install --no-install-recommends --no-install-suggests -y \
         # python相关的包
@@ -71,11 +80,10 @@ RUN set -eux; \
     # 使用 . 代替
     . /root/venv/bin/activate && \
     # 安装wheel
-    pip install wheel \
-        # 安装需要编译的包
-        mysqlclient \
-        psycopg2
-
+    pip install wheel && \
+    # 安装需要编译的包
+    pip install mysqlclient psycopg2
+    
 # 第二阶段构建
 FROM debian:bookworm-slim
 
@@ -94,38 +102,47 @@ RUN set -eux; \
 RUN set -eux; \
     # 配置国内源
     echo "Types: deb" > /etc/apt/sources.list.d/debian.sources && \
-    echo "URIs: http://mirrors.tuna.tsinghua.edu.cn/debian/" >> /etc/apt/sources.list.d/debian.sources && \
+    echo "URIs: http://mirrors.tuna.tsinghua.edu.cn/debian" >> /etc/apt/sources.list.d/debian.sources && \
     echo "Suites: bookworm bookworm-updates bookworm-backports" >> /etc/apt/sources.list.d/debian.sources && \
     echo "Components: main contrib non-free non-free-firmware" >> /etc/apt/sources.list.d/debian.sources && \
+    echo "Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg" >> /etc/apt/sources.list.d/debian.sources && \
+    echo "" >> /etc/apt/sources.list.d/debian.sources && \
+    echo "Types: deb" >> /etc/apt/sources.list.d/debian.sources && \
+    echo "URIs: http://mirrors.tuna.tsinghua.edu.cn/debian-security" >> /etc/apt/sources.list.d/debian.sources && \
+    echo "Suites: bookworm-security" >> /etc/apt/sources.list.d/debian.sources && \
+    echo "Components: main contrib non-free non-free-firmware" >> /etc/apt/sources.list.d/debian.sources && \
+    echo "Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg" >> /etc/apt/sources.list.d/debian.sources && \
     # 更新源
-    apt update && \
-	# 安装包
+    apt update
+    
+RUN set -eux; \
+    # 安装包
     apt install --no-install-recommends --no-install-suggests -y \
-    python3 \
-    python3-pip \
-    python3-venv \
-    \
-    mariadb-server \
-    mariadb-client \
-    postgresql \
-    \
-    redis \
-    \
-    nginx \
-    \
-    git \
-    ssh \
-    vim \
-    \
-    curl \
-    wget \
-    \
-    # 提供ip xx和ss命令
-    iproute2 \ 
-    # 提供ping等命令
-    iputils-ping \
-    # 提供ps、top、free和sysctl等命令
-    procps && \
+        python3 \
+        python3-pip \
+        python3-venv \
+        \
+        mariadb-server \
+        mariadb-client \
+        postgresql \
+        \
+        redis \
+        \
+        nginx \
+        \
+        git \
+        ssh \
+        vim \
+        \
+        curl \
+        wget \
+        \
+        # 提供ip xx和ss命令
+        iproute2 \ 
+        # 提供ping等命令
+        iputils-ping \
+        # 提供ps、top、free和sysctl等命令
+        procps && \
     # 清理缓存
     rm -rf /var/lib/apt/lists/* && \
     # 创建虚拟环境

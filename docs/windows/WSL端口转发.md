@@ -19,7 +19,9 @@ netsh interface portproxy add v4tov4 listenaddress=监听地址 listenport=监�
 
 示例：
 
-netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=5000 connectaddress=5000 connectport=192.168.1.254
+```
+netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=5000 connectaddress=192.168.1.254 connectport=5000
+```
 
 ## 删除端口转发
 
@@ -29,11 +31,14 @@ netsh interface portproxy delete v4tov4 listenaddress=监听地址 listenport=�
 
 示例：
 
+```
 netsh interface portproxy delete v4tov4 listenaddress=0.0.0.0 listenport=5000
+```
 
 ## 查看转口转发
 
 若忘记转发的的地址和端口可使用以下命令查看
 
+```
 netsh interface portproxy show all
-
+```

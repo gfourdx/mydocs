@@ -26,9 +26,9 @@ Redis工具: [ARDM](https://github.com/qishibo/AnotherRedisDesktopManager)
 
 配置不同App使用不同输入法: [KeyboardHolder](https://github.com/leaves615/KeyboardHolder)
 
-梯子: [clashX](https://github.com/yichengchen/clashX), [v2ray-core](https://github.com/v2fly/v2ray-core/)
+梯子: [clash-verge-rev](https://github.com/clash-verge-rev/clash-verge-rev), [ClashX.Meta](https://github.com/MetaCubeX/ClashX.Meta)
 
-下载工具: [Motrix](https://github.com/agalwood/Motrix)
+下载工具: [Motrix](https://github.com/agalwood/Motrix), [imfile](https://github.com/imfile-io/imfile-desktop)
 
 解决鼠标卡顿和配置滚轮方向: [Mos](https://github.com/Caldis/Mos)
 
@@ -40,7 +40,9 @@ IINA插件(B站、弹幕等): [IINA+](https://github.com/xjbeta/iina-plus)
 
 文件互传: [LocalSend](https://github.com/localsend/localsend)
 
-调整外接显示亮度与声音: [MonitorControl](https://github.com/MonitorControl/MonitorControl)
+外接显示器控制: [MonitorControl](https://github.com/MonitorControl/MonitorControl), [BetterDisplay](https://github.com/waydabber/BetterDisplay)
+
+下载Windows: [CrystalFetch](https://github.com/TuringSoftware/CrystalFetch)
 
 Mp3Tag编辑: [MusicBrainz Picard](https://github.com/metabrainz/picard)
 
@@ -48,25 +50,25 @@ Mp3Tag编辑: [MusicBrainz Picard](https://github.com/metabrainz/picard)
 
 Gridea主题: [Pure](https://github.com/imhanjie/gridea-theme-pure)
 
-Docker&Linux: [OrbStack](https://github.com/orbstack/orbstack)
-
 虚拟机: [UTM](https://github.com/utmapp/UTM)
 
 UTM工具包: [SPICE Guest Tools](https://mac.getutm.app/support/)
 
 ## 闭源
 
-壁纸刘海: [pap.er](https://paper.photos)
+Typora: [Typora](https://download.typora.io/mac/Typora-0.11.18.dmg)
 
 压缩工具: [MacZip](https://ezip.awehunt.com/)
 
-快速查看快捷键: [CheatSheet](https://www.mediaatelier.com/CheatSheet/)
+查看快捷键: [CheatSheet](https://www.mediaatelier.com/CheatSheet/feedNotes.php)
 
-微软远程桌面: [Microsoft Remote Desktop](https://go.microsoft.com/fwlink/?linkid=868963), [Microsoft Remote Desktop Beta](https://install.appcenter.ms/orgs/rdmacios-k2vy/apps/microsoft-remote-desktop-for-mac/distribution_groups/all-users-of-microsoft-remote-desktop-for-mac)
+远程桌面: [Microsoft Remote Desktop](https://go.microsoft.com/fwlink/?linkid=868963), [Microsoft Remote Desktop Beta](https://install.appcenter.ms/orgs/rdmacios-k2vy/apps/microsoft-remote-desktop-for-mac/distribution_groups/all-users-of-microsoft-remote-desktop-for-mac)
 
 内网穿透: [ZeroTier](https://www.zerotier.com/)
 
-Markdown工具: [Typora](https://download.typora.io/mac/Typora-0.11.18.dmg)
+Docker&Linux: [OrbStack](https://github.com/orbstack/orbstack)
+
+壁纸刘海: [pap.er](https://paper.photos)
 
 截图: [Snipaste](https://www.snipaste.com/index.html)
 
@@ -78,10 +80,6 @@ Parallels Desktop启动器: [PD Runner](https://macapp.org.cn/app/pd-runner.html
 
 英语单词学习: [Anki](https://apps.ankiweb.net/)
 
-## 下载站
+## 资源推荐
 
 [Awesome Mac](https://wangchujiang.com/awesome-mac/README-zh.html)
-
-[Better365](https://www.better365.cn/)
-
-[Oka Apps](https://zh.okaapps.com/)
