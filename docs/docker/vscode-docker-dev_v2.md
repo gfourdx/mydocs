@@ -9,9 +9,9 @@
 # 1、构建镜像
 # docker build -f dev.Dockerfile -t gfourdx/dev:latest . 
 # 2、运行容器
-# docker run -dit -h dev -p 22:22 -p 80:80  -p 443:443 -p 3306:3306 -p 5432:5432 -p 6379:6379 --name dev --restart=unless-stopped gfourdx/dev:latest
+# docker run -dit -h dev -p 2222:22 -p 80:80  -p 443:443 -p 3306:3306 -p 5432:5432 -p 6379:6379 --name dev --restart=unless-stopped gfourdx/dev:latest
 # 3、快速进入容器
-# echo 'alias dev="docker exec -it dev bash"' >> ~/.zshrc
+# echo 'alias dev="docker exec -it dev bash"' >> ~/.zprofile
 # 
 # 利用多段构建构建解决两个问题:
 # 1、因缺少编译工具导致 pip 命令安装某些包时失败的问题
@@ -48,11 +48,11 @@ RUN set -eux; \
     echo "Components: main contrib non-free non-free-firmware" >> /etc/apt/sources.list.d/debian.sources && \
     echo "Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg" >> /etc/apt/sources.list.d/debian.sources && \
     # 更新源
-    apt update
-    
+    apt-get update
+
 RUN set -eux; \
     # 安装包
-    apt install --no-install-recommends --no-install-suggests -y \
+    apt-get install --no-install-recommends --no-install-suggests -y \
         # python相关的包
         python3 \
         python3-pip \
@@ -83,7 +83,7 @@ RUN set -eux; \
     pip install wheel && \
     # 安装需要编译的包
     pip install mysqlclient psycopg2
-    
+
 # 第二阶段构建
 FROM debian:bookworm-slim
 
@@ -113,11 +113,11 @@ RUN set -eux; \
     echo "Components: main contrib non-free non-free-firmware" >> /etc/apt/sources.list.d/debian.sources && \
     echo "Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg" >> /etc/apt/sources.list.d/debian.sources && \
     # 更新源
-    apt update
-    
+    apt-get update
+
 RUN set -eux; \
     # 安装包
-    apt install --no-install-recommends --no-install-suggests -y \
+    apt-get install --no-install-recommends --no-install-suggests -y \
         python3 \
         python3-pip \
         python3-venv \
