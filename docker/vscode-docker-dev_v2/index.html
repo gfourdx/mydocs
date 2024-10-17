@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.40">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.41">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.8c3ca2c6.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -951,11 +951,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mac/UTM%E5%AE%89%E8%A3%85Windows/" class="md-nav__link">
+      <a href="../../mac/%E8%AE%BE%E7%BD%AEMac%E7%9A%84Hostname/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    UTM安装Windows
+    设置Mac的Hostname
   </span>
   
 
@@ -972,11 +972,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mac/%E8%AE%BE%E7%BD%AEMac%E7%9A%84Hostname/" class="md-nav__link">
+      <a href="../../mac/%E4%BD%BF%E7%94%A8lima%E5%AE%9E%E7%8E%B0docker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    设置Mac的Hostname
+    使用lima实现docker
   </span>
   
 
@@ -1019,6 +1019,27 @@
   
   <span class="md-ellipsis">
     命令行配置Mac代理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mac/UTM%E5%AE%89%E8%A3%85Windows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UTM安装Windows
   </span>
   
 
@@ -3508,20 +3529,10 @@
 <span class="c"># 利用多段构建构建解决两个问题:</span>
 <span class="c"># 1、因缺少编译工具导致 pip 命令安装某些包时失败的问题</span>
 <span class="c"># 2、减少镜像的体积</span>
-<span class="c"># </span>
-<span class="c"># 第一段使用镜像 Debian bookworm</span>
-<span class="c"># 该镜像的优点是 包含完整的编译工具</span>
-<span class="c"># 保证 pip 命令编译安装 mysqlclient 和 psycopg2 成功</span>
-<span class="c"># 该镜像的缺点是 初始体积较大(约139MB)</span>
-<span class="c">#</span>
-<span class="c"># 第二段使用镜像 Debian bookworm-slim</span>
-<span class="c"># 该镜像的缺点是 缺少编译工具</span>
-<span class="c"># 导致 pip 命令编译安装 mysqlclient 和 psycopg2 失败</span>
-<span class="c"># 该镜像的优点是 初始体积较小(约97.1MB)</span>
 <span class="c">#</span>
 
 <span class="c"># 第一阶段构建</span>
-<span class="k">FROM</span><span class="w"> </span><span class="s">debian:bookworm-slim</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="s">Base</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">debian:bookworm-slim</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">base</span>
 
 <span class="c"># 配置编译环境</span>
 <span class="c"># 每条命令之间使用 &amp;&amp; 连接</span>
@@ -3580,7 +3591,7 @@
 <span class="k">FROM</span><span class="w"> </span><span class="s">debian:bookworm-slim</span>
 
 <span class="c"># 配置环境变量</span>
-<span class="k">ENV</span><span class="w"> </span>LANG<span class="w"> </span>C.UTF-8
+<span class="k">ENV</span><span class="w"> </span><span class="nv">LANG</span><span class="o">=</span>C.UTF-8
 
 <span class="c"># 配置工作目录</span>
 <span class="k">WORKDIR</span><span class="w"> </span><span class="s">/root/</span>
@@ -3661,7 +3672,7 @@
 <span class="w">    </span>passwd<span class="w"> </span>-d<span class="w"> </span>root
 
 <span class="c"># 从第一阶段拷贝虚拟环境中的包</span>
-<span class="k">COPY</span><span class="w"> </span>--from<span class="o">=</span>Base<span class="w"> </span>/root/venv/lib/python3.11/site-packages/<span class="w"> </span>venvs/venv/lib/python3.11/site-packages/
+<span class="k">COPY</span><span class="w"> </span>--from<span class="o">=</span>base<span class="w"> </span>/root/venv/lib/python3.11/site-packages/<span class="w"> </span>venvs/venv/lib/python3.11/site-packages/
 
 <span class="c"># 22 ssh</span>
 <span class="c"># 80 443 nginx</span>
@@ -3761,7 +3772,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.525ec568.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
     
   </body>
