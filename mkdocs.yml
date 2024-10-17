@@ -78,10 +78,11 @@ nav:
     - linux/Linux下自动挂载U盘.md
   - Mac:
     - mac/MacOS软件.md
-    - mac/UTM安装Windows.md
     - mac/设置Mac的Hostname.md
+    - mac/使用lima实现docker.md
     - mac/Mac安装Office并激活.md
     - mac/命令行配置Mac代理.md
+    - mac/UTM安装Windows.md
     - mac/分析brew无用的包.md
   - Windows:
     - windows/KMS激活.md

@@ -16,20 +16,10 @@
 # 利用多段构建构建解决两个问题:
 # 1、因缺少编译工具导致 pip 命令安装某些包时失败的问题
 # 2、减少镜像的体积
-# 
-# 第一段使用镜像 Debian bookworm
-# 该镜像的优点是 包含完整的编译工具
-# 保证 pip 命令编译安装 mysqlclient 和 psycopg2 成功
-# 该镜像的缺点是 初始体积较大(约139MB)
-#
-# 第二段使用镜像 Debian bookworm-slim
-# 该镜像的缺点是 缺少编译工具
-# 导致 pip 命令编译安装 mysqlclient 和 psycopg2 失败
-# 该镜像的优点是 初始体积较小(约97.1MB)
 #
 
 # 第一阶段构建
-FROM debian:bookworm-slim as Base
+FROM debian:bookworm-slim AS base
 
 # 配置编译环境
 # 每条命令之间使用 && 连接
@@ -88,7 +78,7 @@ RUN set -eux; \
 FROM debian:bookworm-slim
 
 # 配置环境变量
-ENV LANG C.UTF-8
+ENV LANG=C.UTF-8
 
 # 配置工作目录
 WORKDIR /root/
@@ -169,7 +159,7 @@ RUN set -eux; \
     passwd -d root
 
 # 从第一阶段拷贝虚拟环境中的包
-COPY --from=Base /root/venv/lib/python3.11/site-packages/ venvs/venv/lib/python3.11/site-packages/
+COPY --from=base /root/venv/lib/python3.11/site-packages/ venvs/venv/lib/python3.11/site-packages/
 
 # 22 ssh
 # 80 443 nginx
