@@ -4,8 +4,6 @@
 
 ## AOSP
 
-[ArrowOS](https://www.arrowos.net/download)
-
 [CarbonROM](https://get.carbonrom.org/)
 
 [crDroid](https://crdroid.net/downloads)
@@ -49,9 +47,9 @@ Gapps各版本区别
 
 [BiTGApps](https://bitgapps.github.io/)
 
-[LiteGApps](https://litegapps1.github.io/index.html)
+[LiteGApps](https://litegapps.github.io/index.html)
 
-[MindTheGapps](http://downloads.codefi.re/jdcteam/javelinanddart/gapps)
+[MindTheGapps](https://mindthegapps.com)
 
 ## GmsCore
 
@@ -65,13 +63,13 @@ GmsCore是一个变种, 在不安装OpenGApps的情况下支持各种Google APPS
 
 ## ADB Tool
 
-[SDK Platform Tools](https://developer.android.com/studio/releases/platform-tools)
+[SDK Platform Tools](https://developer.android.com/tools/releases/platform-tools?hl=zh-cn)
+
+[Google USB Driver](https://developer.android.com/studio/run/win-usb)
 
 ## 离线下载Google Play应用
 
 [APK Downloader](https://apps.evozi.com/apk-downloader/)
 
 [APKPure](https://apkpure.com/cn/)
-
-
 

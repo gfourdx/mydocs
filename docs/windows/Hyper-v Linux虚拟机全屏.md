@@ -1,4 +1,4 @@
-# 设置Hyper-v中Linux虚拟机全屏
+# Hyper-v Linux虚拟机全屏
 
 ---
 

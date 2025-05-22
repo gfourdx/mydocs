@@ -1,4 +1,4 @@
-# Linux下解压Windows压缩的ZIP文件后乱码的解决办法
+# Linux解压ZIP乱码
 
 ---
 

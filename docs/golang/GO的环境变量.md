@@ -9,26 +9,6 @@
 方式1
 
 ```
-~# echo $GOPATH          # 未配置环境
-
-~# go env|grep GOPATH    # 查看GOPATH, 是默认值
-GOPATH="/root/go"
-~# 
-~# GOPATH=/root/gos      # 配置环境变量
-~# 
-~# echo $GOPATH          # 查看环境变量, 已改变
-/root/gos
-~# 
-~# go env|grep GOPATH    # 查看GOPATH, 还是是默认值
-GOPATH="/root/go"
-~# 
-```
-
-结论: **GOPATH=/root/gos 无法更改go env**
-
-方式2
-
-```
 ~# echo $GOPATH               # 未配置环境
 
 ~# go env|grep GOPATH         # 查看GOPATH, 是默认值

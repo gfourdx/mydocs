@@ -1,4 +1,4 @@
-# Debian安装和配置PostgreSQL
+# Debian安装和配置Postgres
 
 ---
 
@@ -15,7 +15,7 @@ sudo apt-get -y install postgresql
 
 ## 配置
 
-### 允许任何IP访问
+### 允许任何IP
 
 ```
 sed -i '0,/127.0.0.1\/32/s//0.0.0.0\/0/' /etc/postgresql/15/main/pg_hba.conf
@@ -33,7 +33,7 @@ sed -i "0,/#listen_addresses = 'localhost'/s//listen_addresses = '*'/" /etc/post
 service postgresql start
 ```
 
-### 切换至Linux用户postgres
+### 切换postgres用户
 
 ```
 su - postgres
@@ -43,7 +43,7 @@ su - postgres
 >
 > 如提示输入密码或想设置密码可执行命令 `passwd postgres`
 
-### 修改数据库用户postgres密码
+### 修改postgres密码
 
 ```
 psql
@@ -51,3 +51,5 @@ alter user postgres with password 'postgres';
 \q
 exit
 ```
+
+> 注意, 这里的postgres密码是指postgres数据库中postgres用户的密码

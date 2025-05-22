@@ -1,5 +1,5 @@
 site_name: My Docs
-site_url: https://911205.xyz/
+site_url: https://docs.911205.xyz/
 site_description: My Documents
 site_author: gfourdx
 
@@ -62,20 +62,14 @@ nav:
     - android/Fastboot刷机.md
   - Linux:
     - linux/玩客云.md
-    - linux/Linux杂记.md
-    - linux/挂载ISO镜像做本地源.md
-    - JIRA安装与破解: linux/RHEL7.3的Jira安装与破解教程.md
-    - Linux解压ZIP乱码: linux/Linux下解压Windows压缩的ZIP文件后乱码的解决办法.md
-    - linux/Linux配置IP和DNS.md
+    - linux/解压ZIP乱码.md
+    - linux/配置IP和DNS.md
     - linux/Debian网络管理.md
-    - Debian搭建K8S集群: linux/Debian10通过kubeadm部署Kubernetes集群.md
-    - linux/源码编译MySQL5.7记录.md
     - linux/Debian安装和配置Docker.md
     - linux/Debian安装和配置MariaDB.md
-    - linux/Debian安装和配置PostgreSQL.md
+    - linux/Debian安装和配置Postgres.md
     - linux/安装mysqlclient和psycopg2报错.md
-    - linux/Linux下格式化U盘及重建分区.md
-    - linux/Linux下自动挂载U盘.md
+    - linux/U盘格式化分区自动挂载.md
   - Mac:
     - mac/MacOS软件.md
     - mac/设置Mac的Hostname.md
@@ -86,14 +80,11 @@ nav:
     - mac/分析brew无用的包.md
   - Windows:
     - windows/KMS激活.md
-    - windows/删除3D对象.md
     - windows/WSL端口转发.md
     - windows/清除系统托盘图标缓存.md
-    - Hyper-v Linux虚拟机全屏: windows/设置Hyper-v中Linux虚拟机全屏.md
-    - windows/Windows10离线安装.Net3.5.md
+    - windows/Hyper-v Linux虚拟机全屏.md
     - windows/手动安装WSL.md
     - windows/WSL使用Debian启动Docker报错.md
-    - Windows安装配置MySQ5.7: windows/Windows 11 安装配置 MySQL 5.7.38.md
   - Docker:
     - docker/vscode-docker-dev_v1.md
     - docker/vscode-docker-dev_v2.md

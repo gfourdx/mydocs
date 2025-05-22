@@ -8,75 +8,85 @@
 
 ## 开发工具
 
-IDE: [VS Code](https://code.visualstudio.com/Download)
+[ARDM](https://github.com/qishibo/AnotherRedisDesktopManager)
 
-Edit: [CotEditor](https://github.com/coteditor/CotEditor)
+[CotEditor](https://github.com/coteditor/CotEditor)
 
-Shell: [Fish](https://github.com/fish-shell/fish-shell)
+[DBeaver](https://github.com/dbeaver/dbeaver/)
 
-Reids: [ARDM](https://github.com/qishibo/AnotherRedisDesktopManager)
+[DevHub](https://github.com/jaywcjlove/DevHub)
 
-Database: [DBeaver](https://github.com/dbeaver/dbeaver/)
+[DevToys](https://github.com/DevToys-app/DevToys)
+
+[Ghostty](https://github.com/ghostty-org/ghostty)
+
+[Hoppscotch](https://hoppscotch.com/download)
+
+[OrbStack](https://github.com/orbstack/orbstack)
+
+[Fish](https://github.com/fish-shell/fish-shell)
+
+[VS Code](https://code.visualstudio.com/Download)
+
+[Zed](https://github.com/zed-industries/zed)
 
 ## 后台工具
 
-翻译: [Bob](https://github.com/ripperhe/Bob)
+[Bob](https://github.com/ripperhe/Bob)
 
-梯子: [ClashX.Meta](https://github.com/MetaCubeX/ClashX.Meta), [Hiddify](https://github.com/hiddify/hiddify-next)
+[BoringNotch](https://github.com/TheBoredTeam/boring.notch)
 
-键盘映射: [Karabiner-Elements](https://github.com/pqrs-org/Karabiner-Elements)
+[ClashX.Meta](https://github.com/MetaCubeX/ClashX.Meta)
 
-输入法配置: [KeyboardHolder](https://github.com/leaves615/KeyboardHolder)
+[Karabiner-Elements](https://github.com/pqrs-org/Karabiner-Elements)
 
-剪切板历史: [Maccy](https://github.com/p0deje/Maccy)
+[KeyboardHolder](https://github.com/leaves615/KeyboardHolder)
 
-显示器亮度控制: [MonitorControl](https://github.com/MonitorControl/MonitorControl)
+[Maccy](https://github.com/p0deje/Maccy)
 
-鼠标丝滑与滚轮方向: [Mos](https://github.com/Caldis/Mos)
+[MacZip](https://ezip.awehunt.com/)
+
+[MonitorControl](https://github.com/MonitorControl/MonitorControl)
+
+[Mos](https://github.com/Caldis/Mos)
 
 ## 实用工具
 
-文件互传: [LocalSend](https://github.com/localsend/localsend)
+[CrystalFetch](https://github.com/TuringSoftware/CrystalFetch)
 
-压缩工具: [MacZip](https://ezip.awehunt.com/)
+[IINA](https://github.com/iina/iina)
 
-下载工具: [Motrix](https://github.com/agalwood/Motrix)
+[IINA+](https://github.com/xjbeta/iina-plus)
 
-清理工具: [Pearcleaner](https://github.com/alienator88/Pearcleaner)
+[iPortForwarder](https://github.com/hronro/iPortForwarder)
 
-远程工具: [RustDesk](https://github.com/rustdesk/rustdesk), [Parallels Clent](https://www.parallels.com/products/ras/download/client/)
+[LocalSend](https://github.com/localsend/localsend)
+
+[Motrix](https://github.com/agalwood/Motrix)
+
+[OpenMTP](https://github.com/ganeshrvel/openmtp)
+
+[Parallels Clent](https://www.parallels.com/products/ras/download/client/)
+
+[Pearcleaner](https://github.com/alienator88/Pearcleaner)
+
+[Sloth](https://github.com/sveinbjornt/Sloth)
+
+[VirtualBuddy](https://github.com/insidegui/VirtualBuddy)
 
 ## 其他工具
 
-视频播放器: [IINA](https://github.com/iina/iina)
-
-IINA插件: [IINA+](https://github.com/xjbeta/iina-plus)
-
-远程桌面: [Microsoft Remote Desktop](https://go.microsoft.com/fwlink/?linkid=868963), [Microsoft Remote Desktop Beta](https://install.appcenter.ms/orgs/rdmacios-k2vy/apps/microsoft-remote-desktop-for-mac/distribution_groups/all-users-of-microsoft-remote-desktop-for-mac)
+远程桌面: [Microsoft Remote Desktop](https://go.microsoft.com/fwlink/?linkid=868963)
 
 内网穿透: [ZeroTier](https://www.zerotier.com/)
 
-壁纸刘海: [pap.er](https://paper.photos)
-
-截图工具: [Snipaste](https://www.snipaste.com/index.html)
-
-Docker&Linux: [OrbStack](https://github.com/orbstack/orbstack)
-
 查看快捷键: [KeyClu](https://github.com/Anze/KeyCluCask), [CheatSheet](https://www.mediaatelier.com/CheatSheet/feedNotes.php)
-
-快捷分屏: [Rectangle](https://github.com/rxhanson/Rectangle/)
 
 下载工具: [imfile](https://github.com/imfile-io/imfile-desktop)
 
 本文编辑: [TextMate](https://github.com/textmate/textmate)
 
-Windows下载: [CrystalFetch](https://github.com/TuringSoftware/CrystalFetch)
-
 Mp3Tag编辑: [MusicBrainz Picard](https://github.com/metabrainz/picard)
-
-静态博客写作客户端: [Gridea](https://github.com/getgridea/gridea)
-
-Gridea主题: [Pure](https://github.com/imhanjie/gridea-theme-pure)
 
 虚拟机: [UTM](https://github.com/utmapp/UTM)
 
