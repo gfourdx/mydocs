@@ -70,6 +70,9 @@ nav:
     - linux/Debian安装和配置Postgres.md
     - linux/安装mysqlclient和psycopg2报错.md
     - linux/U盘格式化分区自动挂载.md
+    - linux/配置UV使用国内源.md
+    - linux/别名.md
+    - linux/apt国内源.md
   - Mac:
     - mac/MacOS软件.md
     - mac/设置Mac的Hostname.md
@@ -85,7 +88,10 @@ nav:
     - windows/Hyper-v Linux虚拟机全屏.md
     - windows/手动安装WSL.md
     - windows/WSL使用Debian启动Docker报错.md
+    - windows/WSL服务批量管理.md
+    - windows/WSL快捷配置代理.md
   - Docker:
+    - docker/container_cmd.md
     - docker/vscode-docker-dev_v1.md
     - docker/vscode-docker-dev_v2.md
   - Golang:

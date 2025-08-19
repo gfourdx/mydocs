@@ -24,8 +24,8 @@ tee /etc/docker/daemon.json <<-'EOF'
 {
   "bip": "192.168.255.1/24",
   "proxies": {
-    "http-proxy": "172.21.80.1:7890",
-    "https-proxy": "http://172.21.80.1:7890",
+    "http-proxy": "http://127.0.0.1:7891",
+    "https-proxy": "http://127.0.0.1:7891",
     "no-proxy": "127.0.0.0/8"
   }
 }
@@ -38,6 +38,8 @@ tee /etc/docker/daemon.json <<-'EOF'
 > 若要配置Docker镜像和容器的存储配置, 请添加 "data-root": "/path/to/custom"
 
 ## 免sudo
+
+参考： https://docs.docker.com/engine/install/linux-postinstall/
 
 ```
 sudo groupadd docker  # 可以省略
