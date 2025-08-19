@@ -3,11 +3,64 @@ name = "mydocs"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.13"
 dependencies = [
-    "mkdocs-material>=9.6.14",
+    "mkdocs-material>=9.6.17",
 ]
 
 [[tool.uv.index]]
 url = "https://pypi.tuna.tsinghua.edu.cn/simple"
 default = true
+
+[tool.ruff]
+fix = true
+indent-width = 4
+line-length = 88
+
+[tool.ruff.lint]
+select = [
+    "A",  # flake8-builtins
+    "ANN",  # flake8-annotations
+    "B",  # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "D",  # pycodestyle
+    "DOC",  # pycodestyle
+    "E",  # pycodestyle
+    "F",  #　Pyflakes
+    "FIX",  # flake8-fixme
+    "I",  #　isort
+    "N",  # pep8-naming
+    "Q",  # flake8-quotes
+    "PL",  # Pylint
+    "RUF",  # Ruff-specific rules
+    "TC",  # flake8-type-checking
+    "UP",   # pyupgrade
+    "W",  # pycodestyle
+]
+ignore = [
+    "ANN002",  # Missing type annotation for *args
+    "ANN003",  # Missing type annotation for **kwargs
+    "D100",   # Missing docstring in public module
+    "D101",  # Missing docstring in public class
+    "D102",  # Missing docstring in public method
+    "D103",  # Missing docstring in public function
+    "D203",  # 1 blank line required before class docstring
+    "D213",  # Multi-line docstring summary should start at the second line
+    "D400",  # First line should end with a period
+    "D401",  # First line of docstring should be in imperative mood
+    "D415",  # First line should end with a period, question mark, or exclamation point
+]
+fixable = ["ALL"]
+
+[tool.ruff.lint.isort]
+force-sort-within-sections = true
+known-local-folder = ["apps"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.format]
+indent-style = "space"
+line-ending = "lf"
+quote-style = "double"
+skip-magic-trailing-comma = false
