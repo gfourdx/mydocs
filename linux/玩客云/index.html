@@ -669,89 +669,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#ipdns" class="md-nav__link">
     <span class="md-ellipsis">
-      二、配置
+      二、配置静态IP和DNS
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="二、配置">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1ipdns" class="md-nav__link">
-    <span class="md-ellipsis">
-      1、配置静态IP和DNS
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    <span class="md-ellipsis">
-      2、配置软件源并更新
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    <span class="md-ellipsis">
-      3、配置时区
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4docker" class="md-nav__link">
-    <span class="md-ellipsis">
-      4、安装Docker
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5mariadb" class="md-nav__link">
-    <span class="md-ellipsis">
-      5、安装Mariadb
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6zerotier" class="md-nav__link">
-    <span class="md-ellipsis">
-      6、安装ZeroTier
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7aria2" class="md-nav__link">
-    <span class="md-ellipsis">
-      7、安装aria2
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#8samba" class="md-nav__link">
-    <span class="md-ellipsis">
-      8、安装samba
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3864,89 +3786,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#ipdns" class="md-nav__link">
     <span class="md-ellipsis">
-      二、配置
+      二、配置静态IP和DNS
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="二、配置">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1ipdns" class="md-nav__link">
-    <span class="md-ellipsis">
-      1、配置静态IP和DNS
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    <span class="md-ellipsis">
-      2、配置软件源并更新
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    <span class="md-ellipsis">
-      3、配置时区
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4docker" class="md-nav__link">
-    <span class="md-ellipsis">
-      4、安装Docker
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5mariadb" class="md-nav__link">
-    <span class="md-ellipsis">
-      5、安装Mariadb
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6zerotier" class="md-nav__link">
-    <span class="md-ellipsis">
-      6、安装ZeroTier
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7aria2" class="md-nav__link">
-    <span class="md-ellipsis">
-      7、安装aria2
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#8samba" class="md-nav__link">
-    <span class="md-ellipsis">
-      8、安装samba
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3974,186 +3818,55 @@
 <p>参考：<a href="https://www.right.com.cn/FORUM/thread-8246606-1-1.html">玩客云-Armbian22.08-直刷包-内核5.18-各种币，譬如迅雷玩客云 玩客币 睿智激活码等-恩山无线论坛 (right.com.cn)</a></p>
 <p>刷机成功之后按照引导进入系统即可。</p>
 </blockquote>
-<h3 id="_3">二、配置</h3>
-<h5 id="1ipdns">1、配置静态IP和DNS</h5>
-<blockquote>
-<p><div class="highlight"><pre><span></span><code>nano /etc/network/interfaces
+<h3 id="ipdns">二、配置静态IP和DNS</h3>
+<p>执行命令: <code>vim /etc/netplan/10-dhcp-all-interfaces.yam</code></p>
+<p>编辑内容为(注释掉eth借口的相关配置):</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Added by Armbian</span>
+<span class="c1">#</span>
+<span class="c1"># Reference: https://netplan.readthedocs.io/en/stable/netplan-yaml/</span>
+<span class="c1">#</span>
+<span class="c1"># Let systemd-networkd manage all Ethernet devices on this system, but be configured by Netplan.</span>
 
-# 将以下内容追加到文件最后：
-auto eth0
-iface eth0 inet static
-address 192.168.1.254
-netmask 255.255.255.0
-gateway 192.168.1.1
-dns-nameservers 223.5.5.5 223.6.6.6
-# hwaddress 00:22:6D:50:42:A9
-
-# PS：以上的address、netmask和gateway根据你的实际情况修改, hwaddress是mac地址(非必要不添加)
+<span class="nt">network</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">  </span><span class="nt">renderer</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">networkd</span>
+<span class="w">  </span><span class="nt">ethernets</span><span class="p">:</span>
+<span class="w">    </span><span class="c1">#all-eth-interfaces:</span>
+<span class="w">    </span><span class="c1">#  match:</span>
+<span class="w">    </span><span class="c1">#    name: &quot;e*&quot;</span>
+<span class="w">    </span><span class="c1">#  dhcp4: yes</span>
+<span class="w">    </span><span class="c1">#  dhcp6: yes</span>
+<span class="w">    </span><span class="c1">#  ipv6-privacy: yes # Enabled by default on most current systems, but networkd currently doesn&#39;t enable IPv6 privacy by default, see https://man.archlinux.org/man/systemd.network.5</span>
+<span class="w">    </span><span class="nt">all-lan-interfaces</span><span class="p">:</span><span class="w"> </span><span class="c1"># include interfaces that are renamed to &#39;lanX&#39; by udev, e.g. nanopi-r2s</span>
+<span class="w">      </span><span class="nt">match</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;lan[0-9]*&quot;</span>
+<span class="w">      </span><span class="nt">dhcp4</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span>
+<span class="w">      </span><span class="nt">dhcp6</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span>
+<span class="w">      </span><span class="nt">ipv6-privacy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span><span class="w"> </span><span class="c1"># Enabled by default on most current systems, but networkd currently doesn&#39;t enable IPv6 privacy by default, see https://man.archlinux.org/man/systemd.network.5</span>
+<span class="w">    </span><span class="nt">all-wan-interfaces</span><span class="p">:</span><span class="w"> </span><span class="c1"># include interfaces that are renamed to &#39;wanX&#39; by udev, e.g. nanopi-r1</span>
+<span class="w">      </span><span class="nt">match</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;wan[0-9]*&quot;</span>
+<span class="w">      </span><span class="nt">dhcp4</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span>
+<span class="w">      </span><span class="nt">dhcp6</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span>
+<span class="w">      </span><span class="nt">ipv6-privacy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span><span class="w"> </span><span class="c1"># Enabled by default on most current systems, but networkd currently doesn&#39;t enable IPv6 privacy by default, see https://man.archlinux.org/man/systemd.network.5</span>
 </code></pre></div>
-</p>
-</blockquote>
-<h5 id="2">2、配置软件源并更新</h5>
-<blockquote>
-<p>a、将默认源中的http改成https</p>
-<div class="highlight"><pre><span></span><code># 把http改成https
-nano /etc/apt/sources.list.d/armbian.list
-# 把http改成https
-nano /etc/apt/sources.list.d/nala.list
+<p>执行命令: <code>vim /etc/netplan/20-eth-fixed-mac.yaml</code></p>
+<p>编辑内容为:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">network</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">  </span><span class="nt">renderer</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">networkd</span>
+<span class="w">  </span><span class="nt">ethernets</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">eth0</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">dhcp4</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no</span>
+<span class="w">      </span><span class="nt">dhcp6</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no</span>
+<span class="w">      </span><span class="nt">addresses</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">192.168.2.2/24</span><span class="p p-Indicator">]</span>
+<span class="w">      </span><span class="nt">routes</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">to</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
+<span class="w">          </span><span class="nt">via</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">192.168.2.1</span>
+<span class="w">      </span><span class="nt">nameservers</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">addresses</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">223.5.5.5</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">223.6.6.6</span><span class="p p-Indicator">]</span>
+<span class="w">      </span><span class="nt">macaddress</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">00:22:6D:50:42:A9</span>
 </code></pre></div>
-<p>b、添加清华源</p>
-<div class="highlight"><pre><span></span><code>mv /etc/apt/sources.list /etc/apt/sources.list.bak
-nano /etc/apt/sources.list
-
-# 将以下内容复制到sources.list中：
-deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye main contrib non-free
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye main contrib non-free
-deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye-updates main contrib non-free
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye-updates main contrib non-free
-
-deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye-backports main contrib non-free
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye-backports main contrib non-free
-
-deb https://mirrors.tuna.tsinghua.edu.cn/debian-security bullseye-security main contrib non-free
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security bullseye-security main contrib non-free
-</code></pre></div>
-<p>c、更新源和包</p>
-<div class="highlight"><pre><span></span><code>apt update &amp;&amp; apt upgrade -y
-</code></pre></div>
-<p>d、补全python环境和设置pip源（可选）</p>
-<div class="highlight"><pre><span></span><code>apt install -y python3-pip python3-venv
-pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-</code></pre></div>
-</blockquote>
-<h5 id="3">3、配置时区</h5>
-<blockquote>
-<div class="highlight"><pre><span></span><code>ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-</code></pre></div>
-</blockquote>
-<h5 id="4docker">4、安装Docker</h5>
-<blockquote>
-<div class="highlight"><pre><span></span><code>curl -fsSL https://get.docker.com -o get-docker.sh 
-sh get-docker.sh &amp;&amp; rm get-docker.sh
-
-# 以下命令是一个整体, 其中:
-# registry-mirrors是设置镜像加速
-# bip是设置Docker创建的网络的地址段
-# dns是设置Docker的DNS服务器
-# data-root是设置Docker运行时使用的根路径，默认/var/lib/docker
-tee /etc/docker/daemon.json &lt;&lt;-&#39;EOF&#39;
-{
-&quot;registry-mirrors&quot;: [&quot;https://t6wp3k6n.mirror.aliyuncs.com&quot;],
-&quot;dns&quot;: [&quot;223.5.5.5&quot;, &quot;223.6.6.6&quot;],
-&quot;bip&quot;: &quot;192.168.255.1/24&quot;,
-# &quot;data-root&quot;: &quot;/path/to/docke-data&quot;
-}
-EOF
-</code></pre></div>
-</blockquote>
-<h5 id="5mariadb">5、安装Mariadb</h5>
-<blockquote>
-<p>a、数据库安装</p>
-<div class="highlight"><pre><span></span><code>apt install -y mariadb-server mariadb-client
-</code></pre></div>
-<p>b、数据库配置</p>
-<div class="highlight"><pre><span></span><code># 执行下方命令出现交互式会话配置mysql
-mysql_secure_installation
-
-# 登录mysql继续配置
-mysql
-use mysql
-grant all privileges on *.* to &#39;root&#39;@&#39;%&#39; identified by &#39;mariadb&#39; with grant option;
-flush privileges;
-exit
-</code></pre></div>
-<p>c、数据库文件配置</p>
-<div class="highlight"><pre><span></span><code>nano /etc/mysql/mariadb.conf.d/50-server.cnf
-
-# 找到这一行
-bind-address            = 127.0.0.1
-
-# 改成
-bind-address            = 0.0.0.0
-</code></pre></div>
-<p>d、重启数据库</p>
-<div class="highlight"><pre><span></span><code>service mariadb restart
-</code></pre></div>
-</blockquote>
-<h5 id="6zerotier">6、安装ZeroTier</h5>
-<blockquote>
-<div class="highlight"><pre><span></span><code>curl -s https://install.zerotier.com | bash
-
-# 安装成功后通过以下命令加入网络
-zerotier-cli join &quot;network id&quot;
-</code></pre></div>
-</blockquote>
-<h5 id="7aria2">7、安装aria2</h5>
-<blockquote>
-<p>a、拉取镜像</p>
-<div class="highlight"><pre><span></span><code>docker pull p3terx/aria2-pro
-docker pull p3terx/ariang
-</code></pre></div>
-<p>b、创建文件配置目录和文件下载目录</p>
-<div class="highlight"><pre><span></span><code>mkdir /etc/aria2
-mkdir -p /mnt/mmcblk0p1/aria2
-</code></pre></div>
-<p>c、运行容器</p>
-<div class="highlight"><pre><span></span><code># 注意3点:
-# 1、RPC_SECRET=onecloud 是rpc认证token, 可自行设定
-# 2、-v /etc/aria2 是步骤b中创建的文件配置目录
-# 3、 -v /mnt/mmcblk0p1/aria2 是步骤b中创建的文件下载目录
-docker run -d \
-    --name aria2-pro \
-    --restart unless-stopped \
-    --log-opt max-size=1m \
-    -e PUID=$UID \
-    -e PGID=$GID \
-    -e UMASK_SET=022 \
-    -e RPC_SECRET=onecloud \
-    -e RPC_PORT=6800 \
-    -p 6800:6800 \
-    -e LISTEN_PORT=6888 \
-    -p 6888:6888 \
-    -p 6888:6888/udp \
-    -v /etc/aria2:/config \
-    -v /mnt/mmcblk0p1/aria2:/downloads \
-    p3terx/aria2-pro
-
-docker run -d \
-    --name ariang \
-    --log-opt max-size=1m \
-    --restart unless-stopped \
-    -p 6880:6880 \
-    p3terx/ariang
-</code></pre></div>
-<p>d、访问</p>
-<p><a href="http://ip:6880">http://ip:6880</a></p>
-</blockquote>
-<h5 id="8samba">8、安装samba</h5>
-<blockquote>
-<p>a、安装</p>
-<div class="highlight"><pre><span></span><code>apt install -y samba
-</code></pre></div>
-<p>b、配置</p>
-<div class="highlight"><pre><span></span><code># 创建一个分配到sambashare组且不可登录shell的用户
-useradd -s /usr/sbin/nologin -g sambashare samba
-
-# 设置密码
-smbpasswd -a samba
-
-# 编辑配置文件
-nano /etc/samba/smb.conf
-
-# 在文件最后写入配置
-[samba]
-  comment = Files Share
-  path = /mnt/mmcblk0p1/aria2
-  browseable = yes
-  read only = yes
-
-# 重启服务
-service smbd restart
-</code></pre></div>
-</blockquote>
 
 
 
