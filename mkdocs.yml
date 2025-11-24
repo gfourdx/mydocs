@@ -73,6 +73,7 @@ nav:
     - linux/配置UV使用国内源.md
     - linux/别名.md
     - linux/apt国内源.md
+    - linux/Mihomo安装笔记.md
   - Mac:
     - mac/MacOS软件.md
     - mac/设置Mac的Hostname.md

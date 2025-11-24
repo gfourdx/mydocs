@@ -1,21 +1,22 @@
 {
-    "python.languageServer": "Pylance",
-    "python.analysis.completeFunctionParens": true,
-    "python.analysis.autoImportCompletions": true,
+    "[python]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll": "explicit",
+            "source.organizeImports.ruff": "explicit"
+        },
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+    "editor.formatOnSave": true,
+    "editor.guides.bracketPairs": true,
+    "explorer.autoReveal": false,
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 1000,
-    "editor.fontSize": 12,
-    "explorer.autoReveal": false,
-    "editor.guides.bracketPairs": true,
     "git.pruneOnFetch": true,
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "charliermarsh.ruff",
-    "editor.codeActionsOnSave": {
-        "source.fixAll": "explicit",
-        "source.organizeImports.ruff": "explicit",
-    },
-    "terminal.integrated.tabs.enabled": true,
     "outline.showVariables": false,
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.completeFunctionParens": true,
+    "python.languageServer": "Pylance",
+    "ruff.configuration": "${workspaceFolder}/pyproject.toml",
     "ruff.nativeServer": "on",
-     "ruff.configuration": "${workspaceFolder}/pyproject.toml"
+    "terminal.integrated.tabs.enabled": true
 }
