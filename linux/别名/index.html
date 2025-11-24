@@ -26,7 +26,7 @@
     
     
       
-        <title>Linux别名 - My Docs</title>
+        <title>Shell别名 - My Docs</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#linux" class="md-skip">
+        <a href="#shell" class="md-skip">
           跳转至
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Linux别名
+              Shell别名
             
           </span>
         </div>
@@ -854,7 +854,7 @@
   
   
   <span class="md-ellipsis">
-    Linux别名
+    Shell别名
     
   </span>
   
@@ -879,6 +879,29 @@
   
   <span class="md-ellipsis">
     Apt国内源
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mihomo%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mihomo安装笔记
     
   </span>
   
@@ -3734,13 +3757,13 @@
 
 
 
-<h1 id="linux">Linux别名</h1>
+<h1 id="shell">Shell别名</h1>
 <div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">ll</span><span class="o">=</span><span class="s1">&#39;ls -ahlrt&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">agi</span><span class="o">=</span><span class="s1">&#39;sudo apt-get install --no-install-recommends --no-install-suggests&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">dpa</span><span class="o">=</span><span class="s1">&#39;docker ps -a --format &quot;table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}&quot;&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">dpas</span><span class="o">=</span><span class="s1">&#39;docker ps -a --format &quot;table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Status}}\t{{.Size}}\t{{.Ports}}&quot;&#39;</span>
 <span class="nb">alias</span><span class="w"> </span><span class="nv">di</span><span class="o">=</span><span class="s1">&#39;docker images&#39;</span>
-<span class="nb">alias</span><span class="w"> </span><span class="nv">drmi</span><span class="o">=</span><span class="s1">&#39;docker rmi $(docker images -f &quot;dangling=true&quot; -q)&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">drmi</span><span class="o">=</span><span class="s1">&#39;docker image prune -f&#39;</span>
 </code></pre></div>
 
 
