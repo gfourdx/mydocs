@@ -1,4 +1,4 @@
-# VSCode免密发布代码到GitHub
+# VSCode免密发布代码到GitHub和配置443端口访问
 
 ## 设置Git全局变量
 
@@ -40,3 +40,15 @@ setting -> SSH and GPG keys -> New SSH key
 ## 发布代码
 
 打开vscode，打开源代码管理，点击发布到Github，根据提示操作即可
+
+## 配置443端口
+
+某些情况下无法发现通过ssh克隆仓库失败, 但是ping github.com却是痛的
+此时可能需要配置使用443端口访问, 即: `vim ~/.ssh/config`, 写入:
+```
+Host github.com
+  Hostname ssh.github.com
+  Port 443
+  User git
+``` 
+最后配置权限: `chmod 644 ~/.ssh/config`

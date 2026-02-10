@@ -14,7 +14,7 @@
 
 `build-essential`不仅包括GCC编译器, 还包括其他构建软件所需的工具和库, 如GNU C++编译器(g++)、make、libc-dev等, 它提供了一组广泛的工具，方便开发人员进行软件开发和构建
 
-在打包Docker环境时为减少体积可只安装gcc, 不安装build-essential
+在打包Docker环境时为减少体积可只安装gcc(如果使用slim镜像且命令为apt-get install --no-install-recommends --no-install-suggests, 可能还需要安装libpq-dev), 不安装build-essential
 
 ---
 
@@ -38,15 +38,15 @@
 
 总结一下, 在Debian系发行版上：
 
-- 如果你正在使用MariaDB, 并且需要开发与MariaDB直接交互的应用程序, 则可以安装`libmariadb-dev`或`ibmariadb-dev-compat`或`default-libmysqlclient-dev`
-- 如果你正在使用MariaDB, 并且想要编写与MySQL兼容的应用程序, 或迁移到MySQL, 则需要安装`ibmariadb-dev-compat`
+- 如果你正在使用MariaDB, 并且需要开发与MariaDB直接交互的应用程序, 则可以安装`libmariadb-dev`或`libmariadb-dev-compat`或`default-libmysqlclient-dev`
+- 如果你正在使用MariaDB, 并且想要编写与MySQL兼容的应用程序, 或迁移到MySQL, 则需要安装`libmariadb-dev-compat`
 - 如果你正在使用MariaDB, 并且想要编写与Oracle MySQL兼容的应用程序或迁移到Oracle MySQL, 则需要安装`default-libmysqlclient-dev`
 
 简单说:
 
 MariaDB -> libmariadb-dev
 
-MySQL -> ibmariadb-dev-compat
+MySQL -> libmariadb-dev-compat
 
 Oracle MySQL -> default-libmysqlclient-dev
 

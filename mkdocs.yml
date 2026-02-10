@@ -61,7 +61,7 @@ nav:
     - android/Android资源.md
     - android/Fastboot刷机.md
   - Linux:
-    - linux/玩客云.md
+    - linux/盒子设备.md
     - linux/解压ZIP乱码.md
     - linux/配置IP和DNS.md
     - linux/Debian网络管理.md
@@ -70,9 +70,6 @@ nav:
     - linux/Debian安装和配置Postgres.md
     - linux/安装mysqlclient和psycopg2报错.md
     - linux/U盘格式化分区自动挂载.md
-    - linux/配置UV使用国内源.md
-    - linux/别名.md
-    - linux/apt国内源.md
     - linux/Mihomo安装笔记.md
   - Mac:
     - mac/MacOS软件.md
@@ -95,6 +92,7 @@ nav:
     - docker/container_cmd.md
     - docker/vscode-docker-dev_v1.md
     - docker/vscode-docker-dev_v2.md
+    - docker/vscode-docker-dev_v3.md
   - Golang:
     - golang/GO的环境变量.md
   - MySQL:
