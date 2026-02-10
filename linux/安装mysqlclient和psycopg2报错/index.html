@@ -250,7 +250,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../%E7%8E%A9%E5%AE%A2%E4%BA%91/" class="md-tabs__link">
+        <a href="../%E7%9B%92%E5%AD%90%E8%AE%BE%E5%A4%87/" class="md-tabs__link">
           
   
   
@@ -610,12 +610,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E7%8E%A9%E5%AE%A2%E4%BA%91/" class="md-nav__link">
+      <a href="../%E7%9B%92%E5%AD%90%E8%AE%BE%E5%A4%87/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    玩客云
+    盒子设备
     
   </span>
   
@@ -810,75 +810,6 @@
   
   <span class="md-ellipsis">
     格式化重建分区
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E9%85%8D%E7%BD%AEUV%E4%BD%BF%E7%94%A8%E5%9B%BD%E5%86%85%E6%BA%90/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    配置UV使用国内源
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E5%88%AB%E5%90%8D/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Shell别名
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../apt%E5%9B%BD%E5%86%85%E6%BA%90/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Apt国内源
     
   </span>
   
@@ -1460,6 +1391,29 @@
   
   <span class="md-ellipsis">
     基于Docker的开发环境 V2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docker/vscode-docker-dev_v3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    基于Docker的开发环境 V3
     
   </span>
   
@@ -3636,7 +3590,7 @@
   
   
   <span class="md-ellipsis">
-    VSCode免密发布代码到GitHub
+    VSCode免密发布代码到GitHub和配置443端口访问
     
   </span>
   
@@ -3769,7 +3723,7 @@
 </ul>
 <hr />
 <p><code>build-essential</code>不仅包括GCC编译器, 还包括其他构建软件所需的工具和库, 如GNU C++编译器(g++)、make、libc-dev等, 它提供了一组广泛的工具，方便开发人员进行软件开发和构建</p>
-<p>在打包Docker环境时为减少体积可只安装gcc, 不安装build-essential</p>
+<p>在打包Docker环境时为减少体积可只安装gcc(如果使用slim镜像且命令为apt-get install --no-install-recommends --no-install-suggests, 可能还需要安装libpq-dev), 不安装build-essential</p>
 <hr />
 <p><strong>libmariadb-dev</strong>：</p>
 <p>是专门为MariaDB数据库提供的开发包, 它包含了用于构建和连接与MariaDB相关的应用程序所需的头文件和库, 专注于支持MariaDB的特定功能和特性, 并提供了与MariaDB数据库服务器密切集成的开发工具</p>
@@ -3782,13 +3736,13 @@
 <p>使用apt安装该包的同时也会安装<code>libmariadb-dev-compat</code>和<code>libmariadb-dev</code></p>
 <p>总结一下, 在Debian系发行版上：</p>
 <ul>
-<li>如果你正在使用MariaDB, 并且需要开发与MariaDB直接交互的应用程序, 则可以安装<code>libmariadb-dev</code>或<code>ibmariadb-dev-compat</code>或<code>default-libmysqlclient-dev</code></li>
-<li>如果你正在使用MariaDB, 并且想要编写与MySQL兼容的应用程序, 或迁移到MySQL, 则需要安装<code>ibmariadb-dev-compat</code></li>
+<li>如果你正在使用MariaDB, 并且需要开发与MariaDB直接交互的应用程序, 则可以安装<code>libmariadb-dev</code>或<code>libmariadb-dev-compat</code>或<code>default-libmysqlclient-dev</code></li>
+<li>如果你正在使用MariaDB, 并且想要编写与MySQL兼容的应用程序, 或迁移到MySQL, 则需要安装<code>libmariadb-dev-compat</code></li>
 <li>如果你正在使用MariaDB, 并且想要编写与Oracle MySQL兼容的应用程序或迁移到Oracle MySQL, 则需要安装<code>default-libmysqlclient-dev</code></li>
 </ul>
 <p>简单说:</p>
 <p>MariaDB -&gt; libmariadb-dev</p>
-<p>MySQL -&gt; ibmariadb-dev-compat</p>
+<p>MySQL -&gt; libmariadb-dev-compat</p>
 <p>Oracle MySQL -&gt; default-libmysqlclient-dev</p>
 <p>或者直接安装default-libmysqlclient-dev , 不再考虑数据库到底是MariaDB还是MySQL还是Oracle MySQL</p>
 

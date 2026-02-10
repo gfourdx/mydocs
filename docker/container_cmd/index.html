@@ -248,7 +248,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../linux/%E7%8E%A9%E5%AE%A2%E4%BA%91/" class="md-tabs__link">
+        <a href="../../linux/%E7%9B%92%E5%AD%90%E8%AE%BE%E5%A4%87/" class="md-tabs__link">
           
   
   
@@ -605,12 +605,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../linux/%E7%8E%A9%E5%AE%A2%E4%BA%91/" class="md-nav__link">
+      <a href="../../linux/%E7%9B%92%E5%AD%90%E8%AE%BE%E5%A4%87/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    玩客云
+    盒子设备
     
   </span>
   
@@ -795,75 +795,6 @@
   
   <span class="md-ellipsis">
     格式化重建分区
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../linux/%E9%85%8D%E7%BD%AEUV%E4%BD%BF%E7%94%A8%E5%9B%BD%E5%86%85%E6%BA%90/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    配置UV使用国内源
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../linux/%E5%88%AB%E5%90%8D/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Shell别名
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../linux/apt%E5%9B%BD%E5%86%85%E6%BA%90/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Apt国内源
     
   </span>
   
@@ -1460,6 +1391,29 @@
   
   <span class="md-ellipsis">
     基于Docker的开发环境 V2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vscode-docker-dev_v3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    基于Docker的开发环境 V3
     
   </span>
   
@@ -3636,7 +3590,7 @@
   
   
   <span class="md-ellipsis">
-    VSCode免密发布代码到GitHub
+    VSCode免密发布代码到GitHub和配置443端口访问
     
   </span>
   
@@ -3759,31 +3713,42 @@
 
 <h1 id="_1">常用容器命令</h1>
 <hr />
+<p>别名:</p>
+<div class="highlight"><pre><span></span><code>alias dpa=&#39;docker ps -a --format &quot;table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}&quot;&#39;
+alias dpas=&#39;docker ps -a --format &quot;table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Status}}\t{{.Size}}\t{{.Ports}}&quot;&#39;
+alias di=&#39;docker images&#39;
+alias drmi=&#39;docker image prune -f&#39;
+alias drmf=&#39;docker rm -f&#39;
+</code></pre></div>
 <p>Postgres：</p>
 <div class="highlight"><pre><span></span><code>docker run -d \
-        --name postgres \
-        --restart unless-stopped \
-        -p 5432:5432 \
-        -e POSTGRES_PASSWORD=postgres \
-        -e PGDATA=/var/lib/postgresql/data/pgdata \
-        -v ~/container/volume/postgres:/var/lib/postgresql/data \
-        postgres
+    --name postgres \
+    --restart unless-stopped \
+    -h postgres \
+    -e POSTGRES_PASSWORD=postgres \
+    -e PGDATA=/var/lib/postgresql/18/docker \
+    -p 5432:5432 \
+    -v ~/container/volume/postgres:/var/lib/postgresql/18/docker \
+    postgres:alpine
 </code></pre></div>
 <p>Redis:</p>
 <div class="highlight"><pre><span></span><code>docker run -d \
-        --name redis \
-        --restart unless-stopped \
-        -p 6379:6379 \
-        -v ~/container/volume/redis:/data \
-        redis \
-        redis-server --requirepass redis
+    --name redis \
+    --restart unless-stopped \
+    -h redis \
+    -p 6379:6379 \
+    -v ~/container/volume/redis:/data \
+    redis:alpine \
+    redis-server --requirepass redis
 </code></pre></div>
 <p>Debian:</p>
 <div class="highlight"><pre><span></span><code>docker run -dit \
-        --name debian \
-        --restart unless-stopped \
-        -p 22:22 \
-        debian bash
+    --name debian \
+    --restart unless-stopped \
+    -h debian \
+    -p 22:22 \
+    -w /root \
+    debian:trixie-slim bash
 </code></pre></div>
 
 

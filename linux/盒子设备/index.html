@@ -12,7 +12,7 @@
         <meta name="author" content="gfourdx">
       
       
-        <link rel="canonical" href="https://docs.911205.xyz/linux/%E7%8E%A9%E5%AE%A2%E4%BA%91/">
+        <link rel="canonical" href="https://docs.911205.xyz/linux/%E7%9B%92%E5%AD%90%E8%AE%BE%E5%A4%87/">
       
       
         <link rel="prev" href="../../android/Fastboot%E5%88%B7%E6%9C%BA/">
@@ -26,7 +26,7 @@
     
     
       
-        <title>玩客云 - My Docs</title>
+        <title>盒子设备 - My Docs</title>
       
     
     
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              玩客云
+              盒子设备
             
           </span>
         </div>
@@ -624,7 +624,7 @@
   
   
   <span class="md-ellipsis">
-    玩客云
+    盒子设备
     
   </span>
   
@@ -637,7 +637,7 @@
   
   
   <span class="md-ellipsis">
-    玩客云
+    盒子设备
     
   </span>
   
@@ -672,6 +672,15 @@
   <a href="#ipdns" class="md-nav__link">
     <span class="md-ellipsis">
       二、配置静态IP和DNS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、Docker
     </span>
   </a>
   
@@ -860,75 +869,6 @@
   
   <span class="md-ellipsis">
     格式化重建分区
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E9%85%8D%E7%BD%AEUV%E4%BD%BF%E7%94%A8%E5%9B%BD%E5%86%85%E6%BA%90/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    配置UV使用国内源
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E5%88%AB%E5%90%8D/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Shell别名
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../apt%E5%9B%BD%E5%86%85%E6%BA%90/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Apt国内源
     
   </span>
   
@@ -1510,6 +1450,29 @@
   
   <span class="md-ellipsis">
     基于Docker的开发环境 V2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docker/vscode-docker-dev_v3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    基于Docker的开发环境 V3
     
   </span>
   
@@ -3686,7 +3649,7 @@
   
   
   <span class="md-ellipsis">
-    VSCode免密发布代码到GitHub
+    VSCode免密发布代码到GitHub和配置443端口访问
     
   </span>
   
@@ -3817,6 +3780,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、Docker
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3833,63 +3805,77 @@
 
 
 
-<h1 id="_1">玩客云</h1>
+<h1 id="_1">盒子设备</h1>
 <hr />
 <h3 id="_2">一、刷机</h3>
+<p>玩客云:</p>
 <blockquote>
 <p>刷机包: <a href="https://github.com/hzyitc/armbian-onecloud/releases">https://github.com/hzyitc/armbian-onecloud/releases</a></p>
 <p>参考：<a href="https://www.right.com.cn/FORUM/thread-8246606-1-1.html">玩客云-Armbian22.08-直刷包-内核5.18-各种币，譬如迅雷玩客云 玩客币 睿智激活码等-恩山无线论坛 (right.com.cn)</a></p>
 <p>刷机成功之后按照引导进入系统即可。</p>
 </blockquote>
+<p>斐讯T1:</p>
+<blockquote>
+<p>刷机包: <a href="https://github.com/ophub/amlogic-s9xxx-armbian/releases">https://github.com/ophub/amlogic-s9xxx-armbian/releases</a></p>
+<p>参考：<a href="https://github.com/ophub/amlogic-s9xxx-armbian/blob/main/README.cn.md">https://github.com/ophub/amlogic-s9xxx-armbian/blob/main/README.cn.md</a>
+</p>
+</blockquote>
+<p>需要注意的是斐讯T1的刷机包需要先使用工具<a href="https://rufus.ie/zh/">Rufus</a>写入到U盘, U盘启动制作完成后, 如果盒子当前的系统是Android, 千万不要插入, 否则Android系统后破坏U盘中Armbian文件的权限, 导致后续刷机到盒子后因权限导致各种奇怪的问题</p>
+<p>需要先开启Android的开发者模式, 然后使用adb连接盒子后执行命令: <code>adb shell reboot update</code>, 系统会重启, 此时插入U盘即可</p>
+<p>该问题具体可参考: <a href="https://github.com/ophub/amlogic-s9xxx-armbian/issues/1378">https://github.com/ophub/amlogic-s9xxx-armbian/issues/1378</a></p>
+<p>这个是U盘提前插入安卓系统导致的，u盘里的armbian系统的权限被安卓给篡改了。
+正确的刷armbian的方法：
+（必须重新刷写一下U盘里的armbian系统，现在U盘里的armbian已经是被安卓污染的系统，不重新写U盘的armbian系统，再安装至emmc也没有用。可以不用刷回安卓系统，直接重新写U盘，安装至emmc即可。）</p>
+<p>一、盒子已经从U盘安装过，直接重新写一下U盘</p>
+<p>1.拔出盒子的电源</p>
+<p>2.插入USB</p>
+<p>3.插入盒子的电源开机</p>
+<p>4.等1分钟后到路由器看armbian的IP</p>
+<p>5.ssh访问armbian的IP，进行armbian-install安装。</p>
+<p>二、如果是第一次从安卓启动
+1.adb连接盒子的ip，如：adb connect 192.168.1.xxx</p>
+<p>2.开启adb更新: adb shell reboot update</p>
+<p>3.屏幕看盒子重启了，再把U盘插入盒子的USB口（没有屏幕的默数3秒，插早了就被安卓给篡改权限了。插慢了又从安卓启动了，把握好节奏）</p>
+<p>4.等1分钟后到路由器看armbian的IP</p>
+<p>5.ssh访问armbian的IP，进行armbian-install安装。</p>
+<p>总的把握就是不要把armbian的U盘插入安卓系统，插入即废。</p>
 <h3 id="ipdns">二、配置静态IP和DNS</h3>
-<p>执行命令: <code>vim /etc/netplan/10-dhcp-all-interfaces.yam</code></p>
-<p>编辑内容为(注释掉eth借口的相关配置):</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Added by Armbian</span>
-<span class="c1">#</span>
-<span class="c1"># Reference: https://netplan.readthedocs.io/en/stable/netplan-yaml/</span>
-<span class="c1">#</span>
-<span class="c1"># Let systemd-networkd manage all Ethernet devices on this system, but be configured by Netplan.</span>
-
-<span class="nt">network</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
-<span class="w">  </span><span class="nt">renderer</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">networkd</span>
-<span class="w">  </span><span class="nt">ethernets</span><span class="p">:</span>
-<span class="w">    </span><span class="c1">#all-eth-interfaces:</span>
-<span class="w">    </span><span class="c1">#  match:</span>
-<span class="w">    </span><span class="c1">#    name: &quot;e*&quot;</span>
-<span class="w">    </span><span class="c1">#  dhcp4: yes</span>
-<span class="w">    </span><span class="c1">#  dhcp6: yes</span>
-<span class="w">    </span><span class="c1">#  ipv6-privacy: yes # Enabled by default on most current systems, but networkd currently doesn&#39;t enable IPv6 privacy by default, see https://man.archlinux.org/man/systemd.network.5</span>
-<span class="w">    </span><span class="nt">all-lan-interfaces</span><span class="p">:</span><span class="w"> </span><span class="c1"># include interfaces that are renamed to &#39;lanX&#39; by udev, e.g. nanopi-r2s</span>
-<span class="w">      </span><span class="nt">match</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;lan[0-9]*&quot;</span>
-<span class="w">      </span><span class="nt">dhcp4</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span>
-<span class="w">      </span><span class="nt">dhcp6</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span>
-<span class="w">      </span><span class="nt">ipv6-privacy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span><span class="w"> </span><span class="c1"># Enabled by default on most current systems, but networkd currently doesn&#39;t enable IPv6 privacy by default, see https://man.archlinux.org/man/systemd.network.5</span>
-<span class="w">    </span><span class="nt">all-wan-interfaces</span><span class="p">:</span><span class="w"> </span><span class="c1"># include interfaces that are renamed to &#39;wanX&#39; by udev, e.g. nanopi-r1</span>
-<span class="w">      </span><span class="nt">match</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;wan[0-9]*&quot;</span>
-<span class="w">      </span><span class="nt">dhcp4</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span>
-<span class="w">      </span><span class="nt">dhcp6</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span>
-<span class="w">      </span><span class="nt">ipv6-privacy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span><span class="w"> </span><span class="c1"># Enabled by default on most current systems, but networkd currently doesn&#39;t enable IPv6 privacy by default, see https://man.archlinux.org/man/systemd.network.5</span>
+<p>以玩客云为例:
+执行命令 <code>armbian-config</code> 配置网络
+或者
+执行命令
+<div class="highlight"><pre><span></span><code>rm<span class="w"> </span>-rf<span class="w"> </span>/etc/netplan/*.yaml
+touch<span class="w"> </span>/etc/netplan/armbian.yaml
+chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/etc/netplan/armbian.yaml
 </code></pre></div>
-<p>执行命令: <code>vim /etc/netplan/20-eth-fixed-mac.yaml</code></p>
-<p>编辑内容为:</p>
+然后写入:
 <div class="highlight"><pre><span></span><code><span class="nt">network</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
 <span class="w">  </span><span class="nt">renderer</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">networkd</span>
 <span class="w">  </span><span class="nt">ethernets</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">eth0</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">dhcp4</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no</span>
-<span class="w">      </span><span class="nt">dhcp6</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no</span>
-<span class="w">      </span><span class="nt">addresses</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">192.168.2.2/24</span><span class="p p-Indicator">]</span>
-<span class="w">      </span><span class="nt">routes</span><span class="p">:</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">to</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
-<span class="w">          </span><span class="nt">via</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">192.168.2.1</span>
+<span class="w">      </span><span class="nt">addresses</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;192.168.2.2/24&quot;</span>
 <span class="w">      </span><span class="nt">nameservers</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">addresses</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">223.5.5.5</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">223.6.6.6</span><span class="p p-Indicator">]</span>
-<span class="w">      </span><span class="nt">macaddress</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">00:22:6D:50:42:A9</span>
+<span class="w">        </span><span class="nt">addresses</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">223.5.5.5</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">223.6.6.6</span>
+<span class="w">      </span><span class="nt">dhcp4</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">      </span><span class="nt">dhcp6</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">      </span><span class="nt">macaddress</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;00:22:6d:50:42:a9&quot;</span>
+<span class="w">      </span><span class="nt">routes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">metric</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">200</span>
+<span class="w">        </span><span class="nt">to</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0.0.0.0/0&quot;</span>
+<span class="w">        </span><span class="nt">via</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;192.168.2.1&quot;</span>
+</code></pre></div></p>
+<p>如果是斐讯T1, 方法类似, 若手写配置, 注意其renderer是NetworkManager</p>
+<h3 id="docker">三、Docker</h3>
+<p>docker启动失败，可能和iptables有关,可执行:
+<div class="highlight"><pre><span></span><code>update-alternatives --set iptables /usr/sbin/iptables-legacy
+update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
+service docker start
 </code></pre></div>
+如果重启docker服务已经不行, 请重启系统</p>
 
 
 
