@@ -42,10 +42,18 @@ ignore = [
 ]
 fixable = ["ALL"]
 
+[lint.flake8-type-checking]
+runtime-evaluated-base-classes = ["pydantic.BaseModel", "sqlalchemy.orm.DeclarativeBase"]
+
 [lint.isort]
 force-sort-within-sections = true
 lines-after-imports = 2
 known-first-party = ["apps", "core", "utils"]
+
+[lint.pylint]
+max-args = 5
+max-branches = 12
+max-returns = 6
 
 [lint.pydocstyle]
 convention = "google"
@@ -55,3 +63,4 @@ indent-style = "space"
 line-ending = "lf"
 quote-style = "double"
 skip-magic-trailing-comma = false
+
