@@ -20,11 +20,9 @@ docker run -d \
     --restart unless-stopped \
     -h postgres \
     -e POSTGRES_PASSWORD=postgres \
-    -e PGDATA=/var/lib/postgresql/18/docker \
     -p 5432:5432 \
-    -v ~/container/volume/postgres:/var/lib/postgresql/18/docker \
-    postgres:alpine
-
+    -v ~/container/volume/postgres:/var/lib/postgresql/ \
+    postgres:18-alpine
 ```
 
 Redis:
@@ -36,7 +34,7 @@ docker run -d \
     -h redis \
     -p 6379:6379 \
     -v ~/container/volume/redis:/data \
-    redis:alpine \
+    redis:8-alpine \
     redis-server --requirepass redis
 ```
 

@@ -9,7 +9,7 @@ FROM debian:trixie-slim
 WORKDIR /root
 
 # 换源、更新、安装基础软件、清理缓存、设置别名
-RUN sed -i 's@deb.debian.org@mirrors.aliyun.com@g' /etc/apt/sources.list.d/debian.sources \
+RUN sed -i 's@deb.debian.org@mirrors.tuna.tsinghua.edu.cn@g' /etc/apt/sources.list.d/debian.sources \
     && apt-get update \
     && apt-get install -y --no-install-recommends --no-install-suggests \
        vim git openssh-server curl iproute2 iputils-ping procps ca-certificates \
@@ -17,11 +17,10 @@ RUN sed -i 's@deb.debian.org@mirrors.aliyun.com@g' /etc/apt/sources.list.d/debia
     && echo "alias agi='apt-get install --no-install-recommends --no-install-suggests'" >> /root/.bashrc \
     && echo "alias ll='ls -ahlrt'" >> /root/.bashrc
 
-# 安装uv并使用uv安装最新版Python, 配置uv环境变量
-RUN curl -LsSf https://astral.sh/uv/install.sh | sh \
-    && /root/.local/bin/uv python install \
-    && echo 'export PATH="/root/.local/bin:$PATH"' >> /root/.bashrc \
-    && echo 'export UV_DEFAULT_INDEX="https://pypi.tuna.tsinghua.edu.cn/simple"' >> /root/.bashrc
+# 安装uv安装python配置pip源
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+RUN /bin/uv python install
+ENV UV_DEFAULT_INDEX="https://pypi.tuna.tsinghua.edu.cn/simple"
 
 # 关键：必须创建 /run/sshd 目录，否则服务无法启动
 # 设置root空密码登录
