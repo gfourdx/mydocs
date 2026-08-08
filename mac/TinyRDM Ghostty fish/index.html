@@ -4417,7 +4417,11 @@ echo &quot;Fake Python Command&quot;
 </code></pre></div>
 然后执行<code>sudo ln -s python python3</code></p>
 <hr />
-<p>覆盖<code>git</code>后打开<code>Ghostty</code>会提示一堆错误，原因是无法识别虚假的<code>git</code>命令， 解决办法是在<code>~/.config/fish/functions</code>中创建文件<code>fish_prompt.fish</code>并写入：
+<p>覆盖<code>git</code>后, 因为<code>Ghostty</code>配置了：</p>
+<div class="highlight"><pre><span></span><code>command = /usr/local/bin/fish
+shell-integration = fish
+</code></pre></div>
+<p>打开会提示一堆错误，原因是无法识别虚假的<code>git</code>命令， 解决办法是在<code>~/.config/fish/functions</code>中创建文件<code>fish_prompt.fish</code>并写入：</p>
 <div class="highlight"><pre><span></span><code>function fish_prompt --description &#39;Write out the prompt&#39;
     set -l last_pipestatus $pipestatus
     set -lx __fish_last_status $status # Export for __fish_print_pipestatus.
@@ -4448,10 +4452,40 @@ echo &quot;Fake Python Command&quot;
     echo -n -s (prompt_login)&#39; &#39; (set_color $color_cwd) (prompt_pwd) $normal &quot; &quot;$prompt_status $suffix &quot; &quot;
 ends
 </code></pre></div>
-重点是： <code>echo -n -s (prompt_login)' ' (set_color $color_cwd) (prompt_pwd) $normal " "$prompt_status $suffix " "</code></p>
+<p>重点是： <code>echo -n -s (prompt_login)' ' (set_color $color_cwd) (prompt_pwd) $normal " "$prompt_status $suffix " "</code></p>
 <p>原本是： <code>echo -n -s (prompt_login)' ' (set_color $color_cwd) (prompt_pwd) $normal (fish_vcs_prompt) $normal " "$prompt_status $suffix " "</code></p>
 <p>其中的<code>$normal (fish_vcs_prompt)</code>会导致报错</p>
 <p>PS: 原来的内容可通过命令<code>functions fish_prompt</code>查看， 前提是删除<code>~/.config/fish/functions/fish_prompt.fish</code>和<code>/usr/local/bin/git</code></p>
+<p>另外， 还可配置一些Ghosttty的快捷键：</p>
+<div class="highlight"><pre><span></span><code>whls@gfourdx ~/.c/f/functions&gt; pwd
+/Users/whls/.config/fish/functions
+whls@gfourdx ~/.c/f/functions&gt; ls
+di.fish           dipf.fish         dpa.fish          drmf.fish         drmi.fish         fish_prompt.fish  ll.fish
+whls@gfourdx ~/.c/f/functions&gt; cat di.fish
+function di
+    docker images
+end
+whls@gfourdx ~/.c/f/functions&gt; cat dipf.fish
+function dipf
+    docker image prune -f
+end
+whls@gfourdx ~/.c/f/functions&gt; cat dpa.fish
+function dpa
+    docker ps -a --format &quot;table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}&quot;
+end
+whls@gfourdx ~/.c/f/functions&gt; cat drmf.fish
+function drmf
+    docker rm -f $argv
+end
+whls@gfourdx ~/.c/f/functions&gt; cat drmi.fish
+function drmi
+    docker rmi $argv
+end
+whls@gfourdx ~/.c/f/functions&gt; cat ll.fish
+function ll
+    ls -ahlrt $argv
+end
+</code></pre></div>
 
 
 
