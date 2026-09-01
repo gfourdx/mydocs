@@ -61,7 +61,6 @@ nav:
     - android/Android资源.md
     - android/Fastboot刷机.md
   - Linux:
-    - linux/盒子设备.md
     - linux/解压ZIP乱码.md
     - linux/配置IP和DNS.md
     - linux/Debian网络管理.md

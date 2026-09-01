@@ -52,7 +52,7 @@ Adobe下载工具： https://github.com/X1a0He/Adobe-Downloader
 
 [Maccy](https://github.com/p0deje/Maccy): `brew install --cask maccy`
 
-[MacZip](https://ezip.awehunt.com/): `brew install --cask maczip`
+[MacPacker](https://github.com/sarensw/MacPacker)
 
 [MonitorControl](https://github.com/MonitorControl/MonitorControl): `brew install --cask monitorcontrol`
 

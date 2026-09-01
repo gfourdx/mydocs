@@ -5,11 +5,22 @@
 别名:
 
 ```
-alias dpa='docker ps -a --format "table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}"'
-alias dpas='docker ps -a --format "table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Status}}\t{{.Size}}\t{{.Ports}}"'
+alias dp='docker ps -a --format "table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}"'
 alias di='docker images'
-alias drmi='docker image prune -f'
-alias drmf='docker rm -f'
+alias dip='docker image prune -f'
+alias drm='docker rm -f'
+
+# 如果是fish
+whls@gfourdx ~/.c/f/functions> pwd
+/Users/whls/.config/fish/functions
+whls@gfourdx ~/.c/f/functions> cat drm.fish
+function drm
+    docker rm -f $argv
+end
+whls@gfourdx ~/.c/f/functions> cat dp.fish
+function dp
+    docker ps -a --format "table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}"
+end
 ```
 
 Postgres：
