@@ -30,10 +30,8 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 RUN /bin/uv python install
 ENV UV_DEFAULT_INDEX="https://pypi.tuna.tsinghua.edu.cn/simple"
 
-# 关键：必须创建 /run/sshd 目录，否则服务无法启动
 # 设置root空密码登录
-RUN mkdir -p /run/sshd \
-    && sed -i "s/#PermitRootLogin prohibit-password/PermitRootLogin yes/" /etc/ssh/sshd_config \
+RUN sed -i "s/#PermitRootLogin prohibit-password/PermitRootLogin yes/" /etc/ssh/sshd_config \
     && sed -i "s/#PermitEmptyPasswords no/PermitEmptyPasswords yes/" /etc/ssh/sshd_config \
     && passwd -d root
 
