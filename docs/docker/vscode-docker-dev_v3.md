@@ -5,6 +5,14 @@
 ```dockerfile
 FROM debian:trixie-slim
 
+设置语言和编码
+ENV LANG=C.UTF-8
+
+# 配置本地时间和本地时区
+RUN set -eux; \
+    ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
+    echo 'Asia/Shanghai' > /etc/timezone
+
 # 设置工作目录
 WORKDIR /root
 
