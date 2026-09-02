@@ -13,8 +13,8 @@
     "explorer.autoReveal": false,
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 1000,
-    "git.pruneOnFetch": true,
     "git.blame.editorDecoration.enabled": true,
+    "git.pruneOnFetch": true,
     "outline.showVariables": false,
     "python.analysis.autoImportCompletions": true,
     "python.analysis.completeFunctionParens": false,
@@ -25,6 +25,14 @@
     "python.terminal.useEnvFile": true,
     "ruff.configuration": "${workspaceFolder}/ruff.toml",
     "ruff.nativeServer": "on",
+    "terminal.integrated.env.linux": {
+        "http_proxy": "http://127.0.0.1:7897",
+        "https_proxy": "http://127.0.0.1:7897",
+        "HTTP_PROXY": "http://127.0.0.1:7897",
+        "HTTPS_PROXY": "http://127.0.0.1:7897",
+        "no_proxy": "localhost,127.0.0.1,::1",
+        "NO_PROXY": "localhost,127.0.0.1,::1"
+    },
     "terminal.integrated.tabs.enabled": true,
     "workbench.editor.revealIfOpen": true
 }
