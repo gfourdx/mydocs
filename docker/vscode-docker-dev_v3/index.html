@@ -4389,6 +4389,14 @@
 <hr />
 <div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">debian:trixie-slim</span>
 
+<span class="c"># 设置语言和编码</span>
+<span class="k">ENV</span><span class="w"> </span><span class="nv">LANG</span><span class="o">=</span>C.UTF-8
+
+<span class="c"># 配置本地时间和本地时区</span>
+<span class="k">RUN</span><span class="w"> </span><span class="nb">set</span><span class="w"> </span>-eux<span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>ln<span class="w"> </span>-sf<span class="w"> </span>/usr/share/zoneinfo/Asia/Shanghai<span class="w"> </span>/etc/localtime<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;Asia/Shanghai&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>/etc/timezone
+
 <span class="c"># 设置工作目录</span>
 <span class="k">WORKDIR</span><span class="w"> </span><span class="s">/root</span>
 
@@ -4406,10 +4414,8 @@
 <span class="k">RUN</span><span class="w"> </span>/bin/uv<span class="w"> </span>python<span class="w"> </span>install
 <span class="k">ENV</span><span class="w"> </span><span class="nv">UV_DEFAULT_INDEX</span><span class="o">=</span><span class="s2">&quot;https://pypi.tuna.tsinghua.edu.cn/simple&quot;</span>
 
-<span class="c"># 关键：必须创建 /run/sshd 目录，否则服务无法启动</span>
 <span class="c"># 设置root空密码登录</span>
-<span class="k">RUN</span><span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/run/sshd<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;s/#PermitRootLogin prohibit-password/PermitRootLogin yes/&quot;</span><span class="w"> </span>/etc/ssh/sshd_config<span class="w"> </span><span class="se">\</span>
+<span class="k">RUN</span><span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;s/#PermitRootLogin prohibit-password/PermitRootLogin yes/&quot;</span><span class="w"> </span>/etc/ssh/sshd_config<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;s/#PermitEmptyPasswords no/PermitEmptyPasswords yes/&quot;</span><span class="w"> </span>/etc/ssh/sshd_config<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>passwd<span class="w"> </span>-d<span class="w"> </span>root
 
