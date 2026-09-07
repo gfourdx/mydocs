@@ -22,10 +22,16 @@ mkdir -p /etc/docker
 
 tee /etc/docker/daemon.json <<-'EOF'
 {
-  "bip": "192.168.255.1/24",
+  "bip": "192.168.254.1/24",
+  "default-address-pools": [
+    {
+      "base": "192.168.255.0/24",
+      "size": 28
+    }
+  ],
   "proxies": {
-    "http-proxy": "http://127.0.0.1:7891",
-    "https-proxy": "http://127.0.0.1:7891",
+    "http-proxy": "http://127.0.0.1:7890",
+    "https-proxy": "http://127.0.0.1:7890",
     "no-proxy": "127.0.0.0/8"
   }
 }
