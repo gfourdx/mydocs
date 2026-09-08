@@ -4395,35 +4395,35 @@
 <span class="c"># 配置本地时间和本地时区</span>
 <span class="k">RUN</span><span class="w"> </span><span class="nb">set</span><span class="w"> </span>-eux<span class="p">;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>ln<span class="w"> </span>-sf<span class="w"> </span>/usr/share/zoneinfo/Asia/Shanghai<span class="w"> </span>/etc/localtime<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;Asia/Shanghai&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>/etc/timezone
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s1">'Asia/Shanghai'</span><span class="w"> </span>&gt;<span class="w"> </span>/etc/timezone
 
 <span class="c"># 设置工作目录</span>
 <span class="k">WORKDIR</span><span class="w"> </span><span class="s">/root</span>
 
 <span class="c"># 换源、更新、安装基础软件、清理缓存、设置别名</span>
-<span class="k">RUN</span><span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s@deb.debian.org@mirrors.tuna.tsinghua.edu.cn@g&#39;</span><span class="w"> </span>/etc/apt/sources.list.d/debian.sources<span class="w"> </span><span class="se">\</span>
+<span class="k">RUN</span><span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">'s@deb.debian.org@mirrors.tuna.tsinghua.edu.cn@g'</span><span class="w"> </span>/etc/apt/sources.list.d/debian.sources<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>--no-install-recommends<span class="w"> </span>--no-install-suggests<span class="w"> </span><span class="se">\</span>
 <span class="w">       </span>vim<span class="w"> </span>git<span class="w"> </span>openssh-server<span class="w"> </span>curl<span class="w"> </span>iproute2<span class="w"> </span>iputils-ping<span class="w"> </span>procps<span class="w"> </span>ca-certificates<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/apt/lists/*<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;alias agi=&#39;apt-get install --no-install-recommends --no-install-suggests&#39;&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/root/.bashrc<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;alias ll=&#39;ls -ahlrt&#39;&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/root/.bashrc
+<span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"alias agi='apt-get install --no-install-recommends --no-install-suggests'"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/root/.bashrc<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"alias ll='ls -ahlrt'"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/root/.bashrc
 
 <span class="c"># 安装uv安装python配置pip源</span>
 <span class="k">COPY</span><span class="w"> </span>--from<span class="o">=</span>ghcr.io/astral-sh/uv:latest<span class="w"> </span>/uv<span class="w"> </span>/uvx<span class="w"> </span>/bin/
 <span class="k">RUN</span><span class="w"> </span>/bin/uv<span class="w"> </span>python<span class="w"> </span>install
-<span class="k">ENV</span><span class="w"> </span><span class="nv">UV_DEFAULT_INDEX</span><span class="o">=</span><span class="s2">&quot;https://pypi.tuna.tsinghua.edu.cn/simple&quot;</span>
+<span class="k">ENV</span><span class="w"> </span><span class="nv">UV_DEFAULT_INDEX</span><span class="o">=</span><span class="s2">"https://pypi.tuna.tsinghua.edu.cn/simple"</span>
 
 <span class="c"># 设置root空密码登录</span>
-<span class="k">RUN</span><span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;s/#PermitRootLogin prohibit-password/PermitRootLogin yes/&quot;</span><span class="w"> </span>/etc/ssh/sshd_config<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;s/#PermitEmptyPasswords no/PermitEmptyPasswords yes/&quot;</span><span class="w"> </span>/etc/ssh/sshd_config<span class="w"> </span><span class="se">\</span>
+<span class="k">RUN</span><span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s2">"s/#PermitRootLogin prohibit-password/PermitRootLogin yes/"</span><span class="w"> </span>/etc/ssh/sshd_config<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s2">"s/#PermitEmptyPasswords no/PermitEmptyPasswords yes/"</span><span class="w"> </span>/etc/ssh/sshd_config<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>passwd<span class="w"> </span>-d<span class="w"> </span>root
 
 <span class="c"># 开放端口</span>
 <span class="k">EXPOSE</span><span class="w"> </span><span class="s">22</span>
 
 <span class="c"># 使用 -D 模式在前台运行 sshd，保证容器不退出</span>
-<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;/usr/sbin/sshd&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;-D&quot;</span><span class="p">]</span>
+<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">"/usr/sbin/sshd"</span><span class="p">,</span><span class="w"> </span><span class="s2">"-D"</span><span class="p">]</span>
 
 <span class="c"># docker build -t deve .</span>
 <span class="c"># docker run -d --name debian --restart unless-stopped -h debian -p 22:22 deve</span>

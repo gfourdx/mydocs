@@ -4482,7 +4482,7 @@
 <div class="highlight"><pre><span></span><code>~# echo $GOPATH               # 未配置环境
 
 ~# go env|grep GOPATH         # 查看GOPATH, 是默认值
-GOPATH=&quot;/root/go&quot;
+GOPATH="/root/go"
 ~# 
 ~# export GOPATH=/root/gos    # 配置环境变量
 ~# 
@@ -4490,7 +4490,7 @@ GOPATH=&quot;/root/go&quot;
 /root/gos
 ~# 
 ~# go env|grep GOPATH         # 查看GOPATH, 已改变
-GOPATH=&quot;/root/gos&quot;
+GOPATH="/root/gos"
 ~# 
 </code></pre></div>
 <p>结论: <strong>export GOPATH=/root/gos 可更改go env</strong></p>
@@ -4501,7 +4501,7 @@ GOPATH=&quot;/root/gos&quot;
 <hr />
 <h3 id="go-env">使用 go env 命令配置</h3>
 <div class="highlight"><pre><span></span><code>~# go env|grep GOPATH            # 查看GOPATH, 是默认值
-GOPATH=&quot;/root/go&quot;
+GOPATH="/root/go"
 ~# 
 ~# go env -w GOPATH=/root/gos    # 配置环境变量
 ~# 
@@ -4509,14 +4509,14 @@ GOPATH=&quot;/root/go&quot;
 GOPATH=/root/gos
 ~# 
 ~# go env|grep GOPATH            # 查看GOPATH, 已改变
-GOPATH=&quot;/root/gos&quot;
+GOPATH="/root/gos"
 ~# 
 ~# go env -u GOPATH              # 取消配置环境变量
 ~# 
 ~# cat ~/.config/go/env          # 环境变量已从配置文件中删除
 ~# 
 ~# go env|grep GOPATH            # 查看GOPATH, 已变成默认值
-GOPATH=&quot;/root/go&quot;
+GOPATH="/root/go"
 ~# 
 ~# export GOPATH=/root/gos
 ~# go env -w GOPATH=/root/go 

@@ -4495,22 +4495,22 @@
 <span class="k">class</span><span class="w"> </span><span class="nc">CLI</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span>
-            <span class="n">prog</span><span class="o">=</span><span class="s1">&#39;FileTransfer&#39;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Download the file from server to client by socket&#39;</span><span class="p">,</span>
-            <span class="n">epilog</span><span class="o">=</span><span class="s1">&#39;www.911205.xyz&#39;</span><span class="p">,</span>
+            <span class="n">prog</span><span class="o">=</span><span class="s1">'FileTransfer'</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s1">'Download the file from server to client by socket'</span><span class="p">,</span>
+            <span class="n">epilog</span><span class="o">=</span><span class="s1">'www.911205.xyz'</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="c1"># 可选参数</span>
-        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-i&#39;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;ip&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;服务器地址&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
-        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-p&#39;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;port&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;服务器端口&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">9876</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
-        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-f&#39;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;服务器文件, 支持相对路径和绝对路径&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
-        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-s&#39;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;单次传输文件大小, 默认1024字节(Byte), 即1KB&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">'-i'</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">'ip'</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">'服务器地址'</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">'0.0.0.0'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">'-p'</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">'port'</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">'服务器端口'</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">9876</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">'-f'</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">'file'</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">'服务器文件, 支持相对路径和绝对路径'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">'-s'</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">'size'</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">'单次传输文件大小, 默认1024字节(Byte), 即1KB'</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
 
         <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;服务器监听地址: </span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">ip</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;服务器监听端口: </span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">port</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;服务器监听文件: </span><span class="si">{</span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">file</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;每次传送文件大小: </span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">size</span><span class="si">}</span><span class="s1">字节&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'服务器监听地址: </span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">ip</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'服务器监听端口: </span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">port</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'服务器监听文件: </span><span class="si">{</span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">file</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'每次传送文件大小: </span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">size</span><span class="si">}</span><span class="s1">字节'</span><span class="p">)</span>
 
         <span class="n">SendFile</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
 
@@ -4532,7 +4532,7 @@
         <span class="c1"># 提供一次性下载服务</span>
         <span class="c1"># # 获取客户端的套接字</span>
         <span class="c1"># self.client_socket, clinet_info = self.tcp_server_socket.accept()</span>
-        <span class="c1"># self.client_socket.send(file_name.encode(&#39;utf-8&#39;))</span>
+        <span class="c1"># self.client_socket.send(file_name.encode('utf-8'))</span>
         <span class="c1"># # 发送文件</span>
         <span class="c1"># self.send_file(file, clinet_info)</span>
 
@@ -4542,38 +4542,38 @@
         <span class="c1"># 提供多次下载服务(服务器不关闭, 多个客户端均可下载)</span>
         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">client_socket</span><span class="p">,</span> <span class="n">clinet_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tcp_server_socket</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
-            <span class="c1"># self.client_socket.send(file_name.encode(&#39;utf-8&#39;))</span>
+            <span class="c1"># self.client_socket.send(file_name.encode('utf-8'))</span>
             <span class="c1"># self.send_file(file, size, clinet_info)</span>
 
             <span class="c1"># 使用线程池同时处理多个请求</span>
             <span class="n">thread_pool</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">send_file_in_thread_pool</span><span class="p">,</span> <span class="o">*</span><span class="p">[</span><span class="n">size</span><span class="p">,</span> <span class="n">clinet_info</span><span class="p">])</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">get_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;获取文件的绝对路径和名称&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""获取文件的绝对路径和名称"""</span>
 
         <span class="n">file</span><span class="p">,</span> <span class="n">file_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_file</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;准备发送文件: </span><span class="si">{</span><span class="n">file_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'准备发送文件: </span><span class="si">{</span><span class="n">file_name</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">file</span><span class="p">,</span> <span class="n">file_name</span>
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">is_file</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;判断文件是否存在并返回绝对路径和文件名称&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""判断文件是否存在并返回绝对路径和文件名称"""</span>
 
         <span class="n">file</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">file</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
-            <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;文件</span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s1">不存在&#39;</span><span class="p">)</span> 
+            <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s1">'文件</span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s1">不存在'</span><span class="p">)</span> 
         <span class="k">return</span> <span class="n">file</span><span class="o">.</span><span class="n">resolve</span><span class="p">(),</span> <span class="n">file</span><span class="o">.</span><span class="n">name</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">send_file_in_thread_pool</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">clinet_info</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;使用进程池, 可同时处理多个客户端请求&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""使用进程池, 可同时处理多个客户端请求"""</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">client_socket</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file_name</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client_socket</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file_name</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">'utf-8'</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">send_file</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">clinet_info</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">send_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">clinet_info</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;发送文件到客户端&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""发送文件到客户端"""</span>
 
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
             <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
                 <span class="c1"># 读取数据</span>
                 <span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
@@ -4581,12 +4581,12 @@
                     <span class="c1"># 发送数据</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">client_socket</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;文件传输完成...</span><span class="si">{</span><span class="n">clinet_info</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"文件传输完成...</span><span class="si">{</span><span class="n">clinet_info</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
                     <span class="k">break</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">close_socket</span><span class="p">()</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">close_socket</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;关闭套接字&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""关闭套接字"""</span>
 
         <span class="c1"># 关闭套接字 -&gt; 不再进行收发数据</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">client_socket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
@@ -4598,12 +4598,12 @@
     <span class="k">try</span><span class="p">:</span>
         <span class="n">CLI</span><span class="p">()</span>
     <span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;错误: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'错误: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;错误: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'错误: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 <h2 id="_3">客户端</h2>
@@ -4616,20 +4616,20 @@
 <span class="k">class</span><span class="w"> </span><span class="nc">CLI</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span>
-            <span class="n">prog</span><span class="o">=</span><span class="s1">&#39;FileTransfer&#39;</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Download the file from server to client by socket&#39;</span><span class="p">,</span>
-            <span class="n">epilog</span><span class="o">=</span><span class="s1">&#39;www.911205.xyz&#39;</span><span class="p">,</span>
+            <span class="n">prog</span><span class="o">=</span><span class="s1">'FileTransfer'</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s1">'Download the file from server to client by socket'</span><span class="p">,</span>
+            <span class="n">epilog</span><span class="o">=</span><span class="s1">'www.911205.xyz'</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="c1"># 位置参数</span>
-        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;ip&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;服务器地址&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">'ip'</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">'服务器地址'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
         <span class="c1"># 可选参数</span>
-        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-p&#39;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;port&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;服务器端口&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">9876</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
-        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;output&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;文件输出位置, 后面根文件名则表示重命名&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">'-p'</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">'port'</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">'服务器端口'</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">9876</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">'-o'</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">'output'</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">'文件输出位置, 后面根文件名则表示重命名'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
 
         <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;服务器监听地址: </span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">ip</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;服务器监听端口: </span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">port</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'服务器监听地址: </span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">ip</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'服务器监听端口: </span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">port</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
         <span class="n">ReceiveFile</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
 
@@ -4642,8 +4642,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">tcp_client_socket</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="n">ip</span><span class="p">,</span> <span class="n">port</span><span class="p">))</span>
 
         <span class="c1"># 接收文件名称</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">file_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tcp_client_socket</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;准备下载文件: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">file_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tcp_client_socket</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">'utf-8'</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'准备下载文件: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">file_name</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
         <span class="c1"># 下载文件</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">receive_file</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
@@ -4656,9 +4656,9 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">file</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file_name</span><span class="p">)</span>
         <span class="n">file</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;文件另存为: </span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'文件另存为: </span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span> <span class="s2">"wb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
             <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
                 <span class="c1"># 接收数据</span>
                 <span class="n">recv_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tcp_client_socket</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
@@ -4666,12 +4666,12 @@
                     <span class="c1"># 写入数据</span>
                     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">recv_data</span><span class="p">)</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;文件下载成功...&quot;</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">"文件下载成功..."</span><span class="p">)</span>
                     <span class="k">break</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">close_socket</span><span class="p">()</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">close_socket</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;关闭套接字&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""关闭套接字"""</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">tcp_client_socket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
@@ -4680,12 +4680,12 @@
     <span class="k">try</span><span class="p">:</span>
         <span class="n">CLI</span><span class="p">()</span>
     <span class="k">except</span> <span class="ne">ConnectionRefusedError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;错误: 无法连接服务器&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'错误: 无法连接服务器'</span><span class="p">)</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;错误: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'错误: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 

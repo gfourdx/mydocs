@@ -4545,7 +4545,7 @@
 <h2 id="_">单下划线 <code>_</code></h2>
 <p>表示临时的或无关紧要的变量, 例如:</p>
 <div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Hello World!'</span><span class="p">)</span>
 </code></pre></div>
 <p>同时也可在REPL(交互式解释器)中储存最近的一个表达式的结果, 例如:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="mi">1</span><span class="o">+</span><span class="mi">1</span>
@@ -4571,7 +4571,7 @@
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">_return_something</span><span class="p">():</span>
-        <span class="k">return</span> <span class="s1">&#39;Hello World&#39;</span>
+        <span class="k">return</span> <span class="s1">'Hello World'</span>
 
 
 <span class="n">demo</span> <span class="o">=</span> <span class="n">Demo</span><span class="p">()</span>
@@ -4579,12 +4579,12 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">demo</span><span class="o">.</span><span class="n">_return_something</span><span class="p">())</span>  <span class="c1"># Hello World</span>
 </code></pre></div>
 <p>但是在导入时会有一些区别, 例如编写如下模块:</p>
-<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;demo.py&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="sd">"""demo.py"""</span>
 
 
-<span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;zhangsan&#39;</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s1">'zhangsan'</span>
 <span class="n">_age</span> <span class="o">=</span> <span class="mi">18</span>
-<span class="n">gender</span> <span class="o">=</span> <span class="s1">&#39;male&#39;</span>
+<span class="n">gender</span> <span class="o">=</span> <span class="s1">'male'</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">_get_gender</span><span class="p">():</span>
@@ -4592,62 +4592,62 @@
 
 
 <span class="k">class</span><span class="w"> </span><span class="nc">_Birthday</span><span class="p">:</span>
-    <span class="n">BIRRTHDAY</span> <span class="o">=</span> <span class="s1">&#39;1970-01-01 00:00:00&#39;</span>
+    <span class="n">BIRRTHDAY</span> <span class="o">=</span> <span class="s1">'1970-01-01 00:00:00'</span>
 </code></pre></div>
 <p>使用通配符导入模块中的变量, 默认会忽略以单下划线开头的变量、函数和类, 例如:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span><span class="w"> </span><span class="nn">demo</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">name</span>
-<span class="s1">&#39;zhangsan&#39;</span>
+<span class="s1">'zhangsan'</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">age</span>
 <span class="mi">18</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">_gender</span>
 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;_gender&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+  <span class="n">File</span> <span class="s2">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">'_gender'</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">_get_gender</span><span class="p">()</span>
 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;_get_gender&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+  <span class="n">File</span> <span class="s2">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">'_get_gender'</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">_Birthday</span>
 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;_Birthday&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+  <span class="n">File</span> <span class="s2">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">'_Birthday'</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
 </code></pre></div>
 <p>如果在模块<code>demo.py</code>中设置了<code>__all__ = ['name', 'age', '_gender', '_get_gender', '_Birthday']</code>, 则可以访问:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span><span class="w"> </span><span class="nn">demo</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">name</span>
-<span class="s1">&#39;zhangsan&#39;</span>
+<span class="s1">'zhangsan'</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">age</span>
 <span class="mi">18</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">_gender</span>
-<span class="s1">&#39;male&#39;</span>
+<span class="s1">'male'</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">_get_gender</span>
 <span class="o">&lt;</span><span class="n">function</span> <span class="n">_get_gender</span> <span class="n">at</span> <span class="mh">0x103291d80</span><span class="o">&gt;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">_Birthday</span>
-<span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="err">&#39;</span><span class="nc">a</span><span class="o">.</span><span class="n">_Birthday</span><span class="s1">&#39;&gt;</span>
+<span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="err">'</span><span class="nc">a</span><span class="o">.</span><span class="n">_Birthday</span><span class="s1">'&gt;</span>
 </code></pre></div>
 <p>或者注释掉<code>__all__</code>但不使用通配符方式导入, 使用<code>包名.</code>的方式也可访问:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span><span class="w"> </span><span class="nn">demo</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">demo</span><span class="o">.</span><span class="n">name</span>
-<span class="s1">&#39;zhangsan&#39;</span>
+<span class="s1">'zhangsan'</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">demo</span><span class="o">.</span><span class="n">age</span>
 <span class="mi">18</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">demo</span><span class="o">.</span><span class="n">_get_gender</span>
 <span class="o">&lt;</span><span class="n">function</span> <span class="n">_get_gender</span> <span class="n">at</span> <span class="mh">0x102e29d80</span><span class="o">&gt;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">demo</span><span class="o">.</span><span class="n">_Birthday</span>
-<span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="err">&#39;</span><span class="nc">a</span><span class="o">.</span><span class="n">_Birthday</span><span class="s1">&#39;&gt;</span>
+<span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="err">'</span><span class="nc">a</span><span class="o">.</span><span class="n">_Birthday</span><span class="s1">'&gt;</span>
 </code></pre></div>
 <h2 id="var_">后置单下划线 <code>var_</code></h2>
 <p>后置单下划线通常用于避免与Python的关键字产生冲突, 例如:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">def</span><span class="o">=</span><span class="mi">1</span>
-  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span>
+  <span class="n">File</span> <span class="s2">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span>
     <span class="n">def</span><span class="o">=</span><span class="mi">1</span>
        <span class="o">^</span>
 <span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">invalid</span> <span class="n">syntax</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">def_</span><span class="o">=</span><span class="mi">1</span>
 <span class="o">&gt;&gt;&gt;</span> 
 <span class="o">&gt;&gt;&gt;</span> <span class="k">def</span><span class="w"> </span><span class="nf">test</span><span class="p">(</span><span class="n">class</span><span class="p">):</span>
-  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span>
+  <span class="n">File</span> <span class="s2">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">test</span><span class="p">(</span><span class="n">class</span><span class="p">):</span>
              <span class="o">^^^^^</span>
 <span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">invalid</span> <span class="n">syntax</span>
@@ -4656,7 +4656,7 @@
 </code></pre></div>
 <h2 id="__var">前置双下划线 <code>__var</code></h2>
 <p>前置双下划线的变量、函数和类同单前置下划线, 例如:</p>
-<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;demo.py&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="sd">"""demo.py"""</span>
 
 
 <span class="n">__a</span> <span class="o">=</span> <span class="mi">1</span>
@@ -4672,30 +4672,30 @@
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span><span class="w"> </span><span class="nn">demo</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">__a</span>
 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;__a&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+  <span class="n">File</span> <span class="s2">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">'__a'</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">__b</span>
 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;__b&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+  <span class="n">File</span> <span class="s2">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">'__b'</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">__C</span>
 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;__C&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+  <span class="n">File</span> <span class="s2">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">'__C'</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span><span class="w"> </span><span class="nn">demo</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">demo</span><span class="o">.</span><span class="n">__a</span>
 <span class="mi">1</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">demo</span><span class="o">.</span><span class="n">__b</span>
 <span class="o">&lt;</span><span class="n">function</span> <span class="n">__b</span> <span class="n">at</span> <span class="mh">0x100cf1d80</span><span class="o">&gt;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">demo</span><span class="o">.</span><span class="n">__C</span>
-<span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="err">&#39;</span><span class="nc">z</span><span class="o">.</span><span class="n">__C</span><span class="s1">&#39;&gt;</span>
+<span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="err">'</span><span class="nc">z</span><span class="o">.</span><span class="n">__C</span><span class="s1">'&gt;</span>
 </code></pre></div>
 <p>但如果用于类内部的属性或方法及其方法变量, 会触发Python的一个特性: 名称修饰(name mangling), 即解释器会更改变量的名称, 例如:</p>
-<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;demo.py&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="sd">"""demo.py"""</span>
 
 
 <span class="k">class</span><span class="w"> </span><span class="nc">Demo</span><span class="p">:</span>
-    <span class="n">__CLASSNAME</span> <span class="o">=</span> <span class="s1">&#39;Demo&#39;</span>
+    <span class="n">__CLASSNAME</span> <span class="o">=</span> <span class="s1">'Demo'</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">foo</span> <span class="o">=</span> <span class="mi">1</span>
@@ -4709,24 +4709,24 @@
 <span class="o">&gt;&gt;&gt;</span> <span class="n">d</span> <span class="o">=</span> <span class="n">Demo</span><span class="p">()</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">d</span><span class="o">.</span><span class="n">__CLASSNAME</span>
 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">AttributeError</span><span class="p">:</span> <span class="s1">&#39;Demo&#39;</span> <span class="nb">object</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="s1">&#39;__CLASSNAME&#39;</span><span class="o">.</span> <span class="n">Did</span> <span class="n">you</span> <span class="n">mean</span><span class="p">:</span> <span class="s1">&#39;_Demo__CLASSNAME&#39;</span><span class="err">?</span>
+  <span class="n">File</span> <span class="s2">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">AttributeError</span><span class="p">:</span> <span class="s1">'Demo'</span> <span class="nb">object</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="s1">'__CLASSNAME'</span><span class="o">.</span> <span class="n">Did</span> <span class="n">you</span> <span class="n">mean</span><span class="p">:</span> <span class="s1">'_Demo__CLASSNAME'</span><span class="err">?</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">d</span><span class="o">.</span><span class="n">foo</span>
 <span class="mi">1</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">d</span><span class="o">.</span><span class="n">_bar</span>
 <span class="mi">2</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">d</span><span class="o">.</span><span class="n">__baz</span>
 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">AttributeError</span><span class="p">:</span> <span class="s1">&#39;Demo&#39;</span> <span class="nb">object</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="s1">&#39;__baz&#39;</span><span class="o">.</span> <span class="n">Did</span> <span class="n">you</span> <span class="n">mean</span><span class="p">:</span> <span class="s1">&#39;_bar&#39;</span><span class="err">?</span>
+  <span class="n">File</span> <span class="s2">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">AttributeError</span><span class="p">:</span> <span class="s1">'Demo'</span> <span class="nb">object</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="s1">'__baz'</span><span class="o">.</span> <span class="n">Did</span> <span class="n">you</span> <span class="n">mean</span><span class="p">:</span> <span class="s1">'_bar'</span><span class="err">?</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">d</span><span class="o">.</span><span class="n">__hey</span>
 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">AttributeError</span><span class="p">:</span> <span class="s1">&#39;Demo&#39;</span> <span class="nb">object</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="s1">&#39;__hey&#39;</span>
+  <span class="n">File</span> <span class="s2">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">AttributeError</span><span class="p">:</span> <span class="s1">'Demo'</span> <span class="nb">object</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="s1">'__hey'</span>
 </code></pre></div>
 <p>无法访问<code>__CLASSNAME、</code>d._baz<code>和</code>d.__hey<code>, 就是因为名称修饰, 原本的名称已经被更改, 通过</code>dir(d)`查看所有属性可以看出:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">dir</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-<span class="p">[</span><span class="s1">&#39;_Demo__CLASSNAME&#39;</span><span class="p">,</span> <span class="s1">&#39;_Demo__baz&#39;</span><span class="p">,</span> <span class="s1">&#39;_Demo__hey&#39;</span><span class="p">,</span> <span class="s1">&#39;__class__&#39;</span><span class="p">,</span> <span class="s1">&#39;__delattr__&#39;</span><span class="p">,</span> <span class="s1">&#39;__dict__&#39;</span><span class="p">,</span> <span class="s1">&#39;__dir__&#39;</span><span class="p">,</span> <span class="s1">&#39;__doc__&#39;</span><span class="p">,</span> <span class="s1">&#39;__eq__&#39;</span><span class="p">,</span> <span class="s1">&#39;__format__&#39;</span><span class="p">,</span> <span class="s1">&#39;__ge__&#39;</span><span class="p">,</span> <span class="s1">&#39;__getattribute__&#39;</span><span class="p">,</span> <span class="s1">&#39;__gt__&#39;</span><span class="p">,</span> <span class="s1">&#39;__hash__&#39;</span><span class="p">,</span> <span class="s1">&#39;__init__&#39;</span><span class="p">,</span> <span class="s1">&#39;__init_subclass__&#39;</span><span class="p">,</span> <span class="s1">&#39;__le__&#39;</span><span class="p">,</span> <span class="s1">&#39;__lt__&#39;</span><span class="p">,</span> <span class="s1">&#39;__module__&#39;</span><span class="p">,</span> <span class="s1">&#39;__ne__&#39;</span><span class="p">,</span> <span class="s1">&#39;__new__&#39;</span><span class="p">,</span> <span class="s1">&#39;__reduce__&#39;</span><span class="p">,</span> <span class="s1">&#39;__reduce_ex__&#39;</span><span class="p">,</span> <span class="s1">&#39;__repr__&#39;</span><span class="p">,</span> <span class="s1">&#39;__setattr__&#39;</span><span class="p">,</span> <span class="s1">&#39;__sizeof__&#39;</span><span class="p">,</span> <span class="s1">&#39;__str__&#39;</span><span class="p">,</span> <span class="s1">&#39;__subclasshook__&#39;</span><span class="p">,</span> <span class="s1">&#39;__weakref__&#39;</span><span class="p">,</span> <span class="s1">&#39;_bar&#39;</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">]</span>
+<span class="p">[</span><span class="s1">'_Demo__CLASSNAME'</span><span class="p">,</span> <span class="s1">'_Demo__baz'</span><span class="p">,</span> <span class="s1">'_Demo__hey'</span><span class="p">,</span> <span class="s1">'__class__'</span><span class="p">,</span> <span class="s1">'__delattr__'</span><span class="p">,</span> <span class="s1">'__dict__'</span><span class="p">,</span> <span class="s1">'__dir__'</span><span class="p">,</span> <span class="s1">'__doc__'</span><span class="p">,</span> <span class="s1">'__eq__'</span><span class="p">,</span> <span class="s1">'__format__'</span><span class="p">,</span> <span class="s1">'__ge__'</span><span class="p">,</span> <span class="s1">'__getattribute__'</span><span class="p">,</span> <span class="s1">'__gt__'</span><span class="p">,</span> <span class="s1">'__hash__'</span><span class="p">,</span> <span class="s1">'__init__'</span><span class="p">,</span> <span class="s1">'__init_subclass__'</span><span class="p">,</span> <span class="s1">'__le__'</span><span class="p">,</span> <span class="s1">'__lt__'</span><span class="p">,</span> <span class="s1">'__module__'</span><span class="p">,</span> <span class="s1">'__ne__'</span><span class="p">,</span> <span class="s1">'__new__'</span><span class="p">,</span> <span class="s1">'__reduce__'</span><span class="p">,</span> <span class="s1">'__reduce_ex__'</span><span class="p">,</span> <span class="s1">'__repr__'</span><span class="p">,</span> <span class="s1">'__setattr__'</span><span class="p">,</span> <span class="s1">'__sizeof__'</span><span class="p">,</span> <span class="s1">'__str__'</span><span class="p">,</span> <span class="s1">'__subclasshook__'</span><span class="p">,</span> <span class="s1">'__weakref__'</span><span class="p">,</span> <span class="s1">'_bar'</span><span class="p">,</span> <span class="s1">'foo'</span><span class="p">]</span>
 </code></pre></div>
 <ul>
 <li><code>__CLASSNAME</code>被重命名成<code>_Demo__CLASSNAME</code></li>
@@ -4735,7 +4735,7 @@
 </ul>
 <p>所以实际上应该这样访问:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">d</span><span class="o">.</span><span class="n">_Demo__CLASSNAME</span>
-<span class="s1">&#39;demo&#39;</span>
+<span class="s1">'demo'</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">d</span><span class="o">.</span><span class="n">_Demo__baz</span>
 <span class="mi">3</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">d</span><span class="o">.</span><span class="n">_Demo__hey</span>
@@ -4743,11 +4743,11 @@
 </code></pre></div>
 <p>即, 通过 <code>_类名__变量名</code>的方式可以访问, 但不建议这么做, 一般来讲前置双下划线的变量在约定俗成中时<strong>私有属性</strong>, 不允许外部访问</p>
 <p>同时名称修饰会引发一个现象, 例如:</p>
-<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;demo.py&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="sd">"""demo.py"""</span>
 
 
 <span class="k">class</span><span class="w"> </span><span class="nc">Demo</span><span class="p">:</span>
-    <span class="n">__CLASSNAME</span> <span class="o">=</span> <span class="s1">&#39;Demo&#39;</span>
+    <span class="n">__CLASSNAME</span> <span class="o">=</span> <span class="s1">'Demo'</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">foo</span> <span class="o">=</span> <span class="mi">1</span>
@@ -4760,7 +4760,7 @@
 
 
 <span class="k">class</span><span class="w"> </span><span class="nc">SubDemo</span><span class="p">(</span><span class="n">Demo</span><span class="p">):</span>
-    <span class="n">__CLASSNAME</span> <span class="o">=</span> <span class="s1">&#39;SubDemo&#39;</span>
+    <span class="n">__CLASSNAME</span> <span class="o">=</span> <span class="s1">'SubDemo'</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">foo</span> <span class="o">=</span> <span class="mi">11</span>
@@ -4770,26 +4770,26 @@
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span><span class="w"> </span><span class="nn">demo</span><span class="w"> </span><span class="kn">import</span> <span class="n">SubDemo</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">sd</span> <span class="o">=</span> <span class="n">SubDemo</span><span class="p">()</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">dir</span><span class="p">(</span><span class="n">sd</span><span class="p">)</span>
-<span class="p">[</span><span class="s1">&#39;_Demo__CLASSNAME&#39;</span><span class="p">,</span> <span class="s1">&#39;_Demo__baz&#39;</span><span class="p">,</span> <span class="s1">&#39;_Demo__hey&#39;</span><span class="p">,</span> <span class="s1">&#39;_SubDemo__CLASSNAME&#39;</span><span class="p">,</span> <span class="s1">&#39;_SubDemo__baz&#39;</span><span class="p">,</span> <span class="s1">&#39;__class__&#39;</span><span class="p">,</span> <span class="s1">&#39;__delattr__&#39;</span><span class="p">,</span> <span class="s1">&#39;__dict__&#39;</span><span class="p">,</span> <span class="s1">&#39;__dir__&#39;</span><span class="p">,</span> <span class="s1">&#39;__doc__&#39;</span><span class="p">,</span> <span class="s1">&#39;__eq__&#39;</span><span class="p">,</span> <span class="s1">&#39;__format__&#39;</span><span class="p">,</span> <span class="s1">&#39;__ge__&#39;</span><span class="p">,</span> <span class="s1">&#39;__getattribute__&#39;</span><span class="p">,</span> <span class="s1">&#39;__gt__&#39;</span><span class="p">,</span> <span class="s1">&#39;__hash__&#39;</span><span class="p">,</span> <span class="s1">&#39;__init__&#39;</span><span class="p">,</span> <span class="s1">&#39;__init_subclass__&#39;</span><span class="p">,</span> <span class="s1">&#39;__le__&#39;</span><span class="p">,</span> <span class="s1">&#39;__lt__&#39;</span><span class="p">,</span> <span class="s1">&#39;__module__&#39;</span><span class="p">,</span> <span class="s1">&#39;__ne__&#39;</span><span class="p">,</span> <span class="s1">&#39;__new__&#39;</span><span class="p">,</span> <span class="s1">&#39;__reduce__&#39;</span><span class="p">,</span> <span class="s1">&#39;__reduce_ex__&#39;</span><span class="p">,</span> <span class="s1">&#39;__repr__&#39;</span><span class="p">,</span> <span class="s1">&#39;__setattr__&#39;</span><span class="p">,</span> <span class="s1">&#39;__sizeof__&#39;</span><span class="p">,</span> <span class="s1">&#39;__str__&#39;</span><span class="p">,</span> <span class="s1">&#39;__subclasshook__&#39;</span><span class="p">,</span> <span class="s1">&#39;__weakref__&#39;</span><span class="p">,</span> <span class="s1">&#39;_bar&#39;</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">]</span>
+<span class="p">[</span><span class="s1">'_Demo__CLASSNAME'</span><span class="p">,</span> <span class="s1">'_Demo__baz'</span><span class="p">,</span> <span class="s1">'_Demo__hey'</span><span class="p">,</span> <span class="s1">'_SubDemo__CLASSNAME'</span><span class="p">,</span> <span class="s1">'_SubDemo__baz'</span><span class="p">,</span> <span class="s1">'__class__'</span><span class="p">,</span> <span class="s1">'__delattr__'</span><span class="p">,</span> <span class="s1">'__dict__'</span><span class="p">,</span> <span class="s1">'__dir__'</span><span class="p">,</span> <span class="s1">'__doc__'</span><span class="p">,</span> <span class="s1">'__eq__'</span><span class="p">,</span> <span class="s1">'__format__'</span><span class="p">,</span> <span class="s1">'__ge__'</span><span class="p">,</span> <span class="s1">'__getattribute__'</span><span class="p">,</span> <span class="s1">'__gt__'</span><span class="p">,</span> <span class="s1">'__hash__'</span><span class="p">,</span> <span class="s1">'__init__'</span><span class="p">,</span> <span class="s1">'__init_subclass__'</span><span class="p">,</span> <span class="s1">'__le__'</span><span class="p">,</span> <span class="s1">'__lt__'</span><span class="p">,</span> <span class="s1">'__module__'</span><span class="p">,</span> <span class="s1">'__ne__'</span><span class="p">,</span> <span class="s1">'__new__'</span><span class="p">,</span> <span class="s1">'__reduce__'</span><span class="p">,</span> <span class="s1">'__reduce_ex__'</span><span class="p">,</span> <span class="s1">'__repr__'</span><span class="p">,</span> <span class="s1">'__setattr__'</span><span class="p">,</span> <span class="s1">'__sizeof__'</span><span class="p">,</span> <span class="s1">'__str__'</span><span class="p">,</span> <span class="s1">'__subclasshook__'</span><span class="p">,</span> <span class="s1">'__weakref__'</span><span class="p">,</span> <span class="s1">'_bar'</span><span class="p">,</span> <span class="s1">'foo'</span><span class="p">]</span>
 </code></pre></div>
 <p>存在 <code>_Demo__CLASSNAME</code>、<code>_Demo__baz</code>、<code>_Demo__hey</code>、<code>_SubDemo__CLASSNAME</code>、 <code>_SubDemo__baz</code></p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">sd</span><span class="o">.</span><span class="n">_Demo__CLASSNAME</span>
-<span class="s1">&#39;Demo&#39;</span>
+<span class="s1">'Demo'</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">sd</span><span class="o">.</span><span class="n">_Demo__baz</span>
 <span class="mi">3</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">sd</span><span class="o">.</span><span class="n">_Demo__hey</span>
 <span class="o">&lt;</span><span class="n">bound</span> <span class="n">method</span> <span class="n">Demo</span><span class="o">.</span><span class="n">__hey</span> <span class="n">of</span> <span class="o">&lt;</span><span class="n">demo</span><span class="o">.</span><span class="n">SubDemo</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x101045510</span><span class="o">&gt;&gt;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">sd</span><span class="o">.</span><span class="n">_SubDemo__CLASSNAME</span>
-<span class="s1">&#39;SubDemo&#39;</span>
+<span class="s1">'SubDemo'</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">sd</span><span class="o">.</span><span class="n">_SubDemo__baz</span>
 <span class="mi">33</span>
 </code></pre></div>
 <p>证明: <strong>类的私有属性可以被子类继承, 但因为名称修饰的机制导致不会被重写</strong></p>
 <p>在看一个奇怪的例子:</p>
-<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;demo.py&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="sd">"""demo.py"""</span>
 
 
-<span class="n">_Demo__name</span> <span class="o">=</span> <span class="s1">&#39;全局变量Demo&#39;</span>
+<span class="n">_Demo__name</span> <span class="o">=</span> <span class="s1">'全局变量Demo'</span>
 
 
 <span class="k">class</span><span class="w"> </span><span class="nc">Demo</span><span class="p">:</span>
@@ -4802,7 +4802,7 @@
 <p>恰巧有个全局变量<code>_Demo__name</code>, 所以可以正常返回, 例如:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span><span class="w"> </span><span class="nn">demo</span><span class="w"> </span><span class="kn">import</span> <span class="n">Demo</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">Demo</span><span class="p">()</span><span class="o">.</span><span class="n">test</span><span class="p">()</span>
-<span class="s1">&#39;全局变量Demo&#39;</span>
+<span class="s1">'全局变量Demo'</span>
 </code></pre></div>
 <h2 id="__var__">前后双下划线 <code>__var__</code></h2>
 <p>前后双下划线即原来的魔法(magic)变量或魔法方法, 现在叫dunder方法, 个人编码应避免此类写法</p>

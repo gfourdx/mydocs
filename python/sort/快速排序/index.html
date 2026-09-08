@@ -4382,20 +4382,20 @@
 
 <p>参考: <a href="https://blog.csdn.net/HumorChen99/article/details/113946288">快速排序算法(图文并茂)</a></p>
 <div class="highlight"><pre><span></span><code><span class="c1"># quicksort</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 <span class="sd">1、首先认为第一个数是最小的，但实际上可能不是</span>
 <span class="sd">2、那么就要遍历剩下的数，把比这个数小的放到它的左边，比这个数大的放到它的右边</span>
 <span class="sd">3、左右开始往中间遍历，先右再左，按照2的规则排列，左右重合就是1中我们认为的这个数的位置</span>
 <span class="sd">4、然后用3中这个位置的索引分成左右两个部分，继续重复1234步骤，即可排序</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">quick_sort</span><span class="p">(</span><span class="n">li</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    li: 需要排序的列表</span>
 <span class="sd">    start: 列表首位元素的索引</span>
 <span class="sd">    end: 列表末位元素的索引</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="k">if</span> <span class="n">start</span> <span class="o">&gt;=</span> <span class="n">end</span><span class="p">:</span>
         <span class="k">return</span>
@@ -4427,7 +4427,7 @@
     <span class="n">quick_sort</span><span class="p">(</span><span class="n">li</span><span class="p">,</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
     <span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
     <span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>

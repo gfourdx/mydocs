@@ -4530,13 +4530,19 @@ sh get-docker.sh
 <h2 id="ip">配置IP地址段和代理</h2>
 <div class="highlight"><pre><span></span><code>mkdir -p /etc/docker
 
-tee /etc/docker/daemon.json &lt;&lt;-&#39;EOF&#39;
+tee /etc/docker/daemon.json &lt;&lt;-'EOF'
 {
-  &quot;bip&quot;: &quot;192.168.255.1/24&quot;,
-  &quot;proxies&quot;: {
-    &quot;http-proxy&quot;: &quot;http://127.0.0.1:7891&quot;,
-    &quot;https-proxy&quot;: &quot;http://127.0.0.1:7891&quot;,
-    &quot;no-proxy&quot;: &quot;127.0.0.0/8&quot;
+  "bip": "192.168.254.1/24",
+  "default-address-pools": [
+    {
+      "base": "192.168.255.0/24",
+      "size": 28
+    }
+  ],
+  "proxies": {
+    "http-proxy": "http://127.0.0.1:7890",
+    "https-proxy": "http://127.0.0.1:7890",
+    "no-proxy": "127.0.0.0/8"
   }
 }
 </code></pre></div>

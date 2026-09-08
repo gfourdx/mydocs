@@ -4591,12 +4591,12 @@
 <p><a href="https://download.docker.com/mac/static/stable/aarch64/">https://download.docker.com/mac/static/stable/aarch64/</a></p>
 <p>此时还需配置docker上下文:</p>
 <div class="highlight"><pre><span></span><code># 注意将第一条命令中的whls替换成你的用户名
-docker context create lima-default --docker &quot;host=unix:///Users/whls/.lima/default/sock/docker.sock&quot;
+docker context create lima-default --docker "host=unix:///Users/whls/.lima/default/sock/docker.sock"
 docker context use lima-default
 </code></pre></div>
 <h3 id="_2">别名方式(推荐)</h3>
 <p>将以下命令添加环境变量:</p>
-<div class="highlight"><pre><span></span><code>alias docker=&quot;lima docker&quot;
+<div class="highlight"><pre><span></span><code>alias docker="lima docker"
 </code></pre></div>
 <h2 id="_3">警告处理</h2>
 <div class="highlight"><pre><span></span><code># 执行命令docker info提示:
@@ -4607,8 +4607,8 @@ WARNING: bridge-nf-call-ip6tables is disabled
 lima
 
 # 配置iptables和ip6tables
-echo &quot;net.bridge.bridge-nf-call-iptables = 1&quot; | sudo tee -a /etc/sysctl.conf
-echo &quot;net.bridge.bridge-nf-call-ip6tables = 1&quot; | sudo tee -a /etc/sysctl.conf
+echo "net.bridge.bridge-nf-call-iptables = 1" | sudo tee -a /etc/sysctl.conf
+echo "net.bridge.bridge-nf-call-ip6tables = 1" | sudo tee -a /etc/sysctl.conf
 
 # 使配置生效
 sudo sysctl -p
@@ -4625,7 +4625,7 @@ lsmod | grep br_netfilter
 # 如果输出中包含 br_netfilter，则说明模块已成功加载
 
 # 配置永久加载 br_netfilter 模块:
-echo &quot;br_netfilter&quot; | sudo tee -a /etc/modules
+echo "br_netfilter" | sudo tee -a /etc/modules
 
 # 此时再执行
 sudo sysctl -p

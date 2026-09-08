@@ -4600,17 +4600,17 @@
 <hr />
 <h2 id="_1">安装</h2>
 <p>参考：<a href="https://www.postgresql.org/download/linux/debian/">PostgreSQL: Linux downloads (Debian)</a></p>
-<div class="highlight"><pre><span></span><code>sudo sh -c &#39;echo &quot;deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main&quot; &gt; /etc/apt/sources.list.d/pgdg.list&#39;
+<div class="highlight"><pre><span></span><code>sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" &gt; /etc/apt/sources.list.d/pgdg.list'
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 sudo apt-get update
 sudo apt-get -y install postgresql
 </code></pre></div>
 <h2 id="_2">配置</h2>
 <h3 id="ip">允许任何IP</h3>
-<div class="highlight"><pre><span></span><code>sed -i &#39;0,/127.0.0.1\/32/s//0.0.0.0\/0/&#39; /etc/postgresql/15/main/pg_hba.conf
+<div class="highlight"><pre><span></span><code>sed -i '0,/127.0.0.1\/32/s//0.0.0.0\/0/' /etc/postgresql/15/main/pg_hba.conf
 </code></pre></div>
 <h3 id="ip_1">监听任何IP</h3>
-<div class="highlight"><pre><span></span><code>sed -i &quot;0,/#listen_addresses = &#39;localhost&#39;/s//listen_addresses = &#39;*&#39;/&quot; /etc/postgresql/15/main/postgresql.conf
+<div class="highlight"><pre><span></span><code>sed -i "0,/#listen_addresses = 'localhost'/s//listen_addresses = '*'/" /etc/postgresql/15/main/postgresql.conf
 </code></pre></div>
 <h3 id="_3">启动</h3>
 <div class="highlight"><pre><span></span><code>service postgresql start
@@ -4624,7 +4624,7 @@ sudo apt-get -y install postgresql
 </blockquote>
 <h3 id="postgres_1">修改postgres密码</h3>
 <div class="highlight"><pre><span></span><code>psql
-alter user postgres with password &#39;postgres&#39;;
+alter user postgres with password 'postgres';
 \q
 exit
 </code></pre></div>

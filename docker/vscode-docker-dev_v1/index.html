@@ -4394,12 +4394,12 @@
 <span class="k">RUN</span><span class="w"> </span><span class="nb">set</span><span class="w"> </span>-eux<span class="p">;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>#<span class="w"> </span>设置时区
 <span class="w">    </span>ln<span class="w"> </span>-sf<span class="w"> </span>/usr/share/zoneinfo/Asia/Shanghai<span class="w"> </span>/etc/localtime<span class="p">;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;Asia/Shanghai&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>/etc/timezone<span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s1">'Asia/Shanghai'</span><span class="w"> </span>&gt;<span class="w"> </span>/etc/timezone<span class="p">;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>#<span class="w"> </span>配置apt源
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye main contrib non-free \n\</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s1">'deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye main contrib non-free \n\</span>
 <span class="s1">deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye-updates main contrib non-free \n\</span>
 <span class="s1">deb http://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye-backports main contrib non-free \n\</span>
-<span class="s1">deb http://mirrors.tuna.tsinghua.edu.cn/debian-security bullseye-security main contrib non-free&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>/etc/apt/sources.list<span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="s1">deb http://mirrors.tuna.tsinghua.edu.cn/debian-security bullseye-security main contrib non-free'</span><span class="w"> </span>&gt;<span class="w"> </span>/etc/apt/sources.list<span class="p">;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>#<span class="w"> </span>更新源
 <span class="w">    </span>apt<span class="w"> </span>update<span class="p">;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>#<span class="w"> </span>安装系统软件
@@ -4444,21 +4444,21 @@
 <span class="w">    </span>tar<span class="w"> </span>-C<span class="w"> </span>/usr/local<span class="w"> </span>-xzf<span class="w"> </span>go1.20.4.linux-arm64.tar.gz<span class="p">;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>rm<span class="w"> </span>-rf<span class="w"> </span>go1.20.4.linux-arm64.tar.gz<span class="p">;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>#<span class="w"> </span>设置golang环境变量
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;PATH=</span><span class="nv">$PATH</span><span class="s2">:/usr/local/go/bin&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/root/.bashrc<span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"PATH=</span><span class="nv">$PATH</span><span class="s2">:/usr/local/go/bin"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/root/.bashrc<span class="p">;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>#<span class="w"> </span>清理缓存
 <span class="w">    </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/apt/lists/*<span class="p">;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>#<span class="w"> </span>配置ssh允许root登录
-<span class="w">    </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;s@#PermitRootLogin prohibit-password@PermitRootLogin yes@g&quot;</span><span class="w"> </span>/etc/ssh/sshd_config<span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s2">"s@#PermitRootLogin prohibit-password@PermitRootLogin yes@g"</span><span class="w"> </span>/etc/ssh/sshd_config<span class="p">;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>#<span class="w"> </span>配置ssh允许空密码登录
-<span class="w">    </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;s@#PermitEmptyPasswords no@PermitEmptyPasswords yes@g&quot;</span><span class="w"> </span>/etc/ssh/sshd_config<span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s2">"s@#PermitEmptyPasswords no@PermitEmptyPasswords yes@g"</span><span class="w"> </span>/etc/ssh/sshd_config<span class="p">;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>#<span class="w"> </span>删除root密码
 <span class="w">    </span>passwd<span class="w"> </span>-d<span class="w"> </span>root<span class="p">;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>#<span class="w"> </span>设置ssh自启动
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;service ssh start &gt; /dev/null&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/root/.bashrc
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"service ssh start &gt; /dev/null"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/root/.bashrc
 
 <span class="k">EXPOSE</span><span class="w"> </span><span class="s">22 80 3306 5432 6379</span>
 
-<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;bash&quot;</span><span class="w"> </span><span class="p">]</span>
+<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">"bash"</span><span class="w"> </span><span class="p">]</span>
 
 <span class="c"># docker build -f Dev.Dockerfile -t mydev:latest .</span>
 <span class="c"># docker run -dit -h mydev -p 22:22 -p 80:80 -p 3306:3306 -p 5432:5432 -p 6379:6379 -v /path/to/host:/path/to/docker --name mydev --restart=unless-stopped mydev</span>

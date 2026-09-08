@@ -4396,53 +4396,53 @@
 
 <span class="k">def</span><span class="w"> </span><span class="nf">sub_process</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;子进程开始运行, pid为: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;我是</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">, 今年</span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;args: </span><span class="si">{</span><span class="n">args</span><span class="si">}</span><span class="s1">, kwargs: </span><span class="si">{</span><span class="n">kwargs</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;父进程的pid是: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getppid</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'子进程开始运行, pid为: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">()</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"我是</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">, 今年</span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'args: </span><span class="si">{</span><span class="n">args</span><span class="si">}</span><span class="s1">, kwargs: </span><span class="si">{</span><span class="n">kwargs</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'父进程的pid是: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getppid</span><span class="p">()</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">()</span>
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;主进程开始运行, pid为: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'主进程开始运行, pid为: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">()</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
     <span class="c1"># 创建进程池，最大进程数量等于两倍的CPU核数</span>
     <span class="n">pool</span> <span class="o">=</span> <span class="n">Pool</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">()</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
         <span class="c1"># 使用进程池调用子进程</span>
-        <span class="n">pool</span><span class="o">.</span><span class="n">apply_async</span><span class="p">(</span><span class="n">sub_process</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;king&#39;</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="s1">&#39;balabala...&#39;</span><span class="p">,</span> <span class="s1">&#39;makabaka...&#39;</span><span class="p">),</span> <span class="p">{</span><span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">})</span>
+        <span class="n">pool</span><span class="o">.</span><span class="n">apply_async</span><span class="p">(</span><span class="n">sub_process</span><span class="p">,</span> <span class="p">(</span><span class="s1">'king'</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="s1">'balabala...'</span><span class="p">,</span> <span class="s1">'makabaka...'</span><span class="p">),</span> <span class="p">{</span><span class="s1">'key'</span><span class="p">:</span> <span class="s1">'value'</span><span class="p">})</span>
 
     <span class="c1"># 关闭进程池，之后不再接收新的请求</span>
     <span class="n">pool</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     <span class="c1"># 必须先pool.close()之后才能使用pool.join()</span>
     <span class="n">pool</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;主进程运行完毕&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'主进程运行完毕'</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 <p>输出:</p>
 <div class="highlight"><pre><span></span><code>主进程开始运行, pid为: 80054
 子进程开始运行, pid为: 80058
 我是king, 今年18
-args: (&#39;balabala...&#39;, &#39;makabaka...&#39;), kwargs: {&#39;key&#39;: &#39;value&#39;}
+args: ('balabala...', 'makabaka...'), kwargs: {'key': 'value'}
 父进程的pid是: 80054
 
 子进程开始运行, pid为: 80059
 我是king, 今年18
-args: (&#39;balabala...&#39;, &#39;makabaka...&#39;), kwargs: {&#39;key&#39;: &#39;value&#39;}
+args: ('balabala...', 'makabaka...'), kwargs: {'key': 'value'}
 父进程的pid是: 80054
 
 子进程开始运行, pid为: 80058
 我是king, 今年18
-args: (&#39;balabala...&#39;, &#39;makabaka...&#39;), kwargs: {&#39;key&#39;: &#39;value&#39;}
+args: ('balabala...', 'makabaka...'), kwargs: {'key': 'value'}
 父进程的pid是: 80054
 
 子进程开始运行, pid为: 80059
 我是king, 今年18
-args: (&#39;balabala...&#39;, &#39;makabaka...&#39;), kwargs: {&#39;key&#39;: &#39;value&#39;}
+args: ('balabala...', 'makabaka...'), kwargs: {'key': 'value'}
 父进程的pid是: 80054
 
 主进程运行完毕

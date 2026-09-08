@@ -4490,18 +4490,18 @@
     <span class="k">global</span> <span class="n">num</span>
     <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">):</span>
         <span class="n">num</span> <span class="o">+=</span><span class="mi">1</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;add_num_one结果: </span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'add_num_one结果: </span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">add_num_two</span><span class="p">(</span><span class="n">count</span><span class="p">):</span>
     <span class="k">global</span> <span class="n">num</span>
     <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">):</span>
         <span class="n">num</span> <span class="o">+=</span><span class="mi">1</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;add_num_two结果: </span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'add_num_two结果: </span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;原始数字: </span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'原始数字: </span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
     <span class="n">thread_one</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">add_num_one</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="mi">1000000</span><span class="p">,))</span>
     <span class="n">thread_one</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
@@ -4510,10 +4510,10 @@
 
     <span class="k">while</span> <span class="n">threading</span><span class="o">.</span><span class="n">active_count</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;最终数字: </span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'最终数字: </span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 <p>输出:</p>
@@ -4541,7 +4541,7 @@ add_num_two结果: 1382806
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">):</span>
         <span class="n">num</span> <span class="o">+=</span><span class="mi">1</span>
     <span class="n">mutex_lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;add_num_one结果: </span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'add_num_one结果: </span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">add_num_two</span><span class="p">(</span><span class="n">count</span><span class="p">):</span>
@@ -4550,11 +4550,11 @@ add_num_two结果: 1382806
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">):</span>
         <span class="n">num</span> <span class="o">+=</span><span class="mi">1</span>
     <span class="n">mutex_lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;add_num_two结果: </span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'add_num_two结果: </span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;原始数字: </span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'原始数字: </span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
     <span class="n">thread_one</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">add_num_one</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="mi">1000000</span><span class="p">,))</span>
     <span class="n">thread_one</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
@@ -4563,10 +4563,10 @@ add_num_two结果: 1382806
 
     <span class="k">while</span> <span class="n">threading</span><span class="o">.</span><span class="n">active_count</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;最终数字: </span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'最终数字: </span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 <p>输出:</p>
@@ -4585,7 +4585,7 @@ add_num_two结果: 2000000
         <span class="n">mutex_lock</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
         <span class="n">num</span> <span class="o">+=</span><span class="mi">1</span>
         <span class="n">mutex_lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;add_num_one结果: </span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'add_num_one结果: </span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">add_num_two</span><span class="p">(</span><span class="n">count</span><span class="p">):</span>
@@ -4595,7 +4595,7 @@ add_num_two结果: 2000000
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">):</span>
         <span class="n">num</span> <span class="o">+=</span><span class="mi">1</span>
     <span class="n">mutex_lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;add_num_two结果: </span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'add_num_two结果: </span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 </code></pre></div>
 <p>输出:</p>
 <div class="highlight"><pre><span></span><code>原始数字: 0

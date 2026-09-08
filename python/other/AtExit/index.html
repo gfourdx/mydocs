@@ -4506,21 +4506,21 @@
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">run_func_at_exit_1</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;func name is </span><span class="si">{</span><span class="n">sys</span><span class="o">.</span><span class="n">_getframe</span><span class="p">()</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;file name is </span><span class="si">{</span><span class="n">sys</span><span class="o">.</span><span class="n">_getframe</span><span class="p">()</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_filename</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'func name is </span><span class="si">{</span><span class="n">sys</span><span class="o">.</span><span class="n">_getframe</span><span class="p">()</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_name</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'file name is </span><span class="si">{</span><span class="n">sys</span><span class="o">.</span><span class="n">_getframe</span><span class="p">()</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_filename</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">run_func_at_exit_2</span><span class="p">(</span><span class="n">hello</span><span class="p">,</span> <span class="n">world</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">hello</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">world</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">hello</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">world</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
 
 <span class="n">atexit</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">run_func_at_exit_1</span><span class="p">)</span>
-<span class="n">atexit</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">run_func_at_exit_2</span><span class="p">,</span> <span class="s1">&#39;Good&#39;</span><span class="p">,</span> <span class="s1">&#39;Morning&#39;</span><span class="p">)</span>
+<span class="n">atexit</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">run_func_at_exit_2</span><span class="p">,</span> <span class="s1">'Good'</span><span class="p">,</span> <span class="s1">'Morning'</span><span class="p">)</span>
 
 
 <span class="nd">@atexit</span><span class="o">.</span><span class="n">register</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">run_func_at_exit_3</span><span class="p">():</span>
-    <span class="n">run_func_at_exit_2</span><span class="p">(</span><span class="s1">&#39;Hi,&#39;</span><span class="p">,</span> <span class="s1">&#39;How are you&#39;</span><span class="p">)</span>
+    <span class="n">run_func_at_exit_2</span><span class="p">(</span><span class="s1">'Hi,'</span><span class="p">,</span> <span class="s1">'How are you'</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="_2">输出</h2>
 <div class="highlight"><pre><span></span><code>Hi, How are you

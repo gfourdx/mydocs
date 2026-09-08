@@ -4576,14 +4576,14 @@
 
 <h1 id="vscodegithub443">VSCode免密发布代码到GitHub和配置443端口访问</h1>
 <h2 id="git">设置Git全局变量</h2>
-<div class="highlight"><pre><span></span><code>git config --global user.name &quot;your name&quot;     
-git config --global user.email &quot;your email&quot;
+<div class="highlight"><pre><span></span><code>git config --global user.name "your name"     
+git config --global user.email "your email"
 </code></pre></div>
 <h2 id="ssh-key">生成SSH Key</h2>
-<div class="highlight"><pre><span></span><code>ssh-keygen -t ed25519 -C &quot;your email&quot;
+<div class="highlight"><pre><span></span><code>ssh-keygen -t ed25519 -C "your email"
 </code></pre></div>
 <p>或</p>
-<div class="highlight"><pre><span></span><code>ssh-keygen -t rsa -b 4096 -C &quot;your email&quot;
+<div class="highlight"><pre><span></span><code>ssh-keygen -t rsa -b 4096 -C "your email"
 </code></pre></div>
 <h3 id="_1">查看公钥</h3>
 <div class="highlight"><pre><span></span><code>cat ~/.ssh/id_ed25519.pub

@@ -4384,11 +4384,11 @@
 <p><a href="https://blog.csdn.net/m0_46975599/article/details/112060427">归并排序(图文并茂)</a></p>
 <p><a href="https://blog.csdn.net/Brant_zero/article/details/125761211">归并排序(动图理解)</a></p>
 <div class="highlight"><pre><span></span><code><span class="c1"># mergesort</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 <span class="sd">1、merge_sort函数把一个列表分成两部分，每一个部分继续二分，递归下去，直到列表里只有1个元素</span>
 <span class="sd">2、然后将各自只有1个元素的两个列表传递给merge函数，比较大小构建成有序的列表</span>
 <span class="sd">3、依次按照1中递归的顺序返回2中列表，不断的合并，最后得到排序好的数组</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">merge_sort</span><span class="p">(</span><span class="n">li</span><span class="p">):</span>
@@ -4410,7 +4410,7 @@
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">merge</span><span class="p">(</span><span class="n">ll</span><span class="p">,</span> <span class="n">rl</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;把两个有序序列，再组成有序&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""把两个有序序列，再组成有序"""</span>
     <span class="c1"># [1] [2]</span>
     <span class="c1"># [1,2] [3,6]</span>
 
@@ -4433,7 +4433,7 @@
     <span class="k">return</span> <span class="n">res</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
     <span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">merge_sort</span><span class="p">(</span><span class="n">l</span><span class="p">))</span>

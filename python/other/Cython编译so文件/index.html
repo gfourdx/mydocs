@@ -4394,26 +4394,26 @@
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">py2so</span><span class="p">():</span>
-    <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">walk</span><span class="p">(</span><span class="s1">&#39;./app&#39;</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">walk</span><span class="p">(</span><span class="s1">'./app'</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="n">file</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;setup_&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.py&#39;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">file</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'setup_'</span><span class="p">)</span> <span class="ow">and</span> <span class="n">file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">'.py'</span><span class="p">):</span>
                 <span class="n">abs_f</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">file</span><span class="p">))</span>
                 <span class="n">aps_p</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">abs_f</span><span class="p">)</span>
-                <span class="n">setup_f</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">aps_p</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;setup_</span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">setup_f</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-                    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;from distutils.core import setup</span>
+                <span class="n">setup_f</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">aps_p</span><span class="p">,</span> <span class="sa">f</span><span class="s1">'setup_</span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">setup_f</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">"""from distutils.core import setup</span>
 <span class="s2">from Cython.Build import cythonize</span>
 
-<span class="s2">setup(name=&#39;Flask Demo Test&#39;, ext_modules=cythonize(r&#39;</span><span class="si">{</span><span class="n">abs_f</span><span class="si">}</span><span class="s2">&#39;))</span>
-<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
-                <span class="n">my_cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;python </span><span class="si">{</span><span class="n">setup_f</span><span class="si">}</span><span class="s1"> build_ext --inplace&#39;</span>
+<span class="s2">setup(name='Flask Demo Test', ext_modules=cythonize(r'</span><span class="si">{</span><span class="n">abs_f</span><span class="si">}</span><span class="s2">'))</span>
+<span class="s2">"""</span><span class="p">)</span>
+                <span class="n">my_cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'python </span><span class="si">{</span><span class="n">setup_f</span><span class="si">}</span><span class="s1"> build_ext --inplace'</span>
                 <span class="n">system</span><span class="p">(</span><span class="n">my_cmd</span><span class="p">)</span>
 
-    <span class="n">del_cmd</span> <span class="o">=</span> <span class="s2">&quot;find ./app -name &#39;*.py&#39; | xargs rm&quot;</span>
+    <span class="n">del_cmd</span> <span class="o">=</span> <span class="s2">"find ./app -name '*.py' | xargs rm"</span>
     <span class="n">system</span><span class="p">(</span><span class="n">del_cmd</span><span class="p">)</span>
-    <span class="n">del_cmd</span> <span class="o">=</span> <span class="s2">&quot;find ./app -name &#39;*.c&#39; | xargs rm&quot;</span>
+    <span class="n">del_cmd</span> <span class="o">=</span> <span class="s2">"find ./app -name '*.c' | xargs rm"</span>
     <span class="n">system</span><span class="p">(</span><span class="n">del_cmd</span><span class="p">)</span>
-    <span class="n">del_cmd</span> <span class="o">=</span> <span class="s2">&quot;rm -rf build&quot;</span>
+    <span class="n">del_cmd</span> <span class="o">=</span> <span class="s2">"rm -rf build"</span>
     <span class="n">system</span><span class="p">(</span><span class="n">del_cmd</span><span class="p">)</span>
 
 
@@ -4421,7 +4421,7 @@
     <span class="n">py2so</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 <p>Demo2:</p>
@@ -4432,26 +4432,26 @@
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">py2so</span><span class="p">():</span>
-    <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">walk</span><span class="p">(</span><span class="s1">&#39;./app&#39;</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">walk</span><span class="p">(</span><span class="s1">'./app'</span><span class="p">):</span>
         <span class="n">thread_pool</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">kernel_code</span><span class="p">,</span> <span class="o">*</span><span class="p">[</span><span class="n">files</span><span class="p">,</span> <span class="n">root</span><span class="p">])</span>
     <span class="n">thread_pool</span><span class="o">.</span><span class="n">shutdown</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">del_cmd</span> <span class="o">=</span> <span class="s2">&quot;find ./app -name &#39;*.py&#39; | xargs rm;find ./app -name &#39;*.c&#39; | xargs rm;rm -rf build&quot;</span>
+    <span class="n">del_cmd</span> <span class="o">=</span> <span class="s2">"find ./app -name '*.py' | xargs rm;find ./app -name '*.c' | xargs rm;rm -rf build"</span>
     <span class="n">system</span><span class="p">(</span><span class="n">del_cmd</span><span class="p">)</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">kernel_code</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">file</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;setup_&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.py&#39;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">file</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'setup_'</span><span class="p">)</span> <span class="ow">and</span> <span class="n">file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">'.py'</span><span class="p">):</span>
             <span class="n">abs_f</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">file</span><span class="p">))</span>
             <span class="n">aps_p</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">abs_f</span><span class="p">)</span>
-            <span class="n">setup_f</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">aps_p</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;setup_</span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">setup_f</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;from distutils.core import setup</span>
+            <span class="n">setup_f</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">aps_p</span><span class="p">,</span> <span class="sa">f</span><span class="s1">'setup_</span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">setup_f</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">"""from distutils.core import setup</span>
 <span class="s2">from Cython.Build import cythonize</span>
 
-<span class="s2">setup(name=&#39;Flask Demo Test&#39;, ext_modules=cythonize(r&#39;</span><span class="si">{</span><span class="n">abs_f</span><span class="si">}</span><span class="s2">&#39;))</span>
-<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
-            <span class="n">my_cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;python </span><span class="si">{</span><span class="n">setup_f</span><span class="si">}</span><span class="s1"> build_ext --inplace&#39;</span>
+<span class="s2">setup(name='Flask Demo Test', ext_modules=cythonize(r'</span><span class="si">{</span><span class="n">abs_f</span><span class="si">}</span><span class="s2">'))</span>
+<span class="s2">"""</span><span class="p">)</span>
+            <span class="n">my_cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'python </span><span class="si">{</span><span class="n">setup_f</span><span class="si">}</span><span class="s1"> build_ext --inplace'</span>
             <span class="n">system</span><span class="p">(</span><span class="n">my_cmd</span><span class="p">)</span>
 
 
@@ -4459,7 +4459,7 @@
     <span class="n">py2so</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 

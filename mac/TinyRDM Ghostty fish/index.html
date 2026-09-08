@@ -4381,11 +4381,11 @@
 <p>安装了redis管理工具<code>Tiny RDM</code>, 启动时会提示没有<code>pyhton3</code>， 然后就弹窗提示安装<code>Install Command Line Developer Tools</code>， 为阻止弹窗需要覆盖系统默认的<code>pyhton3</code>（顺便也覆盖<code>git</code>）</p>
 <p>在<code>/usr/local/bin</code>中创建文件<code>git</code>或<code>pyhton</code>， 分别写入：
 <div class="highlight"><pre><span></span><code>#!/bin/zsh
-echo &quot;Fake Git Command&quot;
+echo "Fake Git Command"
 </code></pre></div>
 和
 <div class="highlight"><pre><span></span><code>#!/bin/zsh
-echo &quot;Fake Python Command&quot;
+echo "Fake Python Command"
 </code></pre></div>
 然后执行<code>sudo ln -s python python3</code></p>
 <hr />
@@ -4394,23 +4394,23 @@ echo &quot;Fake Python Command&quot;
 shell-integration = fish
 </code></pre></div>
 <p>打开会提示一堆错误，原因是无法识别虚假的<code>git</code>命令， 解决办法是在<code>~/.config/fish/functions</code>中创建文件<code>fish_prompt.fish</code>并写入：</p>
-<div class="highlight"><pre><span></span><code>function fish_prompt --description &#39;Write out the prompt&#39;
+<div class="highlight"><pre><span></span><code>function fish_prompt --description 'Write out the prompt'
     set -l last_pipestatus $pipestatus
     set -lx __fish_last_status $status # Export for __fish_print_pipestatus.
     set -l normal (set_color --reset)
 
-    # Color the prompt differently when we&#39;re root
+    # Color the prompt differently when we're root
     set -l color_cwd $fish_color_cwd
-    set -l suffix &#39;&gt;&#39;
+    set -l suffix '&gt;'
     if functions -q fish_is_root_user; and fish_is_root_user
         if set -q fish_color_cwd_root
             set color_cwd $fish_color_cwd_root
         end
-        set suffix &#39;#&#39;
+        set suffix '#'
     end
 
     # Write pipestatus
-    # If the status was carried over (if no command is issued or if `set` leaves the status untouched), don&#39;t bold it.
+    # If the status was carried over (if no command is issued or if `set` leaves the status untouched), don't bold it.
     set -l bold_flag --bold
     set -q __fish_prompt_status_generation; or set -g __fish_prompt_status_generation $status_generation
     if test $__fish_prompt_status_generation = $status_generation
@@ -4419,9 +4419,9 @@ shell-integration = fish
     set __fish_prompt_status_generation $status_generation
     set -l status_color (set_color $fish_color_status)
     set -l statusb_color (set_color $bold_flag $fish_color_status)
-    set -l prompt_status (__fish_print_pipestatus &quot;[&quot; &quot;]&quot; &quot;|&quot; &quot;$status_color&quot; &quot;$statusb_color&quot; $last_pipestatus)
+    set -l prompt_status (__fish_print_pipestatus "[" "]" "|" "$status_color" "$statusb_color" $last_pipestatus)
 
-    echo -n -s (prompt_login)&#39; &#39; (set_color $color_cwd) (prompt_pwd) $normal &quot; &quot;$prompt_status $suffix &quot; &quot;
+    echo -n -s (prompt_login)' ' (set_color $color_cwd) (prompt_pwd) $normal " "$prompt_status $suffix " "
 ends
 </code></pre></div>
 <p>重点是： <code>echo -n -s (prompt_login)' ' (set_color $color_cwd) (prompt_pwd) $normal " "$prompt_status $suffix " "</code></p>
@@ -4443,7 +4443,7 @@ function dipf
 end
 whls@gfourdx ~/.c/f/functions&gt; cat dpa.fish
 function dpa
-    docker ps -a --format &quot;table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}&quot;
+    docker ps -a --format "table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}"
 end
 whls@gfourdx ~/.c/f/functions&gt; cat drmf.fish
 function drmf

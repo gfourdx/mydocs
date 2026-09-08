@@ -4393,9 +4393,9 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">mutagen.mp3</span><span class="w"> </span><span class="kn">import</span> <span class="n">MP3</span>
 
 
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 <span class="sd">需: pip install mutagen</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 
 <span class="k">class</span><span class="w"> </span><span class="nc">Mp3Cut</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -4404,34 +4404,34 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">file</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 
         <span class="c1"># 获取比特率(kbps), kb是1000bit, p是per, s是second, 即每秒传输的数据量</span>
-        <span class="n">mp3</span> <span class="o">=</span> <span class="n">MP3</span><span class="p">(</span><span class="s1">&#39;王力宏 - 天地龙鳞.mp3&#39;</span><span class="p">)</span>
+        <span class="n">mp3</span> <span class="o">=</span> <span class="n">MP3</span><span class="p">(</span><span class="s1">'王力宏 - 天地龙鳞.mp3'</span><span class="p">)</span>
         <span class="n">bitrate</span> <span class="o">=</span> <span class="n">mp3</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">bitrate</span>
 
         <span class="c1"># kb / 8 就是比特(bit)到字节(Byte)的转换, 即每秒传输多少字节</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">kBps</span> <span class="o">=</span> <span class="n">bitrate</span> <span class="o">/</span> <span class="mi">8</span>
 
         <span class="c1"># 获取文件名（不包括文件扩展名）</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="p">[:</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">rindex</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="p">[:</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">rindex</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)]</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">start_time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">tt</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;请输入开始时间, 分秒以.分隔: &quot;</span><span class="p">)</span>
-        <span class="n">minute</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">tt</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># 取分</span>
-        <span class="n">second</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">tt</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># 取秒</span>
+        <span class="n">tt</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"请输入开始时间, 分秒以.分隔: "</span><span class="p">)</span>
+        <span class="n">minute</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">tt</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># 取分</span>
+        <span class="n">second</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">tt</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># 取秒</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tms</span> <span class="o">=</span> <span class="n">minute</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">+</span> <span class="n">second</span>  <span class="c1"># 一共多少秒</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">stop_time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">pt</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;请输入结束时间, 分秒以.分隔: &quot;</span><span class="p">)</span>
-        <span class="n">minute</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pt</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
-        <span class="n">second</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pt</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">pt</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"请输入结束时间, 分秒以.分隔: "</span><span class="p">)</span>
+        <span class="n">minute</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pt</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">second</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pt</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pms</span> <span class="o">=</span> <span class="n">minute</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">+</span> <span class="n">second</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">cut_mp3</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">first_part</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tms</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">kBps</span>  <span class="c1"># 秒数(s) * 速率(kBps) = 数据大小(kB), 这就是开始截取的位置</span>
         <span class="n">last_part</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pms</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">tms</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">kBps</span>  <span class="c1"># 同理, 这就是结束截取的位置</span>
 
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">start_f</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="p">,</span> <span class="s1">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">start_f</span><span class="p">:</span>
             <span class="n">start_f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">first_part</span><span class="p">))</span>  <span class="c1"># 读取到要截取的位置</span>
-            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">_cut.mp3&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">stop_f</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">_cut.mp3'</span><span class="p">,</span> <span class="s1">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">stop_f</span><span class="p">:</span>
                 <span class="n">stop_f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">start_f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">last_part</span><span class="p">)))</span>  <span class="c1"># 在新文件写入到要结束截取的位置</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
@@ -4441,7 +4441,7 @@
     <span class="n">mp3</span><span class="o">.</span><span class="n">cut_mp3</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>        
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>        
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 <p>运行:</p>

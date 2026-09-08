@@ -4564,7 +4564,7 @@
 <div class="highlight"><pre><span></span><code>mkfs.ext4 /dev/sda1
 </code></pre></div>
 <h2 id="5ulabel">5、更改U盘Label</h2>
-<div class="highlight"><pre><span></span><code>e2label /dev/sda1 &quot;mydiskname&quot;
+<div class="highlight"><pre><span></span><code>e2label /dev/sda1 "mydiskname"
 </code></pre></div>
 <h1 id="u">自动挂载U盘</h1>
 <h2 id="1uuuid">1、查看U盘UUID</h2>
@@ -4572,7 +4572,7 @@
 </code></pre></div>
 <p>得到类似这样的内容: <code>UUID="6f17b453-511e-4cb0-8655-ed487c51c54b"</code></p>
 <h2 id="2">2、自动挂载</h2>
-<div class="highlight"><pre><span></span><code>echo &quot;UUID=6f17b453-511e-4cb0-8655-ed487c51c54b /mnt/sda1 ext4 defaults 0 0&quot; &gt;&gt; /etc/fstab
+<div class="highlight"><pre><span></span><code>echo "UUID=6f17b453-511e-4cb0-8655-ed487c51c54b /mnt/sda1 ext4 defaults 0 0" &gt;&gt; /etc/fstab
 </code></pre></div>
 <p>解释:</p>
 <p>/etc/fstab文件主要包括6段，依次是：</p>

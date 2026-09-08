@@ -4390,13 +4390,13 @@
 <h1 id="_1">单例</h1>
 <hr />
 <div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Singleton</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;单例模式且只初始化一次&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""单例模式且只初始化一次"""</span>
 
     <span class="n">instance</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">init</span> <span class="o">=</span> <span class="kc">False</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;单例&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""单例"""</span>
 
         <span class="k">if</span> <span class="bp">cls</span><span class="o">.</span><span class="n">instance</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="c1"># 调用基类object进行实例，并用instance记录实例地址</span>
@@ -4405,11 +4405,11 @@
         <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">instance</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;初始化一次&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""初始化一次"""</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">init</span><span class="p">:</span>
             <span class="k">return</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;初始化&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'初始化'</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">init</span> <span class="o">=</span> <span class="kc">True</span>
 
 
@@ -4421,7 +4421,7 @@
     <span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">dog</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="n">cat</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="n">pig</span><span class="p">))</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 <p>输出:</p>

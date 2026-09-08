@@ -4390,50 +4390,50 @@
 <h1 id="append-extend">+ += append extend 的区别</h1>
 <hr />
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test1</span><span class="p">(</span><span class="n">li</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;使用+操作两个列表&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""使用+操作两个列表"""</span>
     <span class="n">raw_li</span> <span class="o">=</span> <span class="n">li</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;原始li: </span><span class="se">\t</span><span class="si">{</span><span class="n">raw_li</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'原始li: </span><span class="se">\t</span><span class="si">{</span><span class="n">raw_li</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
     <span class="n">li</span>  <span class="o">=</span> <span class="n">li</span> <span class="o">+</span> <span class="n">li</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;使用+操作后: </span><span class="se">\t</span><span class="si">{</span><span class="n">li</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'使用+操作后: </span><span class="se">\t</span><span class="si">{</span><span class="n">li</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;原始li: </span><span class="se">\t</span><span class="si">{</span><span class="n">raw_li</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'原始li: </span><span class="se">\t</span><span class="si">{</span><span class="n">raw_li</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">()</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">test2</span><span class="p">(</span><span class="n">li</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;使用+=操作列表&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""使用+=操作列表"""</span>
     <span class="n">raw_li</span> <span class="o">=</span> <span class="n">li</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;原始li: </span><span class="se">\t</span><span class="si">{</span><span class="n">raw_li</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'原始li: </span><span class="se">\t</span><span class="si">{</span><span class="n">raw_li</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
     <span class="n">li</span> <span class="o">+=</span> <span class="n">li</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;使用+=操作后: </span><span class="se">\t</span><span class="si">{</span><span class="n">li</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'使用+=操作后: </span><span class="se">\t</span><span class="si">{</span><span class="n">li</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;原始li: </span><span class="se">\t</span><span class="si">{</span><span class="n">raw_li</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'原始li: </span><span class="se">\t</span><span class="si">{</span><span class="n">raw_li</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">()</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">test3</span><span class="p">(</span><span class="n">li</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;使用append操作列表&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""使用append操作列表"""</span>
     <span class="n">raw_li</span> <span class="o">=</span> <span class="n">li</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;原始li: </span><span class="se">\t\t</span><span class="si">{</span><span class="n">raw_li</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'原始li: </span><span class="se">\t\t</span><span class="si">{</span><span class="n">raw_li</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
     <span class="n">li</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;使用append操作后: </span><span class="se">\t</span><span class="si">{</span><span class="n">li</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'使用append操作后: </span><span class="se">\t</span><span class="si">{</span><span class="n">li</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;原始li: </span><span class="se">\t\t</span><span class="si">{</span><span class="n">raw_li</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'原始li: </span><span class="se">\t\t</span><span class="si">{</span><span class="n">raw_li</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">()</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">test4</span><span class="p">(</span><span class="n">li</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;使用extend操作列表&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""使用extend操作列表"""</span>
     <span class="n">raw_li</span> <span class="o">=</span> <span class="n">li</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;原始li: </span><span class="se">\t\t</span><span class="si">{</span><span class="n">raw_li</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'原始li: </span><span class="se">\t\t</span><span class="si">{</span><span class="n">raw_li</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
     <span class="n">li</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;使用extend操作后: </span><span class="se">\t</span><span class="si">{</span><span class="n">li</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'使用extend操作后: </span><span class="se">\t</span><span class="si">{</span><span class="n">li</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;原始li: </span><span class="se">\t\t</span><span class="si">{</span><span class="n">raw_li</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'原始li: </span><span class="se">\t\t</span><span class="si">{</span><span class="n">raw_li</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
@@ -4450,7 +4450,7 @@
     <span class="n">test4</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 <p>输出:</p>

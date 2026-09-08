@@ -4388,10 +4388,10 @@
 <h1 id="_1">常用容器命令</h1>
 <hr />
 <p>别名:</p>
-<div class="highlight"><pre><span></span><code>alias dp=&#39;docker ps -a --format &quot;table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}&quot;&#39;
-alias di=&#39;docker images&#39;
-alias dip=&#39;docker image prune -f&#39;
-alias drm=&#39;docker rm -f&#39;
+<div class="highlight"><pre><span></span><code>alias dp='docker ps -a --format "table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}"'
+alias di='docker images'
+alias dip='docker image prune -f'
+alias drm='docker rm -f'
 
 # 如果是fish
 whls@gfourdx ~/.c/f/functions&gt; pwd
@@ -4402,7 +4402,7 @@ function drm
 end
 whls@gfourdx ~/.c/f/functions&gt; cat dp.fish
 function dp
-    docker ps -a --format &quot;table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}&quot;
+    docker ps -a --format "table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}"
 end
 </code></pre></div>
 <p>Postgres：</p>

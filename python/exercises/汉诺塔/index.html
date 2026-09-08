@@ -4390,11 +4390,11 @@
 <h1 id="_1">汉诺塔</h1>
 <hr />
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">dg</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    汉诺塔</span>
 <span class="sd">    num: 盘子的数量</span>
 <span class="sd">    count: 操作次数</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="c1"># 解决思路:</span>
     <span class="c1"># 无论有多少个盘子, 最上面的盘子永远是最小的</span>
     <span class="c1"># 下面的所有盘子当作一个整体, 是大盘子</span>
@@ -4402,24 +4402,24 @@
     <span class="c1"># 下面注释中的第一步、第二步、第三步是针对n&gt;1的情况</span>
     <span class="k">if</span> <span class="n">num</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">A</span><span class="si">}</span><span class="s1">-&gt;</span><span class="si">{</span><span class="n">C</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>  <span class="c1"># 第二步: 把大盘子从a放到c</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">A</span><span class="si">}</span><span class="s1">-&gt;</span><span class="si">{</span><span class="n">C</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>  <span class="c1"># 第二步: 把大盘子从a放到c</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="n">count</span> <span class="o">=</span> <span class="n">dg</span><span class="p">(</span><span class="n">num</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">B</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>  <span class="c1"># 第一步: 把小盘子从a放到b</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">A</span><span class="si">}</span><span class="s1">-&gt;</span><span class="si">{</span><span class="n">C</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">A</span><span class="si">}</span><span class="s1">-&gt;</span><span class="si">{</span><span class="n">C</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
         <span class="n">count</span> <span class="o">=</span> <span class="n">dg</span><span class="p">(</span><span class="n">num</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">C</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>  <span class="c1"># 第三步: 把小盘子从b放到c</span>
     <span class="k">return</span> <span class="n">count</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;总共需要</span><span class="si">{</span><span class="n">dg</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">步&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"总共需要</span><span class="si">{</span><span class="n">dg</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">'A'</span><span class="p">,</span><span class="s1">'B'</span><span class="p">,</span><span class="s1">'C'</span><span class="p">)</span><span class="si">}</span><span class="s2">步"</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;总共需要</span><span class="si">{</span><span class="n">dg</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">步&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"总共需要</span><span class="si">{</span><span class="n">dg</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">'A'</span><span class="p">,</span><span class="s1">'B'</span><span class="p">,</span><span class="s1">'C'</span><span class="p">)</span><span class="si">}</span><span class="s2">步"</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;总共需要</span><span class="si">{</span><span class="n">dg</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">步&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"总共需要</span><span class="si">{</span><span class="n">dg</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="s1">'A'</span><span class="p">,</span><span class="s1">'B'</span><span class="p">,</span><span class="s1">'C'</span><span class="p">)</span><span class="si">}</span><span class="s2">步"</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 <p>输出:</p>

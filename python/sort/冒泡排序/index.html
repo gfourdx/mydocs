@@ -4381,11 +4381,11 @@
   <h1>冒泡排序</h1>
 
 <div class="highlight"><pre><span></span><code><span class="c1"># bubblesort</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 <span class="sd">用第一个数和第二个数比较，如果前者小于后者，不做交换，否则交换位置</span>
 <span class="sd">然后用第二个数和第三个数比较，如果前者小于后者，不做交换，否则交换位置</span>
 <span class="sd">以此类推，然后最大的数在最右边，次要大的数在倒数第二个，最终实现排序</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">bubble_sort</span><span class="p">(</span><span class="n">li</span><span class="p">):</span>
@@ -4409,7 +4409,7 @@
             <span class="k">return</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
     <span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
     <span class="n">bubble_sort</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>

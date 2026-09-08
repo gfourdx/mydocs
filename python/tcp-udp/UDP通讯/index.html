@@ -4504,49 +4504,49 @@
 
 <span class="c1"># udp服务端</span>
 <span class="n">udp_server</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_DGRAM</span><span class="p">)</span>
-<span class="n">udp_server</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">))</span>
+<span class="n">udp_server</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="s1">''</span><span class="p">,</span> <span class="mi">8080</span><span class="p">))</span>
 
 <span class="c1"># recv()接收客户端发来的数据</span>
-<span class="c1"># udp_client_data = udp_server.recv(1024).decode(&#39;utf-8&#39;)</span>
+<span class="c1"># udp_client_data = udp_server.recv(1024).decode('utf-8')</span>
 <span class="c1"># print(udp_client_data)</span>
 
 <span class="c1"># recvfrom()接收一个元组</span>
 <span class="c1"># 第一个元送是客户端发来的数据</span>
 <span class="c1"># 第二个元素是一个包含客户端ip和port的元组</span>
 <span class="n">udp_client_data</span> <span class="o">=</span> <span class="n">udp_server</span><span class="o">.</span><span class="n">recvfrom</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">udp_client_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span> <span class="n">udp_client_data</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">udp_client_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">'utf-8'</span><span class="p">),</span> <span class="n">udp_client_data</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 </code></pre></div>
 <h2 id="udp_client">UDP_Client</h2>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">socket</span>
 
 <span class="c1"># udp客户端</span>
 <span class="n">udp_client</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_DGRAM</span><span class="p">)</span>
-<span class="n">udp_client</span><span class="o">.</span><span class="n">sendto</span><span class="p">(</span><span class="s1">&#39;我是udp客户端&#39;</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">))</span>
+<span class="n">udp_client</span><span class="o">.</span><span class="n">sendto</span><span class="p">(</span><span class="s1">'我是udp客户端'</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">'utf-8'</span><span class="p">),</span> <span class="p">(</span><span class="s1">'localhost'</span><span class="p">,</span> <span class="mi">8080</span><span class="p">))</span>
 </code></pre></div>
 <h2 id="udp_server_client">UDP_Server_Client</h2>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">socket</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">send_data</span><span class="p">(</span><span class="n">udp_socket</span><span class="p">,</span> <span class="n">udp_address</span><span class="p">):</span>
-    <span class="n">udp_socket</span><span class="o">.</span><span class="n">sendto</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;请输入要发送的内容：&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span> <span class="n">udp_address</span><span class="p">)</span>
+    <span class="n">udp_socket</span><span class="o">.</span><span class="n">sendto</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">'请输入要发送的内容：'</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">'utf-8'</span><span class="p">),</span> <span class="n">udp_address</span><span class="p">)</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">recv_data</span><span class="p">(</span><span class="n">udp_socket</span><span class="p">):</span>
     <span class="n">data</span><span class="p">,</span> <span class="n">ip_port</span> <span class="o">=</span> <span class="n">udp_socket</span><span class="o">.</span><span class="n">recvfrom</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
     <span class="n">ip</span><span class="p">,</span> <span class="n">port</span> <span class="o">=</span> <span class="n">ip_port</span>
-    <span class="n">host</span> <span class="o">=</span> <span class="n">ip</span> <span class="o">+</span> <span class="s1">&#39;:&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">port</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">host</span> <span class="o">+</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
+    <span class="n">host</span> <span class="o">=</span> <span class="n">ip</span> <span class="o">+</span> <span class="s1">':'</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">port</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">host</span> <span class="o">+</span> <span class="s1">':'</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">'utf-8'</span><span class="p">))</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">udp_socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_DGRAM</span><span class="p">)</span>
-    <span class="n">udp_address</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="mi">8081</span><span class="p">)</span>
+    <span class="n">udp_address</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'localhost'</span><span class="p">,</span> <span class="mi">8081</span><span class="p">)</span>
     <span class="n">udp_socket</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">udp_address</span><span class="p">)</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="n">choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;1、发送</span><span class="se">\t</span><span class="s1">2、接收</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span><span class="p">:</span>
+        <span class="n">choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">'1、发送</span><span class="se">\t</span><span class="s1">2、接收</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="s1">'1'</span><span class="p">:</span>
             <span class="n">send_data</span><span class="p">(</span><span class="n">udp_socket</span><span class="p">,</span> <span class="n">udp_address</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="s1">&#39;2&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="s1">'2'</span><span class="p">:</span>
             <span class="n">recv_data</span><span class="p">(</span><span class="n">udp_socket</span><span class="p">)</span>
 </code></pre></div>
 

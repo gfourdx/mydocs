@@ -4488,7 +4488,7 @@
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">is_prime_number</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;判断传入数字是否是质数&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""判断传入数字是否是质数"""</span>
 
     <span class="n">end</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">number</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
@@ -4498,7 +4498,7 @@
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">generate_prime_number</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;质数生成器&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""质数生成器"""</span>
 
     <span class="k">global</span> <span class="n">number</span>
 
@@ -4510,14 +4510,14 @@
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;输出100以内的所有质数&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""输出100以内的所有质数"""</span>
 
     <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">24</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">generate_prime_number</span><span class="p">()),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;, &#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">generate_prime_number</span><span class="p">()),</span> <span class="n">end</span><span class="o">=</span><span class="s1">', '</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">generate_prime_number</span><span class="p">()))</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 <p>输出:</p>
@@ -4536,7 +4536,7 @@
 </blockquote>
 <h2 id="2">代码2</h2>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">fibonacci_sequence</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;斐波那契数列&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""斐波那契数列"""</span>
 
     <span class="n">current</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">num1</span><span class="p">,</span> <span class="n">num2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>
@@ -4546,7 +4546,7 @@
         <span class="n">current</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="k">yield</span> <span class="n">num</span>
     <span class="c1"># 触发StopIteration异常时可返回的值</span>
-    <span class="k">return</span> <span class="s1">&#39;没有了&#39;</span>
+    <span class="k">return</span> <span class="s1">'没有了'</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
@@ -4560,7 +4560,7 @@
             <span class="k">break</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 <p>输出:</p>

@@ -4380,40 +4380,40 @@
 
   <h1>堆栈</h1>
 
-<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="sd">"""</span>
 <span class="sd">deque，又叫双端队列，因为既可以先进先出也可以后进先出</span>
 <span class="sd">以下使用列表模拟</span>
 
 <span class="sd">Python内置了真正的双端队列,请参考</span>
 <span class="sd">https://docs.python.org/zh-cn/3/library/collections.html#collections.deque</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 
 <span class="k">class</span><span class="w"> </span><span class="nc">Deque</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;双端队列&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""双端队列"""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;创建一个空的双端队列&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""创建一个空的双端队列"""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">add_front</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;从队头加入一个item元素&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""从队头加入一个item元素"""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">item</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">add_rear</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;从队尾加入一个item元素&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""从队尾加入一个item元素"""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">remove_front</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;从队头删除一个item元素&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""从队头删除一个item元素"""</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">remove_rear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;从队尾删除一个item元素&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""从队尾删除一个item元素"""</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">deque</span> <span class="o">=</span> <span class="n">Deque</span><span class="p">()</span>
     <span class="c1"># 当成栈使用</span>
     <span class="n">deque</span><span class="o">.</span><span class="n">add_rear</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>

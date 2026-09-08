@@ -4597,7 +4597,7 @@
         <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
         <span class="n">func</span><span class="p">()</span>
         <span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;函数test_func运行时长: </span><span class="si">{</span><span class="n">end_time</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start_time</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'函数test_func运行时长: </span><span class="si">{</span><span class="n">end_time</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start_time</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">inner_func</span>
 
 
@@ -4619,36 +4619,36 @@
     <span class="n">test_func</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 <h2 id="_3">多层装饰器</h2>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">outer_func_1</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">inner_func</span><span class="p">():</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;装饰器outer_func_1运行开始&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'装饰器outer_func_1运行开始'</span><span class="p">)</span>
         <span class="n">func</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;装饰器outer_func_1运行结束&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'装饰器outer_func_1运行结束'</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">inner_func</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">outer_func_2</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">inner_func</span><span class="p">():</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;装饰器outer_func_2运行开始&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'装饰器outer_func_2运行开始'</span><span class="p">)</span>
         <span class="n">func</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;装饰器outer_func_2运行结束&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'装饰器outer_func_2运行结束'</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">inner_func</span>
 
 
 <span class="nd">@outer_func_2</span>
 <span class="nd">@outer_func_1</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">test_func</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;我才是test_func函数&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"我才是test_func函数"</span><span class="p">)</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="n">test_func</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 <p>输出:</p>
@@ -4687,13 +4687,13 @@
 
 <span class="nd">@outer_func</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">test_func</span><span class="p">():</span>
-    <span class="k">return</span> <span class="s1">&#39;Hello World!&#39;</span>
+    <span class="k">return</span> <span class="s1">'Hello World!'</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">test_func</span><span class="p">())</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 <h2 id="_5">被装饰的函数有参数</h2>
@@ -4706,13 +4706,13 @@
 
 <span class="nd">@outer_func</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">introduce</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;我是</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">今年</span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s1">岁&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'我是</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">今年</span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s1">岁'</span><span class="p">)</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-    <span class="n">introduce</span><span class="p">(</span><span class="s1">&#39;谁&#39;</span><span class="p">,</span> <span class="s1">&#39;几&#39;</span><span class="p">)</span>
+    <span class="n">introduce</span><span class="p">(</span><span class="s1">'谁'</span><span class="p">,</span> <span class="s1">'几'</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 <p>代码2</p>
@@ -4725,20 +4725,20 @@
 <span class="nd">@outer_func</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">print_parmeter</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;args:</span><span class="si">{</span><span class="n">args</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;kwargs:</span><span class="si">{</span><span class="n">kwargs</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'args:</span><span class="si">{</span><span class="n">args</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'kwargs:</span><span class="si">{</span><span class="n">kwargs</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-    <span class="n">print_parmeter</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">key1</span><span class="o">=</span><span class="s1">&#39;value1&#39;</span><span class="p">,</span> <span class="n">key2</span><span class="o">=</span><span class="s1">&#39;value2&#39;</span><span class="p">)</span>
+    <span class="n">print_parmeter</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">key1</span><span class="o">=</span><span class="s1">'value1'</span><span class="p">,</span> <span class="n">key2</span><span class="o">=</span><span class="s1">'value2'</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 <p>输出：</p>
 <div class="highlight"><pre><span></span><code>1 2
 args:(3, 4, 5)
-kwargs:{&#39;key1&#39;: &#39;value1&#39;, &#39;key2&#39;: &#39;value2&#39;}
+kwargs:{'key1': 'value1', 'key2': 'value2'}
 </code></pre></div>
 <h2 id="_6">装饰器工厂</h2>
 <p>即函数内部定义了装饰器，最后反回这个装饰器，即该函数创建了一个装饰器，所以叫装饰器工厂</p>
@@ -4754,14 +4754,14 @@ kwargs:{&#39;key1&#39;: &#39;value1&#39;, &#39;key2&#39;: &#39;value2&#39;}
 <span class="c1"># 使用装饰器无需带括号，使用装饰器功能需带括号</span>
 <span class="nd">@wraps_factory</span><span class="p">()</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">test_func</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello World&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Hello World'</span><span class="p">)</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="n">test_func</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 <blockquote>
@@ -4782,20 +4782,20 @@ kwargs:{&#39;key1&#39;: &#39;value1&#39;, &#39;key2&#39;: &#39;value2&#39;}
     <span class="k">return</span> <span class="n">outer_func</span>
 
 
-<span class="nd">@wraps_factory</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">)</span>
+<span class="nd">@wraps_factory</span><span class="p">(</span><span class="s1">'abc'</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">test_func</span><span class="p">(</span><span class="n">parm</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;factory name is </span><span class="si">{</span><span class="n">parm</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'factory name is </span><span class="si">{</span><span class="n">parm</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-    <span class="n">test_func</span><span class="p">()</span>  <span class="c1"># 等同于 wraps_factory(&#39;abc&#39;)(test_func)(parm=None)</span>
-    <span class="n">test_func</span><span class="p">(</span><span class="s1">&#39;xyz&#39;</span><span class="p">)</span>  <span class="c1"># 等同于 wraps_factory(&#39;abc&#39;)(test_func)(parm=&#39;xyz&#39;)</span>
+    <span class="n">test_func</span><span class="p">()</span>  <span class="c1"># 等同于 wraps_factory('abc')(test_func)(parm=None)</span>
+    <span class="n">test_func</span><span class="p">(</span><span class="s1">'xyz'</span><span class="p">)</span>  <span class="c1"># 等同于 wraps_factory('abc')(test_func)(parm='xyz')</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
-    <span class="n">wraps_factory</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">)(</span><span class="n">test_func</span><span class="p">)(</span><span class="n">parm</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-    <span class="n">wraps_factory</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">)(</span><span class="n">test_func</span><span class="p">)(</span><span class="n">parm</span><span class="o">=</span><span class="s1">&#39;xyz&#39;</span><span class="p">)</span>
+    <span class="n">wraps_factory</span><span class="p">(</span><span class="s1">'abc'</span><span class="p">)(</span><span class="n">test_func</span><span class="p">)(</span><span class="n">parm</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">wraps_factory</span><span class="p">(</span><span class="s1">'abc'</span><span class="p">)(</span><span class="n">test_func</span><span class="p">)(</span><span class="n">parm</span><span class="o">=</span><span class="s1">'xyz'</span><span class="p">)</span>
 </code></pre></div>
 <p>输出:</p>
 <div class="highlight"><pre><span></span><code>factory name is abc
@@ -4810,23 +4810,23 @@ factory name is xyz
         <span class="bp">self</span><span class="o">.</span><span class="n">func</span> <span class="o">=</span> <span class="n">func</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
-         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;开始装饰&#39;</span><span class="p">)</span>
+         <span class="nb">print</span><span class="p">(</span><span class="s1">'开始装饰'</span><span class="p">)</span>
          <span class="n">func</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;装饰结束&#39;</span><span class="p">)</span>
+         <span class="nb">print</span><span class="p">(</span><span class="s1">'装饰结束'</span><span class="p">)</span>
          <span class="k">return</span> <span class="n">func</span>
 
 
 <span class="nd">@Wraps</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">test_func</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello World&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'Hello World'</span><span class="p">)</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="n">test_func</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 

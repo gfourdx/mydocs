@@ -4396,10 +4396,10 @@
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">send_someting</span><span class="p">(</span><span class="n">queue</span><span class="p">:</span> <span class="n">Queue</span><span class="p">,</span> <span class="n">something</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;发送消息: </span><span class="si">{</span><span class="n">something</span><span class="si">}</span><span class="s1">, 发送消息的进程id: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'发送消息: </span><span class="si">{</span><span class="n">something</span><span class="si">}</span><span class="s1">, 发送消息的进程id: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">()</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
         <span class="n">send_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;发送时间: </span><span class="si">{</span><span class="n">send_time</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'发送时间: </span><span class="si">{</span><span class="n">send_time</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
         <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">((</span><span class="n">something</span><span class="p">,</span> <span class="n">send_time</span><span class="p">))</span>
 
 
@@ -4407,29 +4407,29 @@
     <span class="c1"># queue.qsize() 是消息队列中的消息数量</span>
     <span class="k">while</span> <span class="n">queue</span><span class="o">.</span><span class="n">qsize</span><span class="p">():</span>
         <span class="n">something</span><span class="p">,</span> <span class="n">receive_time</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;接受消息: </span><span class="si">{</span><span class="n">something</span><span class="si">}</span><span class="s1">, 接收时间: </span><span class="si">{</span><span class="n">receive_time</span><span class="si">}</span><span class="s1">, 接收消息的进程id: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'接受消息: </span><span class="si">{</span><span class="n">something</span><span class="si">}</span><span class="s1">, 接收时间: </span><span class="si">{</span><span class="n">receive_time</span><span class="si">}</span><span class="s1">, 接收消息的进程id: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">()</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;主进程开始运行, pid为: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'主进程开始运行, pid为: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">()</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
     <span class="n">queue</span> <span class="o">=</span> <span class="n">Manager</span><span class="p">()</span><span class="o">.</span><span class="n">Queue</span><span class="p">()</span>
     <span class="n">pool</span> <span class="o">=</span> <span class="n">Pool</span><span class="p">()</span>
 
     <span class="c1"># 发送消息的进程</span>
-    <span class="n">pool</span><span class="o">.</span><span class="n">apply_async</span><span class="p">(</span><span class="n">send_someting</span><span class="p">,</span> <span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="s1">&#39;Hello World&#39;</span><span class="p">))</span>
+    <span class="n">pool</span><span class="o">.</span><span class="n">apply_async</span><span class="p">(</span><span class="n">send_someting</span><span class="p">,</span> <span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="s1">'Hello World'</span><span class="p">))</span>
     <span class="c1"># 因为写入需要时间，谨防还没写完就开始读取</span>
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
     <span class="c1"># 接收消息的进程</span>
-    <span class="n">pool</span><span class="o">.</span><span class="n">apply_async</span><span class="p">(</span><span class="n">receive_something</span><span class="p">,</span> <span class="n">kwds</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;queue&#39;</span><span class="p">:</span> <span class="n">queue</span><span class="p">})</span>
+    <span class="n">pool</span><span class="o">.</span><span class="n">apply_async</span><span class="p">(</span><span class="n">receive_something</span><span class="p">,</span> <span class="n">kwds</span><span class="o">=</span><span class="p">{</span><span class="s1">'queue'</span><span class="p">:</span> <span class="n">queue</span><span class="p">})</span>
 
     <span class="n">pool</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     <span class="n">pool</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;主进程运行完毕&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'主进程运行完毕'</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 <p>输出:</p>

@@ -4390,14 +4390,14 @@
 <h1 id="_1">递归实现累加和阶乘</h1>
 <hr />
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">accumulation</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;累加&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""累加"""</span>
 
     <span class="k">return</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span><span class="mi">1</span> <span class="k">else</span> <span class="n">n</span> <span class="o">+</span> <span class="n">accumulation</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;阶乘&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""阶乘"""</span>
 
     <span class="k">return</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span><span class="mi">2</span> <span class="k">else</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
@@ -4407,7 +4407,7 @@
     <span class="nb">print</span><span class="p">(</span><span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 

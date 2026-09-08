@@ -4650,7 +4650,7 @@
 <li>非叶子节点不存储data, 只存储索引, 最底层的叶子节点不仅存储索引, 还存储了数据(字段的值)</li>
 </ul>
 <p>MySQL使用B+树存储多个根节点时, 分配到一块连续的磁盘空间(磁盘页, 大小是16KB), 可以通过命令查看:</p>
-<div class="highlight"><pre><span></span><code><span class="k">show</span><span class="w"> </span><span class="k">global</span><span class="w"> </span><span class="k">status</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;Innodb_page_size&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">show</span><span class="w"> </span><span class="k">global</span><span class="w"> </span><span class="k">status</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">'Innodb_page_size'</span><span class="p">;</span>
 </code></pre></div>
 <blockquote>
 <p>MySQL一般会将根节点常驻到内存中(减少磁盘I/O), 高版本的MySQL可能会将所有非叶子节点都常驻到内存中</p>
@@ -4691,17 +4691,17 @@
 <p><strong>如果, name、age和position是联合主键, 即三者合一不可能重复, 它本身就是聚集索引, 叶子节点的data存储其他列的数据</strong></p>
 </blockquote>
 <p><strong>同时, 使用联合索引时, 需要注意字段的顺序, 如</strong>:</p>
-<div class="highlight"><pre><span></span><code>select * from table_1 where name=&#39;xxx&#39; and age=&#39;xxx&#39;;  # 使用了索引
-select * from table_1 where age=&#39;xxx&#39; and position=&#39;xxx&#39;;  # 未使用索引
-select * from table_1 where name=&#39;xxx&#39;  # 使用了索引
-select * from table_1 where position=&#39;xxx&#39;  # 未使用索引
+<div class="highlight"><pre><span></span><code>select * from table_1 where name='xxx' and age='xxx';  # 使用了索引
+select * from table_1 where age='xxx' and position='xxx';  # 未使用索引
+select * from table_1 where name='xxx'  # 使用了索引
+select * from table_1 where position='xxx'  # 未使用索引
 
 # 这就是最左前缀原理
 # why?
 # 看上图, 索引就是排好序的数据结构, 所以上图中先排序的name, 然后age, 最后position
 
 # 使用explain语法可以查看索引的使用, 如:
-explain select * from table_1 where name=&#39;xxx&#39; and age=&#39;xxx&#39;; 
+explain select * from table_1 where name='xxx' and age='xxx'; 
 </code></pre></div>
 <p>一般来讲, 一张表中不推荐建立多个单键索引, 基本上都用联合索引</p>
 <h3 id="hash">Hash</h3>

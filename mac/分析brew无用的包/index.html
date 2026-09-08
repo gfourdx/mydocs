@@ -4387,12 +4387,12 @@
 
 <h1 id="brew">分析brew无用的包</h1>
 <hr />
-<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;分析指定包的依赖, 得出可以删除的无用的包&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="sd">"""分析指定包的依赖, 得出可以删除的无用的包"""</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">os</span><span class="w"> </span><span class="kn">import</span> <span class="n">popen</span>
 
-<span class="n">my_package</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mariadb&#39;</span><span class="p">,</span> <span class="s1">&#39;postgresql@14&#39;</span><span class="p">,</span> <span class="s1">&#39;redis&#39;</span><span class="p">,</span> <span class="s1">&#39;python@3.10&#39;</span><span class="p">]</span>
-<span class="n">brew_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">popen</span><span class="p">(</span><span class="s1">&#39;brew list&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">readlines</span><span class="p">()]</span>
+<span class="n">my_package</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'mariadb'</span><span class="p">,</span> <span class="s1">'postgresql@14'</span><span class="p">,</span> <span class="s1">'redis'</span><span class="p">,</span> <span class="s1">'python@3.10'</span><span class="p">]</span>
+<span class="n">brew_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">popen</span><span class="p">(</span><span class="s1">'brew list'</span><span class="p">)</span><span class="o">.</span><span class="n">readlines</span><span class="p">()]</span>
 <span class="n">dependencies</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">done</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -4402,10 +4402,10 @@
         <span class="k">if</span> <span class="n">package</span> <span class="ow">in</span> <span class="n">done</span><span class="p">:</span>
             <span class="k">continue</span>
         <span class="n">done</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">package</span><span class="p">)</span>
-        <span class="n">cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;brew info </span><span class="si">{</span><span class="n">package</span><span class="si">}</span><span class="s1">|grep Required:|cut -d : -f 2&#39;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'brew info </span><span class="si">{</span><span class="n">package</span><span class="si">}</span><span class="s1">|grep Required:|cut -d : -f 2'</span>
         <span class="n">ret</span> <span class="o">=</span> <span class="n">popen</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">ret</span><span class="p">:</span>
-            <span class="n">depend_packages</span> <span class="o">=</span> <span class="p">[</span><span class="n">_</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">ret</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)]</span>
+            <span class="n">depend_packages</span> <span class="o">=</span> <span class="p">[</span><span class="n">_</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">ret</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">','</span><span class="p">)]</span>
 
             <span class="k">for</span> <span class="n">depend_package</span> <span class="ow">in</span> <span class="n">depend_packages</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">depend_package</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dependencies</span><span class="p">:</span>
@@ -4421,7 +4421,7 @@
 <span class="n">my_package</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">dependencies</span><span class="p">)</span>
 <span class="n">dependencies_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">my_package</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;这些包需要使用brew uninstall命令删除:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'这些包需要使用brew uninstall命令删除:'</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">brew_list_set</span> <span class="o">-</span> <span class="n">dependencies_set</span><span class="p">)</span>
 </code></pre></div>
 

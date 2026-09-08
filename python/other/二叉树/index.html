@@ -4384,7 +4384,7 @@
 
 
 <span class="k">class</span><span class="w"> </span><span class="nc">Node</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;二叉树的节点&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""二叉树的节点"""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
         <span class="c1"># 记录数据</span>
@@ -4396,14 +4396,14 @@
 
 
 <span class="k">class</span><span class="w"> </span><span class="nc">Tree</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;二叉树&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""二叉树"""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># 记录根节点</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__root</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;添加节点&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""添加节点"""</span>
         <span class="n">new_node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__root</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">__root</span> <span class="o">=</span> <span class="n">new_node</span>
@@ -4427,7 +4427,7 @@
             <span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">breath_travel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;广度优先遍历 从上到下，从左到右遍历，用到队列&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""广度优先遍历 从上到下，从左到右遍历，用到队列"""</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__root</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">return</span>
@@ -4437,7 +4437,7 @@
 
         <span class="k">while</span> <span class="n">queue</span><span class="p">:</span>
             <span class="n">node</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">item</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">item</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span>
 
             <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">left</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">)</span>
@@ -4446,7 +4446,7 @@
         <span class="nb">print</span><span class="p">()</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">depth_travel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;深度优先遍历&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""深度优先遍历"""</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">pre_order</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__root</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">()</span>
@@ -4456,34 +4456,34 @@
         <span class="nb">print</span><span class="p">()</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">pre_order</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;根 左 右&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""根 左 右"""</span>
 
         <span class="k">if</span> <span class="n">node</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">return</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">item</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">item</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pre_order</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pre_order</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">in_order</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;左 根 右&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""左 根 右"""</span>
 
         <span class="k">if</span> <span class="n">node</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">return</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">in_order</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">item</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">item</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">in_order</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">post_order</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;左 右 根&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""左 右 根"""</span>
 
         <span class="k">if</span> <span class="n">node</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">return</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">post_order</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">left</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">post_order</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">right</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">item</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">item</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">tree</span> <span class="o">=</span> <span class="n">Tree</span><span class="p">()</span>
     <span class="n">tree</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
     <span class="n">tree</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>

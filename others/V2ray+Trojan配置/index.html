@@ -4551,33 +4551,33 @@
 <h2 id="_2">服务端</h2>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">    </span><span class="c1">// 配置日志</span>
-<span class="w">    </span><span class="nt">&quot;log&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;access&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;access.log&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;error.log&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;loglevel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;debug&quot;</span>
+<span class="w">    </span><span class="nt">"log"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"access"</span><span class="p">:</span><span class="w"> </span><span class="s2">"access.log"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error.log"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"loglevel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"debug"</span>
 <span class="w">    </span><span class="p">},</span>
 <span class="w">    </span><span class="c1">// 配置入站连接</span>
-<span class="w">    </span><span class="nt">&quot;inbounds&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="nt">"inbounds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">        </span><span class="p">{</span>
 <span class="w">            </span><span class="c1">// 使用Trojan协议</span>
-<span class="w">            </span><span class="nt">&quot;protocol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;trojan&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;settings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="nt">&quot;clients&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="nt">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"trojan"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">"clients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">                    </span><span class="p">{</span>
 <span class="w">                        </span><span class="c1">// 密码, 客户端认证使用</span>
-<span class="w">                        </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;password&quot;</span>
+<span class="w">                        </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password"</span>
 <span class="w">                    </span><span class="p">}</span>
 <span class="w">                </span><span class="p">]</span>
 <span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">56789</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;listen&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;tag&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;proxy&quot;</span><span class="w"> </span>
+<span class="w">            </span><span class="nt">"port"</span><span class="p">:</span><span class="w"> </span><span class="mi">56789</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"listen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0.0.0"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"proxy"</span><span class="w"> </span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">],</span>
 <span class="w">    </span><span class="c1">// 配置出站连接</span>
-<span class="w">    </span><span class="nt">&quot;outbounds&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="nt">"outbounds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;protocol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;freedom&quot;</span>
+<span class="w">            </span><span class="nt">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"freedom"</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">]</span>
 <span class="p">}</span>
@@ -4585,101 +4585,101 @@
 <h2 id="_3">客户端</h2>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">     </span><span class="c1">// 配置日志</span>
-<span class="w">    </span><span class="nt">&quot;log&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;access&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;access.log&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;error.log&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;loglevel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;debug&quot;</span>
+<span class="w">    </span><span class="nt">"log"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"access"</span><span class="p">:</span><span class="w"> </span><span class="s2">"access.log"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error.log"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"loglevel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"debug"</span>
 <span class="w">    </span><span class="p">},</span>
 <span class="w">    </span><span class="c1">// 配置入站连接</span>
-<span class="w">    </span><span class="nt">&quot;inbounds&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="nt">"inbounds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">        </span><span class="c1">// 用于设置系统HTTP代理</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;protocol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8080</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;listen&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.0.0.0&quot;</span>
+<span class="w">            </span><span class="nt">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"port"</span><span class="p">:</span><span class="w"> </span><span class="mi">8080</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"listen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0.0.0"</span>
 <span class="w">        </span><span class="p">},</span>
 <span class="w">        </span><span class="c1">// 用于设置系统SOCKS代理</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;protocol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;socks&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;settings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"socks"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">                </span><span class="c1">// 启用UDP协议</span>
-<span class="w">                </span><span class="nt">&quot;udp&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">                </span><span class="nt">"udp"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
 <span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1080</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;listen&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.0.0.0&quot;</span>
+<span class="w">            </span><span class="nt">"port"</span><span class="p">:</span><span class="w"> </span><span class="mi">1080</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"listen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0.0.0"</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">],</span>
 <span class="w">    </span><span class="c1">// 配置出站连接</span>
-<span class="w">    </span><span class="nt">&quot;outbounds&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="nt">"outbounds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">        </span><span class="p">{</span>
 <span class="w">            </span><span class="c1">// 使用Trojan协议</span>
-<span class="w">            </span><span class="nt">&quot;protocol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;trojan&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;settings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="nt">&quot;servers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="nt">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"trojan"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">"servers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">                    </span><span class="p">{</span>
 <span class="w">                        </span><span class="c1">// 改成真正的服务器IP地址</span>
-<span class="w">                        </span><span class="nt">&quot;address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"127.0.0.1"</span><span class="p">,</span>
 <span class="w">                        </span><span class="c1">// 服务器端口</span>
-<span class="w">                        </span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">56789</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">"port"</span><span class="p">:</span><span class="w"> </span><span class="mi">56789</span><span class="p">,</span>
 <span class="w">                        </span><span class="c1">// 服务端的密码, </span>
-<span class="w">                        </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;password&quot;</span>
+<span class="w">                        </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password"</span>
 <span class="w">                    </span><span class="p">}</span>
 <span class="w">                </span><span class="p">]</span>
 <span class="w">            </span><span class="p">},</span>
 <span class="w">            </span><span class="c1">// 配置标签, 不能重复</span>
-<span class="w">            </span><span class="nt">&quot;tag&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;proxy&quot;</span><span class="w"> </span>
+<span class="w">            </span><span class="nt">"tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"proxy"</span><span class="w"> </span>
 <span class="w">        </span><span class="p">},</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;protocol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;freedom&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;tag&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;direct&quot;</span><span class="w"> </span>
+<span class="w">            </span><span class="nt">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"freedom"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"direct"</span><span class="w"> </span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">],</span>
 <span class="w">    </span><span class="c1">// 配置路由, 实现分流</span>
-<span class="w">    </span><span class="nt">&quot;routing&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"routing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="c1">// 只使用域名进行路由选择，默认值</span>
-<span class="w">        </span><span class="nt">&quot;domainStrategy&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AsIs&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"domainStrategy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AsIs"</span><span class="p">,</span>
 <span class="w">        </span><span class="c1">// 域名匹配算法</span>
-<span class="w">        </span><span class="nt">&quot;domainMatcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mph&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"domainMatcher"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mph"</span><span class="p">,</span>
 <span class="w">        </span><span class="c1">// 路由规则</span>
-<span class="w">        </span><span class="nt">&quot;rules&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="nt">"rules"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">            </span><span class="c1">// 优先级从上往下依次递减</span>
 <span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="nt">&quot;domainMatcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mph&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;field&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"domainMatcher"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mph"</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="p">,</span>
 <span class="w">                </span><span class="c1">// 配置国内路由</span>
-<span class="w">                </span><span class="nt">&quot;domains&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">                    </span><span class="s2">&quot;geosite:private&quot;</span><span class="p">,</span>
-<span class="w">                    </span><span class="s2">&quot;geosite:cn&quot;</span><span class="p">,</span>
-<span class="w">                    </span><span class="s2">&quot;geosite:apple-cn&quot;</span><span class="p">,</span>
-<span class="w">                    </span><span class="s2">&quot;geosite:google-cn&quot;</span><span class="p">,</span>
-<span class="w">                    </span><span class="s2">&quot;geosite:category-games@cn&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"domains"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                    </span><span class="s2">"geosite:private"</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">"geosite:cn"</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">"geosite:apple-cn"</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">"geosite:google-cn"</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">"geosite:category-games@cn"</span><span class="p">,</span>
 <span class="w">                    </span><span class="c1">// 避免 geolocation-!cn 导致 github 走代理</span>
-<span class="w">                    </span><span class="s2">&quot;github.com&quot;</span>
+<span class="w">                    </span><span class="s2">"github.com"</span>
 <span class="w">                </span><span class="p">],</span>
 <span class="w">                </span><span class="c1">// 访问以上网站走直连</span>
-<span class="w">                </span><span class="nt">&quot;outboundTag&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;direct&quot;</span>
+<span class="w">                </span><span class="nt">"outboundTag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"direct"</span>
 <span class="w">            </span><span class="p">},</span>
 <span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="nt">&quot;domainMatcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mph&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;field&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"domainMatcher"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mph"</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="p">,</span>
 <span class="w">                </span><span class="c1">// 配置国外路由</span>
-<span class="w">                </span><span class="nt">&quot;domains&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">                    </span><span class="s2">&quot;geosite:google&quot;</span><span class="p">,</span>
-<span class="w">                    </span><span class="s2">&quot;geosite:facebook&quot;</span><span class="p">,</span>
-<span class="w">                    </span><span class="s2">&quot;geosite:twitter&quot;</span><span class="p">,</span>
-<span class="w">                    </span><span class="s2">&quot;geosite:telegram&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"domains"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                    </span><span class="s2">"geosite:google"</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">"geosite:facebook"</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">"geosite:twitter"</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">"geosite:telegram"</span><span class="p">,</span>
 <span class="w">                    </span><span class="c1">// geolocation-!cn 包含了常见的非大陆站点域名</span>
 <span class="w">                    </span><span class="c1">// 启用后基本上所有国外网站(例如github)都走代理</span>
-<span class="w">                    </span><span class="s2">&quot;geosite:geolocation-!cn&quot;</span>
+<span class="w">                    </span><span class="s2">"geosite:geolocation-!cn"</span>
 <span class="w">                </span><span class="p">],</span>
 <span class="w">                </span><span class="c1">// 访问以上网站走代理</span>
-<span class="w">                </span><span class="nt">&quot;outboundTag&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;proxy&quot;</span>
+<span class="w">                </span><span class="nt">"outboundTag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"proxy"</span>
 <span class="w">            </span><span class="p">},</span>
 <span class="w">            </span><span class="p">{</span>
 <span class="w">                </span><span class="c1">// 其他网站走直连</span>
-<span class="w">                </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;field&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;network&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tcp,udp&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;outboundTag&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;direct&quot;</span>
+<span class="w">                </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"network"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcp,udp"</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"outboundTag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"direct"</span>
 <span class="w">            </span><span class="p">}</span>
 <span class="w">        </span><span class="p">]</span>
 <span class="w">    </span><span class="p">}</span>
@@ -4697,39 +4697,39 @@
 
 
 getSOCKSProxyStatus<span class="o">(){</span>
-<span class="w">    </span><span class="nv">status</span><span class="o">=</span><span class="sb">`</span>networksetup<span class="w"> </span>-getsocksfirewallproxy<span class="w"> </span>WI-FI<span class="p">|</span>grep<span class="w"> </span>-E<span class="w"> </span>^Enabled<span class="p">|</span>cut<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot; &quot;</span><span class="w"> </span>-f<span class="w"> </span><span class="m">2</span><span class="sb">`</span>
+<span class="w">    </span><span class="nv">status</span><span class="o">=</span><span class="sb">`</span>networksetup<span class="w"> </span>-getsocksfirewallproxy<span class="w"> </span>WI-FI<span class="p">|</span>grep<span class="w"> </span>-E<span class="w"> </span>^Enabled<span class="p">|</span>cut<span class="w"> </span>-d<span class="w"> </span><span class="s2">" "</span><span class="w"> </span>-f<span class="w"> </span><span class="m">2</span><span class="sb">`</span>
 <span class="o">}</span>
 
 
 enableSOCKSProxy<span class="o">(){</span>
 <span class="w">    </span><span class="sb">`</span>networksetup<span class="w"> </span>-setsocksfirewallproxy<span class="w"> </span>WI-FI<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span><span class="m">1080</span><span class="sb">`</span>
 <span class="w">    </span><span class="sb">`</span>networksetup<span class="w"> </span>-setsocksfirewallproxystate<span class="w"> </span>WI-FI<span class="w"> </span>on<span class="sb">`</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Enable socks proxy for WI-FI&quot;</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Enable socks proxy for WI-FI"</span>
 <span class="o">}</span>
 
 
 disableSOCKSProxy<span class="o">(){</span>
 <span class="w">    </span><span class="sb">`</span>networksetup<span class="w"> </span>-setsocksfirewallproxystate<span class="w"> </span>WI-FI<span class="w"> </span>off<span class="sb">`</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Disable socks proxy for WI-FI&quot;</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Disable socks proxy for WI-FI"</span>
 <span class="o">}</span>
 
 
 startV2ray<span class="o">(){</span>
 <span class="w">    </span>nohup<span class="w"> </span>~/.v2ray/v2ray<span class="w"> </span>--config<span class="w"> </span>~/.v2ray/config.json<span class="w"> </span>&gt;<span class="w"> </span>~/.v2ray/nohup.log<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;V2ray started&quot;</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"V2ray started"</span>
 <span class="o">}</span>
 
 
 stopV2ray<span class="o">(){</span>
-<span class="w">    </span>ps<span class="w"> </span>-ef<span class="p">|</span>grep<span class="w"> </span>v2ray<span class="p">|</span>grep<span class="w"> </span>-v<span class="w"> </span>v2ray.sh<span class="p">|</span>grep<span class="w"> </span>-v<span class="w"> </span>grep<span class="p">|</span>awk<span class="w"> </span><span class="s1">&#39;{print $2}&#39;</span><span class="p">|</span>xargs<span class="w"> </span><span class="nb">kill</span><span class="w"> </span>-9
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;V2ray stopped&quot;</span>
+<span class="w">    </span>ps<span class="w"> </span>-ef<span class="p">|</span>grep<span class="w"> </span>v2ray<span class="p">|</span>grep<span class="w"> </span>-v<span class="w"> </span>v2ray.sh<span class="p">|</span>grep<span class="w"> </span>-v<span class="w"> </span>grep<span class="p">|</span>awk<span class="w"> </span><span class="s1">'{print $2}'</span><span class="p">|</span>xargs<span class="w"> </span><span class="nb">kill</span><span class="w"> </span>-9
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"V2ray stopped"</span>
 <span class="o">}</span>
 
 
 main<span class="o">(){</span>
 <span class="w">    </span>getSOCKSProxyStatus
 
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$status</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;Yes&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$status</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"Yes"</span><span class="w"> </span><span class="o">]</span><span class="p">;</span>
 <span class="w">    </span><span class="k">then</span>
 <span class="w">        </span>disableSOCKSProxy
 <span class="w">        </span>stopV2ray

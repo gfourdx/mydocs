@@ -4389,7 +4389,7 @@
 
 <h1 id="_1">杨辉三角</h1>
 <hr />
-<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="sd">"""</span>
 <span class="sd">打印杨辉三角</span>
 <span class="sd">1 </span>
 <span class="sd">1 1 </span>
@@ -4400,18 +4400,18 @@
 <span class="sd">1 6 15 20 15 6 1 </span>
 <span class="sd">1 7 21 35 35 21 7 1 </span>
 <span class="sd">1 8 28 56 70 56 28 8 1</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">yhsj1</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;递归(效率低不推荐)&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""递归(效率低不推荐)"""</span>
 
-    <span class="n">listx</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">]</span>
+    <span class="n">listx</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'1'</span><span class="p">]</span>
     <span class="n">listy</span> <span class="o">=</span> <span class="n">listx</span><span class="p">[:]</span>
 
     <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">listx</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-        <span class="n">listy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">)</span>
+        <span class="n">listy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'1'</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">listy</span>
 
     <span class="n">leny</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">yhsj1</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
@@ -4420,13 +4420,13 @@
         <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">leny</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">z</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">yhsj1</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)[</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">yhsj1</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
             <span class="n">listy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
-    <span class="n">listy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">)</span>
+    <span class="n">listy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'1'</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">listy</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">yhsj2</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;循环(推荐)&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""循环(推荐)"""</span>
     <span class="n">lists</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
         <span class="n">lists</span> <span class="o">+=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -4435,19 +4435,19 @@
             <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">):</span>
                 <span class="n">lists</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">lists_cp</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">lists_cp</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         <span class="k">for</span> <span class="n">sj</span> <span class="ow">in</span> <span class="n">lists</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">sj</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">sj</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s1">'</span><span class="se">\t</span><span class="s1">'</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">()</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="c1"># 调用9次函数打印结果</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">yhsj1</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\t</span><span class="s1">'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">yhsj1</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span>
 
     <span class="n">yhsj2</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 

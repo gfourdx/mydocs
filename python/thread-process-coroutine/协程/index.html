@@ -4528,14 +4528,14 @@
 
 <span class="k">def</span><span class="w"> </span><span class="nf">work_one</span><span class="p">():</span>
     <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-----协程1-----&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'-----协程1-----'</span><span class="p">)</span>
         <span class="k">yield</span>
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">work_two</span><span class="p">():</span>
     <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-----协程2-----&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'-----协程2-----'</span><span class="p">)</span>
         <span class="k">yield</span>
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
 
@@ -4547,7 +4547,7 @@
         <span class="nb">next</span><span class="p">(</span><span class="n">wt</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 <h2 id="2greenlet">代码2(greenlet)</h2>
@@ -4560,14 +4560,14 @@
 
     <span class="k">def</span><span class="w"> </span><span class="nf">work_one</span><span class="p">():</span>
         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-----A-----&#39;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">'-----A-----'</span><span class="p">)</span>
             <span class="n">gl_two</span><span class="o">.</span><span class="n">switch</span><span class="p">()</span>
             <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
 
 
     <span class="k">def</span><span class="w"> </span><span class="nf">work_two</span><span class="p">():</span>
         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-----B-----&#39;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">'-----B-----'</span><span class="p">)</span>
             <span class="n">gl_one</span><span class="o">.</span><span class="n">switch</span><span class="p">()</span>
             <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
 
@@ -4579,7 +4579,7 @@
     <span class="n">gl_one</span><span class="o">.</span><span class="n">switch</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 <blockquote>
@@ -4598,13 +4598,13 @@
 
 <span class="k">def</span><span class="w"> </span><span class="nf">work1</span><span class="p">():</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;work1...&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'work1...'</span><span class="p">)</span>
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">work2</span><span class="p">():</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;work2...&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'work2...'</span><span class="p">)</span>
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
 
@@ -4615,7 +4615,7 @@
     <span class="n">w2</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 <p>用法2: 不使用monkey.patch_all()的情况下要实现协程的自动切换，需使用gevent中自己的耗时模块</p>
@@ -4624,14 +4624,14 @@
 
 <span class="k">def</span><span class="w"> </span><span class="nf">work1</span><span class="p">():</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;work1...&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'work1...'</span><span class="p">)</span>
         <span class="c1"># 将程序中用到的耗时操作的代码，使用gevent中自己实现的模块</span>
         <span class="n">gevent</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">work2</span><span class="p">():</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;work2...&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'work2...'</span><span class="p">)</span>
         <span class="c1"># 使用gevent中自己实现的模块，不需要monkey.patch_all()</span>
         <span class="n">gevent</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
@@ -4643,7 +4643,7 @@
     <span class="n">w2</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 <p>用法3: 批量join协程和传参</p>
@@ -4666,14 +4666,14 @@
     <span class="c1"># joinall可批量添加协程</span>
     <span class="n">gevent</span><span class="o">.</span><span class="n">joinall</span><span class="p">(</span>
         <span class="p">[</span>
-            <span class="c1"># &quot;I&#39;m work1&quot; 即是参数，会传给前面的函数，即work1</span>
-            <span class="n">gevent</span><span class="o">.</span><span class="n">spawn</span><span class="p">(</span><span class="n">work1</span><span class="p">,</span> <span class="s2">&quot;I&#39;m work1&quot;</span><span class="p">),</span>
-            <span class="n">gevent</span><span class="o">.</span><span class="n">spawn</span><span class="p">(</span><span class="n">work2</span><span class="p">,</span> <span class="s2">&quot;I&#39;m work2&quot;</span><span class="p">)</span>
+            <span class="c1"># "I'm work1" 即是参数，会传给前面的函数，即work1</span>
+            <span class="n">gevent</span><span class="o">.</span><span class="n">spawn</span><span class="p">(</span><span class="n">work1</span><span class="p">,</span> <span class="s2">"I'm work1"</span><span class="p">),</span>
+            <span class="n">gevent</span><span class="o">.</span><span class="n">spawn</span><span class="p">(</span><span class="n">work2</span><span class="p">,</span> <span class="s2">"I'm work2"</span><span class="p">)</span>
         <span class="p">]</span>
     <span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 <blockquote>

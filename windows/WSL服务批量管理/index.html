@@ -4388,10 +4388,10 @@
 <h1 id="wsl">WSL服务批量管理</h1>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
-<span class="nv">services</span><span class="o">=(</span><span class="s2">&quot;ssh&quot;</span><span class="w"> </span><span class="s2">&quot;docker&quot;</span><span class="w"> </span><span class="s2">&quot;postgres&quot;</span><span class="w"> </span><span class="s2">&quot;redis-server&quot;</span><span class="o">)</span>
-<span class="nv">password</span><span class="o">=</span><span class="s2">&quot;toor&quot;</span>
+<span class="nv">services</span><span class="o">=(</span><span class="s2">"ssh"</span><span class="w"> </span><span class="s2">"docker"</span><span class="w"> </span><span class="s2">"postgres"</span><span class="w"> </span><span class="s2">"redis-server"</span><span class="o">)</span>
+<span class="nv">password</span><span class="o">=</span><span class="s2">"toor"</span>
 <span class="nv">action</span><span class="o">=</span><span class="nv">$1</span>
-<span class="k">for</span><span class="w"> </span>service<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">services</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">for</span><span class="w"> </span>service<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">services</span><span class="p">[@]</span><span class="si">}</span><span class="s2">"</span>
 <span class="k">do</span>
 <span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$password</span><span class="p">|</span>sudo<span class="w"> </span>-S<span class="w"> </span>service<span class="w"> </span><span class="nv">$service</span><span class="w"> </span><span class="nv">$action</span>
 <span class="k">done</span>
