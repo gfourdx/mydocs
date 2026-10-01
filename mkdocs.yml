@@ -66,6 +66,7 @@ nav:
     - linux/Debian网络管理.md
     - linux/Debian安装和配置Docker.md
     - linux/Debian安装和配置MariaDB.md
+    - linux/Debian安装和配置Mihomo.md
     - linux/Debian安装和配置Postgres.md
     - linux/安装mysqlclient和psycopg2报错.md
     - linux/U盘格式化分区自动挂载.md
