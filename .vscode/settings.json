@@ -24,7 +24,6 @@
     "python.terminal.activateEnvironment": false,
     "python.terminal.useEnvFile": true,
     "ruff.configuration": "${workspaceFolder}/ruff.toml",
-    "ruff.nativeServer": "on",
     // "terminal.integrated.env.linux": {
     //     "http_proxy": "http://127.0.0.1:7890",
     //     "https_proxy": "http://127.0.0.1:7890",
